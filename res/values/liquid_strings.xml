@@ -843,7 +843,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="quick_pulldown_left">Left</string>
     <string name="quick_pulldown_right">Right</string>
 
-    <!-- Active Display -->
+    <!-- Active display -->
     <string name="active_display_title">Active display</string>
     <string name="ad_enable_title">Enable</string>
     <string name="ad_enable_summary_on">Active display enabled</string>
@@ -886,5 +886,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="ad_pocket_mode_notifications">Notifications only</string>
     <string name="ad_pocket_mode_always">Always</string>
 
+    <!-- Delete apn confirmation dialog message -->
+    <string name="confirm_delete_apn">The APN will be deleted.</string>
 
 </resources>
