@@ -1179,4 +1179,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="clear_recents_position_top_right">Top Right</string>
     <string name="clear_recents_position_top_left">Top Left</string>
 
+    <!-- Delete apn confirmation dialog message -->
+    <string name="confirm_delete_apn">The APN will be deleted.</string>
+
 </resources>
