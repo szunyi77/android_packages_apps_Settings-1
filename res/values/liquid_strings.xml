@@ -1131,4 +1131,8 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="custom_carrier_label_explain">Please enter a new label. Enter an empty label to revert to stock label.</string>
     <string name="custom_carrier_label_notset">Custom label currently not set</string>
 
+    <!-- Force dual panel -->
+    <string name="multipane_ui">Force dual panel</string>
+    <string name="multipane_ui_summary">Enables and forces dual panel view</string>
+
 </resources>
