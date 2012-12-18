@@ -57,17 +57,25 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
     private static final String KEY_LCD_DENSITY = "lcd_density";
     private static final int DIALOG_CUSTOM_DENSITY = 101;
     private static final String DENSITY_PROP = "persist.sys.lcd_density";
-	private static final String KEY_LISTVIEW_ANIMATION = "listview_animation";
+    private static final String KEY_LISTVIEW_ANIMATION = "listview_animation";
     private static final String KEY_LISTVIEW_INTERPOLATOR = "listview_interpolator";
+    private static final String KEY_USE_ALT_RESOLVER = "use_alt_resolver";
 	
     private static ListPreference mLcdDensity;
     private static Activity mActivity;
-	private ListPreference mListViewAnimation;
+    private ListPreference mListViewAnimation;
     private ListPreference mListViewInterpolator;
+    private CheckBoxPreference mUseAltResolver;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        mUseAltResolver = (CheckBoxPreference) findPreference(KEY_USE_ALT_RESOLVER);
+        mUseAltResolver.setOnPreferenceChangeListener(this);
+        mUseAltResolver.setChecked(Settings.System.getInt(
+                getActivity().getContentResolver(),
+                Settings.System.ACTIVITY_RESOLVER_USE_ALT, 0) == 1);
 
         addPreferencesFromResource(R.xml.liquid_interface_settings);
         mActivity = getActivity();
@@ -142,6 +150,11 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
                     Settings.System.LISTVIEW_INTERPOLATOR,
                     listviewinterpolator);
             mListViewInterpolator.setSummary(mListViewInterpolator.getEntries()[index]);
+            return true;
+        } else if (preference == mUseAltResolver) {
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.ACTIVITY_RESOLVER_USE_ALT,
+                    (Boolean) newValue ? 1 : 0);
             return true;
         }
         return false;
