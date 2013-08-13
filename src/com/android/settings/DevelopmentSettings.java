@@ -151,6 +151,8 @@ public class DevelopmentSettings extends PreferenceFragment
 
     private static final String MEDIA_SCANNER_ON_BOOT = "media_scanner_on_boot";
 
+    private static final String FASTBOOT_ENABLED_PREF = "pref_fastboot_enable";
+
     private static final int RESULT_DEBUG_APP = 1000;
 
     private IWindowManager mWindowManager;
@@ -208,6 +210,8 @@ public class DevelopmentSettings extends PreferenceFragment
 
     private ListPreference mMSOB;
 
+    private CheckBoxPreference mFastbootEnabledPref;
+
     private final ArrayList<Preference> mAllPrefs = new ArrayList<Preference>();
     private final ArrayList<CheckBoxPreference> mResetCbPrefs
             = new ArrayList<CheckBoxPreference>();
@@ -264,6 +268,11 @@ public class DevelopmentSettings extends PreferenceFragment
         mMSOB = (ListPreference) findPreference(MEDIA_SCANNER_ON_BOOT);
         mAllPrefs.add(mMSOB);
         mMSOB.setOnPreferenceChangeListener(this);
+
+        mFastbootEnabledPref = (CheckBoxPreference) findPreference(FASTBOOT_ENABLED_PREF);
+        mFastbootEnabledPref.setChecked(Settings.System.getInt(
+            getActivity().getApplicationContext().getContentResolver(),
+                Settings.System.ENABLE_FAST_POWERON, 1) == 1);
 
         if (!android.os.Process.myUserHandle().equals(UserHandle.OWNER)) {
             disableForUser(mEnableAdb);
@@ -1242,6 +1251,10 @@ public class DevelopmentSettings extends PreferenceFragment
             Settings.Secure.putInt(getActivity().getContentResolver(),
                     Settings.Secure.ALLOW_MOCK_SMS,
                     mAllowMockSMS.isChecked() ? 1 : 0);
+        } else if (preference == mFastbootEnabledPref) {
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.ENABLE_FAST_POWERON,
+                    mFastbootEnabledPref.isChecked() ? 1 : 0);
         } else if (preference == mDebugAppPref) {
             startActivityForResult(new Intent(getActivity(), AppPicker.class), RESULT_DEBUG_APP);
         } else if (preference == mWaitForDebugger) {
