@@ -380,6 +380,15 @@ public class LockscreenTargets extends Fragment implements
         saveAll();
     }
 
+    private Drawable getPickedIconFromDialog() {
+        return mDialogIcon.getDrawable().mutate();
+    }
+
+    private void setIconForDialog(Drawable icon) {
+        // need to mutate the drawable here to not share drawable state with GlowPadView
+        mDialogIcon.setImageDrawable(icon.getConstantState().newDrawable().mutate());
+    }
+
     @Override
     public void shortcutPicked(String uri, String friendlyName, boolean isApplication) {
         if (uri == null) {
@@ -392,6 +401,7 @@ public class LockscreenTargets extends Fragment implements
 
             mDialogLabel.setText(friendlyName);
             mDialogLabel.setTag(uri);
+            // this is a fresh drawable, so we can assign it directly
             mDialogIcon.setImageDrawable(icon);
             mDialogIcon.setTag(null);
         } catch (URISyntaxException e) {
@@ -449,7 +459,7 @@ public class LockscreenTargets extends Fragment implements
                         String packageName = info != null ? info.packageName : null;
                         int inset = LockscreenTargetUtils.getInsetForIconType(mActivity, type);
 
-                        InsetDrawable drawable = new InsetDrawable(mDialogIcon.getDrawable(),
+                        InsetDrawable drawable = new InsetDrawable(getPickedIconFromDialog(),
                                 inset, inset, inset, inset);
                         setTarget(mTargetIndex, mDialogLabel.getTag().toString(),
                                 drawable, type, source, packageName);
