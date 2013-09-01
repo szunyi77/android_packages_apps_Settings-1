@@ -82,6 +82,11 @@
             android:key="custom_carrier_label"
             android:title="@string/custom_carrier_label_title" />
 
+        <CheckBoxPreference
+            android:key="large_recent_thumbs"
+            android:title="@string/large_recent_thumbs_title"
+            android:summary="@string/large_recent_thumbs_summary" />
+
         <ListPreference
             android:key="pref_low_battery_warning_policy"
             android:title="@string/pref_low_battery_warning_policy_title"
