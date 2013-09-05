@@ -174,18 +174,23 @@
         android:fragment="com.android.settings.DisplaySettings"
         android:title="@string/display_settings" />
 
-    <!-- Manage users -->
+    <!-- Global roaming settings - if RoamingSettings installed. -->
     <header
-        android:fragment="com.android.settings.users.UserSettings"
-        android:icon="@drawable/ic_settings_multiuser"
-        android:title="@string/user_settings_title"
-        android:id="@+id/user_settings" />
+        android:id="@+id/global_roaming_settings"
+        android:icon="@drawable/ic_roaming_settings"
+        android:title="@string/label_global_roaming_settings">
+        <intent android:action="com.android.action.roamingsettings"/>
+    </header>
 
-    <!-- Manufacturer hook -->
+    <!-- Multi Sim Settings - this is in the settings process -->
     <header
-        android:fragment="com.android.settings.WirelessSettings"
-        android:id="@+id/manufacturer_settings">
-        <intent android:action="com.android.settings.MANUFACTURER_APPLICATION_SETTING" />
+        android:id="@+id/multi_sim_settings"
+        android:icon="@drawable/ic_settings_sim"
+        android:title="@string/multi_sim_settings_title">
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetPackage="com.android.settings"
+            android:targetClass="com.android.settings.MultiSimSettings" />
     </header>
 
     <!-- Sound -->
@@ -202,15 +207,18 @@
         android:icon="@drawable/ic_settings_storage"
         android:title="@string/storage_settings" />
 
-    <!-- Multi Sim Settings - this is in the settings process -->
+    <!-- Manage users -->
     <header
-        android:id="@+id/multi_sim_settings"
-        android:icon="@drawable/ic_settings_sim"
-        android:title="@string/multi_sim_settings_title">
-        <intent
-            android:action="android.intent.action.MAIN"
-            android:targetPackage="com.android.settings"
-            android:targetClass="com.android.settings.MultiSimSettings" />
+        android:fragment="com.android.settings.users.UserSettings"
+        android:icon="@drawable/ic_settings_multiuser"
+        android:title="@string/user_settings_title"
+        android:id="@+id/user_settings" />
+
+    <!-- Manufacturer hook -->
+    <header
+        android:fragment="com.android.settings.WirelessSettings"
+        android:id="@+id/manufacturer_settings">
+        <intent android:action="com.android.settings.MANUFACTURER_APPLICATION_SETTING" />
     </header>
 
     <!-- PERSONAL -->
