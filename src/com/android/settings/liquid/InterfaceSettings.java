@@ -54,16 +54,16 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
     private static final String TAG = "InterfaceSettings";
-
     private static final String KEY_LCD_DENSITY = "lcd_density";
-
     private static final int DIALOG_CUSTOM_DENSITY = 101;
-
     private static final String DENSITY_PROP = "persist.sys.lcd_density";
-
+	private static final String KEY_LISTVIEW_ANIMATION = "listview_animation";
+    private static final String KEY_LISTVIEW_INTERPOLATOR = "listview_interpolator";
+	
     private static ListPreference mLcdDensity;
-
     private static Activity mActivity;
+	private ListPreference mListViewAnimation;
+    private ListPreference mListViewInterpolator;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -92,6 +92,23 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
         mLcdDensity.setSummary(getResources().getString(R.string.current_lcd_density) + current);
         mLcdDensity.setOnPreferenceChangeListener(this);
     }
+	
+	mListViewAnimation = (ListPreference) findPreference(KEY_LISTVIEW_ANIMATION);
+        int listviewanimation = Settings.System.getInt(getContentResolver(),
+                Settings.System.LISTVIEW_ANIMATION, 0);
+        mListViewAnimation.setValue(String.valueOf(listviewanimation));
+        mListViewAnimation.setSummary(mListViewAnimation.getEntry());
+        mListViewAnimation.setOnPreferenceChangeListener(this);
+
+        mListViewInterpolator = (ListPreference) findPreference(KEY_LISTVIEW_INTERPOLATOR);
+        int listviewinterpolator = Settings.System.getInt(getContentResolver(),
+                Settings.System.LISTVIEW_INTERPOLATOR, 0);
+        mListViewInterpolator.setValue(String.valueOf(listviewinterpolator));
+        mListViewInterpolator.setSummary(mListViewInterpolator.getEntry());
+        mListViewInterpolator.setOnPreferenceChangeListener(this);
+        mListViewInterpolator.setEnabled(listviewanimation > 0);
+
+    }
 
     @Override
     public void onResume() {
@@ -108,6 +125,23 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
                     setDensity(Integer.parseInt(density));
                 }
             }
+            return true;
+        } else if (preference == mListViewAnimation) {
+            int listviewanimation = Integer.valueOf((String) newValue);
+            int index = mListViewAnimation.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.LISTVIEW_ANIMATION,
+                    listviewanimation);
+            mListViewAnimation.setSummary(mListViewAnimation.getEntries()[index]);
+            mListViewInterpolator.setEnabled(listviewanimation > 0);
+            return true;
+        } else if (preference == mListViewInterpolator) {
+            int listviewinterpolator = Integer.valueOf((String) newValue);
+            int index = mListViewInterpolator.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.LISTVIEW_INTERPOLATOR,
+                    listviewinterpolator);
+            mListViewInterpolator.setSummary(mListViewInterpolator.getEntries()[index]);
             return true;
         }
         return false;
