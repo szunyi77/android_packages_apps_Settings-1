@@ -28,7 +28,10 @@ import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.provider.Settings.SettingNotFoundException;
+import android.telephony.TelephonyManager;
 import android.util.Log;
+
+import com.android.internal.telephony.PhoneConstants;
 
 import com.android.settings.R;
 import com.android.settings.Utils;
@@ -36,7 +39,8 @@ import com.android.settings.util.CMDProcessor;
 import com.android.settings.SettingsPreferenceFragment;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
-public class StatusBar extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
+public class StatusBar extends SettingsPreferenceFragment
+        implements OnPreferenceChangeListener {
 
     private static final String TAG = "StatusBar";
 
@@ -53,6 +57,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     private static final String STATUS_ICON_COLOR = "status_icon_color";
     private static final String STATUS_BAR_NETWORK_STATS = "status_bar_show_network_stats";
     private static final String STATUS_BAR_NETWORK_STATS_UPDATE = "status_bar_network_status_update";
+    private static final String KEY_SHOW_LTE_OR_FOURGEE = "show_lte_or_fourgee";
 
     private StatusBarBrightnessChangedObserver mStatusBarBrightnessChangedObserver;
 
@@ -70,12 +75,13 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     private ColorPickerPreference mIconColor;
     private ListPreference mStatusBarNetStatsUpdate;
     private CheckBoxPreference mStatusBarNetworkStats;
+    private CheckBoxPreference mShowLTEorFourGee;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        addPreferencesFromResource(R.xml.status_bar);
+        addPreferencesFromResource(R.xml.status_bar_general);
 
         PreferenceScreen prefSet = getPreferenceScreen();
 
@@ -129,7 +135,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
                 Settings.System.ICON_COLOR_BEHAVIOR, 0) == 1);
 
         mStatusBarNetworkStats = (CheckBoxPreference) findPreference(STATUS_BAR_NETWORK_STATS);
-        mStatusBarNetworkStats.setChecked(Settings.System.getInt(mContentAppRes,
+        mStatusBarNetworkStats.setChecked(Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
                 Settings.System.STATUS_BAR_NETWORK_STATS, 0) == 1);
 
         mIconColor = (ColorPickerPreference) findPreference(STATUS_ICON_COLOR);
@@ -148,6 +154,14 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         mClockStyle = (PreferenceScreen) prefSet.findPreference("clock_style_pref");
         if (mClockStyle != null) {
             updateClockStyleDescription();
+        }
+
+        mShowLTEorFourGee = (CheckBoxPreference) findPreference(KEY_SHOW_LTE_OR_FOURGEE);
+        mShowLTEorFourGee.setChecked(Settings.System.getInt(getActivity().
+                getApplicationContext().getContentResolver(),
+                    Settings.System.SHOW_LTE_OR_FOURGEE, 0) == 1);
+        if (!deviceSupportsLTE()) {
+            getPreferenceScreen().removePreference(mShowLTEorFourGee);
         }
 
         updateStatusBarBrightnessControl();
@@ -220,11 +234,18 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
                     Settings.System.STATUS_BAR_NETWORK_STATS,
                     ((CheckBoxPreference)preference).isChecked() ? 1 : 0);
             return true;
+        } else if (preference == mShowLTEorFourGee) {
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.SHOW_LTE_OR_FOURGEE,
+                    mShowLTEorFourGee.isChecked() ? 1 : 0);
+            CMDProcessor.restartSystemUI();
+            return true;
         } else if (preference == mStatusIconBehavior) {
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.ICON_COLOR_BEHAVIOR,
                     mStatusIconBehavior.isChecked() ? 1 : 0);
             CMDProcessor.restartSystemUI();
+            return true;
         }
 
         return super.onPreferenceTreeClick(preferenceScreen, preference);
