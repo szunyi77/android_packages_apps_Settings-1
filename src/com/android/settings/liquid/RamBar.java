@@ -53,9 +53,6 @@ public class RamBar extends SettingsPreferenceFragment implements OnPreferenceCh
     private static final String RAM_BAR_CLEAR_RECENTS_POSITION = "clear_recents_position";
 
     private static final int MENU_RESET = Menu.FIRST;
-    private static final int MENU_HELP = MENU_RESET + 1;
-
-    private static final String EXPLANATION_URL = "http://www.slimroms.net/index.php/faq/slimbean/238-why-do-i-have-less-memory-free-on-my-device";
 
     static final int DEFAULT_MEM_COLOR = 0xff8d8d8d;
     static final int DEFAULT_CACHE_COLOR = 0xff00aa00;
@@ -71,11 +68,11 @@ public class RamBar extends SettingsPreferenceFragment implements OnPreferenceCh
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        int intColor;
-        String hexColor;
-
         addPreferencesFromResource(R.xml.ram_bar);
         PreferenceScreen prefSet = getPreferenceScreen();
+
+        int intColor;
+        String hexColor;
 
         mRamBarMode = (ListPreference) prefSet.findPreference(RAM_BAR_MODE);
         int ramBarMode = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
@@ -86,7 +83,7 @@ public class RamBar extends SettingsPreferenceFragment implements OnPreferenceCh
 
         mClearPosition = (ListPreference) prefSet.findPreference(RAM_BAR_CLEAR_RECENTS_POSITION);
         int ramBarSide = Settings.System.getInt(getActivity().getContentResolver(),
-                Settings.System.CLEAR_RECENTS_POSITION, 0);
+                Settings.System.CLEAR_RECENTS_POSITION, 1);
         mClearPosition.setValue(String.valueOf(ramBarSide));
         mClearPosition.setSummary(mClearPosition.getEntry());
         mClearPosition.setOnPreferenceChangeListener(this);
@@ -124,9 +121,6 @@ public class RamBar extends SettingsPreferenceFragment implements OnPreferenceCh
         menu.add(0, MENU_RESET, 0, R.string.ram_bar_button_reset)
                 .setIcon(R.drawable.ic_settings_backup) // use the backup icon
                 .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
-        menu.add(0, MENU_HELP, 0, R.string.ram_bar_button_help)
-                .setIcon(R.drawable.ic_settings_about)
-                .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
     }
 
     @Override
@@ -134,11 +128,6 @@ public class RamBar extends SettingsPreferenceFragment implements OnPreferenceCh
         switch (item.getItemId()) {
             case MENU_RESET:
                 resetToDefault();
-                return true;
-            case MENU_HELP:
-                final Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(EXPLANATION_URL));
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                mContext.startActivity(intent);
                 return true;
              default:
                 return super.onContextItemSelected(item);
@@ -170,10 +159,10 @@ public class RamBar extends SettingsPreferenceFragment implements OnPreferenceCh
             updateRamBarOptions();
             return true;
         } else if (preference == mClearPosition) {
-            int side = Integer.valueOf((String) newValue);
+            int position = Integer.valueOf((String) newValue);
             int index = mClearPosition.findIndexOfValue((String) newValue);
             Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.CLEAR_RECENTS_POSITION, side);
+                    Settings.System.CLEAR_RECENTS_POSITION, position);
             mClearPosition.setSummary(mClearPosition.getEntries()[index]);
             return true;
         } else if (preference == mRamBarAppMemColor) {
@@ -250,3 +239,4 @@ public class RamBar extends SettingsPreferenceFragment implements OnPreferenceCh
         }
     }
 }
+

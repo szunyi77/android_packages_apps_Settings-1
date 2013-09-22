@@ -601,15 +601,21 @@
         <item>3</item>
     </string-array>
 
-    <!-- Clear Recents -->
-    <string-array name="clear_recents_position_entries" translatable="false">
-        <item>@string/clear_recents_position_left</item>
-        <item>@string/clear_recents_position_right</item>
+    <!-- Clear Recents position -->
+    <string-array name="clear_recents_position_entries">
+        <item>@string/clear_recents_position_disabled</item>
+        <item>@string/clear_recents_position_bottom_right</item>
+        <item>@string/clear_recents_position_bottom_left</item>
+        <item>@string/clear_recents_position_top_right</item>
+        <item>@string/clear_recents_position_top_left</item>
     </string-array>
 
     <string-array name="clear_recents_position_values" translatable="false">
         <item>0</item>
         <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
     </string-array>
 
     <!-- Statusbar Settings -->
@@ -1195,5 +1201,4 @@
         <item>1</item>
         <item>2</item>
     </string-array>
-
 </resources>

@@ -750,8 +750,11 @@
     <string name="ram_bar_button_help">Help</string>
     <string name="ram_bar_button_reset">Reset</string>
     <string name="clear_recents_position_title">Clear Recents Position</string>
-    <string name="clear_recents_position_left">Left</string>
-    <string name="clear_recents_position_right">Right</string>
+    <string name="clear_recents_position_disabled">Disabled</string>
+    <string name="clear_recents_position_bottom_right">Bottom Right</string>
+    <string name="clear_recents_position_bottom_left">Bottom Left</string>
+    <string name="clear_recents_position_top_right">Top Right</string>
+    <string name="clear_recents_position_top_left">Top Left</string>
 
     <!-- Shortcuts -->
     <string name="use_custom_app_title">Use custom application</string>
