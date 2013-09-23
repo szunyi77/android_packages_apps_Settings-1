@@ -80,25 +80,13 @@ public class LockscreenTargets extends Fragment implements
     private static final int MENU_RESET = Menu.FIRST;
     private static final int MENU_SAVE = Menu.FIRST + 1;
 
-    class TargetInfo {
+    private static class TargetInfo {
         String uri;
         String packageName;
         StateListDrawable icon;
         Drawable defaultIcon;
         String iconType;
         String iconSource;
-
-        TargetInfo(StateListDrawable target) {
-            icon = target;
-        }
-
-        TargetInfo(String uri, StateListDrawable target, String type, String source, Drawable defaultIcon) {
-            this.uri = uri;
-            this.icon = target;
-            this.defaultIcon = defaultIcon;
-            this.iconType = type;
-            this.iconSource = source;
-        }
     }
 
     @Override
@@ -197,8 +185,10 @@ public class LockscreenTargets extends Fragment implements
                 com.android.internal.R.drawable.ic_lockscreen_unlock_normal);
         Drawable unlockBack = mResources.getDrawable(
                 com.android.internal.R.drawable.ic_lockscreen_unlock_activated);
-        mTargetStore.add(new TargetInfo(LockscreenTargetUtils.getLayeredDrawable(
-                mActivity, unlockBack, unlockFront, 0, true)));
+        TargetInfo unlockTarget = new TargetInfo();
+        unlockTarget.icon = LockscreenTargetUtils.getLayeredDrawable(
+                mActivity, unlockBack, unlockFront, 0, true);
+        mTargetStore.add(unlockTarget);
 
         for (int i = 0; i < 8 - mTargetOffset - 1; i++) {
             if (i >= mMaxTargets) {
@@ -209,16 +199,17 @@ public class LockscreenTargets extends Fragment implements
             Drawable front = null;
             Drawable back = activeBack;
             boolean frontBlank = false;
-            String iconType = null;
-            String iconSource = null;
+            TargetInfo info = new TargetInfo();
+            info.uri = i < targetStore.length ? targetStore[i] : GlowPadView.EMPTY_TARGET;
 
             if (!info.uri.equals(GlowPadView.EMPTY_TARGET)) {
                 try {
                     Intent intent = Intent.parseUri(info.uri, 0);
                     if (intent.hasExtra(GlowPadView.ICON_FILE)) {
-                        iconType = GlowPadView.ICON_FILE;
+                        info.iconType = GlowPadView.ICON_FILE;
+                        info.iconSource = intent.getStringExtra(GlowPadView.ICON_FILE);
                         front = LockscreenTargetUtils.getDrawableFromFile(mActivity,
-                                intent.getStringExtra(GlowPadView.ICON_FILE));
+                                info.iconSource);
                     } else if (intent.hasExtra(GlowPadView.ICON_RESOURCE)) {
                         info.iconType = GlowPadView.ICON_RESOURCE;
                         info.iconSource = intent.getStringExtra(GlowPadView.ICON_RESOURCE);
@@ -228,12 +219,12 @@ public class LockscreenTargets extends Fragment implements
                             front = LockscreenTargetUtils.getDrawableFromResources(mActivity,
                                     info.packageName, info.iconSource, false);
                             back = LockscreenTargetUtils.getDrawableFromResources(mActivity,
-                                    packageName, source, true);
-                            iconType = GlowPadView.ICON_RESOURCE;
+                                    info.packageName, info.iconSource, true);
                             frontBlank = true;
                         }
                     }
                     if (front == null) {
+                        info.iconType = null;
                         front = LockscreenTargetUtils.getDrawableFromIntent(mActivity, intent);
                     }
                 } catch (URISyntaxException e) {
@@ -245,10 +236,12 @@ public class LockscreenTargets extends Fragment implements
                 front = mResources.getDrawable(R.drawable.ic_empty);
             }
 
-            int inset = LockscreenTargetUtils.getInsetForIconType(mActivity, iconType);
-            StateListDrawable drawable = LockscreenTargetUtils.getLayeredDrawable(
-                    mActivity, back, front, inset, frontBlank);
-            mTargetStore.add(new TargetInfo(uri, drawable, iconType, iconSource, front));
+            int inset = LockscreenTargetUtils.getInsetForIconType(mActivity, info.iconType);
+            info.icon = LockscreenTargetUtils.getLayeredDrawable(mActivity,
+                    back, front, inset, frontBlank);
+            info.defaultIcon = front;
+
+            mTargetStore.add(info);
         }
 
         ArrayList<TargetDrawable> targetDrawables = new ArrayList<TargetDrawable>();
