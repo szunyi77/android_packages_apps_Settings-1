@@ -141,9 +141,6 @@
             android:name="com.koushikdutta.superuser.SuReceiver"
             android:permission="android.permission.REPORT_SUPERUSER" />
 
-
-
-
         <!-- Settings -->
 
         <activity android:name="Settings"
@@ -1589,6 +1586,15 @@
         <activity android:name=".liquid.quicksettings.QuickSettings" />
         <activity android:name=".liquid.quicksettings.QuickSettingsTilesStyle" />
         <activity android:name=".ApnEditor" />
+
+	    <activity	
+            android:name=".liquid.AnimationControls"	
+            android:label="@string/title_animation_controls">
+            <intent-filter>	
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.android.settings.SHORTCUT"/>
+            </intent-filter>
+        </activity>
 
         <activity
             android:name=".liquid.DensityChanger"
