@@ -51,7 +51,8 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     private static final String STATUS_BAR_QUICK_PEEK = "status_bar_quick_peek";
     private static final String STATUS_ICON_COLOR_BEHAVIOR = "status_icon_color_behavior";
     private static final String STATUS_ICON_COLOR = "status_icon_color";
-    private static final String KEY_STATUS_BAR_TRAFFIC = "status_bar_traffic";
+    private static final String STATUS_BAR_NETWORK_STATS = "status_bar_show_network_stats";
+    private static final String STATUS_BAR_NETWORK_STATS_UPDATE = "status_bar_network_status_update";
 
     private StatusBarBrightnessChangedObserver mStatusBarBrightnessChangedObserver;
 
@@ -67,7 +68,8 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     private CheckBoxPreference mStatusBarQuickPeek;
     private CheckBoxPreference mStatusIconBehavior;
     private ColorPickerPreference mIconColor;
-    private CheckBoxPreference mStatusBarTraffic;
+    private ListPreference mStatusBarNetStatsUpdate;
+    private CheckBoxPreference mStatusBarNetworkStats;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -126,9 +128,9 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         mStatusIconBehavior.setChecked(Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
                 Settings.System.ICON_COLOR_BEHAVIOR, 0) == 1);
 
-		mStatusBarTraffic = (CheckBoxPreference) findPreference(KEY_STATUS_BAR_TRAFFIC);
-		mStatusBarTraffic.setChecked(Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
-                Settings.System.STATUS_BAR_TRAFFIC, 0) == 1);
+        mStatusBarNetworkStats = (CheckBoxPreference) findPreference(STATUS_BAR_NETWORK_STATS);
+        mStatusBarNetworkStats.setChecked(Settings.System.getInt(mContentAppRes,
+                Settings.System.STATUS_BAR_NETWORK_STATS, 0) == 1);
 
         mIconColor = (ColorPickerPreference) findPreference(STATUS_ICON_COLOR);
         mIconColor.setOnPreferenceChangeListener(this);
@@ -213,10 +215,10 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
                     Settings.System.MMS_BREATH,
                     mMMSBreath.isChecked() ? 1 : 0);
             return true;
-        } else if (preference == mStatusBarTraffic) {
+        } else if (preference == mStatusBarNetworkStats) {
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.STATUS_BAR_TRAFFIC,
-                    mStatusBarTraffic.isChecked() ? 1 : 0);
+                    Settings.System.STATUS_BAR_NETWORK_STATS,
+                    ((CheckBoxPreference)preference).isChecked() ? 1 : 0);
             return true;
         } else if (preference == mStatusIconBehavior) {
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),

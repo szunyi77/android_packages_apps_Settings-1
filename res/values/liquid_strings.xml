@@ -805,6 +805,9 @@
     <string name="icon_color_behavior_title">Custom Icon Color</string>
     <string name="icon_color_behavior_summary">Apply color filter to system icons</string>
     <string name="status_icon_color_summary">Choose Custom Color</string>
+    <string name="status_bar_network_title">Network Traffic</string>
+    <string name="status_bar_show_network_stats_title">Show Network Speeds</string>
+    <string name="status_bar_network_stats_update_title">Update Frequency</string>
 
     <!-- Statusbar Autohide -->
     <string name="auto_hide_statusbar">Autohide Statusbar</string>
@@ -1027,15 +1030,10 @@
     <string name="listview_anticipate_overshoot_interpolator">Anticipate Overshoot</string>
     <string name="listview_bounce_interpolator">Bounce</string>
 
-    <!-- Network speed -->
-    <string name="show_network_speed">Network Speed</string>
-    <string name="show_network_speed_summary">Show network speed in statusbar</string>
-
     <!-- Glowpad torch -->
     <string name="lockscreen_glow_torch_title">Glowpad Torch</string>
     <string name="lockscreen_glow_torch_summary">Longpress center turns on torch</string>
     <string name="lockscreen_torch_off">Off</string>
     <string name="lockscreen_torch_lockcircle">Lockring</string>
     <string name="lockscreen_torch_navring">Navring</string>
-
 </resources>

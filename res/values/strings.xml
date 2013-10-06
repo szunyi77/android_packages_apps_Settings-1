@@ -5237,5 +5237,5 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
 
     <!-- Toggle for Fastboot -->
     <string name="fastboot_enable_title">Enable fast booting</string>
-    <string name="fastboot_enable_summary">Speed up shutdown/startup by avoiding full hardware restart</string>
+    <string name="fastboot_enable_summary">Speed up shutdown/startup without restarting</string>
 </resources>
