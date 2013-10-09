@@ -23,17 +23,21 @@
         android:key="general_category"
         android:title="@string/general_category_title">
 		
-    <ListPreference
-        android:key="lcd_density"
-        android:title="@string/custom_density_title"
-        android:entries="@array/lcd_density_entries"
-        android:entryValues="@array/lcd_density_entries" />
+        <ListPreference
+            android:key="lcd_density"
+            android:title="@string/custom_density_title"
+            android:entries="@array/lcd_density_entries"
+            android:entryValues="@array/lcd_density_entries" />
 		
         <CheckBoxPreference
            android:key="use_alt_resolver"
            android:title="@string/alt_resolver"
            android:summary="@string/alt_resolver_summary"
            android:defaultValue="false" />
+
+        <Preference
+            android:key="custom_carrier_label"
+            android:title="@string/custom_carrier_label_title" />
 
         <PreferenceScreen
            android:key="lock_clock"
@@ -43,11 +47,12 @@
                    android:targetPackage="com.cyanogenmod.lockclock"
                    android:targetClass="com.cyanogenmod.lockclock.preference.Preferences" />
         </PreferenceScreen>
+
     </PreferenceCategory>
 
 	<PreferenceCategory
-            android:key="interface_settings_animation_prefs"
-            android:title="@string/interface_settings_animation_title">
+            android:key="advanced_category"
+            android:title="@string/advanced_category_title">
 
         <ListPreference
             android:key="listview_animation"
@@ -64,6 +69,7 @@
             android:entries="@array/listview_interpolator_entries"
             android:entryValues="@array/listview_interpolator_values"
             android:defaultValue="0" />
+
     </PreferenceCategory>
 
 </PreferenceScreen>

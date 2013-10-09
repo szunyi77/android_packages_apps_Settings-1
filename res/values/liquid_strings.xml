@@ -1078,7 +1078,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="storage_rescan_media">Rescan media for the storage volume</string>
     <string name="storage_rescan_media_complete">Scan completed</string>
 	
-    <!-- Density Changer -->
+    <!-- Density changer -->
     <string name="custom_density_title">Custom lcd density</string>
     <string name="custom_density">custom</string>
     <string name="set_custom_density_title">Set custom density</string>
@@ -1115,14 +1115,20 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="listview_anticipate_overshoot_interpolator">Anticipate and overshoot</string>
     <string name="listview_bounce_interpolator">Bounce</string>
 	
-    <!-- Alternate Default App Picker -->
-    <string name="alt_resolver">Default App Grid</string>
+    <!-- Alternate default app picker -->
+    <string name="alt_resolver">Default app picker</string>
     <string name="alt_resolver_summary">Use alternate default app picker</string>
 	
-    <!--Lockscreen blur-->
-    <string name="blur_behind_title">Blur Lockscreen Background</string>
+    <!--Lockscreen blur background -->
+    <string name="blur_behind_title">Blur background</string>
     <string name="blur_behind_summary">Adds a nice blur effect to the background</string>
-    <string name="blur_radius_title">Blur Radius</string>
+    <string name="blur_radius_title">Blur radius</string>
     <string name="blur_radius_summary">Set the blur radius for the blur effect</string>
+
+    <!-- Custom carrier label -->
+    <string name="carrier_label_title">Carrier label</string>
+    <string name="custom_carrier_label_title">Custom carrier label</string>
+    <string name="custom_carrier_label_explain">Please enter a new label. Enter an empty label to revert to stock label.</string>
+    <string name="custom_carrier_label_notset">Custom label currently not set</string>
 
 </resources>
