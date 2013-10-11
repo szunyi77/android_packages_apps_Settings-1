@@ -49,16 +49,17 @@ import android.view.MenuItem;
 import android.view.IWindowManager;
 import android.view.Window;
 import android.widget.AdapterView.AdapterContextMenuInfo;
+import android.widget.EditText;
 
 import com.android.settings.R;
 import com.android.settings.Utils;
-import android.widget.EditText;
 import com.android.settings.SettingsPreferenceFragment;
 
 public class InterfaceSettings extends SettingsPreferenceFragment
-    implements OnPreferenceChangeListener {
+        implements OnPreferenceChangeListener {
 
     public static final String TAG = "UserInterface";
+
     private static final String ADVANCED_SETTINGS = "interface_advanced";
     private static final String KEY_CARRIER_LABEL = "custom_carrier_label";
     private static final String KEY_HARDWARE_KEYS = "hardware_keys";
@@ -91,13 +92,13 @@ public class InterfaceSettings extends SettingsPreferenceFragment
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         // Load the preferences from an XML resource
         addPreferencesFromResource(R.xml.interface_settings);
-        PreferenceScreen prefs = getPreferenceScreen();
 
-        mAdvanced = (PreferenceCategory) prefs.findPreference(ADVANCED_SETTINGS);
+        mAdvanced = (PreferenceCategory) findPreference(ADVANCED_SETTINGS);
 
-        mUseAltResolver = (CheckBoxPreference) prefs.findPreference(KEY_USE_ALT_RESOLVER);
+        mUseAltResolver = (CheckBoxPreference) findPreference(KEY_USE_ALT_RESOLVER);
         mUseAltResolver.setOnPreferenceChangeListener(this);
         mUseAltResolver.setChecked(Settings.System.getInt(
                 getActivity().getContentResolver(),
@@ -111,32 +112,32 @@ public class InterfaceSettings extends SettingsPreferenceFragment
         mRamBar.setOnPreferenceChangeListener(this);
         updateRamBar();
 
-        mLargeRecentThumbs = (CheckBoxPreference) prefSet.findPreference(LARGE_RECENT_THUMBS);
+        mLargeRecentThumbs = (CheckBoxPreference) findPreference(LARGE_RECENT_THUMBS);
         mLargeRecentThumbs.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.LARGE_RECENT_THUMBS, 0) == 1));
 
-        mLowBatteryWarning = (ListPreference) prefs.findPreference(KEY_LOW_BATTERY_WARNING_POLICY);
+        mLowBatteryWarning = (ListPreference) findPreference(KEY_LOW_BATTERY_WARNING_POLICY);
         mLowBatteryWarning.setOnPreferenceChangeListener(this);
         int lowBatteryWarning = Settings.System.getInt(getActivity().getContentResolver(),
                                     Settings.System.POWER_UI_LOW_BATTERY_WARNING_POLICY, 0);
         mLowBatteryWarning.setValue(String.valueOf(lowBatteryWarning));
         mLowBatteryWarning.setSummary(mLowBatteryWarning.getEntry());
 
-        mVibrationMultiplier = (ListPreference) prefs.findPreference(KEY_VIBRATION_MULTIPLIER);
+        mVibrationMultiplier = (ListPreference) findPreference(KEY_VIBRATION_MULTIPLIER);
         mVibrationMultiplier.setOnPreferenceChangeListener(this);
         String currentValue = Float.toString(Settings.System.getFloat(getActivity()
                 .getContentResolver(), Settings.System.VIBRATION_MULTIPLIER, 1));
         mVibrationMultiplier.setValue(currentValue);
         mVibrationMultiplier.setSummary(currentValue);
 
-        mListViewAnimation = (ListPreference) prefs.findPreference(KEY_LISTVIEW_ANIMATION);
+        mListViewAnimation = (ListPreference) findPreference(KEY_LISTVIEW_ANIMATION);
         int listviewanimation = Settings.System.getInt(getActivity().getContentResolver(),
             Settings.System.LISTVIEW_ANIMATION, 1);
         mListViewAnimation.setValue(String.valueOf(listviewanimation));
         mListViewAnimation.setSummary(mListViewAnimation.getEntry());
         mListViewAnimation.setOnPreferenceChangeListener(this);
 
-        mListViewInterpolator = (ListPreference) prefs.findPreference(KEY_LISTVIEW_INTERPOLATOR);
+        mListViewInterpolator = (ListPreference) findPreference(KEY_LISTVIEW_INTERPOLATOR);
         int listviewinterpolator = Settings.System.getInt(getActivity().getContentResolver(),
             Settings.System.LISTVIEW_INTERPOLATOR, 0);
         mListViewInterpolator.setValue(String.valueOf(listviewinterpolator));
@@ -209,16 +210,6 @@ public class InterfaceSettings extends SettingsPreferenceFragment
                     lowBatteryWarning);
             mLowBatteryWarning.setSummary(mLowBatteryWarning.getEntries()[index]);
             return true;
-        } else if (preference == mLargeRecentThumbs) {
-            value = mLargeRecentThumbs.isChecked();
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.LARGE_RECENT_THUMBS, value ? 1 : 0);
-            return true;
-        } else if (preference == mUseAltResolver) {
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.ACTIVITY_RESOLVER_USE_ALT,
-                    (Boolean) newValue ? 1 : 0);
-            return true;
         } else if (preference == mListViewAnimation) {
             int listviewanimation = Integer.valueOf((String) newValue);
             int index = mListViewAnimation.findIndexOfValue((String) newValue);
@@ -237,6 +228,22 @@ public class InterfaceSettings extends SettingsPreferenceFragment
             return true;
         }
         return false;
+    }
+
+    @Override
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+        if (preference == mLargeRecentThumbs) {
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.LARGE_RECENT_THUMBS,
+                    ((CheckBoxPreference) preference).isChecked() ? 1 : 0);
+            return true;
+        } else if (preference == mUseAltResolver) {
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.ACTIVITY_RESOLVER_USE_ALT,
+                    ((CheckBoxPreference) preference).isChecked() ? 1 : 0);
+            return true;
+        }
+        return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
     public OnPreferenceClickListener mCustomLabelClicked = new OnPreferenceClickListener() {
@@ -274,3 +281,4 @@ public class InterfaceSettings extends SettingsPreferenceFragment
         }
     };
 }
+
