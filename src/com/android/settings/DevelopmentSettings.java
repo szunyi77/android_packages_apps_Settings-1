@@ -272,7 +272,7 @@ public class DevelopmentSettings extends PreferenceFragment
         mFastbootEnabledPref = (CheckBoxPreference) findPreference(FASTBOOT_ENABLED_PREF);
         mFastbootEnabledPref.setChecked(Settings.System.getInt(
             getActivity().getApplicationContext().getContentResolver(),
-                Settings.System.ENABLE_FAST_POWERON, 1) == 1);
+                Settings.System.ENABLE_FAST_POWERON, 0) == 1);
 
         if (!android.os.Process.myUserHandle().equals(UserHandle.OWNER)) {
             disableForUser(mEnableAdb);
