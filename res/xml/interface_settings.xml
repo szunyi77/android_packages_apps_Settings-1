@@ -70,6 +70,12 @@
             android:defaultValue="false" />
 
 	    <PreferenceScreen
+            android:id="@+id/animations"	
+            android:title="@string/title_animation_controls"	
+            android:summary="@string/header_summary_animation"	
+            android:fragment="com.android.settings.liquid.AnimationControls" />
+
+	    <PreferenceScreen
 	        android:key="chronus"
             android:title="@string/clock_widget_title"
             android:summary="@string/clock_widget_summary">
