@@ -51,7 +51,8 @@
             android:key="lockscreen_music_controls"
             android:persistent="false"
             android:title="@string/lockscreen_music_controls_title"
-            android:summary="@string/lockscreen_music_controls_summary" />
+            android:summary="@string/lockscreen_music_controls_summary"
+            android:defaultValue="true" />
 
         <CheckBoxPreference
             android:key="lockscreen_unlimited_widgets"
