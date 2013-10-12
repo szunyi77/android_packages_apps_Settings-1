@@ -315,4 +315,9 @@ public class StatusBar extends SettingsPreferenceFragment
                     false, this);
         }
     }
+
+    private boolean deviceSupportsLTE() {
+        return (TelephonyManager.getLteOnCdmaModeStatic() == PhoneConstants.LTE_ON_CDMA_TRUE
+                    || TelephonyManager.getLteOnGsmModeStatic() != 0);
+    }
 }
