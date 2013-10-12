@@ -804,8 +804,11 @@
     <string name="missed_call_breath_summary">Show missed call breathing</string>
     <string name="icon_color_behavior_title">Custom Icon Color</string>
     <string name="icon_color_behavior_summary">Apply color filter to system icons</string>
+    <string name="status_bar_icon_color_reset">Reset icon color</string>
     <string name="status_icon_color_summary">Choose Custom Color</string>
     <string name="status_bar_network_title">Network Traffic</string>
+    <string name="status_bar_network_color_title">Network Color</string>
+    <string name="status_bar_network_color_reset">Reset Network Color</string>
     <string name="status_bar_show_network_stats_title">Show Network Speeds</string>
     <string name="status_bar_network_stats_update_title">Update Frequency</string>
     <string name="show_lte_or_fourgee_title">Show 4G Icon</string>
