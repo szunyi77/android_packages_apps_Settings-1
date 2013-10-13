@@ -343,6 +343,8 @@
     <string name="lockscreen_music_controls_title">Music Controls</string>
     <string name="lockscreen_music_controls_summary">Show controls while music is playing</string>
     <string name="keyguard_picker_all_widgets_title">Show All Widgets</string>
+    <string name="battery_around_lockscreen_ring_title">Battery Lock Ring</string>
+    <string name="battery_around_lockscreen_ring_summary">Shows battery level around lock ring</string>
 
     <!-- Navigation -->
     <string name="navbar_reset">Reset</string>

@@ -27,6 +27,12 @@
             android:summary="@string/lockscreen_widgets_all_summary" />
 
         <CheckBoxPreference
+            android:key="battery_around_lockscreen_ring"
+            android:title="@string/battery_around_lockscreen_ring_title"
+            android:summary="@string/battery_around_lockscreen_ring_summary"
+            android:defaultValue="true" />
+
+        <CheckBoxPreference
             android:key="lockscreen_camera_widget"
             android:title="@string/lockscreen_camera_widget_title"
             android:summary="@string/lockscreen_camera_widget_summary" />

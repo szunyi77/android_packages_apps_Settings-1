@@ -33,6 +33,7 @@ public class LockscreenWidgets extends SettingsPreferenceFragment {
 
     private static final String KEY_WIDGET_OPTIONS = "lockscreen_widgets_group";
     private static final String KEY_LOCKSCREEN_ALL_WIDGETS = "lockscreen_all_widgets";
+    private static final String BATTERY_AROUND_LOCKSCREEN_RING = "battery_around_lockscreen_ring";
     private static final String KEY_LOCKSCREEN_CAMERA_WIDGET = "lockscreen_camera_widget";
     private static final String KEY_LOCKSCREEN_HIDE_INITIAL_PAGE_HINTS = "lockscreen_hide_initial_page_hints";
     private static final String KEY_LOCKSCREEN_LONGPRESS_CHALLENGE = "lockscreen_longpress_challenge";
@@ -42,6 +43,7 @@ public class LockscreenWidgets extends SettingsPreferenceFragment {
     private static final String KEY_LOCKSCREEN_MUSIC_CONTROLS = "lockscreen_music_controls";
 
     private CheckBoxPreference mAllWidgets;
+    private CheckBoxPreference mLockRingBattery;
     private CheckBoxPreference mCameraWidget;
     private CheckBoxPreference mHideInitialPageHints;
     private CheckBoxPreference mLongpressChallenge;
@@ -60,6 +62,10 @@ public class LockscreenWidgets extends SettingsPreferenceFragment {
         mAllWidgets = (CheckBoxPreference) findPreference(KEY_LOCKSCREEN_ALL_WIDGETS);
         mAllWidgets.setChecked(Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
                 Settings.System.LOCKSCREEN_ALL_WIDGETS, 0) == 1);
+
+         mLockRingBattery = (CheckBoxPreference) findPreference(BATTERY_AROUND_LOCKSCREEN_RING);
+         mLockRingBattery.setChecked(Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
+                Settings.System.BATTERY_AROUND_LOCKSCREEN_RING, 0) == 1);
 
         mCameraWidget = (CheckBoxPreference) findPreference(KEY_LOCKSCREEN_CAMERA_WIDGET);
         mCameraWidget.setChecked(Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
@@ -104,6 +110,10 @@ public class LockscreenWidgets extends SettingsPreferenceFragment {
         if (preference == mAllWidgets) {
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.LOCKSCREEN_ALL_WIDGETS, mAllWidgets.isChecked() ? 1 : 0);
+            return true;
+        } else if (preference == mLockRingBattery) {
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.BATTERY_AROUND_LOCKSCREEN_RING, mLockRingBattery.isChecked() ? 1 : 0);
             return true;
         } else if (preference == mCameraWidget) {
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
