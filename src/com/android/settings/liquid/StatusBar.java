@@ -58,6 +58,7 @@ public class StatusBar extends SettingsPreferenceFragment
     private static final String STATUS_BAR_QUICK_PEEK = "status_bar_quick_peek";
     private static final String STATUS_ICON_COLOR_BEHAVIOR = "status_icon_color_behavior";
     private static final String STATUS_ICON_COLOR = "status_icon_color";
+    private static final String KEY_STATUS_BAR_TRAFFIC = "status_bar_traffic";
     private static final String STATUS_BAR_NETWORK_STATS = "status_bar_show_network_stats";
     private static final String STATUS_BAR_NETWORK_COLOR = "status_bar_network_color";
     private static final String STATUS_BAR_NETWORK_STATS_UPDATE = "status_bar_network_status_update";
@@ -78,6 +79,7 @@ public class StatusBar extends SettingsPreferenceFragment
     private CheckBoxPreference mStatusIconBehavior;
     private ColorPickerPreference mIconColor;
     private ColorPickerPreference mNetworkColor;
+    private CheckBoxPreference mStatusBarTraffic;
     private ListPreference mStatusBarNetStatsUpdate;
     private CheckBoxPreference mStatusBarNetworkStats;
     private CheckBoxPreference mShowLTEorFourGee;
@@ -138,6 +140,10 @@ public class StatusBar extends SettingsPreferenceFragment
         mStatusIconBehavior = (CheckBoxPreference) prefSet.findPreference(STATUS_ICON_COLOR_BEHAVIOR);
         mStatusIconBehavior.setChecked(Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
                 Settings.System.ICON_COLOR_BEHAVIOR, 0) == 1);
+
+        mStatusBarTraffic = (CheckBoxPreference) findPreference(KEY_STATUS_BAR_TRAFFIC);
+        mStatusBarTraffic.setChecked(Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
+                Settings.System.STATUS_BAR_TRAFFIC, 0) == 1);
 
         mStatusBarNetworkStats = (CheckBoxPreference) findPreference(STATUS_BAR_NETWORK_STATS);
         mStatusBarNetworkStats.setChecked(Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
@@ -278,6 +284,11 @@ public class StatusBar extends SettingsPreferenceFragment
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.MMS_BREATH,
                     mMMSBreath.isChecked() ? 1 : 0);
+            return true;
+        } else if (preference == mStatusBarTraffic) {
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.STATUS_BAR_TRAFFIC,
+                    mStatusBarTraffic.isChecked() ? 1 : 0);
             return true;
         } else if (preference == mStatusBarNetworkStats) {
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
