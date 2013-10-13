@@ -42,6 +42,9 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.android.settings.R;
+import com.android.settings.Utils;
+import com.android.settings.util.IconPicker;
+import com.android.settings.util.ShortcutPickHelperTargets;
 import com.android.internal.widget.multiwaveview.GlowPadView;
 import com.android.internal.util.liquid.LockscreenTargetUtils;
 import com.android.settings.util.IconPicker.OnIconPickListener;
@@ -53,13 +56,13 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 
 public class LockscreenTargets extends Fragment implements 
-        ShortcutPickHelper.OnPickListener, GlowPadView.OnTriggerListener, OnIconPickListener {
+        ShortcutPickHelperTargets.OnPickListener, GlowPadView.OnTriggerListener, OnIconPickListener {
 
     private static final String TAG = "LockscreenTargets";
 
     private Activity mActivity;
     private Resources mResources;
-    private ShortcutPickHelper mPicker;
+    private ShortcutPickHelperTargets mPicker;
     private IconPicker mIconPicker;
 
     private GlowPadView mWaveView;
@@ -107,7 +110,7 @@ public class LockscreenTargets extends Fragment implements
         mMaxTargets = LockscreenTargetUtils.getMaxTargets(mActivity);
 
         mIconPicker = new IconPicker(mActivity, this);
-        mPicker = new ShortcutPickHelper(mActivity, this);
+        mPicker = new ShortcutPickHelperTargets(mActivity, this);
 
         mTemporaryImage = new File(mActivity.getCacheDir() + "/target.tmp");
         mEmptyLabel = mResources.getString(R.string.lockscreen_target_empty);

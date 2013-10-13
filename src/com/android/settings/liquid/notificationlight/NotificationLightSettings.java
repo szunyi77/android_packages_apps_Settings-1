@@ -90,14 +90,12 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
     private int mDefaultLedOn;
     private int mDefaultLedOff;
     private PackageManager mPackageManager;
-    private boolean mCustomEnabled;
-    private boolean mLightEnabled;
-    private boolean mVoiceCapable;
     private PreferenceGroup mApplicationPrefList;
+    private CheckBoxPreference mEnabledPref;
+    private CheckBoxPreference mCustomEnabledPref;
     private ApplicationLightPreference mDefaultPref;
     private ApplicationLightPreference mCallPref;
     private ApplicationLightPreference mVoicemailPref;
-    private CheckBoxPreference mCustomEnabledPref;
     private Menu mMenu;
     private PackageAdapter mPackageAdapter;
     private String mPackageList;
@@ -147,10 +145,6 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
 
         mPackages = new HashMap<String, Package>();
 
-        // Determine if the device has voice capabilities
-        TelephonyManager tm = (TelephonyManager) getActivity().getSystemService(Context.TELEPHONY_SERVICE);
-        mVoiceCapable = tm.getPhoneType() != TelephonyManager.PHONE_TYPE_NONE;
-
         setHasOptionsMenu(true);
     }
 
@@ -159,13 +153,12 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
         super.onResume();
         refreshDefault();
         refreshCustomApplicationPrefs();
-        setCustomEnabled();
         getListView().setOnItemLongClickListener(this);
+        getActivity().invalidateOptionsMenu();
     }
 
     private void refreshDefault() {
         ContentResolver resolver = getContentResolver();
-
         int color = Settings.System.getInt(resolver,
                 NOTIFICATION_LIGHT_PULSE_DEFAULT_COLOR, mDefaultColor);
         int timeOn = Settings.System.getInt(resolver,
@@ -231,22 +224,6 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
                     // Do nothing
                 }
             }
-        }
-    }
-
-    private void setCustomEnabled() {
-        boolean enabled = mCustomEnabled && mLightEnabled;
-
-        // Phone related preferences
-        if (mVoiceCapable) {
-            mCallPref.setEnabled(enabled);
-            mVoicemailPref.setEnabled(enabled);
-        }
-
-        // Custom applications
-        if (mApplicationPrefList != null) {
-            mApplicationPrefList.setEnabled(enabled);
-            setHasOptionsMenu(enabled);
         }
     }
 
@@ -372,23 +349,12 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
-        String key = preference.getKey();
-
-        if (PULSE_PREF.equals(key)) {
-            mLightEnabled = (Boolean) objValue;
-            Settings.System.putInt(getContentResolver(), Settings.System.NOTIFICATION_LIGHT_PULSE,
-                    mLightEnabled ? 1 : 0);
-            mDefaultPref.setEnabled(mLightEnabled);
-            mCustomEnabledPref.setEnabled(mLightEnabled);
-            setCustomEnabled();
-        } else if (CUSTOM_PREF.equals(key)) {
-            mCustomEnabled = (Boolean) objValue;
-            Settings.System.putInt(getContentResolver(), NOTIFICATION_LIGHT_PULSE_CUSTOM_ENABLE,
-                    mCustomEnabled ? 1 : 0);
-            setCustomEnabled();
+        if (preference == mEnabledPref || preference == mCustomEnabledPref) {
+            getActivity().invalidateOptionsMenu();
         } else {
-            ApplicationLightPreference tPref = (ApplicationLightPreference) preference;
-            updateValues(key, tPref.getColor(), tPref.getOnValue(), tPref.getOffValue());
+            ApplicationLightPreference lightPref = (ApplicationLightPreference) preference;
+            updateValues(lightPref.getKey(), lightPref.getColor(),
+                    lightPref.getOnValue(), lightPref.getOffValue());
         }
 
         return true;
@@ -399,7 +365,13 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
         mMenu = menu;
         mMenu.add(0, MENU_ADD, 0, R.string.profiles_add)
                 .setIcon(R.drawable.ic_menu_add)
-                .setShowAsActionFlags(MenuItem.SHOW_AS_ACTION_ALWAYS);
+                .setShowAsActionFlags(MenuItem.SHOW_AS_ACTION_ALWAYS | MenuItem.SHOW_AS_ACTION_WITH_TEXT);
+    }
+
+    @Override
+    public void onPrepareOptionsMenu(Menu menu) {
+        boolean enableAddButton = mEnabledPref.isChecked() && mCustomEnabledPref.isChecked();
+        menu.findItem(MENU_ADD).setVisible(enableAddButton);
     }
 
     @Override
@@ -636,4 +608,3 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
         ImageView icon;
     }
 }
-
