@@ -634,6 +634,8 @@
     <string name="ad_redisplay_title">Redisplay Notifications</string>
     <string name="ad_sunlight_mode_title">Sunlight Mode</string>
     <string name="ad_sunlight_mode_summary">Invert colors with sunlight</string>
+    <string name="ad_excluded_apps_title">Exclude Apps</string>
+    <string name="ad_excluded_apps_summary">Excluded apps will not show up</string>
     <string name="ad_customizations_title">Customizations</string>
     <string name="ad_brightness_title">Notification Brightness</string>
     <string name="ad_brightness_summary">Brightness level for displaying</string>
