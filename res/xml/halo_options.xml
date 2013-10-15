@@ -116,6 +116,13 @@
             android:dependency="halo_enabled"
             android:defaultValue="false" />
 
+        <CheckBoxPreference
+            android:key="show_popup"
+            android:title="@string/popups_title"
+            android:summary="@string/popups_summary"
+            android:dependency="halo_enabled"
+            android:defaultValue="true" />
+
         <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="halo_circle_color"
             android:title="@string/halo_circle_color_title"

@@ -49,6 +49,7 @@ public class HaloOptions extends SettingsPreferenceFragment
     private static final String KEY_HALO_NOTIFY_COUNT = "halo_notify_count";
     private static final String KEY_HALO_UNLOCK_PING = "halo_unlock_ping";
     private static final String KEY_HALO_PAUSE = "halo_pause";
+    private static final String KEY_WE_WANT_POPUPS = "show_popup";
     private static final String KEY_HALO_REVERSED = "halo_reversed";
     private static final String KEY_HALO_SIZE = "halo_size";
     private static final String KEY_HALO_COLORS = "halo_colors";
@@ -68,6 +69,7 @@ public class HaloOptions extends SettingsPreferenceFragment
     private CheckBoxPreference mHaloEnabled;
     private CheckBoxPreference mHaloHide;
     private CheckBoxPreference mHaloPause;
+    private CheckBoxPreference mWeWantPopups;
     private CheckBoxPreference mHaloReversed;
     private CheckBoxPreference mHaloColors;
     private ColorPickerPreference mHaloCircleColor;
@@ -137,6 +139,12 @@ public class HaloOptions extends SettingsPreferenceFragment
         mHaloPause = (CheckBoxPreference) prefSet.findPreference(KEY_HALO_PAUSE);
         mHaloPause.setChecked(Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.HALO_PAUSE, isLowRAM) == 1);
+
+        int showPopups = Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.WE_WANT_POPUPS, 1);
+        mWeWantPopups = (CheckBoxPreference) findPreference(KEY_WE_WANT_POPUPS);
+        mWeWantPopups.setOnPreferenceChangeListener(this);
+        mWeWantPopups.setChecked(showPopups > 0);
 
         mHaloReversed = (CheckBoxPreference) prefSet.findPreference(KEY_HALO_REVERSED);
         mHaloReversed.setChecked(Settings.System.getInt(mContext.getContentResolver(),
@@ -267,6 +275,11 @@ public class HaloOptions extends SettingsPreferenceFragment
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.HALO_BUBBLE_TEXT_COLOR, intHex);
+            return true;
+        } else if (preference == mWeWantPopups) {
+            int weWantPopups = Integer.valueOf((String) newValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.WE_WANT_POPUPS, weWantPopups);
             return true;
         }
         return false;
