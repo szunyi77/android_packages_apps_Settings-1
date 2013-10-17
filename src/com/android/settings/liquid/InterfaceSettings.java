@@ -65,7 +65,6 @@ public class InterfaceSettings extends SettingsPreferenceFragment
     private static final String KEY_NOTIF_STYLE = "notification_style";
     private static final String KEY_USE_ALT_RESOLVER = "use_alt_resolver";
     private static final String KEY_RECENTS_RAM_BAR = "recents_ram_bar";
-    private static final String LARGE_RECENT_THUMBS = "large_recent_thumbs";
     private static final String KEY_VIBRATION_MULTIPLIER = "vibrator_multiplier";
     private static final String KEY_LOW_BATTERY_WARNING_POLICY = "pref_low_battery_warning_policy";
     private static final String KEY_HALO_OPTIONS = "halo_options";
@@ -80,7 +79,6 @@ public class InterfaceSettings extends SettingsPreferenceFragment
     private Preference mHaloOptions;
     private Preference mTabletSettings;
     private Preference mRamBar;
-    private CheckBoxPreference mLargeRecentThumbs;
     private ListPreference mVibrationMultiplier;
     private ListPreference mLowBatteryWarning;
     private ListPreference mListViewAnimation;
@@ -97,7 +95,7 @@ public class InterfaceSettings extends SettingsPreferenceFragment
 
         mAdvanced = (PreferenceCategory) prefs.findPreference(ADVANCED_SETTINGS);
 
-        mUseAltResolver = (CheckBoxPreference) prefs.findPreference(KEY_USE_ALT_RESOLVER);
+        mUseAltResolver = (CheckBoxPreference) findPreference(KEY_USE_ALT_RESOLVER);
         mUseAltResolver.setOnPreferenceChangeListener(this);
         mUseAltResolver.setChecked(Settings.System.getInt(
                 getActivity().getContentResolver(),
@@ -110,33 +108,29 @@ public class InterfaceSettings extends SettingsPreferenceFragment
         mRamBar = findPreference(KEY_RECENTS_RAM_BAR);
         mRamBar.setOnPreferenceChangeListener(this);
         updateRamBar();
-
-        mLargeRecentThumbs = (CheckBoxPreference) prefSet.findPreference(LARGE_RECENT_THUMBS);
-        mLargeRecentThumbs.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
-                Settings.System.LARGE_RECENT_THUMBS, 0) == 1));
-
-        mLowBatteryWarning = (ListPreference) prefs.findPreference(KEY_LOW_BATTERY_WARNING_POLICY);
+ 
+        mLowBatteryWarning = (ListPreference) findPreference(KEY_LOW_BATTERY_WARNING_POLICY);
         mLowBatteryWarning.setOnPreferenceChangeListener(this);
         int lowBatteryWarning = Settings.System.getInt(getActivity().getContentResolver(),
                                     Settings.System.POWER_UI_LOW_BATTERY_WARNING_POLICY, 0);
         mLowBatteryWarning.setValue(String.valueOf(lowBatteryWarning));
         mLowBatteryWarning.setSummary(mLowBatteryWarning.getEntry());
 
-        mVibrationMultiplier = (ListPreference) prefs.findPreference(KEY_VIBRATION_MULTIPLIER);
+        mVibrationMultiplier = (ListPreference) findPreference(KEY_VIBRATION_MULTIPLIER);
         mVibrationMultiplier.setOnPreferenceChangeListener(this);
         String currentValue = Float.toString(Settings.System.getFloat(getActivity()
                 .getContentResolver(), Settings.System.VIBRATION_MULTIPLIER, 1));
         mVibrationMultiplier.setValue(currentValue);
         mVibrationMultiplier.setSummary(currentValue);
 
-        mListViewAnimation = (ListPreference) prefs.findPreference(KEY_LISTVIEW_ANIMATION);
+        mListViewAnimation = (ListPreference) findPreference(KEY_LISTVIEW_ANIMATION);
         int listviewanimation = Settings.System.getInt(getActivity().getContentResolver(),
             Settings.System.LISTVIEW_ANIMATION, 0);
         mListViewAnimation.setValue(String.valueOf(listviewanimation));
         mListViewAnimation.setSummary(mListViewAnimation.getEntry());
         mListViewAnimation.setOnPreferenceChangeListener(this);
 
-        mListViewInterpolator = (ListPreference) prefs.findPreference(KEY_LISTVIEW_INTERPOLATOR);
+        mListViewInterpolator = (ListPreference) findPreference(KEY_LISTVIEW_INTERPOLATOR);
         int listviewinterpolator = Settings.System.getInt(getActivity().getContentResolver(),
             Settings.System.LISTVIEW_INTERPOLATOR, 0);
         mListViewInterpolator.setValue(String.valueOf(listviewinterpolator));
@@ -208,11 +202,6 @@ public class InterfaceSettings extends SettingsPreferenceFragment
                     Settings.System.POWER_UI_LOW_BATTERY_WARNING_POLICY,
                     lowBatteryWarning);
             mLowBatteryWarning.setSummary(mLowBatteryWarning.getEntries()[index]);
-            return true;
-        } else if (preference == mLargeRecentThumbs) {
-            value = mLargeRecentThumbs.isChecked();
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.LARGE_RECENT_THUMBS, value ? 1 : 0);
             return true;
         } else if (preference == mUseAltResolver) {
             Settings.System.putInt(getActivity().getContentResolver(),
