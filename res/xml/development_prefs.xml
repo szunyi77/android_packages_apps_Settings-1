@@ -17,11 +17,6 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/development_settings_title">
 
-    <CheckBoxPreference
-        android:key="pref_fastboot_enable"
-        android:title="@string/fastboot_enable_title"
-        android:summary="@string/fastboot_enable_summary" />
-
     <ListPreference
         android:key="media_scanner_on_boot"
         android:title="@string/media_scanner_on_boot_title"
