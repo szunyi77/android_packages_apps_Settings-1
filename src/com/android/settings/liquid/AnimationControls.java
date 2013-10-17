@@ -29,7 +29,7 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.widgets.AnimBarPreference;
 import com.android.settings.R;
 
-import com.android.internal.util.liquid.AwesomeAnimationHelper;
+import com.android.internal.util.liquid.AnimationHelper;
 
 import java.util.Arrays;
 
@@ -75,12 +75,12 @@ public class AnimationControls extends SettingsPreferenceFragment
         addPreferencesFromResource(R.xml.prefs_animation_controls);
 
         PreferenceScreen prefs = getPreferenceScreen();
-        mAnimations = AwesomeAnimationHelper.getAnimationsList();
+        mAnimations = AnimationHelper.getAnimationsList();
         int animqty = mAnimations.length;
         mAnimationsStrings = new String[animqty];
         mAnimationsNum = new String[animqty];
         for (int i = 0; i < animqty; i++) {
-            mAnimationsStrings[i] = AwesomeAnimationHelper.getProperName(mContext, mAnimations[i]);
+            mAnimationsStrings[i] = AnimationHelper.getProperName(mContext, mAnimations[i]);
             mAnimationsNum[i] = String.valueOf(mAnimations[i]);
         }
 
