@@ -71,7 +71,6 @@
             android:summary="@string/halo_notification_count_summary"
             android:dependency="halo_enabled"
             android:entries="@array/entries_halo_notification_count"
-            android:dependency="halo_enabled"
             android:entryValues="@array/values_halo_notification_count" />
 
         <CheckBoxPreference
@@ -88,7 +87,6 @@
             android:summary="@string/halo_msgbox_animation_summary"
             android:dependency="halo_enabled"
             android:entries="@array/entries_halo_msgbox_animation"
-            android:dependency="halo_enabled"
             android:entryValues="@array/values_halo_msgbox_animation" />
 
         <CheckBoxPreference
