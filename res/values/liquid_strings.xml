@@ -905,10 +905,6 @@
     <!-- Tablet Settings -->
     <string name="force_dual_pane_title">Force Dual Panel</string>
     <string name="force_dual_pane_summary">Restart settings to apply this change</string>
-    <string name="xposed_dpi_title">Xposed DPI Settings</string>
-    <string name="xposed_dpi_summary">Customize DPI values of specific apps</string>
-    <string name="xposed_install_title">Xposed DPI Installer</string>
-    <string name="xposed_install_summary">*Install before using DPI settings app*</string>
 
     <!-- Shortcut Actions -->
     <string name="shortcut_action_app">Custom App</string>
