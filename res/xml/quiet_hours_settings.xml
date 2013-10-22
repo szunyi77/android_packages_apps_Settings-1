@@ -15,8 +15,8 @@
 -->
 
 <PreferenceScreen
-    xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/quiet_hours_title"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
     <Preference
@@ -49,6 +49,11 @@
         android:title="@string/quiet_hours_haptic"
         android:summaryOn="@string/quiet_hours_haptic_on"
         android:summaryOff="@string/quiet_hours_haptic_off"
+        android:dependency="quiet_hours_enabled" />
+
+    <CheckBoxPreference
+        android:key="quiet_hours_system"
+        android:title="@string/quiet_hours_system"
         android:dependency="quiet_hours_enabled" />
 
     <CheckBoxPreference
