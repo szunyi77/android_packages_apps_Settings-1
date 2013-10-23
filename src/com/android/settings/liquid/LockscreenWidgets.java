@@ -63,13 +63,13 @@ public class LockscreenWidgets extends SettingsPreferenceFragment {
         mAllWidgets.setChecked(Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
                 Settings.System.LOCKSCREEN_ALL_WIDGETS, 0) == 1);
 
-         mLockRingBattery = (CheckBoxPreference) findPreference(BATTERY_AROUND_LOCKSCREEN_RING);
-         mLockRingBattery.setChecked(Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
+        mLockRingBattery = (CheckBoxPreference) findPreference(BATTERY_AROUND_LOCKSCREEN_RING);
+        mLockRingBattery.setChecked(Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
                 Settings.System.BATTERY_AROUND_LOCKSCREEN_RING, 0) == 1);
 
         mCameraWidget = (CheckBoxPreference) findPreference(KEY_LOCKSCREEN_CAMERA_WIDGET);
         mCameraWidget.setChecked(Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
-                Settings.System.LOCKSCREEN_CAMERA_WIDGET, 0) == 1);
+                Settings.System.LOCKSCREEN_CAMERA_WIDGET, 1) == 1);
 
         mHideInitialPageHints = (CheckBoxPreference) findPreference(KEY_LOCKSCREEN_HIDE_INITIAL_PAGE_HINTS);
         mHideInitialPageHints.setChecked(Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
