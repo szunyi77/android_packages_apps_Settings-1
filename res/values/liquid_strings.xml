@@ -103,6 +103,9 @@
     <string name="ad_timeout_10s">10 seconds</string>
     <string name="ad_timeout_15s">15 seconds</string>
     <string name="ad_timeout_25s">25 seconds</string>
+    <string name="ad_pocket_mode_off">Off</string>
+    <string name="ad_pocket_mode_notifications">Notifications only</string>
+    <string name="ad_pocket_mode_always">Always</string>
 
     <!-- Animation Controls -->	
     <string name="title_animation_controls">Custom Animations</string>	

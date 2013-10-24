@@ -47,11 +47,13 @@
         android:summary="@string/ad_hide_low_priority_summary"
         android:dependency="ad_enable"/>
 
-    <CheckBoxPreference
+    <ListPreference
         android:key="ad_pocket_mode"
         android:persistent="false"
         android:title="@string/ad_pocket_mode_title"
         android:summary="@string/ad_pocket_mode_summary"
+        android:entries="@array/ad_pocket_mode_entries"
+        android:entryValues="@array/ad_pocket_mode_values"
         android:dependency="ad_enable"/>
 
     <CheckBoxPreference
