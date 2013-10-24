@@ -20,24 +20,32 @@
     <PreferenceCategory
         android:key="interface_advanced"
         android:title="@string/advanced_settings_title">
-	    
+
+	    <PreferenceScreen
+	        android:key="chronus"
+            android:title="@string/clock_widget_title"
+            android:summary="@string/clock_widget_summary">
+	   	    <intent android:action="android.intent.action.MAIN"
+            	android:targetPackage="com.cyanogenmod.lockclock"
+	    	    android:targetClass="com.cyanogenmod.lockclock.preference.Preferences" />
+        </PreferenceScreen>
+
+        <CheckBoxPreference
+            android:key="force_dual_pane"
+            android:title="@string/force_dual_pane_title"
+            android:summary="@string/force_dual_pane_summary" />
+
     	<PreferenceScreen
             android:key="hardware_keys"
             android:title="@string/hardware_keys_title"
             android:summary="@string/hardware_keys_summary"
             android:fragment="com.android.settings.liquid.HardwareKeys" />
 
-    	<PreferenceScreen
-            android:key="halo_options"
-            android:title="@string/halo_options_title"
-            android:summary="@string/halo_options_summary"
-            android:fragment="com.android.settings.liquid.HaloOptions" />
-
         <PreferenceScreen
-            android:key="notification_style"
-            android:title="@string/notification_drawer_title"
-            android:summary="@string/notification_drawer_summary"
-            android:fragment="com.android.settings.liquid.NotificationDrawer" />
+            android:key="lcd_density_setup"
+            android:fragment="com.android.settings.liquid.DensityChanger"
+            android:title="@string/lcd_density_title"
+            android:summary="@string/lcd_density_summary" />
 
         <PreferenceScreen
             android:key="recents_ram_bar"
@@ -45,18 +53,6 @@
             android:summary="@string/recents_rambar_summary"
             android:fragment="com.android.settings.liquid.RamBar" />
 
-        <PreferenceScreen
-            android:key="tablet_settings"
-            android:title="@string/tablet_settings_title"
-            android:summary="@string/tablet_settings_summary"
-            android:fragment="com.android.settings.liquid.TabletSettings" />
-
-        <PreferenceScreen
-            android:key="active_display"
-            android:fragment="com.android.settings.liquid.ActiveDisplaySettings"
-            android:title="@string/ad_settings_title"
-            android:summary="@string/ad_settings_summary" />
-		
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -68,21 +64,6 @@
             android:title="@string/alt_resolver"
             android:summary="@string/alt_resolver_summary"
             android:defaultValue="false" />
-
-	    <PreferenceScreen
-            android:id="@+id/animations"	
-            android:title="@string/title_animation_controls"	
-            android:summary="@string/header_summary_animation"	
-            android:fragment="com.android.settings.liquid.AnimationControls" />
-
-	    <PreferenceScreen
-	        android:key="chronus"
-            android:title="@string/clock_widget_title"
-            android:summary="@string/clock_widget_summary">
-	   	    <intent android:action="android.intent.action.MAIN"
-            	android:targetPackage="com.cyanogenmod.lockclock"
-	    	    android:targetClass="com.cyanogenmod.lockclock.preference.Preferences" />
-        </PreferenceScreen>
 
         <Preference
             android:key="custom_carrier_label"

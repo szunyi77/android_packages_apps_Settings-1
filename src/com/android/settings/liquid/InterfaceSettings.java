@@ -28,6 +28,7 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.os.ServiceManager;
+import android.os.SystemProperties;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
@@ -48,11 +49,11 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.IWindowManager;
 import android.view.Window;
+import android.widget.EditText;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 
 import com.android.settings.R;
 import com.android.settings.Utils;
-import android.widget.EditText;
 import com.android.settings.SettingsPreferenceFragment;
 
 public class InterfaceSettings extends SettingsPreferenceFragment
@@ -61,6 +62,7 @@ public class InterfaceSettings extends SettingsPreferenceFragment
     public static final String TAG = "UserInterface";
     private static final String ADVANCED_SETTINGS = "interface_advanced";
     private static final String KEY_CARRIER_LABEL = "custom_carrier_label";
+    private static final String KEY_FORCE_DUAL_PANE = "force_dual_pane";
     private static final String KEY_HARDWARE_KEYS = "hardware_keys";
     private static final String KEY_NOTIF_STYLE = "notification_style";
     private static final String KEY_USE_ALT_RESOLVER = "use_alt_resolver";
@@ -73,6 +75,7 @@ public class InterfaceSettings extends SettingsPreferenceFragment
     private static final String KEY_LISTVIEW_INTERPOLATOR = "listview_interpolator";
 
     private CheckBoxPreference mUseAltResolver;
+    private CheckBoxPreference mDualPane;
     private PreferenceCategory mAdvanced;
     private Preference mCustomLabel;
     private Preference mNotifStyle;
@@ -84,6 +87,8 @@ public class InterfaceSettings extends SettingsPreferenceFragment
     private ListPreference mListViewAnimation;
     private ListPreference mListViewInterpolator;
 
+    private int newDensityValue;
+    DensityChanger densityFragment;
     private String mCustomLabelText = null;
 
     @Override
@@ -94,6 +99,24 @@ public class InterfaceSettings extends SettingsPreferenceFragment
         PreferenceScreen prefs = getPreferenceScreen();
 
         mAdvanced = (PreferenceCategory) prefs.findPreference(ADVANCED_SETTINGS);
+
+        mLcdDensity = findPreference("lcd_density_setup");
+        mLcdDensity.setOnPreferenceChangeListener(this);
+        String currentProperty = SystemProperties.get("ro.sf.lcd_density");
+        try {
+            newDensityValue = Integer.parseInt(currentProperty);
+        } catch (Exception e) {
+            getPreferenceScreen().removePreference(mLcdDensity);
+        }
+        mLcdDensity.setSummary(getResources().getString(R.string.current_lcd_density) + currentProperty);
+
+        mDualPane = (CheckBoxPreference) findPreference(KEY_FORCE_DUAL_PANE);
+        mDualPane.setOnPreferenceChangeListener(this);
+        boolean preferDualPane = getResources().getBoolean(
+                com.android.internal.R.bool.preferences_prefer_dual_pane);
+        boolean dualPaneMode = Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.DUAL_PANE_PREFS, (preferDualPane ? 1 : 0)) == 1;
+        mDualPane.setChecked(dualPaneMode);
 
         mUseAltResolver = (CheckBoxPreference) findPreference(KEY_USE_ALT_RESOLVER);
         mUseAltResolver.setOnPreferenceChangeListener(this);
@@ -206,6 +229,11 @@ public class InterfaceSettings extends SettingsPreferenceFragment
         } else if (preference == mUseAltResolver) {
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.ACTIVITY_RESOLVER_USE_ALT,
+                    (Boolean) newValue ? 1 : 0);
+            return true;
+        } else if (preference == mDualPane) {
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.DUAL_PANE_PREFS,
                     (Boolean) newValue ? 1 : 0);
             return true;
         } else if (preference == mListViewAnimation) {
