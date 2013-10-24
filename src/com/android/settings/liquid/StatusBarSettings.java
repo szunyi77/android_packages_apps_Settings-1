@@ -179,7 +179,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment
             updateClockStyleDescription();
         }
 
-        mShowLTEorFourGee = (CheckBoxPreference) findPreference(KEY_SHOW_LTE_OR_FOURGEE);
+        mShowLTEorFourGee = (CheckBoxPreference) prefSet.findPreference(KEY_SHOW_LTE_OR_FOURGEE);
         mShowLTEorFourGee.setChecked(Settings.System.getInt(getActivity().
                 getApplicationContext().getContentResolver(),
                     Settings.System.SHOW_LTE_OR_FOURGEE, 0) == 1);
