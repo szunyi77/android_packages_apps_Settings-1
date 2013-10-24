@@ -30,7 +30,7 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
 public class PieControl extends SettingsPreferenceFragment
-                        implements Preference.OnPreferenceChangeListener {
+    implements OnPreferenceChangeListener {
 
     private static final String PIE_CONTROL = "pie_control";
     private static final String PIE_BUTTON = "pie_button";

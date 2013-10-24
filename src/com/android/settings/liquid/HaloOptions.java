@@ -38,7 +38,7 @@ import com.android.settings.bluetooth.DeviceListPreferenceFragment;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
 public class HaloOptions extends SettingsPreferenceFragment
-        implements OnPreferenceChangeListener {
+    implements OnPreferenceChangeListener {
 
     private static final String KEY_HALO_STATE = "halo_state";
     private static final String KEY_HALO_ENABLED = "halo_enabled";

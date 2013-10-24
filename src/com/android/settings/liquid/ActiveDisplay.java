@@ -38,10 +38,8 @@ import java.util.Set;
 import static android.hardware.Sensor.TYPE_LIGHT;
 import static android.hardware.Sensor.TYPE_PROXIMITY;
 
-public class ActiveDisplaySettings extends SettingsPreferenceFragment implements
-        OnPreferenceChangeListener {
-
-    private static final String TAG = "ActiveDisplaySettings";
+public class ActiveDisplay extends SettingsPreferenceFragment
+    implements OnPreferenceChangeListener {
 
     private static final String KEY_ENABLED = "ad_enable";
     private static final String KEY_SHOW_TEXT = "ad_text";
@@ -73,7 +71,7 @@ public class ActiveDisplaySettings extends SettingsPreferenceFragment implements
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        addPreferencesFromResource(R.xml.active_display_settings);
+        addPreferencesFromResource(R.xml.active_display);
 
         mEnabledPref = (SwitchPreference) findPreference(KEY_ENABLED);
         mEnabledPref.setChecked((Settings.System.getInt(getContentResolver(),

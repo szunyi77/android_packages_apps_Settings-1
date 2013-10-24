@@ -41,10 +41,9 @@ import com.android.settings.widget.SeekBarPreference;
 
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
-public class NavBarButtonStyle extends SettingsPreferenceFragment implements
-        OnPreferenceChangeListener {
+public class NavbarButtonStyle extends SettingsPreferenceFragment
+    implements OnPreferenceChangeListener {
 
-    private static final String TAG = "NavBarButtonStyle";
     private static final String PREF_NAV_BUTTON_COLOR = "nav_button_color";
     private static final String PREF_BUTTON_TRANSPARENCY = "button_transparency";
     private static final String PREF_NAV_BUTTON_COLOR_MODE = "nav_button_color_mode";

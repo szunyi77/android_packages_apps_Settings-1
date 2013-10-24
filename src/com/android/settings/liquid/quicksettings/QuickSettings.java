@@ -36,8 +36,8 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.android.settings.R;
-import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
+import com.android.settings.SettingsPreferenceFragment;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -46,8 +46,8 @@ import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Set;
 
-public class QuickSettings extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
-    private static final String TAG = "QuickSettings";
+public class QuickSettings extends SettingsPreferenceFragment
+    implements OnPreferenceChangeListener {
 
     private static final String SEPARATOR = "OV=I=XseparatorX=I=VO";
     private static final String EXP_RING_MODE = "pref_ring_mode";
@@ -370,5 +370,4 @@ public class QuickSettings extends SettingsPreferenceFragment implements OnPrefe
         if (mTilePicker != null)
             mTilePicker.setEnabled(status);
     }
-
 }

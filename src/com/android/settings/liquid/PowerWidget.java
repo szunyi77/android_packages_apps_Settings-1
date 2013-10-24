@@ -50,13 +50,13 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.android.internal.telephony.Phone;
 import com.android.settings.R;
+import com.android.internal.telephony.Phone;
 import com.android.settings.SettingsPreferenceFragment;
 
-public class PowerWidget extends SettingsPreferenceFragment implements
-        Preference.OnPreferenceChangeListener {
-    private static final String TAG = "PowerWidget";
+public class PowerWidget extends SettingsPreferenceFragment
+    implements OnPreferenceChangeListener {
+
     private static final String SEPARATOR = "OV=I=XseparatorX=I=VO";
     private static final String UI_EXP_WIDGET = "expanded_widget";
     private static final String UI_EXP_WIDGET_HIDE_ONCHANGE = "expanded_hide_onchange";
@@ -110,7 +110,6 @@ public class PowerWidget extends SettingsPreferenceFragment implements
             mBrightnessLocation.setValue(Integer.toString(Settings.System.getInt(getActivity()
                     .getContentResolver(), Settings.System.STATUSBAR_TOGGLES_BRIGHTNESS_LOC, 3)));
             mBrightnessLocation.setSummary(mBrightnessLocation.getEntry());
-
         }
     }
 
@@ -155,7 +154,6 @@ public class PowerWidget extends SettingsPreferenceFragment implements
             // If we didn't handle it, let preferences handle it.
             return super.onPreferenceTreeClick(preferenceScreen, preference);
         }
-
         return true;
     }
 
@@ -164,8 +162,6 @@ public class PowerWidget extends SettingsPreferenceFragment implements
 
         public PowerWidgetChooser() {
         }
-
-        private static final String TAG = "PowerWidgetActivity";
 
         private static final String BUTTONS_CATEGORY = "pref_buttons";
         private static final String BUTTON_MODES_CATEGORY = "pref_buttons_modes";
@@ -276,7 +272,6 @@ public class PowerWidget extends SettingsPreferenceFragment implements
             if (!fastcharge.exists()) {
                 PowerWidgetUtil.BUTTONS.remove(PowerWidgetUtil.BUTTON_FCHARGE);
             }
-
 
             // fill that checkbox map!
             for (PowerWidgetUtil.ButtonInfo button : PowerWidgetUtil.BUTTONS.values()) {
@@ -446,7 +441,6 @@ public class PowerWidget extends SettingsPreferenceFragment implements
                 return val.toString().split(SEPARATOR);
             }
         }
-
     }
 
     public static class PowerWidgetOrder extends ListFragment

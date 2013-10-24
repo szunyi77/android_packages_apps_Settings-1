@@ -33,9 +33,8 @@ import android.provider.Settings.SettingNotFoundException;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-public class PowerMenu extends SettingsPreferenceFragment implements
-                   OnPreferenceChangeListener {
-    private static final String TAG = "PowerMenu";
+public class PowerMenu extends SettingsPreferenceFragment
+    implements OnPreferenceChangeListener {
 
     private static final String KEY_REBOOT = "power_menu_reboot";
     private static final String KEY_SCREENSHOT = "power_menu_screenshot";
@@ -111,7 +110,6 @@ public class PowerMenu extends SettingsPreferenceFragment implements
         mSoundPref = (CheckBoxPreference) findPreference(KEY_SOUND);
         mSoundPref.setChecked((Settings.System.getInt(getContentResolver(),
                 Settings.System.POWER_MENU_SOUND_ENABLED, 1) == 1));
-
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -175,7 +173,6 @@ public class PowerMenu extends SettingsPreferenceFragment implements
         } else {
             return super.onPreferenceTreeClick(preferenceScreen, preference);
         }
-
         return true;
     }
 }

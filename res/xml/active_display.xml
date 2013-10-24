@@ -13,9 +13,11 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
-    android:title="@string/ad_settings_title" >
+
+<PreferenceScreen
+    android:title="@string/active_display_title"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
     <SwitchPreference
         android:key="ad_enable"

@@ -41,8 +41,6 @@
     <string name="advanced_settings_title">Advanced</string>
     <string name="general_settings_title">General</string>
     <string name="style_settings_title">Style</string>
-    <string name="superuser_settings_title">Superuser</string>
-    <string name="tablet_settings_title">Tablet</string>
     <string name="trds_settings_title">Dark Liquid</string>
 
     <!-- LiquidSmooth General -->
@@ -52,7 +50,7 @@
     <string name="notification_settings_title">Notification</string>
     <string name="performance_settings_title">Performance</string>
     <string name="statusbar_settings_title">Statusbar</string>
-    <string name="theme_settings_title">Theme</string>
+    <string name="themes_settings_title">Themes</string>
 
     <!-- LiquidSmooth Advanced -->
     <string name="active_display_title">Active Display</string>
@@ -62,6 +60,66 @@
     <string name="power_menu_title">Power Menu</string>
     <string name="power_widget_title">Power Widget</string>
     <string name="quick_settings_title">Quick Settings</string>
+
+    <!-- Active Display -->
+    <string name="ad_settings_title">Active Display</string>
+    <string name="ad_settings_summary">Change active display settings</string>
+    <string name="ad_enable_title">Enable</string>
+    <string name="ad_enable_summary_on">Active display enabled</string>
+    <string name="ad_enable_summary_off">Active display disabled</string>
+    <string name="ad_text_title">Notification Text</string>
+    <string name="ad_text_summary">Show notification text around ring</string>
+    <string name="ad_all_notifications_title">All Notifications</string>
+    <string name="ad_all_notifications_summary">Show all notifications (ongoing)</string>
+    <string name="ad_hide_low_priority_title">Hide Low Priority</string>
+    <string name="ad_hide_low_priority_summary">Hide low priority notifications</string>
+    <string name="ad_pocket_mode_title">Pocket Mode</string>
+    <string name="ad_pocket_mode_summary">When device is out of pocket</string>
+    <string name="ad_redisplay_title">Redisplay Notifications</string>
+    <string name="ad_sunlight_mode_title">Sunlight Mode</string>
+    <string name="ad_sunlight_mode_summary">Invert colors with sunlight</string>
+    <string name="ad_excluded_apps_title">Exclude Apps</string>
+    <string name="ad_excluded_apps_summary">Excluded apps will not show up</string>
+    <string name="ad_customizations_title">Customizations</string>
+    <string name="ad_brightness_title">Notification Brightness</string>
+    <string name="ad_brightness_summary">Brightness level for displaying</string>
+    <string name="ad_show_date_title">Show Date</string>
+    <string name="ad_show_date_summary">Show the date above the clock</string>
+    <string name="ad_show_ampm_title">Show AM/PM</string>
+    <string name="ad_show_ampm_summary">Show the indicator next to time</string>
+    <string name="ad_redisplay_never">Never</string>
+    <string name="ad_redisplay_1m">1 minute</string>
+    <string name="ad_redisplay_5m">5 minutes</string>
+    <string name="ad_redisplay_15m">15 minutes</string>
+    <string name="ad_redisplay_30m">30 minutes</string>
+    <string name="ad_redisplay_1h">1 hour</string>
+    <string name="ad_redisplay_2h">2 hours</string>
+    <string name="ad_redisplay_5h">5 hours</string>
+    <string name="ad_timeout_title">Display Timeout</string>
+    <string name="ad_timeout_3s">3 seconds</string>
+    <string name="ad_timeout_5s">5 seconds</string>
+    <string name="ad_timeout_8s">8 seconds</string>
+    <string name="ad_timeout_10s">10 seconds</string>
+    <string name="ad_timeout_15s">15 seconds</string>
+    <string name="ad_timeout_25s">25 seconds</string>
+
+    <!-- Animation Controls -->	
+    <string name="title_animation_controls">Custom Animations</string>	
+    <string name="activity_open_title">Activity Open Animation</string>	
+    <string name="activity_close_title">Activity Close Animation</string>	
+    <string name="task_open_title">Task Open Animation</string>	
+    <string name="task_close_title">Task Close Animation</string>	
+    <string name="task_move_to_front_title">Move To Front Animation</string>	
+    <string name="task_move_to_back_title">Move To Back Animation</string>	
+    <string name="wallpaper_open_title">Wallpaper Open Animation</string>	
+    <string name="wallpaper_close_title">Wallpaper Close Animation</string>	
+    <string name="wallpaper_intra_open_title">Wallpaper Intra Open Animation</string>	
+    <string name="wallpaper_intra_close_title">Wallpaper Intra Close Animation</string>	
+    <string name="animation_duration_title">Animation Duration</string>	
+    <string name="title_animation_no_override">Prevent App Overrides</string>	
+    <string name="summary_animation_no_override">Prevent apps from overriding transitions</string>	
+    <string name="animation_duration_default">Default</string>
+    <string name="header_summary_animation">Control system animation transitions</string>
 
     <!-- Color Picker -->
     <string name="dialog_color_picker">Color Picker</string>
@@ -222,6 +280,31 @@
     <string name="custom_density_dialog_button_got">Got It!</string>
     <string name="custom_density_dialog_button_reboot">Reboot Now</string>
 
+    <!-- Listview Animation -->
+    <string name="listview_animation_title">Listview Animation</string>
+    <string name="listview_off">Off</string>
+    <string name="listview_wave_left">Wave (Left)</string>
+    <string name="listview_wave_right">Wave (Right)</string>
+    <string name="listview_alpha">Alpha</string>
+    <string name="listview_scale">Scale</string>
+    <string name="listview_stack_top">Stack (Top)</string>
+    <string name="listview_stack_bottom">Stack (Bottom)</string>
+    <string name="listview_unfold">Unfold</string>
+    <string name="listview_fold">Fold</string>
+    <string name="listview_translate_left">Translate (Left)</string>
+    <string name="listview_translate_right">Translate (Right)</string>
+    <string name="listview_rotate">Rotate</string>
+
+    <!-- Listview Interpolator -->
+    <string name="listview_interpolator_title">Listview Interpolator</string>
+    <string name="listview_accelerate_interpolator">Accelerate</string>
+    <string name="listview_decelerate_interpolator">Decelerate</string>
+    <string name="listview_accelerate_decelerate_interpolator">Accelerate Decelerate</string>
+    <string name="listview_anticipate_interpolator">Anticipate</string>
+    <string name="listview_overshoot_interpolator">Overshoot</string>
+    <string name="listview_anticipate_overshoot_interpolator">Anticipate Overshoot</string>
+    <string name="listview_bounce_interpolator">Bounce</string>
+
     <!-- Lockscreen Activities -->
     <string name="picker_activities">Activities</string>
     <string name="select_custom_app_title">Select Application</string>
@@ -286,7 +369,7 @@
     <string name="slide_lock_delay_10m">10 Minutes</string>
     <string name="slide_lock_delay_30m">30 Minutes</string>
 
-    <!-- Lockscreen General -->
+    <!-- Lockscreen Settings -->
     <string name="lockscreen_auto_rotate_title">Allow Rotation</string>
     <string name="lockscreen_auto_rotate_summary">Lockscreen will be allowed to rotate</string>  
     <string name="lockscreen_no_rotate_summary">Auto rotation is disabled by default</string>
@@ -296,6 +379,11 @@
     <string name="lockscreen_battery_status_alwaysoff">Always Off</string>
     <string name="lockscreen_vibrate_enabled_title">Vibrate</string>
     <string name="lockscreen_vibrate_enabled_head">Vibrate when unlocking your device</string>
+    <string name="lockscreen_glow_torch_title">Glowpad Torch</string>
+    <string name="lockscreen_glow_torch_summary">Longpress center turns on torch</string>
+    <string name="lockscreen_torch_off">Off</string>
+    <string name="lockscreen_torch_lockcircle">Lockring</string>
+    <string name="lockscreen_torch_navring">Navring</string>
 
     <!-- Lockscreen Shortcuts -->
     <string name="lockscreen_shortcuts_title">Shortcuts</string>
@@ -354,7 +442,7 @@
     <string name="battery_around_lockscreen_ring_title">Battery Lock Ring</string>
     <string name="battery_around_lockscreen_ring_summary">Shows battery level around lock ring</string>
 
-    <!-- Navigation -->
+    <!-- Navigation Settings -->
     <string name="navbar_reset">Reset</string>
     <string name="navbar_button_style_reset_message">Reset style entries to default?</string>
     <string name="navbar_dimensions_style_reset_message">Reset style and dimensions to default?</string>
@@ -452,7 +540,7 @@
     <string name="widgets_shifted_right">Widget Shifted Right</string>
     <string name="widgets_shifted_end">Widget Cannot Be Shifted</string>
 
-    <!-- Notification -->
+    <!-- Notification Settings -->
     <string name="notification_wallpaper_title">Portrait Background</string>
     <string name="notification_wallpaper_landscape_title">Landscape Background</string>
     <string name="notification_background_color_fill">Color Fill</string>
@@ -625,66 +713,6 @@
     <string name="brightness_slider_bottom">On Bottom</string>
     <string name="brightness_slider_none">Don\'t Show</string>
 
-    <!-- Active Display -->
-    <string name="ad_settings_title">Active Display</string>
-    <string name="ad_settings_summary">Change active display settings</string>
-    <string name="ad_enable_title">Enable</string>
-    <string name="ad_enable_summary_on">Active display enabled</string>
-    <string name="ad_enable_summary_off">Active display disabled</string>
-    <string name="ad_text_title">Notification Text</string>
-    <string name="ad_text_summary">Show notification text around ring</string>
-    <string name="ad_all_notifications_title">All Notifications</string>
-    <string name="ad_all_notifications_summary">Show all notifications (ongoing)</string>
-    <string name="ad_hide_low_priority_title">Hide Low Priority</string>
-    <string name="ad_hide_low_priority_summary">Hide low priority notifications</string>
-    <string name="ad_pocket_mode_title">Pocket Mode</string>
-    <string name="ad_pocket_mode_summary">When device is out of pocket</string>
-    <string name="ad_redisplay_title">Redisplay Notifications</string>
-    <string name="ad_sunlight_mode_title">Sunlight Mode</string>
-    <string name="ad_sunlight_mode_summary">Invert colors with sunlight</string>
-    <string name="ad_excluded_apps_title">Exclude Apps</string>
-    <string name="ad_excluded_apps_summary">Excluded apps will not show up</string>
-    <string name="ad_customizations_title">Customizations</string>
-    <string name="ad_brightness_title">Notification Brightness</string>
-    <string name="ad_brightness_summary">Brightness level for displaying</string>
-    <string name="ad_show_date_title">Show Date</string>
-    <string name="ad_show_date_summary">Show the date above the clock</string>
-    <string name="ad_show_ampm_title">Show AM/PM</string>
-    <string name="ad_show_ampm_summary">Show the indicator next to time</string>
-    <string name="ad_redisplay_never">Never</string>
-    <string name="ad_redisplay_1m">1 minute</string>
-    <string name="ad_redisplay_5m">5 minutes</string>
-    <string name="ad_redisplay_15m">15 minutes</string>
-    <string name="ad_redisplay_30m">30 minutes</string>
-    <string name="ad_redisplay_1h">1 hour</string>
-    <string name="ad_redisplay_2h">2 hours</string>
-    <string name="ad_redisplay_5h">5 hours</string>
-    <string name="ad_timeout_title">Display Timeout</string>
-    <string name="ad_timeout_3s">3 seconds</string>
-    <string name="ad_timeout_5s">5 seconds</string>
-    <string name="ad_timeout_8s">8 seconds</string>
-    <string name="ad_timeout_10s">10 seconds</string>
-    <string name="ad_timeout_15s">15 seconds</string>
-    <string name="ad_timeout_25s">25 seconds</string>
-
-    <!-- Animation Controls -->	
-    <string name="title_animation_controls">Custom Animations</string>	
-    <string name="activity_open_title">Activity Open Animation</string>	
-    <string name="activity_close_title">Activity Close Animation</string>	
-    <string name="task_open_title">Task Open Animation</string>	
-    <string name="task_close_title">Task Close Animation</string>	
-    <string name="task_move_to_front_title">Move To Front Animation</string>	
-    <string name="task_move_to_back_title">Move To Back Animation</string>	
-    <string name="wallpaper_open_title">Wallpaper Open Animation</string>	
-    <string name="wallpaper_close_title">Wallpaper Close Animation</string>	
-    <string name="wallpaper_intra_open_title">Wallpaper Intra Open Animation</string>	
-    <string name="wallpaper_intra_close_title">Wallpaper Intra Close Animation</string>	
-    <string name="animation_duration_title">Animation Duration</string>	
-    <string name="title_animation_no_override">Prevent App Overrides</string>	
-    <string name="summary_animation_no_override">Prevent apps from overriding transitions</string>	
-    <string name="animation_duration_default">Default</string>
-    <string name="header_summary_animation">Control system animation transitions</string>
-
     <!-- QuickSettings Style -->
     <string name="quicksettings_tiles_style">Quicksettings Style</string>
     <string name="quicksettings_tiles_category">Style</string>
@@ -793,12 +821,7 @@
     <string name="clear_recents_position_top_right">Top Right</string>
     <string name="clear_recents_position_top_left">Top Left</string>
 
-    <!-- Shortcuts -->
-    <string name="use_custom_app_title">Use custom application</string>
-    <string name="use_custom_app_summary">Use custom application instead of the recent applications dialog</string>
-    <string name="group_applications">Applications</string>
-
-    <!-- Statusbar -->
+    <!-- Statusbar Settings -->
     <string name="status_bar_style_title">Style</string>
     <string name="status_bar_style_icon">Signal Bars</string>
     <string name="status_bar_style_hidden">Hidden</string>
@@ -816,7 +839,6 @@
     <string name="icon_color_behavior_summary">Apply color filter to system icons</string>
     <string name="status_bar_icon_color_reset">Reset icon color</string>
     <string name="status_icon_color_summary">Choose Custom Color</string>
-
     <string name="show_network_speed">Network Speed Indicator</string>
     <string name="show_network_speed_summary">Show network speed in statusbar</string>
     <string name="status_bar_network_title">Network Traffic</string>
@@ -827,8 +849,6 @@
     <string name="status_bar_network_stats_update_title">Update Frequency</string>
     <string name="show_lte_or_fourgee_title">Show 4G Icon</string>
     <string name="show_lte_or_fourgee_summary">Use 4G network icon instead of LTE</string>
-
-    <!-- Statusbar Autohide -->
     <string name="auto_hide_statusbar">Autohide Statusbar</string>
     <string name="auto_hide_statusbar_summary_nonperm">if no non-permanent notifications</string>
     <string name="auto_hide_statusbar_summary_all">if no notifications are present</string>
@@ -836,15 +856,13 @@
     <string name="auto_hide_statusbar_nonperm">Non-Permanent Only</string>
     <string name="auto_hide_statusbar_all">All Notifications</string>
 
-    <!-- Statusbar Battery Bar -->
+    <!-- Statusbar Battery -->
     <string name="battery_bar">Battery Bar Location</string>
     <string name="battery_bar_color">Battery Bar Color</string>
     <string name="battery_bar_style_title">Battery Bar Alignment</string>
     <string name="battery_bar_thickness_title">Battery Bar Thickness</string>
     <string name="battery_bar_animate_title">Charging Animation</string>
     <string name="battery_bar_animate_summary">Performance may significantly decline</string>
-
-    <!-- Statusbar Battery Circle -->
     <string name="circle_battery_color">Circle Color</string>
     <string name="battery_text_color">Percent Text Color</string>
     <string name="battery_text_charging_color">Percent Text Charging Color</string>
@@ -857,8 +875,6 @@
     <string name="status_bar_battery_style_reset_message">Reset battery colors?</string>
     <string name="status_bar_clock_style_reset_message">Reset clock color?</string>
     <string name="status_bar_style_reset_message">Reset statusbar style?</string>
-
-    <!-- Statusbar Battery Icon -->
     <string name="battery_icon_cat">Style</string>
     <string name="status_bar_battery_title">Battery Icon</string>
     <string name="status_bar_battery_icon_bar_title">Battery Icon</string>
@@ -1015,36 +1031,4 @@
     <string name="icon_color_mode_all_icons">All Icons</string>
     <string name="icon_color_mode_system_icons">System Icons</string>
     <string name="icon_color_mode_system_custom_icons">Both Icon Styles</string>
-
-    <!-- ListView animation -->
-    <string name="listview_animation_title">ListView Animation</string>
-    <string name="listview_off">Off</string>
-    <string name="listview_wave_left">Wave (Left)</string>
-    <string name="listview_wave_right">Wave (Right)</string>
-    <string name="listview_alpha">Alpha</string>
-    <string name="listview_scale">Scale</string>
-    <string name="listview_stack_top">Stack (Top)</string>
-    <string name="listview_stack_bottom">Stack (Bottom)</string>
-    <string name="listview_unfold">Unfold</string>
-    <string name="listview_fold">Fold</string>
-    <string name="listview_translate_left">Translate (Left)</string>
-    <string name="listview_translate_right">Translate (Right)</string>
-    <string name="listview_rotate">Rotate</string>
-
-    <!-- ListView interpolator -->
-    <string name="listview_interpolator_title">ListView Interpolator</string>
-    <string name="listview_accelerate_interpolator">Accelerate</string>
-    <string name="listview_decelerate_interpolator">Decelerate</string>
-    <string name="listview_accelerate_decelerate_interpolator">Accelerate Decelerate</string>
-    <string name="listview_anticipate_interpolator">Anticipate</string>
-    <string name="listview_overshoot_interpolator">Overshoot</string>
-    <string name="listview_anticipate_overshoot_interpolator">Anticipate Overshoot</string>
-    <string name="listview_bounce_interpolator">Bounce</string>
-
-    <!-- Glowpad Torch -->
-    <string name="lockscreen_glow_torch_title">Glowpad Torch</string>
-    <string name="lockscreen_glow_torch_summary">Longpress center turns on torch</string>
-    <string name="lockscreen_torch_off">Off</string>
-    <string name="lockscreen_torch_lockcircle">Lockring</string>
-    <string name="lockscreen_torch_navring">Navring</string>
 </resources>
