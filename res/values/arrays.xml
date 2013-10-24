@@ -968,16 +968,6 @@
         <item>Always allow</item>
     </string-array>
 
-  <!-- Values for premium SMS permission selector [CHAR LIMIT=30] -->
-    <string-array name="security_settings_premium_sms_values">
-        <!-- Ask user before sending to premium SMS short code. -->
-        <item>Ask</item>
-        <!-- Never allow app to send to premium SMS short code. -->
-        <item>Never allow</item>
-        <!-- Always allow app to send to premium SMS short code. -->
-        <item>Always allow</item>
-    </string-array>
-
     <!-- Blacklist Preferences -->
     <string-array name="blacklist_policy_unknown_entries" translatable="false">
         <item>@string/blacklist_policy_block_calls</item>
@@ -1043,13 +1033,6 @@
         <item>0</item>
         <item>1</item>
         <item>2</item>
-    </string-array>
-
-    <!--- Volume key cursor control -->
-    <string-array name="volume_key_cursor_control_entries">
-        <item>@string/volume_key_cursor_control_off</item>
-        <item>@string/volume_key_cursor_control_on</item>
-        <item>@string/volume_key_cursor_control_on_reverse</item>
     </string-array>
 
     <!-- Profile mode options. -->

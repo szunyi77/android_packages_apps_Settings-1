@@ -63,24 +63,19 @@ public class InterfaceSettings extends SettingsPreferenceFragment
     private static final String KEY_CARRIER_LABEL = "custom_carrier_label";
     private static final String KEY_FORCE_DUAL_PANE = "force_dual_pane";
     private static final String KEY_HARDWARE_KEYS = "hardware_keys";
-    private static final String KEY_NOTIF_STYLE = "notification_style";
     private static final String KEY_USE_ALT_RESOLVER = "use_alt_resolver";
     private static final String KEY_RECENTS_RAM_BAR = "recents_ram_bar";
     private static final String KEY_VIBRATION_MULTIPLIER = "vibrator_multiplier";
     private static final String KEY_LOW_BATTERY_WARNING_POLICY = "pref_low_battery_warning_policy";
-    private static final String KEY_HALO_OPTIONS = "halo_options";
-    private static final String KEY_TABLET_SETTINGS = "tablet_settings";
     private static final String KEY_LISTVIEW_ANIMATION = "listview_animation";
     private static final String KEY_LISTVIEW_INTERPOLATOR = "listview_interpolator";
 
     private CheckBoxPreference mUseAltResolver;
     private CheckBoxPreference mDualPane;
-    private PreferenceCategory mAdvanced;
     private Preference mCustomLabel;
-    private Preference mNotifStyle;
-    private Preference mHaloOptions;
-    private Preference mTabletSettings;
+    private Preference mLcdDensity;
     private Preference mRamBar;
+    private PreferenceCategory mAdvanced;
     private ListPreference mVibrationMultiplier;
     private ListPreference mLowBatteryWarning;
     private ListPreference mListViewAnimation;
@@ -170,10 +165,6 @@ public class InterfaceSettings extends SettingsPreferenceFragment
             // Let's assume they don't have hardware keys
             mAdvanced.removePreference(findPreference(KEY_HARDWARE_KEYS));
         }
-        // Load preferences
-        mNotifStyle = findPreference(KEY_NOTIF_STYLE);
-        mHaloOptions = findPreference(KEY_HALO_OPTIONS);
-        mTabletSettings = findPreference(KEY_TABLET_SETTINGS);
     }
 
     private void updateCustomLabelTextSummary() {
@@ -284,7 +275,6 @@ public class InterfaceSettings extends SettingsPreferenceFragment
                     // Canceled.
                 }
             });
-
             alert.show();
             return true;
         }

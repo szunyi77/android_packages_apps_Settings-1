@@ -535,7 +535,6 @@
     <string name="widgets_delete_message">Delete current widget?</string>
     <string name="widgets_shift_left">Shift Left</string>
     <string name="widgets_shift_right">Shift Right</string>
-    <string name="widgets_delete">Delete</string>
     <string name="widgets_shifted_left">Widget Shifted Left</string>
     <string name="widgets_shifted_right">Widget Shifted Right</string>
     <string name="widgets_shifted_end">Widget Cannot Be Shifted</string>
@@ -969,6 +968,9 @@
     <string name="shortcut_action_help_main">To add a %1$s, select the add icon. Once a %1$s is added, selecting the row will change the target%2$s\n\nTo remove a %1$s, swipe the row horizontally left or right. Re-order a %1$s in the list by vertically dragging the anchor on the left.\n\nTo clear or reset to defaults, select the reset icon.</string>
     <string name="shortcut_action_help_delete_last_entry">Removing every %1$s in the list will disable the feature entirely</string>
     <string name="shortcut_action_help">Help</string>
+    <string name="use_custom_app_title">Use custom application</string>
+    <string name="use_custom_app_summary">Use custom application instead of the recent applications dialog</string>
+    <string name="group_applications">Applications</string>
 
     <!-- Shortcut Icons -->
     <string name="icon_picker_type">Select Icon Type:</string>
@@ -1031,4 +1033,5 @@
     <string name="icon_color_mode_all_icons">All Icons</string>
     <string name="icon_color_mode_system_icons">System Icons</string>
     <string name="icon_color_mode_system_custom_icons">Both Icon Styles</string>
+
 </resources>

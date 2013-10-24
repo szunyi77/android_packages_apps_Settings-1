@@ -29,7 +29,7 @@ import com.android.settings.R;
 import com.android.settings.Utils;
 import com.android.settings.SettingsPreferenceFragment;
 
-public class NavbarSettings extends SettingsPreferenceFragment
+public class NavigationSettings extends SettingsPreferenceFragment
     implements OnPreferenceChangeListener {
 
     private static final String PREF_MENU_LOCATION = "pref_navbar_menu_location";

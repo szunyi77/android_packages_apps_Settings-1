@@ -52,7 +52,7 @@ import net.margaritov.preference.colorpicker.ColorPickerView;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
 public class LockscreenSettings extends SettingsPreferenceFragment
-    implements OnPreferenceChangeListener {
+    implements Preference.OnPreferenceChangeListener {
 
     private static final int LOCKSCREEN_BACKGROUND = 1024;
     private static final String KEY_ADDITIONAL_OPTIONS = "options_group";

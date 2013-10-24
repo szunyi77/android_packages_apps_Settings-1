@@ -63,6 +63,7 @@ import java.util.List;
 public class NotificationSettings extends SettingsPreferenceFragment
     implements OnPreferenceChangeListener {
 
+    private static final String TAG = "NavigationSettings";
     private static final String PREF_NOTIFICATION_SHOW_WIFI_SSID = "notification_show_wifi_ssid";
     private static final String PREF_NOTIFICATION_SETTINGS_BTN = "notification_settings_btn";
     private static final String PREF_NOTIFICATION_BEHAVIOUR = "notifications_behaviour";

@@ -36,6 +36,7 @@ import com.android.settings.SettingsPreferenceFragment;
 public class PowerMenu extends SettingsPreferenceFragment
     implements OnPreferenceChangeListener {
 
+    private static final String TAG = "PowerMenu";
     private static final String KEY_REBOOT = "power_menu_reboot";
     private static final String KEY_SCREENSHOT = "power_menu_screenshot";
     private static final String KEY_TORCH = "power_menu_torch";
