@@ -59,7 +59,6 @@ import com.android.settings.SettingsPreferenceFragment;
 public class InterfaceSettings extends SettingsPreferenceFragment
     implements OnPreferenceChangeListener {
 
-    public static final String TAG = "UserInterface";
     private static final String ADVANCED_SETTINGS = "interface_advanced";
     private static final String KEY_CARRIER_LABEL = "custom_carrier_label";
     private static final String KEY_FORCE_DUAL_PANE = "force_dual_pane";

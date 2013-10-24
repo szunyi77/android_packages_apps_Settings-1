@@ -25,14 +25,13 @@ import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
 
-import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.R;
 import com.android.settings.Utils;
+import com.android.settings.SettingsPreferenceFragment;
 
-public class NavbarSettings extends SettingsPreferenceFragment implements
-        OnPreferenceChangeListener {
+public class NavbarSettings extends SettingsPreferenceFragment
+    implements OnPreferenceChangeListener {
 
-    private static final String TAG = "NavBar";
     private static final String PREF_MENU_LOCATION = "pref_navbar_menu_location";
     private static final String PREF_NAVBAR_MENU_DISPLAY = "pref_navbar_menu_display";
     private static final String ENABLE_NAVIGATION_BAR = "enable_nav_bar";
@@ -58,21 +57,19 @@ public class NavbarSettings extends SettingsPreferenceFragment implements
         super.onCreate(savedInstanceState);
 
         // Load the preferences from an XML resource
-        addPreferencesFromResource(R.xml.navbar_settings);
+        addPreferencesFromResource(R.xml.navigation_settings);
 
         PreferenceScreen prefs = getPreferenceScreen();
 
         mMenuDisplayLocation = (ListPreference) findPreference(PREF_MENU_LOCATION);
         mMenuDisplayLocation.setOnPreferenceChangeListener(this);
         mMenuDisplayLocation.setValue(Settings.System.getInt(getActivity()
-                .getContentResolver(), Settings.System.MENU_LOCATION,
-                0) + "");
+                .getContentResolver(), Settings.System.MENU_LOCATION, 0) + "");
 
         mNavBarMenuDisplay = (ListPreference) findPreference(PREF_NAVBAR_MENU_DISPLAY);
         mNavBarMenuDisplay.setOnPreferenceChangeListener(this);
         mNavBarMenuDisplayValue = Settings.System.getInt(getActivity()
-                .getContentResolver(), Settings.System.MENU_VISIBILITY,
-                2);
+                .getContentResolver(), Settings.System.MENU_VISIBILITY, 2);
         mNavBarMenuDisplay.setValue(mNavBarMenuDisplayValue + "");
 
         mButtonPreference = (PreferenceScreen) findPreference(PREF_BUTTON);

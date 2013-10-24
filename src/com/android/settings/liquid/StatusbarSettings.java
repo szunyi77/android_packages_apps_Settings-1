@@ -42,10 +42,8 @@ import com.android.settings.util.CMDProcessor;
 import com.android.settings.SettingsPreferenceFragment;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
-public class StatusBar extends SettingsPreferenceFragment
-        implements OnPreferenceChangeListener {
-
-    private static final String TAG = "StatusBar";
+public class StatusbarSettings extends SettingsPreferenceFragment
+    implements OnPreferenceChangeListener {
 
     private static final String STATUS_BAR_SIGNAL = "status_bar_signal";
     private static final String STATUS_BAR_NOTIFICATION_COUNT = "status_bar_notification_count";
@@ -88,7 +86,7 @@ public class StatusBar extends SettingsPreferenceFragment
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        addPreferencesFromResource(R.xml.status_bar_general);
+        addPreferencesFromResource(R.xml.statusbar_settings);
 
         PreferenceScreen prefSet = getPreferenceScreen();
 
@@ -196,7 +194,7 @@ public class StatusBar extends SettingsPreferenceFragment
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.status_bar_general, menu);
+        inflater.inflate(R.menu.statusbar_settings, menu);
     }
 
     @Override

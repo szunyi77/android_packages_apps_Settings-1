@@ -32,24 +32,36 @@
     <string name="liquid_source_summary">Source at http://github.com/LiquidSmooth\nLiquidSmooth is fully open source code</string>
     <string name="liquid_website_summary">http://goo.im/devs/liquidsmooth\nFind all the latest builds and news here</string>
 
-    <!-- LiquidSmooth Settings -->
-    <string name="superuser">Superuser</string>
+    <!-- LiquidSmooth Headers -->
+    <string name="header_category_general">GENERAL</string>
+    <string name="header_category_advanced">ADVANCED</string>
+
+    <!-- LiquidSmooth Titles -->
+    <string name="additional_settings_title">Additional</string>
     <string name="advanced_settings_title">Advanced</string>
     <string name="general_settings_title">General</string>
     <string name="style_settings_title">Style</string>
-    <string name="user_interface_title">Interface</string>
-    <string name="lock_screen_title">Lockscreen</string>
-    <string name="navigation_title">Navigation</string>
-    <string name="performance_title">Performance</string>
-    <string name="pie_control_title">Pie Controls</string>
+    <string name="superuser_settings_title">Superuser</string>
+    <string name="tablet_settings_title">Tablet</string>
+    <string name="trds_settings_title">Dark Liquid</string>
+
+    <!-- LiquidSmooth General -->
+    <string name="interface_settings_title">Interface</string>
+    <string name="lockscreen_settings_title">Lockscreen</string>
+    <string name="navigation_settings_title">Navigation</string>
+    <string name="notification_settings_title">Notification</string>
+    <string name="performance_settings_title">Performance</string>
+    <string name="statusbar_settings_title">Statusbar</string>
+    <string name="theme_settings_title">Theme</string>
+
+    <!-- LiquidSmooth Advanced -->
+    <string name="active_display_title">Active Display</string>
+    <string name="animation_controls_title">Animation Controls</string>
+    <string name="halo_options_title">HALO Options</string>
+    <string name="pie_control_title">Pie Control</string>
     <string name="power_menu_title">Power Menu</string>
     <string name="power_widget_title">Power Widget</string>
-    <string name="quick_settings_title">QuickSettings</string>
-    <string name="status_bar_title">Statusbar</string>
-    <string name="tablet_settings_title">Tablet</string>
-    <string name="themes_settings_title">Themes</string>
-    <string name="additional_settings_title">Additional</string>
-    <string name="trds_settings_title">Dark Liquid</string>
+    <string name="quick_settings_title">Quick Settings</string>
 
     <!-- Color Picker -->
     <string name="dialog_color_picker">Color Picker</string>
@@ -61,6 +73,43 @@
     <string name="hex_hint">#ff000000</string>
     <string name="set">Set</string>
     <string name="ok">OK</string>
+
+    <!-- Hardware Keys -->
+    <string name="hardware_keys_bindings_title">Actions</string>
+    <string name="hardware_keys_enable_custom_title">Enable Custom Actions</string>
+    <string name="hardware_keys_home_press_title">Press Home Key</string>
+    <string name="hardware_keys_home_long_press_title">Longpress Home Key</string>
+    <string name="hardware_keys_back_press_title">Press Back Key</string>
+    <string name="hardware_keys_back_long_press_title">Longpress Back Key</string>
+    <string name="hardware_keys_menu_press_title">Press Menu Key</string>
+    <string name="hardware_keys_menu_long_press_title">Longpress Menu Key</string>
+    <string name="hardware_keys_assist_press_title">Press Search Key</string>
+    <string name="hardware_keys_assist_long_press_title">Longpress Search Key</string>
+    <string name="hardware_keys_app_switch_press_title">Press Appswitch Key</string>
+    <string name="hardware_keys_app_switch_long_press_title">Longpress Appswitch Key</string>
+    <string name="hardware_keys_camera_press_title">Camera Key</string>
+    <string name="hardware_keys_camera_long_press_title">Longpress Camera Key</string>
+    <string name="hardware_keys_show_overflow_title">Show Action Overflow</string>
+    <string name="hardware_keys_show_overflow_summary">Display the 3-dot overflow menu button</string>
+    <string name="hardware_keys_show_overflow_toast_enable">The action overflow button may not be visible until apps are restarted</string>
+    <string name="hardware_keys_show_overflow_toast_disable">The action overflow button may not be hidden until apps are restarted</string>
+    <string name="hardware_keys_action_nothing">None</string>
+    <string name="hardware_keys_action_home">Home</string>
+    <string name="hardware_keys_action_back">Back</string>
+    <string name="hardware_keys_action_menu">Menu</string>
+    <string name="hardware_keys_action_app_switch">Recents</string>
+    <string name="hardware_keys_action_search">Search</string>
+    <string name="hardware_keys_action_voice_search">Voice Search</string>
+    <string name="hardware_keys_action_in_app_search">In-App Search</string>
+    <string name="hardware_keys_action_power">Screen Off</string>
+    <string name="hardware_keys_action_notifications">Notifications</string>
+    <string name="hardware_keys_action_expanded">Expanded Desktop</string>
+    <string name="hardware_keys_action_kill_app">Kill App</string>
+    <string name="hardware_keys_action_last_app">Last App</string>
+    <string name="hardware_keys_action_custom_app">Custom App</string>
+    <string name="hardware_keys_action_widgets">Widgets Viewpager</string>
+    <string name="hardware_keys_action_quicksettings">Quicksettings</string>
+    <string name="hardware_keys_action_camera">Camera</string>
 
     <!-- HALO Options -->
     <string name="halo_enabled_title">Enable HALO</string>
@@ -109,43 +158,6 @@
     <string name="popups_title">Allow Floating Windows</string>
     <string name="popups_summary">Controls whether you want floating windows</string>
 
-    <!-- Hardware Keys -->
-    <string name="hardware_keys_bindings_title">Actions</string>
-    <string name="hardware_keys_enable_custom_title">Enable Custom Actions</string>
-    <string name="hardware_keys_home_press_title">Press Home Key</string>
-    <string name="hardware_keys_home_long_press_title">Longpress Home Key</string>
-    <string name="hardware_keys_back_press_title">Press Back Key</string>
-    <string name="hardware_keys_back_long_press_title">Longpress Back Key</string>
-    <string name="hardware_keys_menu_press_title">Press Menu Key</string>
-    <string name="hardware_keys_menu_long_press_title">Longpress Menu Key</string>
-    <string name="hardware_keys_assist_press_title">Press Search Key</string>
-    <string name="hardware_keys_assist_long_press_title">Longpress Search Key</string>
-    <string name="hardware_keys_app_switch_press_title">Press Appswitch Key</string>
-    <string name="hardware_keys_app_switch_long_press_title">Longpress Appswitch Key</string>
-    <string name="hardware_keys_camera_press_title">Camera Key</string>
-    <string name="hardware_keys_camera_long_press_title">Longpress Camera Key</string>
-    <string name="hardware_keys_show_overflow_title">Show Action Overflow</string>
-    <string name="hardware_keys_show_overflow_summary">Display the 3-dot overflow menu button</string>
-    <string name="hardware_keys_show_overflow_toast_enable">The action overflow button may not be visible until apps are restarted</string>
-    <string name="hardware_keys_show_overflow_toast_disable">The action overflow button may not be hidden until apps are restarted</string>
-    <string name="hardware_keys_action_nothing">None</string>
-    <string name="hardware_keys_action_home">Home</string>
-    <string name="hardware_keys_action_back">Back</string>
-    <string name="hardware_keys_action_menu">Menu</string>
-    <string name="hardware_keys_action_app_switch">Recents</string>
-    <string name="hardware_keys_action_search">Search</string>
-    <string name="hardware_keys_action_voice_search">Voice Search</string>
-    <string name="hardware_keys_action_in_app_search">In-App Search</string>
-    <string name="hardware_keys_action_power">Screen Off</string>
-    <string name="hardware_keys_action_notifications">Notifications</string>
-    <string name="hardware_keys_action_expanded">Expanded Desktop</string>
-    <string name="hardware_keys_action_kill_app">Kill App</string>
-    <string name="hardware_keys_action_last_app">Last App</string>
-    <string name="hardware_keys_action_custom_app">Custom App</string>
-    <string name="hardware_keys_action_widgets">Widgets Viewpager</string>
-    <string name="hardware_keys_action_quicksettings">Quicksettings</string>
-    <string name="hardware_keys_action_camera">Camera</string>
-
     <!-- Icon Picker -->
     <string name="icon_picker_title">Icon Source</string>
     <string name="icon_picker_system_icons_title">System Icons</string>
@@ -157,19 +169,15 @@
     <string name="clock_widget_summary">View or change the clock widget options</string>
     <string name="hardware_keys_title">Hardware Keys</string>
     <string name="hardware_keys_summary">View or change the hardware key bindings</string>
-    <string name="halo_options_title">HALO Options</string>
-    <string name="halo_options_summary">View or change HALO activities or tasks</string>
-    <string name="notification_drawer_title">Notification Drawer</string>
-    <string name="notification_drawer_summary">Customize notification drawer and style</string>
     <string name="recents_rambar_title">Recents Rambar</string>
     <string name="recents_rambar_summary">View or customize recents rambar style</string>
-    <string name="tablet_settings_title">Tablet Settings</string>
-    <string name="tablet_settings_summary">Simulate or customize tablet interface</string>
     <string name="alt_resolver">Default App Grid</string>
     <string name="alt_resolver_summary">Use alternate default app picker</string>
     <string name="custom_carrier_label_title">Custom Carrier Label</string>
     <string name="custom_carrier_label_explain">Please enter a new label. Enter an empty label to revert to stock.</string>
     <string name="custom_carrier_label_notset">Custom label currently not set</string>
+    <string name="force_dual_pane_title">Force Dual Panel</string>
+    <string name="force_dual_pane_summary">Restart settings to apply this change</string>
     <string name="pref_low_battery_warning_policy_title">Low Battery Warning</string>
     <string name="pref_low_battery_warning_policy_dialog_title">Indicate low battery warning with</string>
     <string name="low_battery_warning_policy_popup_sound">Pop-up and Sound</string>
@@ -444,7 +452,7 @@
     <string name="widgets_shifted_right">Widget Shifted Right</string>
     <string name="widgets_shifted_end">Widget Cannot Be Shifted</string>
 
-    <!-- Notification Drawer -->
+    <!-- Notification -->
     <string name="notification_wallpaper_title">Portrait Background</string>
     <string name="notification_wallpaper_landscape_title">Landscape Background</string>
     <string name="notification_background_color_fill">Color Fill</string>
@@ -902,10 +910,6 @@
     <string name="status_nav_bar_colormode_summary">Colorize navbar and statusbar</string>
     <string name="status_bar_style_reset">Reset</string>
 
-    <!-- Tablet Settings -->
-    <string name="force_dual_pane_title">Force Dual Panel</string>
-    <string name="force_dual_pane_summary">Restart settings to apply this change</string>
-
     <!-- Shortcut Actions -->
     <string name="shortcut_action_app">Custom App</string>
     <string name="shortcut_action_home">Home</string>
@@ -1037,7 +1041,7 @@
     <string name="listview_anticipate_overshoot_interpolator">Anticipate Overshoot</string>
     <string name="listview_bounce_interpolator">Bounce</string>
 
-    <!-- Glowpad torch -->
+    <!-- Glowpad Torch -->
     <string name="lockscreen_glow_torch_title">Glowpad Torch</string>
     <string name="lockscreen_glow_torch_summary">Longpress center turns on torch</string>
     <string name="lockscreen_torch_off">Off</string>

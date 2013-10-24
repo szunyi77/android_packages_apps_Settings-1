@@ -60,11 +60,9 @@ import net.margaritov.preference.colorpicker.ColorPickerView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NotificationDrawer extends SettingsPreferenceFragment implements
-        OnPreferenceChangeListener {
+public class NotificationSettings extends SettingsPreferenceFragment
+    implements OnPreferenceChangeListener {
 
-    private static final String TAG = "NotificationDrawer";
-    
     private static final String PREF_NOTIFICATION_SHOW_WIFI_SSID = "notification_show_wifi_ssid";
     private static final String PREF_NOTIFICATION_SETTINGS_BTN = "notification_settings_btn";
     private static final String PREF_NOTIFICATION_BEHAVIOUR = "notifications_behaviour";
@@ -104,7 +102,7 @@ public class NotificationDrawer extends SettingsPreferenceFragment implements
         mActivity = getActivity();
 
         // Load the preferences from an XML resource
-        addPreferencesFromResource(R.xml.notification_drawer);
+        addPreferencesFromResource(R.xml.notification_settings);
 
         PreferenceScreen prefs = getPreferenceScreen();
 
@@ -258,7 +256,7 @@ public class NotificationDrawer extends SettingsPreferenceFragment implements
                } catch (Exception e) {
                      Log.e(TAG, e.getMessage(), e);
                }
-            }else if (requestCode == REQUEST_PICK_WALLPAPER_LANDSCAPE) {
+            } else if (requestCode == REQUEST_PICK_WALLPAPER_LANDSCAPE) {
               FileOutputStream wallpaperStream = null;
               Settings.System.putString(getContentResolver(),
                       Settings.System.NOTIFICATION_BACKGROUND_LANDSCAPE,"");
@@ -440,4 +438,3 @@ public class NotificationDrawer extends SettingsPreferenceFragment implements
         return false;
     }
 }
-

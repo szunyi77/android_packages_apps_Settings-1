@@ -34,7 +34,7 @@ import com.android.internal.util.liquid.AnimationHelper;
 import java.util.Arrays;
 
 public class AnimationControls extends SettingsPreferenceFragment
-        implements OnPreferenceChangeListener {
+    implements OnPreferenceChangeListener {
 
     private static final String ACTIVITY_OPEN = "activity_open";
     private static final String ACTIVITY_CLOSE = "activity_close";
@@ -72,7 +72,7 @@ public class AnimationControls extends SettingsPreferenceFragment
         setTitle(R.string.title_animation_controls);
 
         // Load the preferences from an XML resource
-        addPreferencesFromResource(R.xml.prefs_animation_controls);
+        addPreferencesFromResource(R.xml.animation_controls);
 
         PreferenceScreen prefs = getPreferenceScreen();
         mAnimations = AnimationHelper.getAnimationsList();
@@ -248,4 +248,3 @@ public class AnimationControls extends SettingsPreferenceFragment
         return mAnimationsStrings[mNum];
     }
 }
-

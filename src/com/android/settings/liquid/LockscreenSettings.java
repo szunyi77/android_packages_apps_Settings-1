@@ -38,24 +38,23 @@ import android.view.Display;
 import android.view.Window;
 import android.widget.Toast;
 
-import com.android.internal.view.RotationPolicy;
-import com.android.internal.widget.multiwaveview.GlowPadView;
 import com.android.settings.R;
-import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
+import com.android.internal.view.RotationPolicy;
 import com.android.settings.widget.SeekBarPreference;
+import com.android.internal.widget.multiwaveview.GlowPadView;
+import com.android.settings.SettingsPreferenceFragment;
 
 import java.io.File;
 import java.io.IOException;
 
-import net.margaritov.preference.colorpicker.ColorPickerPreference;
 import net.margaritov.preference.colorpicker.ColorPickerView;
+import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
-public class LockscreenInterface extends SettingsPreferenceFragment implements Preference.OnPreferenceChangeListener {
-    private static final String TAG = "LockscreenInterface";
+public class LockscreenSettings extends SettingsPreferenceFragment
+    implements OnPreferenceChangeListener {
 
     private static final int LOCKSCREEN_BACKGROUND = 1024;
-
     private static final String KEY_ADDITIONAL_OPTIONS = "options_group";
     private static final String KEY_SLIDER_OPTIONS = "slider_group";
     private static final String KEY_WIDGET_OPTIONS = "lockscreen_widgets_group";
@@ -81,7 +80,6 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements P
     private Preference mShortcuts;
 
     private boolean mIsScreenLarge;
-
     private boolean mCheckPreferences;
 
     private Activity mActivity;
@@ -101,7 +99,6 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements P
         mResolver = mActivity.getContentResolver();
 
         mIsScreenLarge = Utils.isTablet(getActivity());
-
         createCustomLockscreenView();
     }
 
@@ -112,7 +109,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements P
             prefs.removeAll();
         }
 
-        addPreferencesFromResource(R.xml.lockscreen_interface_settings);
+        addPreferencesFromResource(R.xml.lockscreen_settings);
         prefs = getPreferenceScreen();
 
         mAdditionalOptions = (PreferenceCategory) prefs.findPreference(KEY_ADDITIONAL_OPTIONS);
@@ -199,7 +196,6 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements P
         mCheckPreferences = true;
         return prefs;
     }
-
 
     @Override
     public void onResume() {
