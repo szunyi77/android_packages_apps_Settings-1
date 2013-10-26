@@ -140,12 +140,6 @@ public class HaloOptions extends SettingsPreferenceFragment
         mHaloPause.setChecked(Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.HALO_PAUSE, isLowRAM) == 1);
 
-        int showPopups = Settings.System.getInt(mContext.getContentResolver(),
-                Settings.System.WE_WANT_POPUPS, 1);
-        mWeWantPopups = (CheckBoxPreference) findPreference(KEY_WE_WANT_POPUPS);
-        mWeWantPopups.setOnPreferenceChangeListener(this);
-        mWeWantPopups.setChecked(showPopups > 0);
-
         mHaloReversed = (CheckBoxPreference) prefSet.findPreference(KEY_HALO_REVERSED);
         mHaloReversed.setChecked(Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.HALO_REVERSED, 1) == 1);
@@ -163,6 +157,10 @@ public class HaloOptions extends SettingsPreferenceFragment
         mHaloColors = (CheckBoxPreference) findPreference(KEY_HALO_COLORS);
         mHaloColors.setChecked(Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.HALO_COLORS, 0) == 1);
+
+        mWeWantPopups = (CheckBoxPreference) findPreference(KEY_WE_WANT_POPUPS);
+        mWeWantPopups.setChecked(Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.WE_WANT_POPUPS, 1) == 1);
 
         mHaloEffectColor = (ColorPickerPreference) prefSet.findPreference(KEY_HALO_EFFECT_COLOR);
         mHaloEffectColor.setOnPreferenceChangeListener(this);
@@ -212,6 +210,10 @@ public class HaloOptions extends SettingsPreferenceFragment
         } else if (preference == mHaloColors) {
             Settings.System.putInt(mContext.getContentResolver(),
                     Settings.System.HALO_COLORS, mHaloColors.isChecked() ? 1 : 0);
+            CMDProcessor.restartSystemUI();
+        } else if (preference == mWeWantPopups) {
+            Settings.System.putInt(mContext.getContentResolver(),
+                    Settings.System.WE_WANT_POPUPS, mWeWantPopups.isChecked() ? 1 : 0);
             CMDProcessor.restartSystemUI();
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
@@ -275,11 +277,6 @@ public class HaloOptions extends SettingsPreferenceFragment
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.HALO_BUBBLE_TEXT_COLOR, intHex);
-            return true;
-        } else if (preference == mWeWantPopups) {
-            int weWantPopups = Integer.valueOf((String) newValue);
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.WE_WANT_POPUPS, weWantPopups);
             return true;
         }
         return false;
