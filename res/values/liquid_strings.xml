@@ -13,6 +13,397 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- About LiquidSmooth -->
+    <string name="links">Links</string>
+    <string name="devs">Developers</string>
+    <string name="contributors">Contributors</string>
+    <string name="about_liquid_title">About Liquid</string>
+    <string name="about_liquid_summary">Get to know the team</string>
+    <string name="donate_liquid">http://bit.ly/Ruy2HF</string>
+    <string name="liquid_source_title">LiquidSmooth Github</string>
+    <string name="liquid_website_title">LiquidSmooth Goo.im</string>
+    <string name="liquid_GooglePlus_title">LiquidSmooth GooglePlus</string>
+    <string name="liquid_facebook_title">LiquidSmooth Facebook</string>
+    <string name="donate_slim">http://www.slimroms.net/index.php/donations</string>
+    <string name="liquid_GooglePlus_summary">Join are friendly and informative Community at http://goo.gl/3lKUXu </string>
+    <string name="liquid_facebook_summary">https://www.facebook.com/liquidsmoothroms\nPlease like us and join in on facebook</string>
+    <string name="liquid_source_summary">Source at http://github.com/LiquidSmooth\nLiquidSmooth is fully open source code</string>
+    <string name="liquid_website_summary">http://goo.im/devs/liquidsmooth\nFind all the latest builds and news here</string>
+
+    <!-- LiquidSmooth Headers -->
+    <string name="header_category_general">GENERAL</string>
+    <string name="header_category_advanced">ADVANCED</string>
+
+    <!-- LiquidSmooth Titles -->
+    <string name="additional_settings_title">Additional</string>
+    <string name="advanced_settings_title">Advanced</string>
+    <string name="general_settings_title">General</string>
+    <string name="style_settings_title">Style</string>
+    <string name="trds_settings_title">Dark Liquid</string>
+    <string name="superuser_settings_title">Superuser</string>
+
+    <!-- LiquidSmooth General -->
+    <string name="interface_settings_title">Interface</string>
+    <string name="lockscreen_settings_title">Lockscreen</string>
+    <string name="navigation_settings_title">Navigation</string>
+    <string name="notification_settings_title">Notification</string>
+    <string name="performance_settings_title">Performance</string>
+    <string name="statusbar_settings_title">Statusbar</string>
+    <string name="themes_settings_title">Themes</string>
+
+    <!-- LiquidSmooth Advanced -->
+    <string name="active_display_title">Active Display</string>
+    <string name="animation_controls_title">Animation Controls</string>
+    <string name="halo_options_title">HALO Options</string>
+    <string name="pie_control_title">Pie Control</string>
+    <string name="power_menu_title">Power Menu</string>
+    <string name="power_widget_title">Power Widget</string>
+    <string name="quick_settings_title">Quick Settings</string>
+
+    <!-- Active Display -->
+    <string name="ad_settings_title">Active Display</string>
+    <string name="ad_settings_summary">Change active display settings</string>
+    <string name="ad_enable_title">Enable</string>
+    <string name="ad_enable_summary_on">Active display enabled</string>
+    <string name="ad_enable_summary_off">Active display disabled</string>
+    <string name="ad_text_title">Notification Text</string>
+    <string name="ad_text_summary">Show notification text around ring</string>
+    <string name="ad_all_notifications_title">All Notifications</string>
+    <string name="ad_all_notifications_summary">Show all notifications (ongoing)</string>
+    <string name="ad_hide_low_priority_title">Hide Low Priority</string>
+    <string name="ad_hide_low_priority_summary">Hide low priority notifications</string>
+    <string name="ad_pocket_mode_title">Pocket Mode</string>
+    <string name="ad_pocket_mode_summary">When device is out of pocket</string>
+    <string name="ad_redisplay_title">Redisplay Notifications</string>
+    <string name="ad_sunlight_mode_title">Sunlight Mode</string>
+    <string name="ad_sunlight_mode_summary">Invert colors with sunlight</string>
+    <string name="ad_excluded_apps_title">Exclude Apps</string>
+    <string name="ad_excluded_apps_summary">Excluded apps will not show up</string>
+    <string name="ad_customizations_title">Customizations</string>
+    <string name="ad_brightness_title">Notification Brightness</string>
+    <string name="ad_brightness_summary">Brightness level for displaying</string>
+    <string name="ad_show_date_title">Show Date</string>
+    <string name="ad_show_date_summary">Show the date above the clock</string>
+    <string name="ad_show_ampm_title">Show AM/PM</string>
+    <string name="ad_show_ampm_summary">Show the indicator next to time</string>
+    <string name="ad_redisplay_never">Never</string>
+    <string name="ad_redisplay_1m">1 minute</string>
+    <string name="ad_redisplay_5m">5 minutes</string>
+    <string name="ad_redisplay_15m">15 minutes</string>
+    <string name="ad_redisplay_30m">30 minutes</string>
+    <string name="ad_redisplay_1h">1 hour</string>
+    <string name="ad_redisplay_2h">2 hours</string>
+    <string name="ad_redisplay_5h">5 hours</string>
+    <string name="ad_timeout_title">Display Timeout</string>
+    <string name="ad_timeout_3s">3 seconds</string>
+    <string name="ad_timeout_5s">5 seconds</string>
+    <string name="ad_timeout_8s">8 seconds</string>
+    <string name="ad_timeout_10s">10 seconds</string>
+    <string name="ad_timeout_15s">15 seconds</string>
+    <string name="ad_timeout_25s">25 seconds</string>
+
+    <!-- Animation Controls -->	
+    <string name="title_animation_controls">Custom Animations</string>	
+    <string name="activity_open_title">Activity Open Animation</string>	
+    <string name="activity_close_title">Activity Close Animation</string>	
+    <string name="task_open_title">Task Open Animation</string>	
+    <string name="task_close_title">Task Close Animation</string>	
+    <string name="task_move_to_front_title">Move To Front Animation</string>	
+    <string name="task_move_to_back_title">Move To Back Animation</string>	
+    <string name="wallpaper_open_title">Wallpaper Open Animation</string>	
+    <string name="wallpaper_close_title">Wallpaper Close Animation</string>	
+    <string name="wallpaper_intra_open_title">Wallpaper Intra Open Animation</string>	
+    <string name="wallpaper_intra_close_title">Wallpaper Intra Close Animation</string>	
+    <string name="animation_duration_title">Animation Duration</string>	
+    <string name="title_animation_no_override">Prevent App Overrides</string>	
+    <string name="summary_animation_no_override">Prevent apps from overriding transitions</string>	
+    <string name="animation_duration_default">Default</string>
+    <string name="header_summary_animation">Control system animation transitions</string>
+
+    <!-- Color Picker -->
+    <string name="dialog_color_picker">Color Picker</string>
+    <string name="press_color_to_apply">Press on color below to apply</string>
+    <string name="color_default">Default</string>
+    <string name="arrow_right">→</string>
+    <string name="arrow_down">↓</string>
+    <string name="hex">Hex:</string>
+    <string name="hex_hint">#ff000000</string>
+    <string name="set">Set</string>
+    <string name="ok">OK</string>
+
+    <!-- Hardware Keys -->
+    <string name="hardware_keys_bindings_title">Actions</string>
+    <string name="hardware_keys_enable_custom_title">Enable Custom Actions</string>
+    <string name="hardware_keys_home_press_title">Press Home Key</string>
+    <string name="hardware_keys_home_long_press_title">Longpress Home Key</string>
+    <string name="hardware_keys_back_press_title">Press Back Key</string>
+    <string name="hardware_keys_back_long_press_title">Longpress Back Key</string>
+    <string name="hardware_keys_menu_press_title">Press Menu Key</string>
+    <string name="hardware_keys_menu_long_press_title">Longpress Menu Key</string>
+    <string name="hardware_keys_assist_press_title">Press Search Key</string>
+    <string name="hardware_keys_assist_long_press_title">Longpress Search Key</string>
+    <string name="hardware_keys_app_switch_press_title">Press Appswitch Key</string>
+    <string name="hardware_keys_app_switch_long_press_title">Longpress Appswitch Key</string>
+    <string name="hardware_keys_camera_press_title">Camera Key</string>
+    <string name="hardware_keys_camera_long_press_title">Longpress Camera Key</string>
+    <string name="hardware_keys_show_overflow_title">Show Action Overflow</string>
+    <string name="hardware_keys_show_overflow_summary">Display the 3-dot overflow menu button</string>
+    <string name="hardware_keys_show_overflow_toast_enable">The action overflow button may not be visible until apps are restarted</string>
+    <string name="hardware_keys_show_overflow_toast_disable">The action overflow button may not be hidden until apps are restarted</string>
+    <string name="hardware_keys_action_nothing">None</string>
+    <string name="hardware_keys_action_home">Home</string>
+    <string name="hardware_keys_action_back">Back</string>
+    <string name="hardware_keys_action_menu">Menu</string>
+    <string name="hardware_keys_action_app_switch">Recents</string>
+    <string name="hardware_keys_action_search">Search</string>
+    <string name="hardware_keys_action_voice_search">Voice Search</string>
+    <string name="hardware_keys_action_in_app_search">In-App Search</string>
+    <string name="hardware_keys_action_power">Screen Off</string>
+    <string name="hardware_keys_action_notifications">Notifications</string>
+    <string name="hardware_keys_action_expanded">Expanded Desktop</string>
+    <string name="hardware_keys_action_kill_app">Kill App</string>
+    <string name="hardware_keys_action_last_app">Last App</string>
+    <string name="hardware_keys_action_custom_app">Custom App</string>
+    <string name="hardware_keys_action_widgets">Widgets Viewpager</string>
+    <string name="hardware_keys_action_quicksettings">Quicksettings</string>
+    <string name="hardware_keys_action_camera">Camera</string>
+
+    <!-- HALO Options -->
+    <string name="halo_enabled_title">Enable HALO</string>
+    <string name="halo_behavior_title">HALO Behavior</string>
+    <string name="halo_enabled_summary">When checked HALO feature is enabled</string>
+    <string name="halo_hide_title">Hide After Activity</string>
+    <string name="halo_hide_summary">Appears then scrolls out of sight</string>
+    <string name="halo_reversed_title">Reverse Gestures</string>
+    <string name="halo_reversed_summary">Drag using double tap swipe gestures</string>
+    <string name="halo_state_title">Current Policy</string>
+    <string name="halo_state_summary">Black or white list HALO notifications</string>
+    <string name="halo_state_black">Blacklist</string>
+    <string name="halo_state_white">Whitelist</string>
+    <string name="halo_pause_title">Pause Active App</string>
+    <string name="halo_pause_summary">Open task while underlying app pauses</string>
+    <string name="halo_ninja_title">Ninja Mode</string>
+    <string name="halo_ninja_summary">HALO will disappear completely when empty</string>
+    <string name="halo_notification_msgbox_title">Enable message pop-up</string>
+    <string name="halo_notification_msgbox_summary">Show message box for incoming notifications</string>
+    <string name="halo_unlock_ping_title">Ping On Unlock</string>
+    <string name="halo_unlock_ping_summary">HALO will ping when device is unlocked</string>
+    <string name="halo_colors_title">Custom Colors</string>
+    <string name="halo_colors_summary">Use custom colors for HALO instead</string>
+    <string name="halo_circle_color_title">Circle Color</string>
+    <string name="halo_bubble_color_title">Speech Bubble Color</string>
+    <string name="halo_bubble_text_color_title">Bubble Text Color</string>
+    <string name="halo_effect_color_title">Effect Color</string>
+    <string name="halo_effect_color_summary">Requires statusbar to restart</string>
+    <string name="halo_size_title">HALO Size</string>
+    <string name="halo_size_miniscule">Miniscule</string>
+    <string name="halo_size_small">Small</string>
+    <string name="halo_size_default">Default</string>
+    <string name="halo_size_large">Large</string>
+    <string name="halo_size_gigantic">Gigantic</string>
+    <string name="halo_size_monster">Monster</string>
+    <string name="halo_notification_count_title">Notification Count</string>
+    <string name="halo_notification_count_summary">Display notification counts on HALO</string>
+    <string name="halo_notification_count_none">None</string>
+    <string name="halo_notification_count_total">Total</string>
+    <string name="halo_notification_count_individual">Per app</string>
+    <string name="halo_notification_count_both">Both</string>
+    <string name="halo_msgbox_animation_title">Message Box Animation</string>
+    <string name="halo_msgbox_animation_summary">Message box animation for incoming notifications</string>
+    <string name="halo_msgbox_animation_none">None</string>
+    <string name="halo_msgbox_animation_flip">Flip</string>
+    <string name="popups_title">Allow Floating Windows</string>
+    <string name="popups_summary">Controls whether you want floating windows</string>
+
+    <!-- Icon Picker -->
+    <string name="icon_picker_title">Icon Source</string>
+    <string name="icon_picker_system_icons_title">System Icons</string>
+    <string name="icon_picker_gallery_title">Gallery</string>
+    <string name="icon_picker_pack_title">Icon Pack</string>
+
+    <!-- Interface Settings -->
+    <string name="clock_widget_title">Clock Widget</string>
+    <string name="clock_widget_summary">View or change the clock widget options</string>
+    <string name="hardware_keys_title">Hardware Keys</string>
+    <string name="hardware_keys_summary">View or change the hardware key bindings</string>
+    <string name="recents_rambar_title">Recents Rambar</string>
+    <string name="recents_rambar_summary">View or customize recents rambar style</string>
+    <string name="alt_resolver">Default App Grid</string>
+    <string name="alt_resolver_summary">Use alternate default app picker</string>
+    <string name="custom_carrier_label_title">Custom Carrier Label</string>
+    <string name="custom_carrier_label_explain">Please enter a new label. Enter an empty label to revert to stock.</string>
+    <string name="custom_carrier_label_notset">Custom label currently not set</string>
+    <string name="force_dual_pane_title">Force Dual Panel</string>
+    <string name="force_dual_pane_summary">Restart settings to apply this change</string>
+    <string name="pref_low_battery_warning_policy_title">Low Battery Warning</string>
+    <string name="pref_low_battery_warning_policy_dialog_title">Indicate low battery warning with</string>
+    <string name="low_battery_warning_policy_popup_sound">Pop-up and Sound</string>
+    <string name="low_battery_warning_policy_notif_sound">Notification and Sound</string>
+    <string name="low_battery_warning_policy_popup">Pop-up Dialog Only</string>
+    <string name="low_battery_warning_policy_notif">Notification Only</string>
+    <string name="low_battery_warning_policy_sound">Sound Only</string>
+    <string name="low_battery_warning_policy_disabled">Disabled</string>
+    <string name="vibrator_multiplier_title">Vibration Multiplier</string>
+
+    <!-- LCD Density -->
+    <string name="dpi">DPI</string>
+    <string name="su_dialog_error_title">Warning</string>
+    <string name="su_dialog_error_message">An error occurred.\n\nPlease check for root access. To activate go into superuser settings and enable root access.</string>
+    <string name="lcd_density_title">LCD Density</string>
+    <string name="lcd_density_summary">Unknown</string>
+    <string name="current_lcd_density">"Current Density: "</string>
+    <string name="lcd_density_wizard">LCD Density Wizard</string>
+    <string name="follow_through_title">Follow Through!</string>
+    <string name="follow_through_summary">Make sure you follow the steps one-by-one and complete each one before proceeding to the next.</string>
+    <string name="stock_density_title">1. Change LCD Density to stock value</string>
+    <string name="stock_density_summary">Tablets and older phones use 160. Most phones use 240. Galaxy Nexus uses 320 by default.</string>
+    <string name="stock_density_changed_summary">"Density Set To: "</string>
+    <string name="reboot_title">2. Reboot!</string>
+    <string name="reboot_summary">Come back here after the reboot and complete the rest of the steps!</string>
+    <string name="clear_market_data_title">3. Clear all relevant market data.</string>
+    <string name="clear_market_data_summary">This step clears data from market, google play services and google services framework.</string>
+    <string name="clear_market_data_cleared">Data successfully cleared</string>
+    <string name="reboot_cleardata_title">4. Reboot!</string>
+    <string name="reboot_cleardata_summary">Come back here after the reboot and complete the rest of the steps!</string>
+    <string name="open_market_title">5. Open Market and hit accept</string>
+    <string name="open_market_summary">Press back when done to return here.</string>
+    <string name="open_market_summary_could_not_open">"Couldn't open the market! If you're sure it's installed, open it yourself from the launcher."</string>
+    <string name="custom_density_title">6. Change density to whatever you like!</string>
+    <string name="custom_density_summary">If you ever have compatibility issues with the market, be sure to return here and repeat the process.</string>
+    <string name="custom_density_summary_invalid">"Invalid Density!"</string>
+    <string name="custom_density">Custom</string>
+    <string name="set_custom_density_title">Set Custom Density</string>
+    <string name="set_custom_density_set">Set</string>
+    <string name="custom_density_dialog_title">"WARNING!"</string>
+    <string name="custom_density_dialog_summary">"Changing your LCD density can cause unexpected app behavior. If you encounter market app incompatibility please return here and restart the process from step 1."</string>
+    <string name="custom_density_dialog_button_got">Got It!</string>
+    <string name="custom_density_dialog_button_reboot">Reboot Now</string>
+
+    <!-- Listview Animation -->
+    <string name="listview_animation_title">Listview Animation</string>
+    <string name="listview_off">Off</string>
+    <string name="listview_wave_left">Wave (Left)</string>
+    <string name="listview_wave_right">Wave (Right)</string>
+    <string name="listview_alpha">Alpha</string>
+    <string name="listview_scale">Scale</string>
+    <string name="listview_stack_top">Stack (Top)</string>
+    <string name="listview_stack_bottom">Stack (Bottom)</string>
+    <string name="listview_unfold">Unfold</string>
+    <string name="listview_fold">Fold</string>
+    <string name="listview_translate_left">Translate (Left)</string>
+    <string name="listview_translate_right">Translate (Right)</string>
+    <string name="listview_rotate">Rotate</string>
+
+    <!-- Listview Interpolator -->
+    <string name="listview_interpolator_title">Listview Interpolator</string>
+    <string name="listview_accelerate_interpolator">Accelerate</string>
+    <string name="listview_decelerate_interpolator">Decelerate</string>
+    <string name="listview_accelerate_decelerate_interpolator">Accelerate Decelerate</string>
+    <string name="listview_anticipate_interpolator">Anticipate</string>
+    <string name="listview_overshoot_interpolator">Overshoot</string>
+    <string name="listview_anticipate_overshoot_interpolator">Anticipate Overshoot</string>
+    <string name="listview_bounce_interpolator">Bounce</string>
+
+    <!-- Lockscreen Activities -->
+    <string name="picker_activities">Activities</string>
+    <string name="select_custom_app_title">Select Application</string>
+    <string name="select_custom_activity_title">Select Activity</string>
+    <string name="icon_picker_choose_icon_title">Choose Icon</string>
+    <string name="icon_picker_alarm">Alarm</string>
+    <string name="icon_picker_browser">Browser</string>
+    <string name="icon_picker_calendar">Calendar</string>
+    <string name="icon_picker_camera">Camera</string>
+    <string name="icon_picker_chrome">Chrome</string>
+    <string name="icon_picker_contacts">Contacts</string>
+    <string name="icon_picker_email">Email</string>
+    <string name="icon_picker_email2">Email Holo</string>
+    <string name="icon_picker_facebook">Facebook</string>
+    <string name="icon_picker_gallery">Gallery</string>
+    <string name="icon_picker_google_small">Google Now</string>
+    <string name="icon_picker_googleplus">Google Plus</string>
+    <string name="icon_picker_googletalk">Hangouts</string>
+    <string name="icon_picker_maps">Maps</string>
+    <string name="icon_picker_movie">Movie</string>
+    <string name="icon_picker_music">Music</string>
+    <string name="icon_picker_nav_normal">Navigation</string>
+    <string name="icon_picker_phone">Phone</string>
+    <string name="icon_picker_podcast">Podcast</string>
+    <string name="icon_picker_rss">Rss</string>
+    <string name="icon_picker_search">Search</string>
+    <string name="icon_picker_sms">Messaging</string>
+    <string name="icon_picker_twitter">Twitter</string>
+    <string name="choose_app">Choose Application</string>
+
+    <!-- Lockscreen Buttons -->
+    <string name="lockscreen_buttons_title">Buttons</string>
+    <string name="lockscreen_buttons_summary">View or change lockscreen buttons and action</string>
+    <string name="lockscreen_long_press_back_title">Longpress Back</string>
+    <string name="lockscreen_long_press_home_title">Longpress Home</string>
+    <string name="lockscreen_long_press_menu_title">Longpress Menu</string>
+    <string name="lockscreen_long_press_assist_title">Longpress Search</string>
+    <string name="lockscreen_long_press_app_switch_title">Longpress Appswitch</string>
+    <string name="lockscreen_long_press_camera_title">Longpress Camera</string>
+    <string name="lockscreen_buttons_no_action">None</string>
+    <string name="lockscreen_buttons_flashlight">Flashlight</string>
+    <string name="lockscreen_buttons_next">Next Song</string>
+    <string name="lockscreen_buttons_previous">Previous Song</string>
+    <string name="lockscreen_buttons_playpause">Play/Pause Music</string>
+    <string name="lockscreen_buttons_toggle_sound">Toggle Sound</string>
+    <string name="lockscreen_buttons_camera">Launch Camera</string>
+    <string name="lockscreen_buttons_power_off">Screen Off</string>
+
+    <!-- Lockscreen Delay -->
+    <string name="delay_and_timeout_title">Delay</string>
+    <string name="slide_lock_delay_title">Delay Screen Lock</string>
+    <string name="slide_lock_timeout_delay_title">Delay After Timeout</string>
+    <string name="slide_lock_screenoff_delay_title">Delay After Turned Off</string>
+    <string name="slide_lock_delay_none">None</string>
+    <string name="slide_lock_delay_1s">1 Second</string>
+    <string name="slide_lock_delay_5s">5 Seconds</string>
+    <string name="slide_lock_delay_10s">10 Seconds</string>
+    <string name="slide_lock_delay_15s">15 Seconds</string>
+    <string name="slide_lock_delay_30s">30 Seconds</string>
+    <string name="slide_lock_delay_1m">1 Minute</string>
+    <string name="slide_lock_delay_5m">5 Minutes</string>
+    <string name="slide_lock_delay_10m">10 Minutes</string>
+    <string name="slide_lock_delay_30m">30 Minutes</string>
+
+    <!-- Lockscreen Settings -->
+    <string name="lockscreen_auto_rotate_title">Allow Rotation</string>
+    <string name="lockscreen_auto_rotate_summary">Lockscreen will be allowed to rotate</string>  
+    <string name="lockscreen_no_rotate_summary">Auto rotation is disabled by default</string>
+    <string name="lockscreen_battery_status_title">Battery Status</string>
+    <string name="lockscreen_battery_status_charging">Only When Charging</string>
+    <string name="lockscreen_battery_status_alwayson">Always On</string>
+    <string name="lockscreen_battery_status_alwaysoff">Always Off</string>
+    <string name="lockscreen_vibrate_enabled_title">Vibrate</string>
+    <string name="lockscreen_vibrate_enabled_head">Vibrate when unlocking your device</string>
+    <string name="lockscreen_glow_torch_title">Glowpad Torch</string>
+    <string name="lockscreen_glow_torch_summary">Longpress center turns on torch</string>
+    <string name="lockscreen_torch_off">Off</string>
+    <string name="lockscreen_torch_lockcircle">Lockring</string>
+    <string name="lockscreen_torch_navring">Navring</string>
+
+    <!-- Lockscreen Shortcuts -->
+    <string name="lockscreen_shortcuts_title">Shortcuts</string>
+    <string name="lockscreen_shortcuts_summary">View or change custom lockscreen shortcuts</string>
+    <string name="lockscreen_shorcuts_longpress_title">Shortcuts Longpress</string>
+    <string name="lockscreen_shorcuts_longpress_summary">Open shortcuts using longpress</string>
+
+    <!-- Lockscreen Style -->
+    <string name="lockscreen_style_title">Style</string>
+    <string name="lockscreen_custom_background_title">Custom Background</string>
+    <string name="lockscreen_custom_background_dialog_title">Choose Color</string>
+    <string name="lockscreen_background_result_successful">Background Changed</string>
+    <string name="lockscreen_background_result_not_successful">Background Not Changed</string>
+    <string name="lockscreen_background_color_fill">Color Fill</string>
+    <string name="lockscreen_background_custom_image">Custom Image</string>
+    <string name="lockscreen_background_full_transparent">Full Transparent</string>
+    <string name="lockscreen_background_default_wallpaper">Default Wallpaper</string>
+    <string name="lockscreen_alpha_title">Background Alpha</string>
+    <string name="lockscreen_text_color_title">Custom Text Color</string>
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
