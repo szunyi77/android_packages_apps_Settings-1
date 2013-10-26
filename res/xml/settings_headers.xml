@@ -344,6 +344,13 @@
         android:icon="@drawable/ic_settings_development"
         android:title="@string/development_settings_title" />
 
+    <!-- Superuser -->
+     <header
+        android:id="@+id/superuser_settings"
+        android:fragment="com.koushikdutta.superuser.PolicyNativeFragment"
+        android:icon="@drawable/ic_liquid_superuser"
+        android:title="@string/superuser_settings_title" />
+
     <!-- About Phone -->
     <header
         android:id="@+id/about_settings"
