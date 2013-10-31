@@ -30,12 +30,11 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
 public class PieControl extends SettingsPreferenceFragment
-    implements Preference.OnPreferenceChangeListener {
+                        implements Preference.OnPreferenceChangeListener {
 
     private static final String PIE_CONTROL = "pie_control";
     private static final String PIE_BUTTON = "pie_button";
     private static final String PIE_SHOW_SNAP = "pie_show_snap";
-    private static final String PIE_MENU = "pie_menu";
     private static final String PIE_SHOW_TEXT = "pie_show_text";
     private static final String PIE_SHOW_BACKGROUND = "pie_show_background";
     private static final String PIE_DISABLE_STATUSBAR_INFO = "pie_disable_statusbar_info";
@@ -44,7 +43,6 @@ public class PieControl extends SettingsPreferenceFragment
 
     private ListPreference mPieControl;
     private CheckBoxPreference mShowSnap;
-    private ListPreference mPieMenuDisplay;
     private CheckBoxPreference mShowText;
     private CheckBoxPreference mShowBackground;
     private CheckBoxPreference mDisableStatusBarInfo;
@@ -73,8 +71,6 @@ public class PieControl extends SettingsPreferenceFragment
         mButton = (PreferenceScreen) prefSet.findPreference(PIE_BUTTON);
         mPieControl = (ListPreference) prefSet.findPreference(PIE_CONTROL);
         mPieControl.setOnPreferenceChangeListener(this);
-        mPieMenuDisplay = (ListPreference) prefSet.findPreference(PIE_MENU);
-        mPieMenuDisplay.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -95,9 +91,6 @@ public class PieControl extends SettingsPreferenceFragment
         } else if (preference == mShowSnap) {
             Settings.System.putInt(getContentResolver(),
                     Settings.System.PIE_SHOW_SNAP, (Boolean) newValue ? 1 : 0);
-        } else if (preference == mPieMenuDisplay) {
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.PIE_MENU, Integer.parseInt((String) newValue));
         } else if (preference == mShowText) {
             Settings.System.putInt(getContentResolver(),
                     Settings.System.PIE_SHOW_TEXT, (Boolean) newValue ? 1 : 0);
@@ -126,10 +119,6 @@ public class PieControl extends SettingsPreferenceFragment
         mPieControl.setSummary(mPieControl.getEntry());
         propagatePieControl(pieControl != 0);
 
-        mPieMenuDisplay.setValue(Settings.System.getInt(getContentResolver(),
-                Settings.System.PIE_MENU,
-                2) + "");
-
         mShowSnap.setChecked(Settings.System.getInt(getContentResolver(),
                 Settings.System.PIE_SHOW_SNAP, 1) == 1);
         mShowText.setChecked(Settings.System.getInt(getContentResolver(),
@@ -153,6 +142,5 @@ public class PieControl extends SettingsPreferenceFragment
         mStyle.setEnabled(value);
         mButton.setEnabled(value);
         mTrigger.setEnabled(value);
-        mPieMenuDisplay.setEnabled(value);
     }
 }
