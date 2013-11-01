@@ -62,9 +62,9 @@ public class QuickSettings extends SettingsPreferenceFragment
     private static final String NO_NOTIFICATIONS_PULLDOWN = "no_notifications_pulldown";
     private static final String COLLAPSE_PANEL = "collapse_panel";
     private static final String DISABLE_PANEL = "disable_quick_settings";
-    private static final String GENERAL_SETTINGS = "pref_general_settings";
-    private static final String STATIC_TILES = "static_tiles";
-    private static final String DYNAMIC_TILES = "pref_dynamic_tiles";
+    private static final String GENERAL_SETTINGS = "general_group";
+    private static final String ADVANCED_SETTINGS = "advanced_group";
+    private static final String ADDITIONAL_SETTINGS = "additional_group";
     private static final String QS_TILES_STYLE = "quicksettings_tiles_style";
     private static final String TILE_PICKER = "tile_picker";
     private static final String PREF_FLIP_QS_TILES = "flip_qs_tiles";
@@ -82,8 +82,8 @@ public class QuickSettings extends SettingsPreferenceFragment
     ListPreference mQuickPulldown;
     ListPreference mNoNotificationsPulldown;
     PreferenceCategory mGeneralSettings;
-    PreferenceCategory mStaticTiles;
-    PreferenceCategory mDynamicTiles;
+    PreferenceCategory mAdvancedSettings;
+    PreferenceCategory mAdditionalSettings;
     PreferenceScreen mQsTilesStyle;
     PreferenceScreen mTilePicker;
     CheckBoxPreference mFlipQsTiles;
@@ -102,8 +102,8 @@ public class QuickSettings extends SettingsPreferenceFragment
         PackageManager pm = getPackageManager();
         ContentResolver resolver = getActivity().getContentResolver();
         mGeneralSettings = (PreferenceCategory) prefSet.findPreference(GENERAL_SETTINGS);
-        mStaticTiles = (PreferenceCategory) prefSet.findPreference(STATIC_TILES);
-        mDynamicTiles = (PreferenceCategory) prefSet.findPreference(DYNAMIC_TILES);
+        mAdvancedSettings = (PreferenceCategory) prefSet.findPreference(ADVANCED_SETTINGS);
+        mAdditionalSettings = (PreferenceCategory) prefSet.findPreference(ADDITIONAL_SETTINGS);
         mQuickPulldown = (ListPreference) prefSet.findPreference(QUICK_PULLDOWN);
         mNoNotificationsPulldown = (ListPreference) prefSet.findPreference(NO_NOTIFICATIONS_PULLDOWN);
         mDisablePanel = (CheckBoxPreference) prefSet.findPreference(DISABLE_PANEL);
@@ -148,7 +148,7 @@ public class QuickSettings extends SettingsPreferenceFragment
             if (deviceSupportsUsbTether()) {
                 mDynamicUsbTether.setChecked(Settings.System.getInt(resolver, Settings.System.QS_DYNAMIC_USBTETHER, 1) == 1);
             } else {
-                mDynamicTiles.removePreference(mDynamicUsbTether);
+                mAdditionalSettings.removePreference(mDynamicUsbTether);
             }
         }
 
@@ -157,7 +157,7 @@ public class QuickSettings extends SettingsPreferenceFragment
             if (deviceSupportsWifiDisplay()) {
                 mDynamicWifi.setChecked(Settings.System.getInt(resolver, Settings.System.QS_DYNAMIC_WIFI, 1) == 1);
             } else {
-                mDynamicTiles.removePreference(mDynamicWifi);
+                mAdditionalSettings.removePreference(mDynamicWifi);
             }
         }
 
@@ -300,7 +300,6 @@ public class QuickSettings extends SettingsPreferenceFragment
     }
 
     private void updatePulldownSummary(int value) {
-
         if (value == 0) {
             /* quick pulldown deactivated */
             mQuickPulldown.setSummary(getResources().getString(R.string.quick_pulldown_off));
@@ -313,7 +312,6 @@ public class QuickSettings extends SettingsPreferenceFragment
     }
 
     private void updateNoNotificationsPulldownSummary(int value) {
-
         if (value == 0) {
             /* No Notifications Pulldown deactivated */
             mNoNotificationsPulldown.setSummary(getResources().getString(R.string.no_notifications_pulldown_off));
