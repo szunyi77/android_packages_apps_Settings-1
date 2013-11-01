@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 /*
+**
 ** Copyright 2007 The Android Open Source Project
 **
 ** Licensed under the Apache License, Version 2.0 (the "License");
@@ -628,7 +629,10 @@
 
     <!-- Names of categories of app ops tabs -->
     <string-array name="app_ops_categories">
-        <item>Operations</item>
+        <item>Location</item>
+        <item>Personal</item>
+        <item>Messaging</item>
+        <item>Device</item>
     </string-array>
 
     <!-- User display names for app ops codes -->
@@ -1367,17 +1371,5 @@
         <item> Subscription 1 </item>
         <item> Subscription 2 </item>
         <item> Subscription 3 </item>
-    </string-array>
-
-    <string-array name="ad_pocket_mode_entries" translatable="false">
-        <item>@string/ad_pocket_mode_off</item>
-        <item>@string/ad_pocket_mode_notifications</item>
-        <item>@string/ad_pocket_mode_always</item>
-    </string-array>
-
-    <string-array name="ad_pocket_mode_values" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
     </string-array>
 </resources>
