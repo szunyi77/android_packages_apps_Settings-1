@@ -20,16 +20,64 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
     <PreferenceCategory
-        android:key="interface_advanced"
+        android:key="general_group"
+        android:title="@string/general_settings_title">
+
+        <PreferenceScreen
+            android:key="custom_carrier_label"
+            android:title="@string/custom_carrier_label_title" />
+
+        <CheckBoxPreference
+            android:key="use_alt_resolver"
+            android:title="@string/alt_resolver"
+            android:summary="@string/alt_resolver_summary"
+            android:defaultValue="false" />
+
+        <ListPreference
+            android:key="listview_animation"
+            android:dialogTitle="@string/listview_animation_title"
+            android:title="@string/listview_animation_title"
+            android:entries="@array/listview_animation_entries"
+            android:entryValues="@array/listview_animation_values"
+            android:defaultValue="0" />
+
+         <ListPreference
+            android:key="listview_interpolator"
+            android:dialogTitle="@string/listview_interpolator_title"
+            android:title="@string/listview_interpolator_title"
+            android:entries="@array/listview_interpolator_entries"
+            android:entryValues="@array/listview_interpolator_values"
+            android:defaultValue="0" />
+
+        <ListPreference
+            android:key="pref_low_battery_warning_policy"
+            android:title="@string/pref_low_battery_warning_policy_title"
+            android:dialogTitle="@string/pref_low_battery_warning_policy_dialog_title"
+            android:entries="@array/pref_low_battery_warning_policy_entries"
+            android:entryValues="@array/pref_low_battery_warning_policy_values"
+            android:defaultValue="0" />
+
+        <ListPreference
+            android:key="vibrator_multiplier"
+            android:persistent="false"
+            android:dialogTitle="@string/vibrator_multiplier_title"
+            android:title="@string/vibrator_multiplier_title"
+            android:entries="@array/vibration_multiplier_values"
+            android:entryValues="@array/vibration_multiplier_values" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="advanced_group"
         android:title="@string/advanced_settings_title">
 
-	    <PreferenceScreen
-	        android:key="chronus"
+	<PreferenceScreen
+	    android:key="chronus"
             android:title="@string/clock_widget_title"
             android:summary="@string/clock_widget_summary">
-	   	    <intent android:action="android.intent.action.MAIN"
-            	android:targetPackage="com.cyanogenmod.lockclock"
-	    	    android:targetClass="com.cyanogenmod.lockclock.preference.Preferences" />
+	    <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="com.cyanogenmod.lockclock"
+	    	android:targetClass="com.cyanogenmod.lockclock.preference.Preferences" />
         </PreferenceScreen>
 
         <CheckBoxPreference
@@ -55,54 +103,6 @@
             android:summary="@string/recents_rambar_summary"
             android:fragment="com.android.settings.liquid.RamBar" />
 
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="interface_general"
-        android:title="@string/general_settings_title">
-
-        <CheckBoxPreference
-            android:key="use_alt_resolver"
-            android:title="@string/alt_resolver"
-            android:summary="@string/alt_resolver_summary"
-            android:defaultValue="false" />
-
-        <Preference
-            android:key="custom_carrier_label"
-            android:title="@string/custom_carrier_label_title" />
-
-        <ListPreference
-            android:key="pref_low_battery_warning_policy"
-            android:title="@string/pref_low_battery_warning_policy_title"
-            android:dialogTitle="@string/pref_low_battery_warning_policy_dialog_title"
-            android:entries="@array/pref_low_battery_warning_policy_entries"
-            android:entryValues="@array/pref_low_battery_warning_policy_values"
-            android:defaultValue="0" />
-
-        <ListPreference
-            android:key="vibrator_multiplier"
-            android:persistent="false"
-            android:dialogTitle="@string/vibrator_multiplier_title"
-            android:title="@string/vibrator_multiplier_title"
-            android:entries="@array/vibration_multiplier_values"
-            android:entryValues="@array/vibration_multiplier_values" />
-
-        <ListPreference
-            android:key="listview_animation"
-            android:dialogTitle="@string/listview_animation_title"
-            android:title="@string/listview_animation_title"
-            android:entries="@array/listview_animation_entries"
-            android:entryValues="@array/listview_animation_values"
-            android:defaultValue="0" />
-
-         <ListPreference
-            android:key="listview_interpolator"
-            android:dialogTitle="@string/listview_interpolator_title"
-            android:title="@string/listview_interpolator_title"
-            android:entries="@array/listview_interpolator_entries"
-            android:entryValues="@array/listview_interpolator_values"
-            android:defaultValue="0" />
-		
     </PreferenceCategory>
 
 </PreferenceScreen>

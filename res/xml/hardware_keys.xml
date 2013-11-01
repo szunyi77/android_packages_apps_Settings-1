@@ -15,8 +15,9 @@
 -->
 
 <PreferenceScreen
+    android:title="@string/hardware_keys_title"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/hardware_keys_title">
+    xmlns:liquid="http://schemas.android.com/apk/res/com.android.settings">
 
     <PreferenceCategory
         android:key="hardware_keys_bindings"
@@ -135,6 +136,11 @@
             android:entryValues="@array/hardware_keys_action_values"
             android:persistent="false"
             android:dependency="hardware_keys_enable_custom" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/additional_settings_title">
 
        <CheckBoxPreference
             android:key="hardware_keys_show_overflow"

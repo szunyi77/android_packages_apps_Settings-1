@@ -15,12 +15,12 @@
 -->
 
 <PreferenceScreen
+    android:title="@string/pie_button_style"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
-    android:title="@string/pie_button_style">
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
     <PreferenceCategory
-        android:title="@string/pie_style_title">
+        android:title="@string/style_settings_title">
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
              android:key="pie_button_color"
@@ -50,16 +50,6 @@
              android:key="pie_button_pressed_alpha"
              android:title="@string/pie_button_pressed_alpha_title" />
 
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:title="@string/pie_icon_style">
-
-        <net.margaritov.preference.colorpicker.ColorPickerPreference
-             android:key="pie_icon_color"
-             android:title="@string/pie_icon_color_title"
-             android:defaultValue="0xffffffff" />
-
         <ListPreference
              android:key="pie_icon_color_mode"
              android:entries="@array/icon_color_mode_entries"
@@ -67,6 +57,11 @@
              android:title="@string/pie_icon_color_mode_title"
              android:dialogTitle="@string/pie_icon_color_mode_dialog_title"
              android:summary="@string/pie_icon_color_mode_summary" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+             android:key="pie_icon_color"
+             android:title="@string/pie_icon_color_title"
+             android:defaultValue="0xffffffff" />
 
     </PreferenceCategory>
 

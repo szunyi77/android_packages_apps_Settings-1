@@ -20,23 +20,33 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
     <PreferenceCategory
-        android:key="status_bar_advanced"
-        android:title="@string/advanced_settings_title">
+        android:key="general_group"
+        android:title="@string/general_settings_title">
 
-        <PreferenceScreen
-            android:key="battery_style_pref"
-            android:fragment="com.android.settings.liquid.StatusBarBatteryStyle"
-            android:title="@string/status_bar_battery_icon_bar_title" />
+        <ListPreference
+            android:key="status_bar_auto_hide"
+            android:title="@string/auto_hide_statusbar"
+            android:entries="@array/entries_auto_hide_statusbar"
+            android:entryValues="@array/values_auto_hide_statusbar"
+            android:persistent="false" />
 
-        <PreferenceScreen
-            android:key="clock_style_pref"
-            android:fragment="com.android.settings.liquid.StatusBarClockStyle"
-            android:title="@string/status_bar_clock_title" />
+        <CheckBoxPreference
+            android:key="status_bar_brightness_control"
+            android:title="@string/status_bar_toggle_brightness"
+            android:summary="@string/status_bar_toggle_brightness_summary"
+            android:defaultValue="false" />
 
-        <PreferenceScreen
-            android:key="status_bar_background_style"
-            android:fragment="com.android.settings.liquid.StatusBarStyle"
-            android:title="@string/status_bar_background_style" />
+        <CheckBoxPreference
+            android:key="status_bar_notification_count"
+            android:title="@string/status_bar_notification_count_title"
+            android:summary="@string/status_bar_notification_count_summary"
+            android:defaultValue="false" />
+
+        <CheckBoxPreference
+            android:key="status_bar_quick_peek"
+            android:title="@string/statusbar_quick_peek_title"
+            android:summary="@string/statusbar_quick_peek_summary"
+            android:defaultValue="false" />
 
         <ListPreference
             android:key="status_bar_signal"
@@ -45,20 +55,21 @@
             android:entries="@array/entries_status_bar_signal"
             android:entryValues="@array/values_status_bar_signal" />
 
-        <ListPreference
-            android:key="status_bar_icon_opacity"
-            android:dialogTitle="@string/status_bar_icon_opacity"
-            android:title="@string/status_bar_icon_opacity"
-            android:summary="@string/status_bar_icon_opacity_summary"
-            android:entries="@array/status_bar_icon_opacity_entries"
-            android:entryValues="@array/status_bar_icon_opacity_values"
-            android:defaultValue="140" />
+        <CheckBoxPreference
+            android:key="missed_call_breath"
+            android:title="@string/missed_call_breath"
+            android:summary="@string/missed_call_breath_summary" />
+
+        <CheckBoxPreference
+            android:key="mms_breath"
+            android:title="@string/mms_breath"
+            android:summary="@string/mms_breath_summary" />
 
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:key="network"
-        android:title="@string/status_bar_network_title">
+        android:key="network_group"
+        android:title="@string/network_settings_title">
 
         <CheckBoxPreference
             android:key="show_lte_or_fourgee"
@@ -93,27 +104,32 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:key="status_bar_general"
-        android:title="@string/general_settings_title">
+        android:key="advanced_group"
+        android:title="@string/advanced_settings_title">
+
+        <PreferenceScreen
+            android:key="status_bar_background_style"
+            android:fragment="com.android.settings.liquid.StatusBarStyle"
+            android:title="@string/status_bar_background_style" />
+
+        <PreferenceScreen
+            android:key="battery_style_pref"
+            android:fragment="com.android.settings.liquid.StatusBarBatteryStyle"
+            android:title="@string/status_bar_battery_icon_bar_title" />
 
         <ListPreference
-            android:key="status_bar_auto_hide"
-            android:title="@string/auto_hide_statusbar"
-            android:entries="@array/entries_auto_hide_statusbar"
-            android:entryValues="@array/values_auto_hide_statusbar"
-            android:persistent="false" />
+            android:key="status_bar_icon_opacity"
+            android:dialogTitle="@string/status_bar_icon_opacity"
+            android:title="@string/status_bar_icon_opacity"
+            android:summary="@string/status_bar_icon_opacity_summary"
+            android:entries="@array/status_bar_icon_opacity_entries"
+            android:entryValues="@array/status_bar_icon_opacity_values"
+            android:defaultValue="140" />
 
-        <CheckBoxPreference
-            android:key="status_bar_brightness_control"
-            android:title="@string/status_bar_toggle_brightness"
-            android:summary="@string/status_bar_toggle_brightness_summary"
-            android:defaultValue="false" />
-
-        <CheckBoxPreference
-            android:key="status_bar_notification_count"
-            android:title="@string/status_bar_notification_count_title"
-            android:summary="@string/status_bar_notification_count_summary"
-            android:defaultValue="false" />
+        <PreferenceScreen
+            android:key="clock_style_pref"
+            android:fragment="com.android.settings.liquid.StatusBarClockStyle"
+            android:title="@string/status_bar_clock_title" />
 
         <CheckBoxPreference
             android:key="status_icon_color_behavior"
@@ -123,25 +139,9 @@
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="status_icon_color"
-            android:title="null"
+            android:title="@string/status_icon_color_title"
             android:summary="@string/status_icon_color_summary"
             android:defaultValue="0xFF33B5E5" />
-
-        <CheckBoxPreference
-            android:key="missed_call_breath"
-            android:title="@string/missed_call_breath"
-            android:summary="@string/missed_call_breath_summary" />
-
-        <CheckBoxPreference
-            android:key="mms_breath"
-            android:title="@string/mms_breath"
-            android:summary="@string/mms_breath_summary" />
-
-        <CheckBoxPreference
-            android:key="status_bar_quick_peek"
-            android:title="@string/statusbar_quick_peek_title"
-            android:summary="@string/statusbar_quick_peek_summary"
-            android:defaultValue="false" />
 
     </PreferenceCategory>
 

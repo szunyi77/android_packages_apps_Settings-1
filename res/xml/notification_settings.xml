@@ -20,7 +20,7 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
     <PreferenceCategory
-        android:key="notif_drawer_gen"
+        android:key="general_group"
         android:title="@string/general_settings_title">
 
         <ListPreference
@@ -32,12 +32,6 @@
         <CheckBoxPreference
             android:key="notification_hide_carrier"
             android:title="@string/notification_hide_carrier_title"
-            android:defaultValue="false" />
-
-        <CheckBoxPreference
-            android:key="notification_show_wifi_ssid"
-            android:title="@string/notification_show_wifi_ssid_title"
-            android:summary="@string/notification_show_wifi_ssid_summary"
             android:defaultValue="false" />
 
         <PreferenceScreen
@@ -52,24 +46,31 @@
             <extra android:name="fragment" android:value="com.android.settings.liquid.fragments.NotificationsShortcutFragment" />
         </PreferenceScreen>
 
+        <CheckBoxPreference
+            android:key="notification_show_wifi_ssid"
+            android:title="@string/notification_show_wifi_ssid_title"
+            android:summary="@string/notification_show_wifi_ssid_summary"
+            android:defaultValue="false" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:key="notif_drawer_cat"
+        android:key="style_group"
         android:title="@string/style_settings_title">
 
+        <com.android.settings.widget.SeekBarPreference
+            android:key="notification_alpha"
+            android:title="@string/notification_alpha_title" />
+
         <CheckBoxPreference
-            android:key="notification_settings_btn"
-            android:title="@string/notification_settings_btn_title"
+            android:key="notification_settings_button"
+            android:title="@string/notification_settings_button_title"
+            android:summary="@string/notification_settings_button_summary"
             android:defaultValue="false" />
 
         <com.android.settings.widget.SeekBarPreference
             android:key="notification_wallpaper_alpha"
             android:title="@string/notification_wallpaper_alpha_title" />
-
-        <com.android.settings.widget.SeekBarPreference
-            android:key="notification_alpha"
-            android:title="@string/notification_alpha_title" />
 
         <ListPreference
             android:key="notification_wallpaper"

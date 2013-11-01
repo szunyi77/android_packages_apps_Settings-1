@@ -15,9 +15,9 @@
 -->
 
 <PreferenceScreen
+    android:title="@string/style_settings_title"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
-    android:title="@string/quicksettings_tiles_category">
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
     <PreferenceCategory
         android:title="@string/advanced_settings_title">

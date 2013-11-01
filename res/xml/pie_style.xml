@@ -15,9 +15,9 @@
 -->
 
 <PreferenceScreen
+    android:title="@string/pie_style"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
-    android:title="@string/pie_style">
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
     <PreferenceCategory
         android:title="@string/advanced_settings_title">
@@ -41,9 +41,19 @@
              android:title="@string/pie_text_color_title"
              android:defaultValue="0xffffffff" />
 
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/dimensions_settings_title">
+
         <com.android.settings.widget.SeekBarPreference
              android:key="pie_control_size"
              android:title="@string/pie_control_size" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/additional_settings_title">
 
         <CheckBoxPreference
             android:key="pie_mirror_right"

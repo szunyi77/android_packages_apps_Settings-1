@@ -14,44 +14,28 @@
      limitations under the License.
 -->
 
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+<PreferenceScreen
     android:title="@string/pie_control_title"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
     <PreferenceCategory
-        android:title="@string/advanced_settings_title">
-
-		<ListPreference
-		    android:key="pie_control"
-		    android:entries="@array/pie_control_entries"
-		    android:entryValues="@array/pie_control_values"
-		    android:title="@string/pie_control_title"
-		    android:dialogTitle="@string/pie_control_dialog_title" />
-
-		<PreferenceScreen
-		    android:key="pie_style"
-		    android:fragment="com.android.settings.liquid.PieStyleSettings"
-		    android:title="@string/pie_style" />
-
-		<PreferenceScreen
-		    android:key="pie_trigger"
-		    android:fragment="com.android.settings.liquid.PieTriggerSettings"
-		    android:title="@string/pie_trigger" />
-
-		<PreferenceScreen
-		    android:key="pie_button"
-		    android:fragment="com.android.settings.liquid.dslv.ButtonsListViewSettings"
-		    android:title="@string/pie_button">
-		        <extra android:name="buttonMode" android:value="1" />
-		        <extra android:name="maxAllowedButtons" android:value="5" />
-		        <extra android:name="disableDeleteLastEntry" android:value="true" />
-		        <extra android:name="fragment" android:value="com.android.settings.liquid.fragments.PieButtonFragment" />
-		</PreferenceScreen>
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
+        android:key="general_group"
         android:title="@string/general_settings_title">
+
+        <CheckBoxPreference
+            android:key="pie_disable_statusbar_info"
+            android:title="@string/pie_disable_statusbar_info_title"
+            android:summary="@string/pie_disable_statusbar_info_summary"
+            android:dependency="pie_show_text"
+            android:defaultValue="false" />
+
+        <ListPreference
+            android:key="pie_menu"
+            android:entries="@array/pref_menu_display_entries"
+            android:entryValues="@array/pref_menu_display_values"
+            android:title="@string/title_pref_menu_display"
+            android:summary="@string/summary_pref_menu_display" />
 
         <CheckBoxPreference
             android:key="pie_show_background"
@@ -71,12 +55,38 @@
             android:summary="@string/pie_show_text_summary"
             android:defaultValue="true" />
 
-        <CheckBoxPreference
-            android:key="pie_disable_statusbar_info"
-            android:title="@string/pie_disable_statusbar_info_title"
-            android:summary="@string/pie_disable_statusbar_info_summary"
-            android:dependency="pie_show_text"
-            android:defaultValue="false" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="advanced_group"
+        android:title="@string/advanced_settings_title">
+
+        <PreferenceScreen
+            android:key="pie_button"
+            android:fragment="com.android.settings.liquid.dslv.ButtonsListViewSettings"
+	    android:title="@string/pie_button">
+            <extra android:name="buttonMode" android:value="1" />
+	    <extra android:name="maxAllowedButtons" android:value="5" />
+            <extra android:name="disableDeleteLastEntry" android:value="true" />
+	    <extra android:name="fragment" android:value="com.android.settings.liquid.fragments.PieButtonFragment" />
+        </PreferenceScreen>
+
+        <ListPreference
+	    android:key="pie_control"
+            android:entries="@array/pie_control_entries"
+	    android:entryValues="@array/pie_control_values"
+            android:title="@string/pie_control_title"
+            android:dialogTitle="@string/pie_control_dialog_title" />
+
+        <PreferenceScreen
+	    android:key="pie_style"
+            android:fragment="com.android.settings.liquid.PieStyleSettings"
+            android:title="@string/pie_style" />
+
+        <PreferenceScreen
+            android:key="pie_trigger"
+            android:fragment="com.android.settings.liquid.PieTriggerSettings"
+            android:title="@string/pie_trigger" />
 
     </PreferenceCategory>
 

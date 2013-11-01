@@ -14,8 +14,9 @@
      limitations under the License.
 -->
 
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+<PreferenceScreen
     android:title="@string/pie_control_trigger_positions"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
     <Preference
@@ -51,7 +52,14 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:title="@string/pie_trigger_dimens_options">
+        android:title="@string/dimensions_settings_title">
+
+        <ListPreference
+            android:key="pie_trigger_gravity_left_right"
+            android:entries="@array/pie_trigger_gravity_left_right_entries"
+            android:entryValues="@array/pie_trigger_gravity_left_right_values"
+            android:title="@string/pie_trigger_gravity_left_right_title"
+            android:dialogTitle="@string/pie_trigger_gravity_left_right_dialog_title" />
 
         <com.android.settings.widget.SeekBarPreference
             android:key="pie_trigger_height"
@@ -61,19 +69,17 @@
             android:key="pie_trigger_thickness"
             android:title="@string/pie_trigger_thickness_title" />
 
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/additional_settings_title">
+
         <CheckBoxPreference
             android:key="pie_disable_ime_triggers"
             android:title="@string/pie_disable_ime_triggers_title"
             android:summary="@string/pie_disable_ime_triggers_summary"
             android:defaultValue="true" />
 
-        <ListPreference
-            android:key="pie_trigger_gravity_left_right"
-            android:entries="@array/pie_trigger_gravity_left_right_entries"
-            android:entryValues="@array/pie_trigger_gravity_left_right_values"
-            android:title="@string/pie_trigger_gravity_left_right_title"
-            android:dialogTitle="@string/pie_trigger_gravity_left_right_dialog_title" />
-
-    </PreferenceCategory>
+   </PreferenceCategory>
 
 </PreferenceScreen>

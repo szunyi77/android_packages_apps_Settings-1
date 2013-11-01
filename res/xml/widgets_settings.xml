@@ -21,7 +21,6 @@
             android:title="@string/navbar_widgets_note_title"
             android:summary="@string/navbar_widgets_note_summary"
             android:selectable="false" />
-
         <PreferenceCategory
                 android:key="navbar_widgets"
                 android:title="@string/navbar_widgets_cat_title" >
@@ -34,7 +33,6 @@
                 android:fragment="com.android.settings.liquid.WidgetsStyle"
                 android:title="@string/navbar_widgets_style_settings_title"
                 android:summary="@string/navbar_widgets_style_settings_summary" />
-
         </PreferenceCategory>
 
 </PreferenceScreen>

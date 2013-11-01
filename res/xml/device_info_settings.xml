@@ -21,8 +21,8 @@
         <PreferenceScreen
             android:key="about_liquid"
             android:fragment="com.android.settings.liquid.AboutLiquid"
-            android:title="@string/about_liquid_title"
-            android:summary="@string/about_liquid_summary" />
+            android:title="@string/about_team_title"
+            android:summary="@string/about_team_summary" />
 
         <!-- Device status - launches activity -->
         <PreferenceScreen android:key="status_info"
