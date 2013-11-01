@@ -267,6 +267,7 @@ public class DevelopmentSettings extends PreferenceFragment
 
         if (!android.os.Process.myUserHandle().equals(UserHandle.OWNER)) {
             disableForUser(mEnableAdb);
+            disableForUser(mPassword);
             disableForUser(mClearAdbKeys);
             disableForUser(mPassword);
         }
