@@ -14,18 +14,20 @@
      limitations under the License.
 -->
 
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-        android:title="@string/about_liquid_title"
-        xmlns:liquid="http://schemas.android.com/apk/res/com.android.settings">
+<PreferenceScreen
+    android:title="@string/about_team_title"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:liquid="http://schemas.android.com/apk/res/com.android.settings">
 
-    <PreferenceCategory android:key="devs"
-        android:title="@string/devs">
+    <PreferenceCategory
+        android:key="devs"
+        android:title="@string/about_devs">
 
         <com.android.settings.widget.DeveloperPreference
             android:title="Liquid0624"
             liquid:nameDev="liquid0624"
             liquid:twitterHandle="liquid0624"
-            liquid:donateLink="@string/donate_liquid" />
+            liquid:donateLink="@string/about_donate_liquid" />
 
         <com.android.settings.widget.DeveloperPreference
             android:title="Deadman96385"
@@ -47,46 +49,48 @@
             liquid:nameDev="TheBr0ken"
             liquid:twitterHandle="TheBr0ken" />
 
-        <com.android.settings.widget.DeveloperPreference
-            android:title="OldDroid"
-            liquid:nameDev="OldDroid"
-            liquid:twitterHandle="OldDroid_DEV" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="links"
+        android:title="@string/about_links">
+
+        <Preference
+            android:key="about_droiddev"
+            android:title="@string/about_droiddev_title"
+            android:summary="@string/about_droiddev_summary" />
+
+        <Preference
+            android:key="about_facebook"
+            android:title="@string/about_facebook_title"
+            android:summary="@string/about_facebook_summary" />
+
+        <Preference
+            android:key="about_github"
+            android:title="@string/about_github_title"
+            android:summary="@string/about_github_summary" />
+
+        <Preference
+            android:key="about_google"
+            android:title="@string/about_google_title"
+            android:summary="@string/about_google_summary" />
+
+        <Preference
+            android:key="about_website"
+            android:title="@string/about_website_title"
+            android:summary="@string/about_website_summary" />
 
     </PreferenceCategory>
 
-    <PreferenceCategory android:key="links"
-        android:title="@string/links">
-
-        <Preference
-            android:key="liquid_GooglePlus"
-            android:title="@string/liquid_GooglePlus_title"
-            android:summary="@string/liquid_GooglePlus_summary" />
-		
-        <Preference
-            android:key="liquid_facebook"
-            android:title="@string/liquid_facebook_title"
-            android:summary="@string/liquid_facebook_summary" />
-
-        <Preference
-            android:key="liquid_source"
-            android:title="@string/liquid_source_title"
-            android:summary="@string/liquid_source_summary" />
-
-        <Preference
-            android:key="liquid_website"
-            android:title="@string/liquid_website_title"
-            android:summary="@string/liquid_website_summary" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory android:key="contributors"
-        android:title="@string/contributors">
+    <PreferenceCategory
+        android:key="contributors"
+        android:title="@string/about_contributors">
 
         <com.android.settings.widget.DeveloperPreference
-            android:title="Slimroms"
+            android:title="SlimRoms"
             liquid:nameDev="slimroms"
             liquid:twitterHandle="slimroms"
-            liquid:donateLink="@string/donate_slim" />
+            liquid:donateLink="@string/about_donate_slimroms" />
 
     </PreferenceCategory>
 

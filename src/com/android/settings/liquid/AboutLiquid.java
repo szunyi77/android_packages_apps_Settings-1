@@ -22,7 +22,6 @@ import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
-
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.R;
 
@@ -32,21 +31,24 @@ import java.util.Collections;
 
 public class AboutLiquid extends SettingsPreferenceFragment {
 
-    public static final String TAG = "AboutLiquid";
-
-    Preference mSiteUrl;
-    Preference mSourceUrl;
+    Preference mDroidDevUrl;
     Preference mFacebookUrl;
+    Preference mOurGithubUrl;
+    Preference mGooglePlusUrl;
+    Preference mOurWebSiteUrl;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.about_liquid);
-        mSiteUrl = findPreference("liquid_website");
-        mSourceUrl = findPreference("liquid_source");
-        mFacebookUrl = findPreference("liquid_facebook");
 
-        PreferenceGroup devsGroup = (PreferenceGroup) findPreference("devs");
+        mDroidDevUrl = findPreference("about_droiddev");
+        mFacebookUrl = findPreference("about_facebook");
+        mOurGithubUrl = findPreference("about_github");
+        mGooglePlusUrl = findPreference("about_google");
+        mOurWebSiteUrl = findPreference("about_website");
+
+        PreferenceGroup devsGroup = (PreferenceGroup) findPreference("about_devs");
         ArrayList<Preference> devs = new ArrayList<Preference>();
         for (int i = 0; i < devsGroup.getPreferenceCount(); i++) {
             devs.add(devsGroup.getPreference(i));
@@ -57,19 +59,22 @@ public class AboutLiquid extends SettingsPreferenceFragment {
         for(int i = 0; i < devs.size(); i++) {
             Preference p = devs.get(i);
             p.setOrder(i);
-
             devsGroup.addPreference(p);
         }
     }
 
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-        if (preference == mSiteUrl) {
-            launchUrl("http://goo.im/devs/liquidsmooth");
-        } else if (preference == mSourceUrl) {
-            launchUrl("http://github.com/LiquidSmooth");
+        if (preference == mDroidDevUrl) {
+            launchUrl("http://www.drdevs.com/devs/teamliquid");
         } else if (preference == mFacebookUrl) {
             launchUrl("https://www.facebook.com/liquidsmoothroms");
+        } else if (preference == mOurGithubUrl) {
+            launchUrl("https://github.com/LiquidSmooth");
+        } else if (preference == mGooglePlusUrl) {
+            launchUrl("https://plus.google.com/communities/117452480298315341829");
+        } else if (preference == mOurWebSiteUrl) {
+            launchUrl("http://www.liquidsmooth.net");
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
