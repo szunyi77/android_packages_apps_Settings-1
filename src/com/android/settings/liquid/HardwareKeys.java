@@ -35,7 +35,7 @@ import com.android.settings.util.ShortcutPickerHelper;
 import com.android.settings.SettingsPreferenceFragment;
 
 public class HardwareKeys extends SettingsPreferenceFragment implements
-        ShortcutPickerHelper.OnPickListener, OnPreferenceChangeListener {
+    ShortcutPickerHelper.OnPickListener, OnPreferenceChangeListener {
 
     private static final String HARDWARE_KEYS_CATEGORY_BINDINGS = "hardware_keys_bindings";
     private static final String HARDWARE_KEYS_ENABLE_CUSTOM = "hardware_keys_enable_custom";
@@ -70,8 +70,6 @@ public class HardwareKeys extends SettingsPreferenceFragment implements
     private static final int ACTION_KILL_APP = 11;
     private static final int ACTION_LAST_APP = 12;
     private static final int ACTION_CUSTOM_APP = 13;
-    private static final int ACTION_WIDGETS = 14;
-    private static final int ACTION_QUICKSETTINGS = 15;
     private static final int ACTION_CAMERA = 16;
 
     // Masks for checking presence of hardware keys.
@@ -381,7 +379,6 @@ public class HardwareKeys extends SettingsPreferenceFragment implements
             bindingsCategory.removePreference(mCameraLongPressAction);
         }
         // All done buttons
-
         mEnableCustomBindings.setChecked((Settings.System.getInt(getActivity().
                 getApplicationContext().getContentResolver(),
                 Settings.System.HARDWARE_KEY_REBINDING, 0) == 1));
@@ -549,6 +546,7 @@ public class HardwareKeys extends SettingsPreferenceFragment implements
         }
         preference.setSummary(friendlyName);
     }
+
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == Activity.RESULT_OK) {
             if (requestCode == ShortcutPickerHelper.REQUEST_PICK_SHORTCUT

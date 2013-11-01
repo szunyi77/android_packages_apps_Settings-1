@@ -163,7 +163,8 @@ public class PowerWidget extends SettingsPreferenceFragment
         public PowerWidgetChooser() {
         }
 
-        private static final String TAG = "PowerWidgetChooserActivity";
+        private static final String TAG = "PowerWidgetActivity";
+
         private static final String BUTTONS_CATEGORY = "pref_buttons";
         private static final String BUTTON_MODES_CATEGORY = "pref_buttons_modes";
         private static final String SELECT_BUTTON_KEY_PREFIX = "pref_button_";
@@ -327,7 +328,6 @@ public class PowerWidget extends SettingsPreferenceFragment
                             break;
                     }
                 }
-
                 // add to the category
                 prefButtons.addPreference(cb);
             }

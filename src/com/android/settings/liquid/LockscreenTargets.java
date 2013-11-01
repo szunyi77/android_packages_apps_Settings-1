@@ -562,4 +562,3 @@ public class LockscreenTargets extends Fragment implements
     public void onFinishFinalAnimation() {
     }
 }
-

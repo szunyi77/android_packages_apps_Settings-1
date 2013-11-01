@@ -65,7 +65,7 @@ public class NotificationSettings extends SettingsPreferenceFragment
 
     private static final String TAG = "NavigationSettings";
     private static final String PREF_NOTIFICATION_SHOW_WIFI_SSID = "notification_show_wifi_ssid";
-    private static final String PREF_NOTIFICATION_SETTINGS_BTN = "notification_settings_btn";
+    private static final String PREF_NOTIFICATION_SETTINGS_BTN = "notification_settings_button";
     private static final String PREF_NOTIFICATION_BEHAVIOUR = "notifications_behaviour";
     private static final String PREF_NOTIFICATION_HIDE_CARRIER = "notification_hide_carrier";
 
@@ -104,7 +104,6 @@ public class NotificationSettings extends SettingsPreferenceFragment
 
         // Load the preferences from an XML resource
         addPreferencesFromResource(R.xml.notification_settings);
-
         PreferenceScreen prefs = getPreferenceScreen();
 
         int CurrentBehavior = Settings.System.getInt(getContentResolver(), Settings.System.NOTIFICATIONS_BEHAVIOUR, 0);

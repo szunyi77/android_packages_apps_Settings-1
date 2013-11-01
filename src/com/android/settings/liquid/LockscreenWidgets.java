@@ -69,7 +69,7 @@ public class LockscreenWidgets extends SettingsPreferenceFragment {
 
         mCameraWidget = (CheckBoxPreference) findPreference(KEY_LOCKSCREEN_CAMERA_WIDGET);
         mCameraWidget.setChecked(Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
-                Settings.System.LOCKSCREEN_CAMERA_WIDGET, 1) == 1);
+                Settings.System.LOCKSCREEN_CAMERA_WIDGET, 0) == 1);
 
         mHideInitialPageHints = (CheckBoxPreference) findPreference(KEY_LOCKSCREEN_HIDE_INITIAL_PAGE_HINTS);
         mHideInitialPageHints.setChecked(Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),

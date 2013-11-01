@@ -30,7 +30,7 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
 public class PieControl extends SettingsPreferenceFragment
-                        implements Preference.OnPreferenceChangeListener {
+    implements Preference.OnPreferenceChangeListener {
 
     private static final String PIE_CONTROL = "pie_control";
     private static final String PIE_BUTTON = "pie_button";
@@ -55,7 +55,6 @@ public class PieControl extends SettingsPreferenceFragment
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.pie_control);
-
         PreferenceScreen prefSet = getPreferenceScreen();
 
         mShowSnap = (CheckBoxPreference) prefSet.findPreference(PIE_SHOW_SNAP);

@@ -231,7 +231,7 @@ public class ActiveDisplay extends SettingsPreferenceFragment
                     Settings.System.ACTIVE_DISPLAY_TIMEOUT, value);
         } catch (ArrayIndexOutOfBoundsException e) {
         }
-    } 
+    }
 
     private boolean hasProximitySensor() {
         SensorManager sm = (SensorManager) getActivity().getSystemService(Context.SENSOR_SERVICE);
@@ -264,4 +264,3 @@ public class ActiveDisplay extends SettingsPreferenceFragment
                 Settings.System.ACTIVE_DISPLAY_EXCLUDED_APPS, builder.toString());
     }
 }
-

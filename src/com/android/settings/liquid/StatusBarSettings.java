@@ -215,7 +215,6 @@ public class StatusBarSettings extends SettingsPreferenceFragment
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         boolean result = false;
-
         if (preference == mStatusBarCmSignal) {
             int signalStyle = Integer.valueOf((String) newValue);
             int index = mStatusBarCmSignal.findIndexOfValue((String) newValue);
@@ -261,7 +260,6 @@ public class StatusBarSettings extends SettingsPreferenceFragment
             CMDProcessor.restartSystemUI();
             return true;
         }
-
         return false;
     }
 
