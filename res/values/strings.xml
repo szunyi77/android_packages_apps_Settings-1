@@ -1,20 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-/*
-** Copyright 2007 The Android Open Source Project
-**
-** Licensed under the Apache License, Version 2.0 (the "License");
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
-**     http://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
-** limitations under the License.
-*/
+<!-- Copyright (C) 2007 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Strings for Dialog yes button -->
@@ -44,7 +41,7 @@
 
     <!-- Category headings in left-pane header menu --> <skip />
     <!-- Settings main menu category heading. Wireless and networks (Wi-Fi, Bluetooth, data usage...). [CHAR LIMIT=40] -->
-    <string name="header_category_wireless_networks">WIRELESS</string>
+    <string name="header_category_wireless_networks">WIRELESS &amp; NETWORKS</string>
     <!-- Settings main menu category heading. Device (Sound, display, battery, applications...). [CHAR LIMIT=40] -->
     <string name="header_category_device">DEVICE</string>
     <!-- Settings main menu category heading. Personal (Accounts, security, language, backup...). [CHAR LIMIT=40] -->
@@ -245,7 +242,7 @@
     <!-- Bluetooth settings screen, option name to pick discoverability timeout duration (a list dialog comes up) -->
     <string name="bluetooth_visibility_timeout">Visibility timeout</string>
     <!-- Bluetooth settings screen, check box label whether or not to allow
-        bluetooth voice dialing when lockscreen is up-->
+        bluetooth voice dialing when lock screen is up-->
     <string name="bluetooth_lock_voice_dialing">Lock voice dialing</string>
     <!-- Bluetooth settings screen, lock voice dialing checkbox summary text -->
     <string name="bluetooth_lock_voice_dialing_summary">
@@ -630,7 +627,7 @@
 
     <!-- Date and time settings --><skip />
     <!-- Main Settings screen setting option name to go into the date and time settings-->
-    <string name="date_and_time_settings_title">Date &amp; Time</string>
+    <string name="date_and_time_settings_title">Date &amp; time</string>
     <!-- Title for Date & Time settings screen in SetupWizard [CHAR LIMIT=40] -->
     <string name="date_and_time_settings_title_setup_wizard">Set date and time</string>
     <!-- Main Settings screen setting option summary text for the item to go into the date and time settings. -->
@@ -686,15 +683,15 @@
     <!-- Security settings screen, setting option summary to change screen timeout -->
     <string name="lock_after_timeout_summary"><xliff:g id="timeout_string">%1$s</xliff:g> after sleep</string>
     <!-- Text shown next to checkbox for showing owner info on LockScreen [CHAR LIMIT=50]-->
-    <string name="show_owner_info_on_lockscreen_label">Show owner info on lockscreen</string>
+    <string name="show_owner_info_on_lockscreen_label">Show owner info on lock screen</string>
     <!-- Text shown for title of owner info setting [CHAR LIMIT=20]-->
     <string name="owner_info_settings_title">Owner info</string>
     <!-- Text shown for summary of owner info setting [CHAR LIMIT=40]-->
     <string name="owner_info_settings_summary"></string>
     <!-- Hint text shown in owner info edit text [CHAR LIMIT=50] -->
-    <string name="owner_info_settings_edit_text_hint">Type text to display on the lockscreen</string>
+    <string name="owner_info_settings_edit_text_hint">Type text to display on the lock screen</string>
     <!-- Text shown next to checkbox for showing user info on LockScreen [CHAR LIMIT=50]-->
-    <string name="show_user_info_on_lockscreen_label">Show user info on lockscreen</string>
+    <string name="show_user_info_on_lockscreen_label">Show user info on lock screen</string>
     <!-- Text shown for title of user info setting [CHAR LIMIT=20]-->
     <string name="user_info_settings_title">User info</string>
     <!-- Text shown next to checkbox for showing profile info on LockScreen [CHAR LIMIT=50]-->
@@ -702,10 +699,10 @@
     <!-- Text shown for title of profile info setting [CHAR LIMIT=20]-->
     <string name="profile_info_settings_title">Profile info</string>
     <!-- Main Settings screen setting option title for the item to take you to the location screen -->
-    <string name="location_settings_title">Location</string>
+    <string name="location_settings_title">Location access</string>
     <!-- Main Settings screen setting option title for the item to take you to the security screen -->
     <string name="security_settings_title">Security</string>
-    <!-- App Ops -->
+    <!-- App Ops Settings Title -->
     <string name="appops_settings_title">Privacy</string>
     <!-- Main Settings screen setting option summary text for the item tot ake you to the security and location screen -->
     <string name="security_settings_summary">Set My Location, screen unlock, SIM card lock, credential storage lock</string>
@@ -763,9 +760,9 @@
     <string name="crypt_keeper_unplugged_text">Plug in your charger and try again.</string>
 
     <!-- Dialog title, shown when encryption cannot proceed because a PIN/Password is needed -->
-    <string name="crypt_keeper_dialog_need_password_title">No lockscreen PIN or password</string>
+    <string name="crypt_keeper_dialog_need_password_title">No lock screen PIN or password</string>
     <!-- Dialog message, shown when encryption cannot proceed because a PIN/Password is needed -->
-    <string name="crypt_keeper_dialog_need_password_message">You need to set a lockscreen PIN or
+    <string name="crypt_keeper_dialog_need_password_message">You need to set a lock screen PIN or
     password before you can start encryption.</string>
 
     <!-- Title of the final confirmation screen before starting device encryption -->
@@ -831,7 +828,7 @@
     <string name="unlock_set_unlock_launch_picker_title">Screen lock</string>
 
     <!--  Title for PreferenceScreen to change security method: None/Pattern/PIN/Password [CHAR LIMIT=22] -->
-    <string name="unlock_set_unlock_launch_picker_change_title">Change lockscreen</string>
+    <string name="unlock_set_unlock_launch_picker_change_title">Change lock screen</string>
 
     <!--  Summary for PreferenceScreen to changeecurity method: None/Pattern/PIN/Password [CHAR LIMIT=45]  -->
     <string name="unlock_set_unlock_launch_picker_change_summary">Change or disable pattern, PIN, or password security</string>
@@ -880,7 +877,7 @@
     <!-- Summary for preference that has been disabled by because of the DevicePolicyAdmin, or because device encryption is enabled, or because there are credentials in the credential storage [CHAR LIMIT=50] -->
     <string name="unlock_set_unlock_disabled_summary">Disabled by administrator, encryption policy, or credential storage</string>
 
-    <!-- Summary for "Configure lockscreen" when lockscreen is off [CHAR LIMIT=45] -->
+    <!-- Summary for "Configure lockscreen" when lock screen is off [CHAR LIMIT=45] -->
     <string name="unlock_set_unlock_mode_off">None</string>
     <!-- Summary for "Configure lockscreen" when security is disabled [CHAR LIMIT=45] -->
     <string name="unlock_set_unlock_mode_none">Slide</string>
@@ -2457,9 +2454,9 @@
 
     <!-- About --> <skip />
     <!-- Main settings screen, setting title for the user to go into the About phone screen -->
-    <string name="about_settings" product="tablet">About Tablet</string>
+    <string name="about_settings" product="tablet">About tablet</string>
     <!-- Main settings screen, setting title for the user to go into the About phone screen -->
-    <string name="about_settings" product="default">About Phone</string>
+    <string name="about_settings" product="default">About phone</string>
     <!-- Main settings screen, setting summary for the user to go into the About phone screen-->
     <string name="about_settings_summary">View legal info, status, software version</string>
     <!-- About phone settings screen, setting option name to go to dialog that shows legal info -->
@@ -3006,9 +3003,9 @@
 
     <!-- Language Settings --> <skip />
     <!-- Title of setting on main settings screen.  This item will take the user to the screen to tweak settings realted to locale and text -->
-    <string name="language_settings">Language &amp; Input</string>
+    <string name="language_settings">Language &amp; input</string>
     <!-- Title of Language and keyboard settings screen -->
-    <string name="language_keyboard_settings_title">Language &amp; Input</string>
+    <string name="language_keyboard_settings_title">Language &amp; input</string>
     <!-- On Language & keyboard settings screen, heading. Inside the "Language & keyboard settings" screen, this is the header for settings that relate to language (select the system language, user dictionary for the language). -->
     <string name="language_settings_category">Language settings</string>
     <!-- On Language & keyboard settings screen, heading. Inside the "Language & keyboard settings" screen, this is the header for settings that relate to keyboard (enable/disable each keyboard, settings for each keyboard). -->
@@ -3194,16 +3191,15 @@
     <string name="builtin_keyboard_settings_summary">Physical keyboard settings</string>
 
     <!-- Development Settings.  the title for the item to take the user to Development settings.  Development settings are settings meant for application developers.  -->
-    <string name="development_settings_title">Development</string>
+    <string name="development_settings_title">Developer options</string>
     <!-- Development Settings summary.  The summary of the item to take the user to Development settings.  Development settings are settings meant for application developers. -->
     <string name="development_settings_summary">Set options for app development</string>
-    <!-- Setting checkbox title for Whether to enable Android debugging support on the phone. -->
-    <string name="enable_adb">Android debugging</string>
-    <!-- Setting checkbox summary for Whether to enable Android debugging support on the phone -->
-    <string name="enable_adb_summary">Allow Android debug mode, the adb interface on USB (or on network)</string>
     <!-- Setting checkbox title for Whether to enable USB debugging support on the phone. -->
     <!-- Error message for users that aren't allowed to modify developer options [CHAR LIMIT=none] -->
     <string name="development_settings_not_available">Developer options are not available for this user</string>
+    <string name="enable_adb">USB debugging</string>
+    <!-- Setting checkbox summary for Whether to enable USB debugging support on the phone -->
+    <string name="enable_adb_summary">Debug mode when USB is connected</string>
     <!-- Setting title to revoke secure USB debugging authorizations -->
     <string name="clear_adb_keys">Revoke USB debugging authorizations</string>
     <!-- [CHAR LIMIT=NONE] Setting checkbox title for Whether to include bug report item in power menu. -->
@@ -3318,7 +3314,7 @@
     <!-- Summary for the preference screen to enable the global geture that turns on accessibility (off state). [CHAR LIMIT=35] -->
     <string name="accessibility_global_gesture_preference_summary_off">Off</string>
     <!--  Description for the preference screen to enable the global geture taht turns on accessibility. [CHAR LIMIT=none] -->
-    <string name="accessibility_global_gesture_preference_description">When this feature is turned on, you can quickly enable accessibility features in two steps:\n\nStep 1: Press and hold the power button until you hear a sound or feel a vibration.\n\nStep 2: Touch and hold two fingers until you hear audio confirmation.\n\nIf the device has multiple users, using this shortcut on the lockscreen temporarily enables accessibility until the device is unlocked.</string>
+    <string name="accessibility_global_gesture_preference_description">When this feature is turned on, you can quickly enable accessibility features in two steps:\n\nStep 1: Press and hold the power button until you hear a sound or feel a vibration.\n\nStep 2: Touch and hold two fingers until you hear audio confirmation.\n\nIf the device has multiple users, using this shortcut on the lock screen temporarily enables accessibility until the device is unlocked.</string>
     <!-- Title for the accessibility preference to enable large text. [CHAR LIMIT=35] -->
     <string name="accessibility_toggle_large_text_preference_title">Large text</string>
     <!-- Title for the accessibility preference to enable screen magnification. [CHAR LIMIT=35] -->
@@ -3751,8 +3747,8 @@
     <string name="credentials_not_erased">Credential storage couldn\'t be erased.</string>
     <!-- Toast message [CHAR LIMIT=30] -->
     <string name="credentials_enabled">Credential storage is enabled.</string>
-    <!-- Description of dialog to explain that a lockscreen password is required to use credential storage [CHAR LIMIT=NONE] -->
-    <string name="credentials_configure_lock_screen_hint">You need to set a lockscreen PIN or password before you can use credential storage.</string>
+    <!-- Description of dialog to explain that a lock screen password is required to use credential storage [CHAR LIMIT=NONE] -->
+    <string name="credentials_configure_lock_screen_hint">You need to set a lock screen PIN or password before you can use credential storage.</string>
 
     <!-- Sound settings screen, setting check box label -->
     <string name="emergency_tone_title">Emergency tone</string>
@@ -3761,11 +3757,11 @@
 
     <!-- Backup and reset Settings screen --><skip />
     <!-- Backup and reset settings menu title -->
-    <string name="privacy_settings">Backup &amp; Reset</string>
+    <string name="privacy_settings">Backup &amp; reset</string>
     <!-- Privacy settings activity title -->
-    <string name="privacy_settings_title">Backup &amp; Reset</string>
+    <string name="privacy_settings_title">Backup &amp; reset</string>
     <!-- Backup section title -->
-    <string name="backup_section_title">Backup &amp; Reset</string>
+    <string name="backup_section_title">Backup &amp; restore</string>
     <!-- Personal data section title -->
     <string name="personal_data_section_title">Personal data</string>
     <!-- Backup data menu title -->
@@ -4202,7 +4198,7 @@
     <string name="experimental_webview_summary">Apps will use the newest (beta) WebView</string>
 
     <!-- Activity title for network data usage summary. [CHAR LIMIT=25] -->
-    <string name="data_usage_summary_title">Data Usage</string>
+    <string name="data_usage_summary_title">Data usage</string>
     <!-- Title for option to pick visible time range from a list available usage periods. [CHAR LIMIT=25] -->
     <string name="data_usage_cycle">Data usage cycle</string>
     <!-- Title for checkbox menu option to enable mobile data when roaming. [CHAR LIMIT=26] -->
@@ -4675,7 +4671,7 @@
     <!-- Help URL, Tethering [DO NOT TRANSLATE] -->
     <string name="help_url_tether" translatable="false"></string>
     <!-- Help URL, Dreams [DO NOT TRANSLATE] -->
-    <string name="help_url_dreams" translatable="false">http://support.google.com/mobile/?p=settings_dreams</string>
+    <string name="help_url_dreams" translatable="false"></string>
     <!-- Help URL, User settings [DO NOT TRANSLATE] -->
     <string name="help_url_users" translatable="false"></string>
     <!-- Help URL, Location access [DO NOT TRANSLATE] -->
@@ -4804,10 +4800,6 @@
     <!-- About phone screen, Free memory info -->
     <string name="mem_info">Memory</string>
     <!-- About phone screen, status item label -->
-
-    <!-- CATEGORY Settings -->
-    <string name="header_category_customize">CUSTOMIZE</string>
-    <string name="header_category_interface">INTERFACE</string>
 
     <!-- Profiles settings  -->
     <string name="profiles_settings_title">Profiles</string>
