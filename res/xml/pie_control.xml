@@ -23,6 +23,13 @@
         android:key="general_group"
         android:title="@string/general_settings_title">
 
+        <ListPreference
+	    android:key="pie_control"
+            android:entries="@array/pie_control_entries"
+	    android:entryValues="@array/pie_control_values"
+            android:title="@string/pie_control_title"
+            android:dialogTitle="@string/pie_control_dialog_title" />
+
         <CheckBoxPreference
             android:key="pie_disable_statusbar_info"
             android:title="@string/pie_disable_statusbar_info_title"
@@ -70,13 +77,6 @@
             <extra android:name="disableDeleteLastEntry" android:value="true" />
 	    <extra android:name="fragment" android:value="com.android.settings.liquid.fragments.PieButtonFragment" />
         </PreferenceScreen>
-
-        <ListPreference
-	    android:key="pie_control"
-            android:entries="@array/pie_control_entries"
-	    android:entryValues="@array/pie_control_values"
-            android:title="@string/pie_control_title"
-            android:dialogTitle="@string/pie_control_dialog_title" />
 
         <PreferenceScreen
 	    android:key="pie_style"

@@ -66,6 +66,7 @@
     <string name="network_settings_title">Network</string>
     <string name="superuser_settings_title">Superuser</string>
     <string name="trds_settings_title">Dark mode</string>
+    <string name="user_interface_title">Interface</string>
 
     <!-- Active Display -->
     <string name="ad_enable_title">Enable</string>
