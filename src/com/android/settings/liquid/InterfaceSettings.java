@@ -59,7 +59,7 @@ import com.android.settings.SettingsPreferenceFragment;
 public class InterfaceSettings extends SettingsPreferenceFragment
     implements OnPreferenceChangeListener {
 
-    private static final String ADVANCED_SETTINGS = "interface_advanced";
+    private static final String ADVANCED_SETTINGS = "advanced_group";
     private static final String KEY_CARRIER_LABEL = "custom_carrier_label";
     private static final String KEY_FORCE_DUAL_PANE = "force_dual_pane";
     private static final String KEY_HARDWARE_KEYS = "hardware_keys";
@@ -141,18 +141,19 @@ public class InterfaceSettings extends SettingsPreferenceFragment
         mVibrationMultiplier.setSummary(currentValue);
 
         mListViewAnimation = (ListPreference) findPreference(KEY_LISTVIEW_ANIMATION);
-        int listviewanimation = Settings.System.getInt(getActivity().getContentResolver(),
-            Settings.System.LISTVIEW_ANIMATION, 0);
+        int listviewanimation = Settings.System.getInt(getContentResolver(),
+                Settings.System.LISTVIEW_ANIMATION, 0);
         mListViewAnimation.setValue(String.valueOf(listviewanimation));
         mListViewAnimation.setSummary(mListViewAnimation.getEntry());
         mListViewAnimation.setOnPreferenceChangeListener(this);
 
         mListViewInterpolator = (ListPreference) findPreference(KEY_LISTVIEW_INTERPOLATOR);
-        int listviewinterpolator = Settings.System.getInt(getActivity().getContentResolver(),
-            Settings.System.LISTVIEW_INTERPOLATOR, 0);
+        int listviewinterpolator = Settings.System.getInt(getContentResolver(),
+                Settings.System.LISTVIEW_INTERPOLATOR, 0);
         mListViewInterpolator.setValue(String.valueOf(listviewinterpolator));
         mListViewInterpolator.setSummary(mListViewInterpolator.getEntry());
         mListViewInterpolator.setOnPreferenceChangeListener(this);
+        mListViewInterpolator.setEnabled(listviewanimation > 0);
 
         // Only show the hardware keys config on a device that does not have a navbar
         IWindowManager windowManager = IWindowManager.Stub.asInterface(
@@ -233,6 +234,7 @@ public class InterfaceSettings extends SettingsPreferenceFragment
                     Settings.System.LISTVIEW_ANIMATION,
                     listviewanimation);
             mListViewAnimation.setSummary(mListViewAnimation.getEntries()[index]);
+            mListViewInterpolator.setEnabled(listviewanimation > 0);
             return true;
         } else if (preference == mListViewInterpolator) {
             int listviewinterpolator = Integer.valueOf((String) newValue);

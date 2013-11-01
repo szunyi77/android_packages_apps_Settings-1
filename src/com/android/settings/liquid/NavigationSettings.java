@@ -39,7 +39,7 @@ public class NavigationSettings extends SettingsPreferenceFragment
     private static final String PREF_RING = "navbar_targets_settings";
     private static final String PREF_STYLE_DIMEN = "navbar_style_dimen_settings";
     private static final String PREF_NAVIGATION_BAR_CAN_MOVE = "navbar_can_move";
-    private static final String KEY_ADVANCED_OPTIONS= "advanced_cat";
+    private static final String KEY_GENERAL_OPTIONS = "general_group";
 
     private boolean mHasNavBarByDefault;
     private int mNavBarMenuDisplayValue;
@@ -85,7 +85,7 @@ public class NavigationSettings extends SettingsPreferenceFragment
 
         mNavigationBarCanMove = (CheckBoxPreference) findPreference(PREF_NAVIGATION_BAR_CAN_MOVE);
         if (!Utils.isPhone(getActivity())) {
-            PreferenceCategory additionalCategory = (PreferenceCategory) findPreference(KEY_ADVANCED_OPTIONS);
+            PreferenceCategory additionalCategory = (PreferenceCategory) findPreference(KEY_GENERAL_OPTIONS);
             if (mNavigationBarCanMove != null)
                 additionalCategory.removePreference(mNavigationBarCanMove);
         } else {

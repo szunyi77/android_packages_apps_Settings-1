@@ -55,7 +55,7 @@ public class LockscreenSettings extends SettingsPreferenceFragment
     implements Preference.OnPreferenceChangeListener {
 
     private static final int LOCKSCREEN_BACKGROUND = 1024;
-    private static final String KEY_ADDITIONAL_OPTIONS = "options_group";
+    private static final String KEY_ADVANCED_OPTIONS = "advanced_group";
     private static final String KEY_SLIDER_OPTIONS = "slider_group";
     private static final String KEY_WIDGET_OPTIONS = "lockscreen_widgets_group";
     private static final String KEY_BATTERY_STATUS = "lockscreen_battery_status";
@@ -70,7 +70,7 @@ public class LockscreenSettings extends SettingsPreferenceFragment
 
     private ListPreference mBatteryStatus;
     private PreferenceScreen mLockscreenButtons;
-    private PreferenceCategory mAdditionalOptions;
+    private PreferenceCategory mAdvancedOptions;
     private ListPreference mCustomBackground;
     private ListPreference mGlowpadTorch;
     private SeekBarPreference mBgAlpha;
@@ -112,7 +112,7 @@ public class LockscreenSettings extends SettingsPreferenceFragment
         addPreferencesFromResource(R.xml.lockscreen_settings);
         prefs = getPreferenceScreen();
 
-        mAdditionalOptions = (PreferenceCategory) prefs.findPreference(KEY_ADDITIONAL_OPTIONS);
+        mAdvancedOptions = (PreferenceCategory) prefs.findPreference(KEY_ADVANCED_OPTIONS);
 
         mCustomBackground = (ListPreference) findPreference(KEY_BACKGROUND_PREF);
         mCustomBackground.setOnPreferenceChangeListener(this);
@@ -168,7 +168,7 @@ public class LockscreenSettings extends SettingsPreferenceFragment
 
         mLockscreenButtons = (PreferenceScreen) findPreference(KEY_LOCKSCREEN_BUTTONS);
         if (!hasButtons()) {
-            mAdditionalOptions.removePreference(mLockscreenButtons);
+            mAdvancedOptions.removePreference(mLockscreenButtons);
         }
 
         final int unsecureUnlockMethod = Settings.Secure.getInt(getActivity().getContentResolver(),
