@@ -48,7 +48,7 @@ public class AboutLiquid extends SettingsPreferenceFragment {
         mGooglePlusUrl = findPreference("about_google");
         mOurWebSiteUrl = findPreference("about_website");
 
-        PreferenceGroup devsGroup = (PreferenceGroup) findPreference("about_devs");
+        PreferenceGroup devsGroup = (PreferenceGroup) findPreference("devs");
         ArrayList<Preference> devs = new ArrayList<Preference>();
         for (int i = 0; i < devsGroup.getPreferenceCount(); i++) {
             devs.add(devsGroup.getPreference(i));
@@ -81,7 +81,7 @@ public class AboutLiquid extends SettingsPreferenceFragment {
 
     private void launchUrl(String url) {
         Uri uriUrl = Uri.parse(url);
-        Intent donate = new Intent(Intent.ACTION_VIEW, uriUrl);
-        getActivity().startActivity(donate);
+        Intent urlLink = new Intent(Intent.ACTION_VIEW, uriUrl);
+        getActivity().startActivity(urlLink);
     }
 }

@@ -24,30 +24,34 @@
         android:title="@string/about_devs">
 
         <com.android.settings.widget.DeveloperPreference
-            android:title="Liquid0624"
+            android:title="liquid0624"
             liquid:nameDev="liquid0624"
             liquid:twitterHandle="liquid0624"
-            liquid:donateLink="@string/about_donate_liquid" />
+            liquid:emailDev="rjbirnesser@gmail.com" />
 
         <com.android.settings.widget.DeveloperPreference
-            android:title="Deadman96385"
-            liquid:nameDev="Deadman96385"
-            liquid:twitterHandle="Deadman96385" />
+            android:title="deadman96385"
+            liquid:nameDev="deadman96385"
+            liquid:twitterHandle="deadman96385"
+            liquid:emailDev="seanhoyt963@gmail.com" />
 
         <com.android.settings.widget.DeveloperPreference
             android:title="jsnweitzel"
             liquid:nameDev="jsnweitzel"
-            liquid:twitterHandle="XjsnweitzelX" />
+            liquid:twitterHandle="XjsnweitzelX"
+            liquid:emailDev="jsnweitzel@gmail.com" />
 			
         <com.android.settings.widget.DeveloperPreference
             android:title="Somber73"
             liquid:nameDev="Somber73"
-            liquid:twitterHandle="Somber73" />
+            liquid:twitterHandle="Somber73"
+            liquid:emailDev="nytesblood@gmail.com" />
 			
         <com.android.settings.widget.DeveloperPreference
             android:title="TheBr0ken"
             liquid:nameDev="TheBr0ken"
-            liquid:twitterHandle="TheBr0ken" />
+            liquid:twitterHandle="TheBr0ken"
+            liquid:emailDev="jtoro2716@gmail.com" />
 
     </PreferenceCategory>
 
@@ -85,6 +89,12 @@
     <PreferenceCategory
         android:key="contributors"
         android:title="@string/about_contributors">
+
+        <com.android.settings.widget.DeveloperPreference
+            android:title="LiquidSmooth"
+            liquid:nameDev="liquidsmooth"
+            liquid:twitterHandle="liquid0624"
+            liquid:donateLink="@string/about_donate_liquid" />
 
         <com.android.settings.widget.DeveloperPreference
             android:title="SlimRoms"
