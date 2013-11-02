@@ -23,6 +23,34 @@
         android:key="general_group"
         android:title="@string/general_settings_title">
 
+        <CheckBoxPreference
+            android:key="expanded_widget"
+            android:title="@string/title_expanded_widget"
+            android:summary="@string/title_expanded_widget_summary"
+            android:defaultValue="true" />
+
+        <PreferenceScreen
+            android:key="widget_order"
+            android:title="@string/title_widget_order"
+            android:summary="@string/summary_widget_order"
+            android:dependency="expanded_widget"
+            android:fragment="com.android.settings.liquid.PowerWidget$PowerWidgetOrder">
+        </PreferenceScreen>
+
+        <PreferenceScreen
+            android:key="widget_picker"
+            android:title="@string/title_widget_picker"
+            android:summary="@string/summary_widget_picker"
+            android:dependency="expanded_widget"
+            android:fragment="com.android.settings.liquid.PowerWidget$PowerWidgetChooser">
+        </PreferenceScreen>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="advanced_group"
+        android:title="@string/advanced_settings_title">
+
         <ListPreference
             android:key="brightness_location"
             android:entries="@array/brightness_location_entries"
@@ -49,34 +77,6 @@
             android:title="@string/title_expanded_hide_scrollbar"
             android:defaultValue="false"
             android:dependency="expanded_widget" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="advanced_group"
-        android:title="@string/advanced_settings_title">
-
-        <CheckBoxPreference
-            android:key="expanded_widget"
-            android:title="@string/title_expanded_widget"
-            android:summary="@string/title_expanded_widget_summary"
-            android:defaultValue="true" />
-
-        <PreferenceScreen
-            android:key="widget_order"
-            android:title="@string/title_widget_order"
-            android:summary="@string/summary_widget_order"
-            android:dependency="expanded_widget"
-            android:fragment="com.android.settings.liquid.PowerWidget$PowerWidgetOrder">
-        </PreferenceScreen>
-
-        <PreferenceScreen
-            android:key="widget_picker"
-            android:title="@string/title_widget_picker"
-            android:summary="@string/summary_widget_picker"
-            android:dependency="expanded_widget"
-            android:fragment="com.android.settings.liquid.PowerWidget$PowerWidgetChooser">
-        </PreferenceScreen>
 
     </PreferenceCategory>
 
