@@ -86,22 +86,4 @@
 
     </PreferenceCategory>
 
-    <PreferenceCategory
-        android:key="contributors"
-        android:title="@string/about_contributors">
-
-        <com.android.settings.widget.DeveloperPreference
-            android:title="LiquidSmooth"
-            liquid:nameDev="liquidsmooth"
-            liquid:twitterHandle="liquid0624"
-            liquid:donateLink="@string/about_donate_liquid" />
-
-        <com.android.settings.widget.DeveloperPreference
-            android:title="SlimRoms"
-            liquid:nameDev="slimroms"
-            liquid:twitterHandle="slimroms"
-            liquid:donateLink="@string/about_donate_slimroms" />
-
-    </PreferenceCategory>
-
 </PreferenceScreen>
