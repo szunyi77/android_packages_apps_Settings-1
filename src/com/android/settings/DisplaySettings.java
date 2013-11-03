@@ -442,8 +442,12 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                         best = i;
                     }
                 }
-                summary = preference.getContext().getString(R.string.screen_timeout_summary,
+                if (currentTimeout == 2147483647) {
+                    summary = preference.getContext().getString(R.string.screen_timeout_never);
+                } else {
+                    summary = preference.getContext().getString(R.string.screen_timeout_summary,
                         entries[best]);
+                }
             }
         }
         preference.setSummary(summary);
