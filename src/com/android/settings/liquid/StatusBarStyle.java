@@ -35,29 +35,33 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.R;
+import com.android.settings.util.CMDProcessor;
 import com.android.settings.widget.SeekBarPreference;
-
+import com.android.settings.SettingsPreferenceFragment;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
-public class StatusBarStyle extends SettingsPreferenceFragment implements
-        OnPreferenceChangeListener {
+public class StatusBarStyle extends SettingsPreferenceFragment
+    implements OnPreferenceChangeListener {
 
-    private static final String TAG = "StatusBarStyle";
     private static final String PREF_STATUS_BAR_ALPHA = "status_bar_alpha";
     private static final String PREF_STATUS_BAR_ALPHA_MODE = "status_bar_alpha_mode";
     private static final String PREF_STATUS_BAR_COLOR = "status_bar_color";
     private static final String PREF_STATUS_BAR_COLOR_MODE = "status_bar_color_mode";
+    private static final String STATUS_ICON_COLOR_BEHAVIOR = "status_icon_color_behavior";
+    private static final String STATUS_ICON_COLOR = "status_icon_color";
+    private static final String STATUS_BAR_NOTIF_ICON_OPACITY = "status_bar_icon_opacity";
 
     private static final int MENU_RESET = Menu.FIRST;
 
     private boolean mCheckPreferences;
-
     private SeekBarPreference mStatusbarTransparency;
     private ColorPickerPreference mStatusBarColor;
     private ListPreference mAlphaMode;
     private CheckBoxPreference mColorMode;
+    private CheckBoxPreference mStatusIconBehavior;
+    private ColorPickerPreference mIconColor;
+    private ListPreference mStatusBarIconOpacity;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -74,7 +78,6 @@ public class StatusBarStyle extends SettingsPreferenceFragment implements
 
         // Load the preferences from an XML resource
         addPreferencesFromResource(R.xml.status_bar_style);
-
         prefs = getPreferenceScreen();
 
         mStatusBarColor = (ColorPickerPreference) findPreference(PREF_STATUS_BAR_COLOR);
@@ -117,6 +120,19 @@ public class StatusBarStyle extends SettingsPreferenceFragment implements
                 Settings.System.STATUS_NAV_BAR_COLOR_MODE, 1) == 1);
         mColorMode.setOnPreferenceChangeListener(this);
 
+        mStatusIconBehavior = (CheckBoxPreference) findPreference(STATUS_ICON_COLOR_BEHAVIOR);
+        mStatusIconBehavior.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.ICON_COLOR_BEHAVIOR, 0) == 1);
+
+        mIconColor = (ColorPickerPreference) findPreference(STATUS_ICON_COLOR);
+        mIconColor.setOnPreferenceChangeListener(this);
+
+        mStatusBarIconOpacity = (ListPreference) prefs.findPreference(STATUS_BAR_NOTIF_ICON_OPACITY);
+        int iconOpacity = Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.STATUS_BAR_NOTIF_ICON_OPACITY, 140);
+        mStatusBarIconOpacity.setValue(String.valueOf(iconOpacity));
+        mStatusBarIconOpacity.setOnPreferenceChangeListener(this);
+
         setHasOptionsMenu(true);
         mCheckPreferences = true;
         return prefs;
@@ -152,10 +168,8 @@ public class StatusBarStyle extends SettingsPreferenceFragment implements
                         Settings.System.STATUS_BAR_COLOR, -2);
                 Settings.System.putInt(getActivity().getContentResolver(),
                         Settings.System.STATUS_NAV_BAR_COLOR_MODE, 1);
-
                 Settings.System.putFloat(getActivity().getContentResolver(),
                        Settings.System.STATUS_BAR_ALPHA, 0.0f);
-
                 refreshSettings();
             }
         });
@@ -171,8 +185,7 @@ public class StatusBarStyle extends SettingsPreferenceFragment implements
         if (preference == mStatusbarTransparency) {
             float valStat = Float.parseFloat((String) newValue);
             Settings.System.putFloat(getActivity().getContentResolver(),
-                    Settings.System.STATUS_BAR_ALPHA,
-                    valStat / 100);
+                    Settings.System.STATUS_BAR_ALPHA, valStat / 100);
             return true;
         } else if (preference == mStatusBarColor) {
             String hex = ColorPickerPreference.convertToARGB(
@@ -194,13 +207,39 @@ public class StatusBarStyle extends SettingsPreferenceFragment implements
                     Settings.System.STATUS_NAV_BAR_COLOR_MODE,
                     mColorMode.isChecked() ? 0 : 1);
             return true;
+        } else if (preference == mStatusBarIconOpacity) {
+            int iconOpacity = Integer.valueOf((String) newValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUS_BAR_NOTIF_ICON_OPACITY, iconOpacity);
+            return true;
+        } else if (preference == mIconColor) {
+            String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUS_ICON_COLOR, intHex);
+            CMDProcessor.restartSystemUI();
+            return true;
         }
         return false;
+    }
+
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+        boolean value;
+
+        if (preference == mStatusIconBehavior) {
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.ICON_COLOR_BEHAVIOR,
+                    mStatusIconBehavior.isChecked() ? 1 : 0);
+            CMDProcessor.restartSystemUI();
+            return true;
+        }
+        return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
     @Override
     public void onResume() {
         super.onResume();
     }
-
 }

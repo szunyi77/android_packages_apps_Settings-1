@@ -51,11 +51,8 @@ public class StatusBarSettings extends SettingsPreferenceFragment
     private static final String STATUS_BAR_BRIGHTNESS_CONTROL = "status_bar_brightness_control";
     private static final String KEY_MISSED_CALL_BREATH = "missed_call_breath";
     private static final String KEY_MMS_BREATH = "mms_breath";
-    private static final String STATUS_BAR_NOTIF_ICON_OPACITY = "status_bar_icon_opacity";
     private static final String STATUS_BAR_AUTO_HIDE = "status_bar_auto_hide";
     private static final String STATUS_BAR_QUICK_PEEK = "status_bar_quick_peek";
-    private static final String STATUS_ICON_COLOR_BEHAVIOR = "status_icon_color_behavior";
-    private static final String STATUS_ICON_COLOR = "status_icon_color";
     private static final String KEY_STATUS_BAR_TRAFFIC = "status_bar_traffic";
     private static final String STATUS_BAR_NETWORK_STATS = "status_bar_show_network_stats";
     private static final String STATUS_BAR_NETWORK_COLOR = "status_bar_network_color";
@@ -71,11 +68,8 @@ public class StatusBarSettings extends SettingsPreferenceFragment
     private CheckBoxPreference mStatusBarBrightnessControl;
     private CheckBoxPreference mMissedCallBreath;
     private CheckBoxPreference mMMSBreath;
-    private ListPreference mStatusBarIconOpacity;
     private ListPreference mStatusBarAutoHide;
     private CheckBoxPreference mStatusBarQuickPeek;
-    private CheckBoxPreference mStatusIconBehavior;
-    private ColorPickerPreference mIconColor;
     private ColorPickerPreference mNetworkColor;
     private CheckBoxPreference mStatusBarTraffic;
     private ListPreference mStatusBarNetStatsUpdate;
@@ -110,12 +104,6 @@ public class StatusBarSettings extends SettingsPreferenceFragment
                             Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL, 0) == 1));
         mStatusBarBrightnessControl.setOnPreferenceChangeListener(this);
 
-        mStatusBarIconOpacity = (ListPreference) prefSet.findPreference(STATUS_BAR_NOTIF_ICON_OPACITY);
-        int iconOpacity = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
-                Settings.System.STATUS_BAR_NOTIF_ICON_OPACITY, 140);
-        mStatusBarIconOpacity.setValue(String.valueOf(iconOpacity));
-        mStatusBarIconOpacity.setOnPreferenceChangeListener(this);
-
         mStatusBarBrightnessChangedObserver = new StatusBarBrightnessChangedObserver(new Handler());
         mStatusBarBrightnessChangedObserver.startObserving();
 
@@ -134,10 +122,6 @@ public class StatusBarSettings extends SettingsPreferenceFragment
         mStatusBarQuickPeek.setChecked((Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
                 Settings.System.STATUSBAR_PEEK, 0) == 1));
         mStatusBarQuickPeek.setOnPreferenceChangeListener(this);
-
-        mStatusIconBehavior = (CheckBoxPreference) prefSet.findPreference(STATUS_ICON_COLOR_BEHAVIOR);
-        mStatusIconBehavior.setChecked(Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
-                Settings.System.ICON_COLOR_BEHAVIOR, 0) == 1);
 
         mStatusBarTraffic = (CheckBoxPreference) findPreference(KEY_STATUS_BAR_TRAFFIC);
         mStatusBarTraffic.setChecked(Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
@@ -160,9 +144,6 @@ public class StatusBarSettings extends SettingsPreferenceFragment
             mNetworkColor.setSummary(hexColor);
         }
         mNetworkColor.setNewPreviewColor(intNetworkColor);
-
-        mIconColor = (ColorPickerPreference) findPreference(STATUS_ICON_COLOR);
-        mIconColor.setOnPreferenceChangeListener(this);
 
         mPrefCategoryGeneral = (PreferenceCategory) findPreference(STATUS_BAR_CATEGORY_GENERAL);
 
@@ -240,24 +221,11 @@ public class StatusBarSettings extends SettingsPreferenceFragment
                     Settings.System.STATUSBAR_PEEK,
                     (Boolean) newValue ? 1 : 0);
             return true;
-        } else if (preference == mStatusBarIconOpacity) {
-            int iconOpacity = Integer.valueOf((String) newValue);
-            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.STATUS_BAR_NOTIF_ICON_OPACITY, iconOpacity);
         } else if (preference == mStatusBarAutoHide) {
             int statusBarAutoHideValue = Integer.valueOf((String) newValue);
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.AUTO_HIDE_STATUSBAR, statusBarAutoHideValue);
             updateStatusBarAutoHideSummary(statusBarAutoHideValue);
-            return true;
-        } else if (preference == mIconColor) {
-            String hex = ColorPickerPreference.convertToARGB(
-                    Integer.valueOf(String.valueOf(newValue)));
-            preference.setSummary(hex);
-            int intHex = ColorPickerPreference.convertToColorInt(hex);
-            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.STATUS_ICON_COLOR, intHex);
-            CMDProcessor.restartSystemUI();
             return true;
         }
         return false;
