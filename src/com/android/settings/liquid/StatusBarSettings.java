@@ -265,12 +265,6 @@ public class StatusBarSettings extends SettingsPreferenceFragment
                     mShowLTEorFourGee.isChecked() ? 1 : 0);
             CMDProcessor.restartSystemUI();
             return true;
-        } else if (preference == mStatusIconBehavior) {
-            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.ICON_COLOR_BEHAVIOR,
-                    mStatusIconBehavior.isChecked() ? 1 : 0);
-            CMDProcessor.restartSystemUI();
-            return true;
         }
 
         return super.onPreferenceTreeClick(preferenceScreen, preference);
