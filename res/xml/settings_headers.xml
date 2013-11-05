@@ -58,8 +58,15 @@
         android:fragment="com.android.settings.WirelessSettings"
         android:icon="@drawable/empty_icon" />
 
-    <!-- INTERFACE -->
-    <header android:title="@string/header_category_interface" />
+    <!-- Advanced -->
+    <header android:title="@string/header_category_rom_settings" />
+
+    <!-- Interface -->
+    <header
+        android:id="@+id/interface_settings"
+        android:icon="@drawable/ic_settings_interface"
+        android:fragment="com.android.settings.liquid.InterfaceSettings"
+        android:title="@string/interface_settings_title" />
 
     <!-- Themes -->
     <header
