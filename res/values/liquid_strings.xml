@@ -160,4 +160,10 @@
     <!-- Font size sample text -->
     <string name="font_size_sample">Sample</string>
 
+    <!-- Wi-Fi country code-->
+    <string name="wifi_setting_countrycode_title">Wi-Fi region code</string>
+    <string name="wifi_setting_countrycode_summary">Specify the region code for Wi-Fi</string>
+    <string name="wifi_setting_countrycode_error">There was a problem setting the region code.</string>
+    <string name="wifi_setting_countrycode_disabled">Enable Wi-Fi to change this option.</string>
+
 </resources>
