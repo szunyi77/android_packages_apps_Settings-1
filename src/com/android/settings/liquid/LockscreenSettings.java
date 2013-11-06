@@ -42,14 +42,14 @@ import com.android.settings.R;
 import com.android.settings.Utils;
 import com.android.internal.view.RotationPolicy;
 import com.android.settings.widget.SeekBarPreference;
-import com.android.internal.widget.multiwaveview.GlowPadView;
 import com.android.settings.SettingsPreferenceFragment;
-
-import java.io.File;
-import java.io.IOException;
+import com.android.internal.widget.multiwaveview.GlowPadView;
 
 import net.margaritov.preference.colorpicker.ColorPickerView;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
+
+import java.io.File;
+import java.io.IOException;
 
 public class LockscreenSettings extends SettingsPreferenceFragment
     implements Preference.OnPreferenceChangeListener {
@@ -61,7 +61,6 @@ public class LockscreenSettings extends SettingsPreferenceFragment
     private static final String KEY_BATTERY_STATUS = "lockscreen_battery_status";
     private static final String KEY_LOCKSCREEN_BUTTONS = "lockscreen_buttons";
     private static final String PREF_LOCKSCREEN_AUTO_ROTATE = "lockscreen_auto_rotate";
-    private static final String PREF_LOCKSCREEN_EIGHT_TARGETS = "lockscreen_eight_targets";
     private static final String PREF_LOCKSCREEN_SHORTCUTS = "lockscreen_shortcuts";
     private static final String KEY_BACKGROUND_PREF = "lockscreen_background";
     private static final String KEY_BACKGROUND_ALPHA_PREF = "lockscreen_alpha";
@@ -75,7 +74,6 @@ public class LockscreenSettings extends SettingsPreferenceFragment
     private ListPreference mGlowpadTorch;
     private SeekBarPreference mBgAlpha;
     private CheckBoxPreference mLockscreenAutoRotate;
-    private CheckBoxPreference mLockscreenEightTargets;
     private ColorPickerPreference mLockscreenTextColor;
     private Preference mShortcuts;
 
@@ -153,13 +151,7 @@ public class LockscreenSettings extends SettingsPreferenceFragment
                 Settings.System.LOCKSCREEN_AUTO_ROTATE, defaultValue) == 1);
         mLockscreenAutoRotate.setOnPreferenceChangeListener(this);
 
-        mLockscreenEightTargets = (CheckBoxPreference) findPreference(PREF_LOCKSCREEN_EIGHT_TARGETS);
-        mLockscreenEightTargets.setChecked(Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
-                Settings.System.LOCKSCREEN_EIGHT_TARGETS, 0) == 1);
-        mLockscreenEightTargets.setOnPreferenceChangeListener(this);
-
         mShortcuts = (Preference) findPreference(PREF_LOCKSCREEN_SHORTCUTS);
-        mShortcuts.setEnabled(!mLockscreenEightTargets.isChecked());
 
         if (RotationPolicy.isRotationLocked(getActivity())) {
             mLockscreenAutoRotate.setEnabled(false);
@@ -185,7 +177,6 @@ public class LockscreenSettings extends SettingsPreferenceFragment
         } else if (!Utils.isPhone(getActivity())) {
              // Nothing for tablets and large screen devices
              sliderCategory.removePreference(mShortcuts);
-             sliderCategory.removePreference(mLockscreenEightTargets);
         }
 
         mLockscreenTextColor = (ColorPickerPreference) findPreference(KEY_LOCKSCREEN_TEXT_COLOR);
@@ -224,18 +215,6 @@ public class LockscreenSettings extends SettingsPreferenceFragment
         } else if (preference == mLockscreenAutoRotate) {
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.LOCKSCREEN_AUTO_ROTATE, (Boolean) objValue ? 1 : 0);
-            return true;
-        } else if (preference == mLockscreenEightTargets) {
-            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.LOCKSCREEN_EIGHT_TARGETS, (Boolean) objValue ? 1 : 0);
-            mShortcuts.setEnabled(!((Boolean) objValue));
-            Settings.System.putString(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.LOCKSCREEN_TARGETS, GlowPadView.EMPTY_TARGET);
-            for (File pic : mActivity.getFilesDir().listFiles()) {
-                if (pic.getName().startsWith("lockscreen_")) {
-                    pic.delete();
-                }
-            }
             return true;
         } else if (preference == mGlowpadTorch) {
             int value = Integer.valueOf((String) objValue);

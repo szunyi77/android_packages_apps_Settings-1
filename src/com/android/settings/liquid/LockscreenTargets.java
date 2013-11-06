@@ -42,31 +42,27 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.android.settings.R;
-import com.android.settings.Utils;
-import com.android.settings.util.IconPicker;
-import com.android.settings.util.ShortcutPickHelperTargets;
 import com.android.internal.widget.multiwaveview.GlowPadView;
 import com.android.internal.util.liquid.LockscreenTargetUtils;
-import com.android.settings.util.IconPicker.OnIconPickListener;
 import com.android.internal.widget.multiwaveview.TargetDrawable;
+import com.android.settings.liquid.IconPicker.OnIconPickListener;
 
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 
-public class LockscreenTargets extends Fragment implements 
-        ShortcutPickHelperTargets.OnPickListener, GlowPadView.OnTriggerListener, OnIconPickListener {
+public class LockscreenTargets extends Fragment implements
+    ShortcutPickHelper.OnPickListener, GlowPadView.OnTriggerListener, OnIconPickListener {
 
     private static final String TAG = "LockscreenTargets";
 
     private Activity mActivity;
     private Resources mResources;
-    private ShortcutPickHelperTargets mPicker;
+    private ShortcutPickHelper mPicker;
     private IconPicker mIconPicker;
 
     private GlowPadView mWaveView;
-    private boolean mIsScreenLarge;
     private ViewGroup mContainer;
 
     private ImageButton mDialogIcon;
@@ -102,15 +98,11 @@ public class LockscreenTargets extends Fragment implements
         mActivity = getActivity();
         mResources = getResources();
 
-        mIsScreenLarge = !Utils.isPhone(mActivity) ||
-                Settings.System.getInt(mActivity.getContentResolver(),
-                        Settings.System.LOCKSCREEN_EIGHT_TARGETS, 0) == 1;
-
         mTargetOffset = LockscreenTargetUtils.getTargetOffset(mActivity);
         mMaxTargets = LockscreenTargetUtils.getMaxTargets(mActivity);
 
         mIconPicker = new IconPicker(mActivity, this);
-        mPicker = new ShortcutPickHelperTargets(mActivity, this);
+        mPicker = new ShortcutPickHelper(mActivity, this);
 
         mTemporaryImage = new File(mActivity.getCacheDir() + "/target.tmp");
         mEmptyLabel = mResources.getString(R.string.lockscreen_target_empty);
@@ -423,6 +415,10 @@ public class LockscreenTargets extends Fragment implements
 
     @Override
     public void onReleased(View v, int handle) {
+    }
+
+    public void onTargetChange(View v, int whichHandle) {
+
     }
 
     @Override

@@ -410,8 +410,6 @@
     <string name="lockscreen_target_info">Drag the slider to targets to assign</string>
     <string name="lockscreen_target_title">Targets</string>
     <string name="lockscreen_target_summary">Custom lockscreen targets and appearance</string>
-    <string name="lockscreen_eight_targets_title">Eight targets</string>
-    <string name="lockscreen_eight_targets_summary">Enable eight custom lockscreen targets</string>
     <string name="lockscreen_target_reset">Reset lockscreen targets</string>
     <string name="lockscreen_target_save">Lockscreen targets saved</string>
     <string name="lockscreen_target_reset_title">Reset</string>
