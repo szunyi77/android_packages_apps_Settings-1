@@ -42,27 +42,31 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.android.settings.R;
+import com.android.settings.Utils;
+import com.android.settings.util.IconPicker;
+import com.android.settings.util.ShortcutPickHelperTargets;
 import com.android.internal.widget.multiwaveview.GlowPadView;
 import com.android.internal.util.liquid.LockscreenTargetUtils;
+import com.android.settings.util.IconPicker.OnIconPickListener;
 import com.android.internal.widget.multiwaveview.TargetDrawable;
-import com.android.settings.liquid.IconPicker.OnIconPickListener;
 
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 
-public class LockscreenTargets extends Fragment implements
-    ShortcutPickHelper.OnPickListener, GlowPadView.OnTriggerListener, OnIconPickListener {
+public class LockscreenTargets extends Fragment implements 
+        ShortcutPickHelperTargets.OnPickListener, GlowPadView.OnTriggerListener, OnIconPickListener {
 
     private static final String TAG = "LockscreenTargets";
 
     private Activity mActivity;
     private Resources mResources;
-    private ShortcutPickHelper mPicker;
+    private ShortcutPickHelperTargets mPicker;
     private IconPicker mIconPicker;
 
     private GlowPadView mWaveView;
+    private boolean mIsScreenLarge;
     private ViewGroup mContainer;
 
     private ImageButton mDialogIcon;
@@ -98,11 +102,13 @@ public class LockscreenTargets extends Fragment implements
         mActivity = getActivity();
         mResources = getResources();
 
+        mIsScreenLarge = !Utils.isPhone(mActivity);
+
         mTargetOffset = LockscreenTargetUtils.getTargetOffset(mActivity);
         mMaxTargets = LockscreenTargetUtils.getMaxTargets(mActivity);
 
         mIconPicker = new IconPicker(mActivity, this);
-        mPicker = new ShortcutPickHelper(mActivity, this);
+        mPicker = new ShortcutPickHelperTargets(mActivity, this);
 
         mTemporaryImage = new File(mActivity.getCacheDir() + "/target.tmp");
         mEmptyLabel = mResources.getString(R.string.lockscreen_target_empty);
