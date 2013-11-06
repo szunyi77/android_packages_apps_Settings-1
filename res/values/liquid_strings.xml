@@ -200,6 +200,7 @@
     <string name="halo_effect_color_title">Effect color</string>
     <string name="halo_effect_color_summary">Requires statusbar to restart</string>
     <string name="halo_size_title">HALO size</string>
+    <string name="halo_size_summary">Change size of HALO floating window</string>
     <string name="halo_size_miniscule">Miniscule</string>
     <string name="halo_size_small">Small</string>
     <string name="halo_size_default">Default</string>

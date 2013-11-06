@@ -110,6 +110,15 @@
             android:dependency="halo_enabled"
             android:defaultValue="true" />
 
+        <ListPreference
+            android:key="halo_size"
+            android:dialogTitle="@string/halo_size_title"
+            android:title="@string/halo_size_title"
+            android:summary="@string/halo_size_summary"
+            android:dependency="halo_enabled"
+            android:entries="@array/entries_halo_size"
+            android:entryValues="@array/values_halo_size" />
+
         <CheckBoxPreference
             android:key="halo_colors"
             android:title="@string/halo_colors_title"
@@ -144,14 +153,6 @@
             android:title="@string/halo_bubble_text_color_title"
             android:dependency="halo_colors"
             android:defaultValue="0xFFFFFFFF" />
-
-        <ListPreference
-            android:key="halo_size"
-            android:dialogTitle="@string/halo_size_title"
-            android:title="@string/halo_size_title"
-            android:dependency="halo_enabled"
-            android:entries="@array/entries_halo_size"
-            android:entryValues="@array/values_halo_size" />
 
     </PreferenceCategory>
 
