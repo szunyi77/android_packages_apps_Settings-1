@@ -42,6 +42,7 @@ import android.security.KeyStore;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 
+import com.android.internal.telephony.util.BlacklistUtils;
 import com.android.internal.widget.LockPatternUtils;
 import com.android.settings.R;
 
@@ -87,6 +88,7 @@ public class SecuritySettings extends RestrictedSettingsFragment
 
     // LiquidSmooth Additions
     private static final String KEY_APP_SECURITY_CATEGORY = "app_security";
+    private static final String KEY_BLACKLIST = "blacklist";
     private static final String KEY_SMS_SECURITY_CHECK_PREF = "sms_security_check_limit";
 
     private PackageManager mPM;
@@ -115,6 +117,7 @@ public class SecuritySettings extends RestrictedSettingsFragment
     private boolean mIsPrimary;
 
     // LiquidSmooth Additions
+    private PreferenceScreen mBlacklist;
     private ListPreference mSmsSecurityCheck;
 
     public SecuritySettings() {
@@ -140,6 +143,9 @@ public class SecuritySettings extends RestrictedSettingsFragment
         }
         addPreferencesFromResource(R.xml.security_settings);
         root = getPreferenceScreen();
+
+        // Add package manager to check if features are available
+        PackageManager pm = getPackageManager();
 
         // Add options for lock/unlock screen
         int resid = 0;
@@ -311,29 +317,31 @@ public class SecuritySettings extends RestrictedSettingsFragment
                 mToggleVerifyApps.setChecked(false);
                 mToggleVerifyApps.setEnabled(false);
             }
-
-            // App security settings
-            addPreferencesFromResource(R.xml.security_settings_app_liquid);
-            mSmsSecurityCheck = (ListPreference) root.findPreference(KEY_SMS_SECURITY_CHECK_PREF);
-
-            // Determine options based on device telephony support
-            if (pm.hasSystemFeature(PackageManager.FEATURE_TELEPHONY)) {
-                mSmsSecurityCheck = (ListPreference) root.findPreference(KEY_SMS_SECURITY_CHECK_PREF);
-                mSmsSecurityCheck.setOnPreferenceChangeListener(this);
-                int smsSecurityCheck = Integer.valueOf(mSmsSecurityCheck.getValue());
-                updateSmsSecuritySummary(smsSecurityCheck);
-            } else {
-                // No telephony, remove dependent options
-                PreferenceGroup appCategory = (PreferenceGroup)
-                        root.findPreference(KEY_APP_SECURITY_CATEGORY);
-                appCategory.removePreference(mSmsSecurityCheck);
-            }
         } else {
             if (deviceAdminCategory != null) {
                 deviceAdminCategory.removePreference(mToggleVerifyApps);
             } else {
                 mToggleVerifyApps.setEnabled(false);
             }
+        }
+
+        // App security settings
+        addPreferencesFromResource(R.xml.security_settings_app_liquid);
+        mBlacklist = (PreferenceScreen) root.findPreference(KEY_BLACKLIST);
+        mSmsSecurityCheck = (ListPreference) root.findPreference(KEY_SMS_SECURITY_CHECK_PREF);
+
+        // Determine options based on device telephony support
+        if (pm.hasSystemFeature(PackageManager.FEATURE_TELEPHONY)) {
+            mSmsSecurityCheck = (ListPreference) root.findPreference(KEY_SMS_SECURITY_CHECK_PREF);
+            mSmsSecurityCheck.setOnPreferenceChangeListener(this);
+            int smsSecurityCheck = Integer.valueOf(mSmsSecurityCheck.getValue());
+            updateSmsSecuritySummary(smsSecurityCheck);
+        } else {
+            // No telephony, remove dependent options
+            PreferenceGroup appCategory = (PreferenceGroup)
+                    root.findPreference(KEY_APP_SECURITY_CATEGORY);
+            appCategory.removePreference(mBlacklist);
+            appCategory.removePreference(mSmsSecurityCheck);
         }
 
         mNotificationAccess = findPreference(KEY_NOTIFICATION_ACCESS);
@@ -535,6 +543,8 @@ public class SecuritySettings extends RestrictedSettingsFragment
         if (mEnableKeyguardWidgets != null) {
             mEnableKeyguardWidgets.setChecked(lockPatternUtils.getWidgetsEnabled());
         }
+
+        updateBlacklistSummary();
     }
 
     @Override
@@ -663,5 +673,15 @@ public class SecuritySettings extends RestrictedSettingsFragment
         Intent intent = new Intent();
         intent.setClassName("com.android.facelock", "com.android.facelock.AddToSetup");
         startActivity(intent);
+    }
+
+    private void updateBlacklistSummary() {
+        if (mBlacklist != null) {
+            if (BlacklistUtils.isBlacklistEnabled(getActivity())) {
+                mBlacklist.setSummary(R.string.blacklist_summary);
+            } else {
+                mBlacklist.setSummary(R.string.blacklist_summary_disabled);
+            }
+        }
     }
 }
