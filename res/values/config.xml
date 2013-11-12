@@ -42,5 +42,9 @@
 
     <!-- Button Duration Pref -->
     <bool name="config_show_ButtonDur">false</bool>
+	
+	<!-- Change density on the fly -->
+    <integer name="lcd_density_max" translatable="false">160</integer>
+    <integer name="lcd_density_min" translatable="false">480</integer>
 
 </resources>
