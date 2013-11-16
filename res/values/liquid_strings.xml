@@ -19,6 +19,8 @@
     <string name="ok">OK</string>
     <string name="reset">Reset</string>
     <string name="attention">Attention</string>
+
+    <!-- Device hostname -->
     <string name="device_hostname">Device hostname</string>
 
     <!-- Notification lights -->
@@ -154,5 +156,8 @@
     <!-- Kill app long-press back -->
     <string name="kill_app_longpress_back">Kill app back button</string>
     <string name="kill_app_longpress_back_summary">Kill the foreground app by long-pressing the back button</string>
+
+    <!-- Font size sample text -->
+    <string name="font_size_sample">Sample</string>
 
 </resources>
