@@ -66,6 +66,13 @@
 
     <!-- Advanced -->
     <header android:title="@string/advanced_category_title" />
+	
+    <!-- HALO -->
+    <header
+        android:id="@+id/halo_settings"
+		android:title="@string/halo_settings_title"
+        android:fragment="com.android.settings.crdroid.Halo"
+        android:icon="@drawable/ic_settings_halo"  />
 
     <!-- Active Display -->
     <header
