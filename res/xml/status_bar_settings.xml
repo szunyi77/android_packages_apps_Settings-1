@@ -21,7 +21,7 @@
 
     <!-- Status bar tweaks -->
     <PreferenceCategory
-        android:title="@string/status_bar_style_title">
+        android:title="@string/style_title">
 
         <PreferenceScreen
             android:fragment="com.android.settings.liquid.StatusBarClockStyle"
