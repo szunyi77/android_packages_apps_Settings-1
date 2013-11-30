@@ -1850,4 +1850,8 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="shake_secure_timeout_10min">10 minutes after screen turned off</string>
     <string name="shake_secure_timeout_30min">30 minutes after screen turned off</string>
 
+    <!-- Development shortcut -->
+    <string name="development_shortcut_title">Development shortcut</string>
+    <string name="development_shortcut_summary">Enable \'wipe data\' and \'force close\' options in notification area and recent apps list</string>
+
 </resources>
