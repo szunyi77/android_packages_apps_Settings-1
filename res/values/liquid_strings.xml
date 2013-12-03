@@ -405,8 +405,6 @@
     <string name="lockscreen_alpha_title">Background Alpha</string>
     <string name="lockscreen_text_color_title">Custom Text Color</string>
 
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-
     <!-- Sizes for pattern lockscreen -->
     <string name="lock_pattern_size_3">3x3</string>
     <string name="lock_pattern_size_4">4x4</string>
