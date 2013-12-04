@@ -316,7 +316,7 @@
     <string name="system_power_crt_mode_both">Collapse orientation dependent</string>
     <string name="system_power_crt_mode_scale">Scale down</string>
 
-    <!-- Sizes for pattern lockscreen -->
+    <!-- Sizes for pattern lock screen -->
     <string name="lock_pattern_size_3">3x3</string>
     <string name="lock_pattern_size_4">4x4</string>
     <string name="lock_pattern_size_5">5x5</string>
@@ -528,7 +528,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="shortcut_action_power">Screen Off</string>
     <string name="shortcut_action_notifications">Notifications</string>
     <string name="shortcut_action_menu_big">Menu</string>
-    <string name="shortcut_action_qs">Quicksettings panel</string>
+    <string name="shortcut_action_qs">Quick settings panel</string>
     <string name="shortcut_action_none">None</string>
     <string name="shortcut_action_power_menu">Power menu</string>
     <string name="shortcut_action_torch">Torch</string>
@@ -597,7 +597,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="shortcuts_icon_picker_pinterest">Pinterest</string>
     <string name="shortcuts_icon_picker_play">Play</string>
     <string name="shortcuts_icon_picker_pocket">Pocket</string>
-    <string name="shortcuts_icon_picker_quicksettings">Quick Settings</string>
+    <string name="shortcuts_icon_picker_quicksettings">Quick settings</string>
     <string name="shortcuts_icon_picker_rss">RSS Feed</string>
     <string name="shortcuts_icon_picker_sdcard">SDCard</string>
     <string name="shortcuts_icon_picker_search">Search</string>
@@ -706,8 +706,8 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="lockscreen_target_color_title">Target icon color</string>
     <string name="lockscreen_eight_targets_title">Eight slider targets</string>
     <string name="lockscreen_eight_targets_summary">Enable eight custom lock screen targets.</string>
-    <string name="lockscreen_enable_eight_targets_dialog">Changing this option resets your current lockscreen targets setup to default.</string>
-    <string name="lockscreen_enable_eight_targets_enabled_dialog">\n\nWith eight lockscreen targets enabled you cannot use your lockscreen shortcuts at the same time.</string>
+    <string name="lockscreen_enable_eight_targets_dialog">Changing this option resets your current lock screen targets setup to default.</string>
+    <string name="lockscreen_enable_eight_targets_enabled_dialog">\n\nWith eight lock screen targets enabled you cannot use your lock screen shortcuts at the same time.</string>
     <string name="lockscreen_target_reset">Lock screen targets reset to default</string>
     <string name="lockscreen_target_reset_message">Delete all user created lock screen targets and restore to default?</string>
     <string name="lockscreen_target_empty">None</string>
@@ -749,7 +749,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="unlock_quick_unlock_control_title">Quick unlock</string>
     <string name="unlock_quick_unlock_control_summary">Unlock automatically when the correct PIN/password is entered</string>
 
-    <!-- Lockscreen widgets -->
+    <!-- Lock screen widgets -->
     <string name="lockscreen_widgets_title">Widgets</string>
     <string name="lockscreen_camera_widget_title">Enable camera widget</string>
     <string name="lockscreen_camera_widget_summary">Show secure camera widget on the lock screen</string>
@@ -760,7 +760,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="lockscreen_use_widget_container_carousel_title">Enable portrait widget carousel</string>
     <string name="lockscreen_use_widget_container_carousel_summary">Use carousel animation in portrait when switching between lock screen widgets</string>
 
-    <!-- Lockscreen pin shuffle -->
+    <!-- Lock screen pin shuffle -->
     <string name="lock_numpad_random_title">Change the order of PIN pad numbers</string>
     <string name="lock_numpad_random_dialog_title">PIN pad random order</string>
     <string name="lock_numpad_random_off">Disabled</string>
@@ -769,11 +769,11 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
 
     <!-- Lock before unlock -->
     <string name="lock_before_unlock_title">Show slider before secure unlock</string>
-    <string name="lock_before_unlock_summary">Show slider lockscreen before secure unlock mechanism</string>
+    <string name="lock_before_unlock_summary">Show slider lock screen before secure unlock mechanism</string>
 
     <!-- Notification drawer background -->
     <string name="notification_style_title">Background style</string>
-    <string name="notification_style_summary">View or change your notification drawer and quicksettings background</string>
+    <string name="notification_style_summary">View or change your notification drawer and quick settings background</string>
     <string name="notification_wallpaper_title">Background</string>
     <string name="notification_wallpaper_landscape_title">Different landscape background</string>
     <string name="notification_background_color_fill">Color fill</string>
@@ -815,7 +815,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="title_tile_reboot">Reboot</string>
     <string name="tiles_reset_message">Restore the default displayed tiles and layout?</string>
 
-    <!-- Quick settings style -->
+    <!-- Quick settings style options -->
     <string name="summary_quicksettings_tiles_style">View or change quick settings style options</string>
     <string name="quicksettings_tiles_style_additional_options">Additional options</string>
     <string name="tiles_per_row_title">Tiles per row</string>
@@ -835,5 +835,12 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="sound_mode_vibrate">Vibrate</string>
     <string name="sound_mode_sound">Sound</string>
     <string name="sound_mode_soundVibrate">Sound &amp; Vibrate</string>
+
+    <!-- Quick settings quick pulldown -->
+    <string name="title_quick_pulldown">Quick pulldown</string>
+    <string name="summary_quick_pulldown">edge of the status bar pulls down quick settings</string>
+    <string name="quick_pulldown_off">Off</string>
+    <string name="quick_pulldown_left">Left</string>
+    <string name="quick_pulldown_right">Right</string>
 
 </resources>
