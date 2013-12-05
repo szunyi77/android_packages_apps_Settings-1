@@ -74,7 +74,7 @@ public class SoundSettings extends SettingsPreferenceFragment implements
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        addPreferencesFromResource(R.xml.slim_sound_settings);
+        addPreferencesFromResource(R.xml.liquid_sound_settings);
 
         mVolBtnMusicCtrl = (CheckBoxPreference) findPreference(KEY_VOLBTN_MUSIC_CTRL);
         mVolBtnMusicCtrl.setChecked(Settings.System.getInt(getContentResolver(),
