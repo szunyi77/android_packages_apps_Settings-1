@@ -59,7 +59,7 @@
         android:icon="@drawable/empty_icon" />
 
     <!-- Advanced -->
-    <header android:title="@string/header_category_rom_settings" />
+    <header android:title="@string/advanced_category_title" />
 
     <!-- Interface -->
     <header
@@ -67,17 +67,6 @@
         android:icon="@drawable/ic_settings_interface"
         android:fragment="com.android.settings.liquid.InterfaceSettings"
         android:title="@string/interface_settings_title" />
-
-    <!-- Themes -->
-    <header
-        android:id="@+id/themes_settings"
-        android:icon="@drawable/ic_settings_themes"
-        android:title="@string/themes_settings_title">
-        <intent
-            android:action="android.intent.action.MAIN"
-            android:targetPackage="com.tmobile.themechooser"
-            android:targetClass="com.tmobile.themechooser.ThemeChooser" />
-    </header>
 
     <!-- DEVICE -->
     <header android:id="@+id/device_section"
@@ -222,6 +211,17 @@
         android:fragment="com.android.settings.DevelopmentSettings"
         android:icon="@drawable/ic_settings_development"
         android:title="@string/development_settings_title" />
+
+    <!-- Themes -->
+    <header
+        android:id="@+id/themes_settings"
+        android:icon="@drawable/ic_settings_themes"
+        android:title="@string/themes_settings_title">
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetPackage="com.tmobile.themechooser"
+            android:targetClass="com.tmobile.themechooser.ThemeChooser" />
+    </header>
 
     <!-- About Device -->
 
