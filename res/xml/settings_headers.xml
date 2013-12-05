@@ -216,15 +216,14 @@
         android:icon="@drawable/ic_settings_development"
         android:title="@string/development_settings_title" />
 
-
     <!-- About Device -->
 
-    <!-- Superuser -->
-     <header
-        android:id="@+id/superuser_settings"
-        android:fragment="com.koushikdutta.superuser.PolicyNativeFragment"
-        android:icon="@drawable/ic_liquid_superuser"
-        android:title="@string/superuser_settings_title" />
+    <!-- Advanced options -->
+    <header
+        android:id="@+id/advanced_options_settings"
+        android:fragment="com.android.settings.liquid.AdvancedSettings"
+        android:icon="@drawable/ic_settings_advanced"
+        android:title="@string/advanced_options_settings_title" />
 
     <!-- About Phone -->
     <header
