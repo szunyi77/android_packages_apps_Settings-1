@@ -15,62 +15,6 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <!-- About LiquidSmooth -->
-    <string name="links">Links</string>
-    <string name="devs">Developers</string>
-    <string name="contributors">Contributors</string>
-    <string name="about_liquid_title">About Liquid</string>
-    <string name="about_liquid_summary">Get to know the team</string>
-    <string name="donate_liquid">http://bit.ly/Ruy2HF</string>
-    <string name="liquid_source_title">LiquidSmooth Github</string>
-    <string name="liquid_website_title">LiquidSmooth Goo.im</string>
-    <string name="liquid_GooglePlus_title">LiquidSmooth GooglePlus</string>
-    <string name="liquid_facebook_title">LiquidSmooth Facebook</string>
-    <string name="donate_slim">http://www.slimroms.net/index.php/donations</string>
-    <string name="liquid_GooglePlus_summary">Join are friendly and informative Community at http://goo.gl/3lKUXu </string>
-    <string name="liquid_facebook_summary">https://www.facebook.com/liquidsmoothroms\nPlease like us and join in on facebook</string>
-    <string name="liquid_source_summary">Source at http://github.com/LiquidSmooth\nLiquidSmooth is fully open source code</string>
-    <string name="liquid_website_summary">http://goo.im/devs/liquidsmooth\nFind all the latest builds and news here</string>
-
-    <!-- LiquidSmooth Headers -->
-    <string name="header_category_general">GENERAL</string>
-    <string name="header_category_advanced">ADVANCED</string>
-
-    <!-- LiquidSmooth Titles -->
-    <string name="additional_settings_title">Additional</string>
-    <string name="advanced_settings_title">Advanced</string>
-    <string name="general_settings_title">General</string>
-    <string name="style_settings_title">Style</string>
-    <string name="trds_settings_title">Dark Liquid</string>
-    <string name="superuser_settings_title">Superuser</string>
-
-    <!-- LiquidSmooth General -->
-    <string name="interface_settings_title">Interface</string>
-    <string name="lockscreen_settings_title">Lockscreen</string>
-    <string name="navigation_settings_title">Navigation</string>
-    <string name="notification_settings_title">Notification</string>
-    <string name="performance_settings_title">Performance</string>
-    <string name="statusbar_settings_title">Statusbar</string>
-    <string name="themes_settings_title">Themes</string>
-
-    <!-- LiquidSmooth Advanced -->
-    <string name="active_display_title">Active Display</string>
-    <string name="animation_controls_title">Animation Controls</string>
-    <string name="halo_options_title">HALO Options</string>
-    <string name="pie_control_title">Pie Control</string>
-    <string name="power_menu_title">Power Menu</string>
-    <string name="power_widget_title">Power Widget</string>
-    <string name="quick_settings_title">Quick Settings</string>
-
-    <!-- Color Picker -->
-    <string name="dialog_color_picker">Color Picker</string>
-    <string name="press_color_to_apply">Press on color below to apply</string>
-    <string name="color_default">Default</string>
-    <string name="arrow_right">→</string>
-    <string name="arrow_down">↓</string>
-    <string name="hex">Hex:</string>
-    <string name="hex_hint">#ff000000</string>
-    <string name="set">Set</string>
     <string name="ok">OK</string>
 
     <!-- Notification Lights -->
@@ -120,5 +64,8 @@
     <string name="battery_light_low_color_title">Battery low</string>
     <string name="battery_light_medium_color_title">Medium charge</string>
     <string name="battery_light_full_color_title">Fully charged</string>
+
+    <!-- Hostname Setting -->
+    <string name="device_hostname">Device hostname</string>
 
 </resources>
