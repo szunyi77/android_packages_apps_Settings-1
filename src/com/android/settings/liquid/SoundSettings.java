@@ -90,13 +90,17 @@ public class SoundSettings extends SettingsPreferenceFragment implements
         mPowerSounds = (CheckBoxPreference) findPreference(KEY_POWER_NOTIFICATIONS);
         mPowerSounds.setChecked(Settings.Global.getInt(getContentResolver(),
                 Settings.Global.POWER_NOTIFICATIONS_ENABLED, 0) != 0);
+        mPowerSounds.setOnPreferenceChangeListener(this);
+
         mPowerSoundsVibrate = (CheckBoxPreference) findPreference(KEY_POWER_NOTIFICATIONS_VIBRATE);
-        mPowerSoundsVibrate.setChecked(Settings.Global.getInt(getContentResolver(),
-                Settings.Global.POWER_NOTIFICATIONS_VIBRATE, 0) != 0);
 
         Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         if (vibrator == null || !vibrator.hasVibrator()) {
             removePreference(KEY_POWER_NOTIFICATIONS_VIBRATE);
+        } else {
+            mPowerSoundsVibrate.setChecked(Settings.Global.getInt(getContentResolver(),
+                    Settings.Global.POWER_NOTIFICATIONS_VIBRATE, 0) != 0);
+            mPowerSoundsVibrate.setOnPreferenceChangeListener(this);
         }
 
         mPowerSoundsRingtone = findPreference(KEY_POWER_NOTIFICATIONS_RINGTONE);
@@ -138,6 +142,19 @@ public class SoundSettings extends SettingsPreferenceFragment implements
     @Override
     public void onResume() {
         super.onResume();
+    }
+
+    @Override
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+        if (preference == mPowerSoundsRingtone) {
+            launchNotificationSoundPicker(REQUEST_CODE_POWER_NOTIFICATIONS_RINGTONE,
+                    Settings.Global.getString(getContentResolver(),
+                            Settings.Global.POWER_NOTIFICATIONS_RINGTONE));
+        } else {
+            // If we didn't handle it, let preferences handle it.
+            return super.onPreferenceTreeClick(preferenceScreen, preference);
+        }
+        return true;
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
