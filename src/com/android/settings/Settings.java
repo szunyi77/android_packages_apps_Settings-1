@@ -84,7 +84,9 @@ import com.android.settings.nfc.PaymentSettings;
 import com.android.settings.print.PrintJobSettingsFragment;
 import com.android.settings.print.PrintServiceSettingsFragment;
 import com.android.settings.print.PrintSettingsFragment;
+import com.android.settings.liquid.BatteryIconStyle;
 import com.android.settings.liquid.blacklist.BlacklistSettings;
+import com.android.settings.liquid.DisplayRotation;
 import com.android.settings.liquid.QuietHours;
 import com.android.settings.tts.TextToSpeechSettings;
 import com.android.settings.users.UserSettings;
@@ -355,11 +357,10 @@ public class Settings extends PreferenceActivity
         PaymentSettings.class.getName(),
         KeyboardLayoutPickerFragment.class.getName(),
         BlacklistSettings.class.getName(),
-<<<<<<< HEAD
         QuietHours.class.getName(),
-=======
         ApnSettings.class.getName()
->>>>>>> ae8976b... Apn settings fixes / code maintainence
+        BatteryIconStyle.class.getName(),
+        DisplayRotation.class.getName()
     };
 
     @Override
@@ -1140,4 +1141,6 @@ public class Settings extends PreferenceActivity
     public static class ApnEditorActivity extends Settings { /* empty */ }
     public static class BlacklistSettingsActivity extends Settings { /* empty */ }
     public static class QuietHoursSettingsActivity extends Settings { /* empty */ }
+    public static class BatteryIconStyleSettingsActivity extends Settings { /* empty */ }
+    public static class DisplayRotationSettingsActivity extends Settings { /* empty */ }
 }
