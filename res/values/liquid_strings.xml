@@ -50,6 +50,9 @@
     <!-- Interface settings -->
     <string name="interface_settings_title">Interface</string>
 
+    <!-- Superuser settings  -->
+    <string name="superuser_settings_title">Superuser</string>
+
     <!-- Themes settings  -->
     <string name="themes_settings_title">Themes</string>
 
