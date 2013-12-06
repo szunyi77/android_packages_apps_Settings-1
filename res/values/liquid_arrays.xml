@@ -622,6 +622,7 @@
     <string-array name="shortcut_action_entries">
         <item>@string/shortcut_action_back</item>
         <item>@string/shortcut_action_app</item>
+        <item>@string/shortcut_action_expanded_desktop</item>
         <item>@string/shortcut_action_home</item>
         <item>@string/shortcut_action_kill</item>
         <item>@string/shortcut_action_lastapp</item>
@@ -641,6 +642,7 @@
     <string-array name="shortcut_action_values" translatable="false">
         <item>**back**</item>
         <item>**app**</item>
+        <item>**expanded_desktop**</item>
         <item>**home**</item>
         <item>**kill**</item>
         <item>**lastapp**</item>
@@ -659,6 +661,7 @@
 
     <string-array name="shortcut_action_navring_entries">
         <item>@string/shortcut_action_app</item>
+        <item>@string/shortcut_action_expanded_desktop</item>
         <item>@string/shortcut_action_kill</item>
         <item>@string/shortcut_action_lastapp</item>
         <item>@string/shortcut_action_notifications</item>
@@ -677,6 +680,7 @@
 
     <string-array name="shortcut_action_navring_values" translatable="false">
         <item>**app**</item>
+        <item>**expanded_desktop**</item>
         <item>**kill**</item>
         <item>**lastapp**</item>
         <item>**notifications**</item>
@@ -697,6 +701,7 @@
     <string-array name="shortcut_action_power_menu_entries">
         <item>@string/shortcut_action_airplane</item>
         <item>@string/shortcut_action_app</item>
+        <item>@string/shortcut_action_expanded_desktop</item>
         <item>@string/shortcut_action_power_off</item>
         <item>@string/shortcut_action_reboot</item>
         <item>@string/shortcut_action_screenshot</item>
@@ -706,6 +711,7 @@
     <string-array name="shortcut_action_power_menu_values" translatable="false">
         <item>**airplane**</item>
         <item>**app**</item>
+        <item>**expanded_desktop**</item>
         <item>**poweroff**</item>
         <item>**reboot**</item>
         <item>**screenshot**</item>
