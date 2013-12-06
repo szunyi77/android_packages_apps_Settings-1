@@ -19,7 +19,7 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
     <PreferenceCategory
-        android:title="@string/quicksettings_tiles_style">
+        android:title="@string/style_title">
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
              android:key="quick_tiles_bg_color"
