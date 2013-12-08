@@ -61,6 +61,13 @@
     <!-- Advanced -->
     <header android:title="@string/advanced_category_title" />
 
+    <!-- Active Display -->
+    <header
+        android:id="@+id/active_display"
+        android:title="@string/active_display_title"
+        android:fragment="com.android.settings.liquid.ActiveDisplay"
+        android:icon="@drawable/ic_liquid_active_display" />
+
     <!-- Interface -->
     <header
         android:id="@+id/interface_settings"
