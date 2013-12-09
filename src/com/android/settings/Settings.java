@@ -358,7 +358,7 @@ public class Settings extends PreferenceActivity
         KeyboardLayoutPickerFragment.class.getName(),
         BlacklistSettings.class.getName(),
         QuietHours.class.getName(),
-        ApnSettings.class.getName()
+        ApnSettings.class.getName(),
         BatteryIconStyle.class.getName(),
         DisplayRotation.class.getName()
     };
