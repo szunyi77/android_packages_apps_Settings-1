@@ -194,14 +194,6 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
         mStylusIconEnabled = (CheckBoxPreference) findPreference(KEY_STYLUS_ICON_ENABLED);
         // remove stylus preference for non stylus devices
         if (!getResources().getBoolean(com.android.internal.R.bool.config_stylusGestures)) {
-            getPreferenceScreen().removePreference(findPreference(KEY_STYLUS_GESTURES));
-            mStylusIconEnabled = null;
-        }
-
-        mStylusGestures = (PreferenceScreen) findPreference(KEY_STYLUS_GESTURES);
-        mStylusIconEnabled = (CheckBoxPreference) findPreference(KEY_STYLUS_ICON_ENABLED);
-        // remove stylus preference for non stylus devices
-        if (!getResources().getBoolean(com.android.internal.R.bool.config_stylusGestures)) {
             PreferenceCategory pointerSettingsCategory = (PreferenceCategory)
                     findPreference(KEY_POINTER_SETTINGS_CATEGORY);
             if (pointerSettingsCategory != null) {
