@@ -1175,42 +1175,4 @@
         <item>critical</item>
     </string-array>
 
-    <!-- **** CYANOGENMOD EDITS START **** -->
-
-    <!-- Arrays for root access capability -->
-    <string-array name="root_access_entries">
-        <item>@string/root_access_none</item>
-        <item>@string/root_access_apps</item>
-        <item>@string/root_access_adb</item>
-        <item>@string/root_access_all</item>
-    </string-array>
-
-    <string-array name="root_access_values">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-    </string-array>
-
-    <!-- Stylus Gestures -->
-    <string-array name="gestures_entries" translatable="false">
-        <item>@string/gestures_action_empty</item>
-        <item>@string/gestures_action_home</item>
-        <item>@string/gestures_action_back</item>
-        <item>@string/gestures_action_menu</item>
-        <item>@string/gestures_action_search</item>
-        <item>@string/gestures_action_recent</item>
-    </string-array>
-
-    <string-array name="gestures_values" translatable="false">
-        <item>1000</item>
-        <item>1001</item>
-        <item>1002</item>
-        <item>1003</item>
-        <item>1004</item>
-        <item>1005</item>
-    </string-array>
-
-	<!-- **** CYANOGENMOD EDITS END **** -->
-	
 </resources>

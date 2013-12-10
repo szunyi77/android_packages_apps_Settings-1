@@ -133,6 +133,7 @@
     <string name="volume_adjust_sounds_enable_title">Volume adjust sound</string>
     <string name="volume_adjust_sounds_enable_summary">Play sound when adjusting volume with hard keys</string>
     <string name="link_volume_ringtones">Link ringtone &amp; notifications volumes</string>
+    <string name="link_volume_mutes">Silent mode affects notifications</string>
     <string name="volume_ring_only_description">Ringtone</string>
 	<string name="volume_keys_control_ring_stream">Volume keys control ringtone volume</string>
 
