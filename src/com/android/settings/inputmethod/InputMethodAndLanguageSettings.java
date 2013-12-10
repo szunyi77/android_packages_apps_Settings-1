@@ -82,6 +82,7 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
         "auto_replace", "auto_caps", "auto_punctuate",
     };
 
+    private CheckBoxPreference mStylusIconEnabled;
     private int mDefaultInputMethodSelectorVisibility = 0;
     private ListPreference mShowInputMethodSelectorPref;
     private PreferenceCategory mKeyboardSettingsCategory;
@@ -176,10 +177,10 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
         mIm = (InputManager)getActivity().getSystemService(Context.INPUT_SERVICE);
         updateInputDevices();
 
-        // Enable or disable mStatusBarImeSwitcher based on boolean value: config_show_cmIMESwitcher
+        // Enable or disable mStatusBarImeSwitcher based on boolean value: config_show_IMESwitcher
         final Preference keyImeSwitcherPref = findPreference(KEY_IME_SWITCHER);
         if (keyImeSwitcherPref != null) {
-            if (!getResources().getBoolean(com.android.internal.R.bool.config_show_cmIMESwitcher)) {
+            if (!getResources().getBoolean(com.android.internal.R.bool.config_show_IMESwitcher)) {
                 getPreferenceScreen().removePreference(keyImeSwitcherPref);
             } else {
                 mStatusBarImeSwitcher = (CheckBoxPreference) keyImeSwitcherPref;
