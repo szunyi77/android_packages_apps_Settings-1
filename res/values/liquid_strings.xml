@@ -959,5 +959,8 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
 	
     <!-- TRDS Settings -->
     <string name="trds_settings_title">Dark Liquid</string>
+	
+	<!-- LiquidSmooth Anonymous Stats -->
+    <string name="rominfo_settings_list_item_title">LiquidSmooth Statistics</string>
 
 </resources>
