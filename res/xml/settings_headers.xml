@@ -71,7 +71,7 @@
     <header
         android:id="@+id/halo_settings"
 		android:title="@string/halo_settings_title"
-        android:fragment="com.android.settings.crdroid.Halo"
+        android:fragment="com.android.settings.liquid.Halo"
         android:icon="@drawable/ic_settings_halo"  />
 
     <!-- Active Display -->
