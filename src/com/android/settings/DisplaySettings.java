@@ -294,10 +294,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         super.onPause();
 
         getContentResolver().unregisterContentObserver(mAccelerometerRotationObserver);
-
-        if (mWifiDisplayPreference != null) {
-            getActivity().unregisterReceiver(mReceiver);
-        }
     }
 
     @Override
