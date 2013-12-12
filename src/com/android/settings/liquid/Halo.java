@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.crdroid;
+package com.android.settings.liquid;
 
 import android.app.ActivityManager;
 import android.app.INotificationManager;
