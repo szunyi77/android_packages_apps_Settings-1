@@ -554,9 +554,9 @@ public class Settings extends PreferenceActivity
     }
 
     private void updateHeaderList(List<Header> target) {
-        final boolean showDev = mDevelopmentPreferences.getBoolean(
-                DevelopmentSettings.PREF_SHOW,
-                android.os.Build.TYPE.equals("eng") || android.os.Build.TYPE.equals("userdebug"));
+        //final boolean showDev = mDevelopmentPreferences.getBoolean(
+        //DevelopmentSettings.PREF_SHOW,
+        // android.os.Build.TYPE.equals("eng") || android.os.Build.TYPE.equals("userdebug"));
         int i = 0;
 
         final UserManager um = (UserManager) getSystemService(Context.USER_SERVICE);
@@ -619,9 +619,9 @@ public class Settings extends PreferenceActivity
                     }
                 }
             } else if (id == R.id.development_settings) {
-                if (!showDev) {
-                    target.remove(i);
-                }
+                // if (!showDev) {
+                // target.remove(i);
+                // }
             } else if (id == R.id.account_add) {
                 if (um.hasUserRestriction(UserManager.DISALLOW_MODIFY_ACCOUNTS)) {
                     target.remove(i);
