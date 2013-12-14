@@ -1749,5 +1749,9 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="battery_saver_network_gsm_title">GSM Networks</string>
     <string name="battery_saver_network_cdma_title">CDMA Networks</string>
     <string name="battery_saver_system_title">System options</string>
+	
+    <!-- Chamber of Secrets -->
+    <string name="chamber_title">Liquid Dungeon</string>
+    <string name="chamber_toast">The Dungeon has opened</string>
 
 </resources>
