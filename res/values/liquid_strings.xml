@@ -978,9 +978,6 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <!-- Stylus gesture icon -->
 	<string name="stylus_icon_enabled_title">Show icon when using stylus</string>
     <string name="stylus_icon_enabled_summary">Show the pointer icon when hovering or drawing with the stylus</string>
-
-    <!-- TRDS Settings -->
-    <string name="trds_settings_title">Dark mode</string>
 	
     <!-- LiquidSmooth Anonymous Stats -->
     <string name="rominfo_settings_list_item_title">LiquidSmooth Statistics</string>
@@ -1041,4 +1038,13 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <!-- Label for are-halo-notifications-allowed checkbox in app details [CHAR LIMIT=20] -->
     <string name="app_halo_label_black">Blacklist from HALO</string>
     <string name="app_halo_label_white">Whitelist from HALO</string>
+
+    <!-- Themes -->
+    <string name="theme_settings_title">Dark Mode</string>
+    <string name="theme_auto_mode_title">Switch theme</string>
+    <string name="theme_auto_mode_off">Manual</string>
+    <string name="theme_auto_mode_lightsensor">On light condition change</string>
+    <string name="theme_auto_mode_twilight">On daytime</string>
+    <string name="theme_auto_switch_mode_error">Automatic light condition change mode is enabled. Manual switching is not possible.</string>
+
 </resources>
