@@ -960,7 +960,11 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
 
     <!-- Stylus gestures support -->
     <string name="stylus_app_not_installed">%s is not installed</string>
-	
+
+    <!-- Stylus gesture icon -->
+	<string name="stylus_icon_enabled_title">Show icon when using stylus</string>
+    <string name="stylus_icon_enabled_summary">Show the pointer icon when hovering or drawing with the stylus</string>
+
     <!-- TRDS Settings -->
     <string name="trds_settings_title">Dark Liquid</string>
 	
