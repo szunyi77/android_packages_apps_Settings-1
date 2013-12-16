@@ -66,13 +66,6 @@
 
     <!-- Advanced -->
     <header android:title="@string/advanced_category_title" />
-	
-    <!-- HALO -->
-    <header
-        android:id="@+id/halo_settings"
-		android:title="@string/halo_settings_title"
-        android:fragment="com.android.settings.liquid.Halo"
-        android:icon="@drawable/ic_settings_halo"  />
 
     <!-- Active Display -->
     <header
@@ -80,6 +73,13 @@
         android:title="@string/active_display_title"
         android:fragment="com.android.settings.liquid.ActiveDisplay"
         android:icon="@drawable/ic_liquid_active_display" />
+
+    <!-- HALO -->
+    <header
+        android:id="@+id/halo_settings"
+		android:title="@string/halo_settings_title"
+        android:fragment="com.android.settings.liquid.Halo"
+        android:icon="@drawable/ic_settings_halo"  />
 
     <!-- Interface -->
     <header
@@ -194,6 +194,17 @@
         android:title="@string/privacy_settings"
         android:id="@+id/privacy_settings" />
 
+    <!-- Themes -->
+    <header
+        android:id="@+id/themes_settings"
+        android:icon="@drawable/ic_settings_themes"
+        android:title="@string/themes_settings_title">
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetPackage="com.tmobile.themechooser"
+            android:targetClass="com.tmobile.themechooser.ThemeChooser" />
+    </header>
+
     <!--  ACCOUNTS section -->
     <header
             android:id="@+id/account_settings"
@@ -238,17 +249,6 @@
         android:fragment="com.android.settings.DevelopmentSettings"
         android:icon="@drawable/ic_settings_development"
         android:title="@string/development_settings_title" />
-
-    <!-- Themes -->
-    <header
-        android:id="@+id/themes_settings"
-        android:icon="@drawable/ic_settings_themes"
-        android:title="@string/themes_settings_title">
-        <intent
-            android:action="android.intent.action.MAIN"
-            android:targetPackage="com.tmobile.themechooser"
-            android:targetClass="com.tmobile.themechooser.ThemeChooser" />
-    </header>
 
     <!-- Superuser -->
     <header

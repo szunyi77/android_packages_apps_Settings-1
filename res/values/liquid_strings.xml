@@ -966,7 +966,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="stylus_icon_enabled_summary">Show the pointer icon when hovering or drawing with the stylus</string>
 
     <!-- TRDS Settings -->
-    <string name="trds_settings_title">Dark Liquid</string>
+    <string name="trds_settings_title">Dark mode</string>
 	
 	<!-- LiquidSmooth Anonymous Stats -->
     <string name="rominfo_settings_list_item_title">LiquidSmooth Statistics</string>
