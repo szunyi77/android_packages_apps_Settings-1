@@ -65,6 +65,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_POWER_CRT_MODE = "system_power_crt_mode";
     private static final String KEY_WAKEUP_WHEN_PLUGGED_UNPLUGGED = "wakeup_when_plugged_unplugged";
     private static final String KEY_WAKEUP_CATEGORY = "category_wakeup_options";
+    private static final String KEY_LOCKSCREEN_ROTATION = "lockscreen_rotation";
 
     private static final int DLG_GLOBAL_CHANGE_WARNING = 1;
 
@@ -101,21 +102,27 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ContentResolver resolver = getActivity().getContentResolver();
+        Resources res = getResources();
 
         addPreferencesFromResource(R.xml.display_settings);
 
         PreferenceScreen prefSet = getPreferenceScreen();
 
         mDisplayRotationPreference = (PreferenceScreen) findPreference(KEY_DISPLAY_ROTATION);
-        if (!RotationPolicy.isRotationSupported(getActivity())) {
-            getPreferenceScreen().removePreference(mDisplayRotationPreference);
-        }
+
+         final CheckBoxPreference lockScreenRotation =
+                 (CheckBoxPreference) findPreference(KEY_LOCKSCREEN_ROTATION);
+         if (lockScreenRotation != null) {
+             if (!res.getBoolean(com.android.internal.R.bool.config_enableLockScreenRotation)) {
+                 getPreferenceScreen().removePreference(lockScreenRotation);
+             }
+         }
 
         mScreenSaverPreference = findPreference(KEY_SCREEN_SAVER);
-        if (mScreenSaverPreference != null
-                && getResources().getBoolean(
-                        com.android.internal.R.bool.config_dreamsSupported) == false) {
-            getPreferenceScreen().removePreference(mScreenSaverPreference);
+        if (mScreenSaverPreference != null) {
+             if (!res.getBoolean(com.android.internal.R.bool.config_dreamsSupported)) {
+                 getPreferenceScreen().removePreference(mScreenSaverPreference);
+             }
         }
 
         mScreenTimeoutPreference = (ListPreference) findPreference(KEY_SCREEN_TIMEOUT);
@@ -164,7 +171,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         int counter = 0;
         mVolumeWake = (CheckBoxPreference) findPreference(KEY_VOLUME_WAKE);
         if (mVolumeWake != null) {
-            if (!getResources().getBoolean(R.bool.config_show_volumeRockerWake)) {
+            if (!res.getBoolean(R.bool.config_show_volumeRockerWake)) {
                 mWakeUpOptions.removePreference(mVolumeWake);
                 counter++;
             } else {
