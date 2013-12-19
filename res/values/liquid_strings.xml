@@ -192,6 +192,10 @@
     <string name="status_bar_toggle_brightness_summary">Adjust by sliding across the status bar</string>
     <string name="status_bar_toggle_info">Automatic brightness currently enabled</string>
 
+    <!-- Network speed -->
+    <string name="show_network_speed">Network speed indicator</string>
+    <string name="show_network_speed_summary">Show network speed in statusbar</string>
+
     <!-- Wakeup options -->
     <string name="display_category_wakeup_options_title">Wakeup options</string>
     <string name="pref_volume_wake_title">Volume rocker wake</string>
