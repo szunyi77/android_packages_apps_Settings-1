@@ -59,6 +59,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_NOTIFICATION_PULSE = "notification_pulse";
     private static final String KEY_NOTIFICATION_LIGHT = "notification_light";
     private static final String KEY_BATTERY_LIGHT = "battery_light";
+    private static final String KEY_BUTTON_LIGHT = "button_light_timeout";
     private static final String KEY_SCREEN_SAVER = "screensaver";
     private static final String KEY_VOLUME_WAKE = "pref_volume_wake";
     private static final String KEY_ANIMATION_OPTIONS = "category_animation_options";
@@ -80,6 +81,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private PreferenceCategory mLightOptions;
     private PreferenceScreen mNotificationLight;
     private PreferenceScreen mBatteryPulse;
+    private ListPreference mButtonLights;
     private CheckBoxPreference mVolumeWake;
     private ListPreference mCrtMode;
     private CheckBoxPreference mWakeUpWhenPluggedOrUnplugged;
@@ -141,7 +143,8 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         mNotificationPulse = (CheckBoxPreference) findPreference(KEY_NOTIFICATION_PULSE);
         mNotificationLight = (PreferenceScreen) findPreference(KEY_NOTIFICATION_LIGHT);
         mBatteryPulse = (PreferenceScreen) findPreference(KEY_BATTERY_LIGHT);
-        if (mNotificationPulse != null && mNotificationLight != null && mBatteryPulse != null) {
+        mButtonLights = (ListPreference) prefSet.findPreference(KEY_BUTTON_LIGHT);
+        if (mNotificationPulse != null && mNotificationLight != null && mBatteryPulse != null && mButtonLights != null) {
             if (getResources().getBoolean(
                     com.android.internal.R.bool.config_intrusiveNotificationLed)) {
                  if (getResources().getBoolean(
@@ -164,6 +167,18 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                 mLightOptions.removePreference(mBatteryPulse);
             } else {
                 updateBatteryPulseDescription();
+            }
+
+            if (getResources().getBoolean(R.bool.config_show_ButtonDur) == false) {
+            if (mButtonLights != null) {
+                mLightOptions.removePreference(mButtonLights);
+            }
+            } else {
+            int ButtonLights = Settings.System.getInt(getActivity().getContentResolver(),
+                    Settings.System.BUTTON_BACKLIGHT_TIMEOUT, 5000);
+            mButtonLights.setValue(String.valueOf(ButtonLights));
+            mButtonLights.setSummary(mButtonLights.getEntry());
+            mButtonLights.setOnPreferenceChangeListener(this);
             }
         }
 
@@ -450,6 +465,14 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             Settings.System.putInt(getContentResolver(),
                     Settings.System.VOLUME_WAKE_SCREEN,
                     (Boolean) objValue ? 1 : 0);
+        }
+        if (preference == mButtonLights) {
+            int buttonLights = Integer.valueOf((String) objValue);
+            int index = mButtonLights.findIndexOfValue((String) objValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.BUTTON_BACKLIGHT_TIMEOUT, buttonLights);
+            mButtonLights.setSummary(mButtonLights.getEntries()[index]);
+            return true;
         }
         if (KEY_POWER_CRT_MODE.equals(key)) {
             int value = Integer.parseInt((String) objValue);

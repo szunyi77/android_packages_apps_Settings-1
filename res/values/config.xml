@@ -40,4 +40,7 @@
     <!-- Show Expanded Desktop preference -->
     <bool name="config_show_expandedDesktop">true</bool>
 
+    <!-- Button Duration Pref -->
+    <bool name="config_show_ButtonDur">false</bool>
+
 </resources>
