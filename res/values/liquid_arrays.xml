@@ -1074,7 +1074,10 @@
     </string-array>
 
     <string-array name="values_halo_msgbox_animation">
-	
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    
     <!-- Themes -->
     <string-array name="theme_auto_mode_entries">
         <item>@string/theme_auto_mode_off</item>

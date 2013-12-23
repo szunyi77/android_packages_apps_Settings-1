@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.slim.themes;
+package com.android.settings.liquid.themes;
 
 import android.app.ActionBar;
 import android.app.Activity;
