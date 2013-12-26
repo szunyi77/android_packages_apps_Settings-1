@@ -1750,6 +1750,8 @@
 
         <activity android:name=".liquid.StatusBarColor" />
 
+        <activity android:name=".liquid.AppSidebar" />
+
         <activity android:name=".ApnEditor" />
 
          <!-- "Blacklist settings" UI, used only on voice-capable phone devices. -->

@@ -24,6 +24,11 @@
         android:title="@string/general_category_title">
 
         <PreferenceScreen
+            android:key="app_sidebar"
+            android:fragment="com.android.settings.liquid.AppSidebar"
+            android:title="@string/app_sidebar_title" />
+		
+        <PreferenceScreen
             android:key="animation_controls"
             android:title="@string/animation_controls_title"
             android:summary="@string/animation_controls_summary"
