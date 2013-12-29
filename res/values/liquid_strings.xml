@@ -184,6 +184,7 @@
     <string name="wifi_setting_countrycode_summary">Specify the region code for Wi-Fi</string>
     <string name="wifi_setting_countrycode_error">There was a problem setting the region code.</string>
     <string name="wifi_setting_countrycode_disabled">Enable Wi-Fi to change this option.</string>
+
     <!-- WiFi forget all networks -->
     <string name="wifi_menu_forget_all">Forget all networks</string>
 
@@ -947,41 +948,6 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="usb_mass_storage_title">Mass storage</string>
     <string name="usb_mass_storage_summary">Enable USB mass storage</string>
 
-    <!-- Stylus gestures -->
-    <string name="gestures_settings_title">Stylus gestures</string>
-    <string name="category_spen_title">Stylus gestures</string>
-    <string name="enable_subcat_title">Stylus</string>
-    <string name="enable_spen_title_head">Enable stylus gestures</string>
-    <string name="enable_spen_summary_head">Launch custom actions with stylus button swipe gestures. Warning: apps will not be able to receive input fired by holding the stylus button</string>
-    <string name="gestures_subcat_title">Gestures</string>
-    <string name="gestures_left_spen_title_head">Left swipe</string>
-    <string name="gestures_left_spen_summary_head">Launch custom action on left swipe</string>
-    <string name="gestures_right_spen_title_head">Right swipe</string>
-    <string name="gestures_right_spen_summary_head">Launch custom action on right swipe</string>
-    <string name="gestures_up_spen_title_head">Up swipe</string>
-    <string name="gestures_up_spen_summary_head">Launch custom action on up swipe</string>
-    <string name="gestures_down_spen_title_head">Down swipe</string>
-    <string name="gestures_down_spen_summary_head">Launch custom action on down swipe</string>
-    <string name="gestures_long_spen_title_head">Long press</string>
-    <string name="gestures_long_spen_summary_head">Launch custom action on long press</string>
-    <string name="gestures_double_spen_title_head">Double tap</string>
-    <string name="gestures_double_spen_summary_head">Launch custom action on double tap</string>
-
-    <!-- Gestures options -->
-    <string name="gestures_action_empty">No action</string>
-    <string name="gestures_action_home">Emulate home key</string>
-    <string name="gestures_action_back">Emulate back key</string>
-    <string name="gestures_action_menu">Emulate menu key</string>
-    <string name="gestures_action_search">Invoke search</string>
-    <string name="gestures_action_recent">Recent apps</string>
-
-    <!-- Stylus gestures support -->
-    <string name="stylus_app_not_installed">%s is not installed</string>
-
-    <!-- Stylus gesture icon -->
-	<string name="stylus_icon_enabled_title">Show icon when using stylus</string>
-    <string name="stylus_icon_enabled_summary">Show the pointer icon when hovering or drawing with the stylus</string>
-	
     <!-- LiquidSmooth Anonymous Stats -->
     <string name="rominfo_settings_list_item_title">LiquidSmooth Statistics</string>
 
@@ -1056,5 +1022,36 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="change_crypt_password_summary">Change the password used for device encryption</string>
     <!-- Header on first screen of choose encryption password [CHAR LIMIT=30] -->
     <string name="encryptionpassword_choose_your_password_header">Set encryption password</string>
+
+    <!-- Stylus Gestures -->
+    <string name="gestures_settings_title">Stylus gestures</string>
+    <string name="category_spen_title">Stylus gestures</string>
+    <string name="enable_subcat_title">Stylus</string>
+    <string name="enable_spen_title_head">Enable stylus gestures</string>
+    <string name="enable_spen_summary_head">Launch custom actions with stylus button swipe gestures. Warning: apps will not be able to receive input fired by holding the stylus button</string>
+    <string name="gestures_subcat_title">Gestures</string>
+    <string name="gestures_left_spen_title_head">Left swipe</string>
+    <string name="gestures_left_spen_summary_head">Launch custom action on left swipe</string>
+    <string name="gestures_right_spen_title_head">Right swipe</string>
+    <string name="gestures_right_spen_summary_head">Launch custom action on right swipe</string>
+    <string name="gestures_up_spen_title_head">Up swipe</string>
+    <string name="gestures_up_spen_summary_head">Launch custom action on up swipe</string>
+    <string name="gestures_down_spen_title_head">Down swipe</string>
+    <string name="gestures_down_spen_summary_head">Launch custom action on down swipe</string>
+    <string name="gestures_long_spen_title_head">Long press</string>
+    <string name="gestures_long_spen_summary_head">Launch custom action on long press</string>
+    <string name="gestures_double_spen_title_head">Double tap</string>
+    <string name="gestures_double_spen_summary_head">Launch custom action on double tap</string>
+
+    <!-- Gestures Options -->
+    <string name="gestures_action_empty">No action</string>
+    <string name="gestures_action_home">Emulate home key</string>
+    <string name="gestures_action_back">Emulate back key</string>
+    <string name="gestures_action_menu">Emulate menu key</string>
+    <string name="gestures_action_search">Invoke search</string>
+    <string name="gestures_action_recent">Recent apps</string>
+
+    <!-- Stylus gestures support -->
+    <string name="stylus_app_not_installed">%s is not installed</string>
 
 </resources>
