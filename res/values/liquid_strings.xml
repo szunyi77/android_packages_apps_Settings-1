@@ -345,10 +345,6 @@
     <string name="sms_security_check_limit_summary">Apps can send %d messages in 30 minutes before requiring confirmation</string>
     <string name="sms_security_check_limit_default">30 (Default)</string>
 
-    <!-- Advanced reboot options -->
-    <string name="advanced_reboot_title">Advanced reboot</string>
-    <string name="advanced_reboot_summary">When unlocked, include options in the power menu for rebooting into recovery or bootloader</string>
-
     <!-- Automatic brightness -->
     <string name="auto_brightness_setup_title">Automatic brightness</string>
     <string name="auto_brightness_adjustment_title">Brightness adjustment</string>
