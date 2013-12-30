@@ -1044,7 +1044,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="volume_keys_control_media_stream">Media control</string>
     <string name="volume_keys_control_media_stream_summary">Volume keys control media volume rather than notifications</string>
 
-	<!-- Lockscreen Notifications -->
+	<!-- Lockscreen notifications -->
     <string name="lockscreen_notifications">Lockscreen notifications</string>
     <string name="lockscreen_notifications_summary">Show pending notifications on lockscreen</string>
     <string name="pocket_mode">Pocket mode</string>
@@ -1065,5 +1065,9 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="wake_on_notification_summary">Wake device when a new notification is received</string>
     <string name="notifications_height">Notification count</string>
     <string name="notifications_height_summary">Number of notifications displayed at once</string>
-	
+
+    <!-- Rescan media volume -->
+    <string name="storage_rescan_media">Rescan media for the storage volume</string>
+    <string name="storage_rescan_media_complete">Scan completed</string>
+
 </resources>
