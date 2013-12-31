@@ -37,6 +37,7 @@ import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
+import android.preference.SeekBarPreference;
 import android.provider.Settings;
 import android.security.KeyStore;
 import android.telephony.TelephonyManager;
@@ -75,6 +76,8 @@ public class SecuritySettings extends RestrictedSettingsFragment
     private static final String LOCK_NUMPAD_RANDOM = "lock_numpad_random";
     private static final String LOCK_BEFORE_UNLOCK = "lock_before_unlock";
     private static final String KEY_SEE_TRHOUGH = "see_through";
+    private static final String KEY_BLUR_BEHIND = "blur_behind";
+    private static final String KEY_BLUR_RADIUS = "blur_radius";
 
     private static final int SET_OR_CHANGE_LOCK_METHOD_REQUEST = 123;
     private static final int CONFIRM_EXISTING_FOR_BIOMETRIC_WEAK_IMPROVE_REQUEST = 124;
@@ -126,6 +129,9 @@ public class SecuritySettings extends RestrictedSettingsFragment
     private ListPreference mLockNumpadRandom;
     private CheckBoxPreference mLockBeforeUnlock;
     private CheckBoxPreference mSeeThrough;
+    private CheckBoxPreference mBlurBehind;
+    
+    private SeekBarPreference mBlurRadius;
 
     private Preference mNotificationAccess;
 
@@ -235,6 +241,15 @@ public class SecuritySettings extends RestrictedSettingsFragment
 
         // lockscreen see through
         mSeeThrough = (CheckBoxPreference) root.findPreference(KEY_SEE_TRHOUGH);
+        mBlurBehind = (CheckBoxPreference) root.findPreference(KEY_BLUR_BEHIND);
+        mBlurBehind.setChecked(Settings.System.getInt(getContentResolver(), 
+        		Settings.System.LOCKSCREEN_BLUR_BEHIND, 0) == 1);
+        mBlurBehind.setEnabled(mSeeThrough.isChecked());
+        mBlurRadius = (SeekBarPreference) root.findPreference(KEY_BLUR_RADIUS);
+        mBlurRadius.setProgress(Settings.System.getInt(getContentResolver(), 
+        		Settings.System.LOCKSCREEN_BLUR_RADIUS, 12));
+        mBlurRadius.setOnPreferenceChangeListener(this);
+        mBlurRadius.setEnabled(mBlurBehind.isChecked() && mBlurBehind.isEnabled());
 
         // Add the additional Omni settings
         mLockRingBattery = (CheckBoxPreference) root
@@ -682,6 +697,12 @@ public class SecuritySettings extends RestrictedSettingsFragment
         } else if (preference == mSeeThrough) {
             Settings.System.putInt(getContentResolver(), Settings.System.LOCKSCREEN_SEE_THROUGH,
                     mSeeThrough.isChecked() ? 1 : 0);
+            mBlurBehind.setEnabled(mSeeThrough.isChecked());
+            mBlurRadius.setEnabled(mBlurBehind.isChecked() && mBlurBehind.isEnabled());
+        } else if (preference == mBlurBehind) {
+            Settings.System.putInt(getContentResolver(), Settings.System.LOCKSCREEN_BLUR_BEHIND,
+                    mBlurBehind.isChecked() ? 1 : 0);
+            mBlurRadius.setEnabled(mBlurBehind.isChecked());
         } else if (KEY_TOGGLE_VERIFY_APPLICATIONS.equals(key)) {
             Settings.Global.putInt(getContentResolver(), Settings.Global.PACKAGE_VERIFIER_ENABLE,
                     mToggleVerifyApps.isChecked() ? 1 : 0);
@@ -749,6 +770,8 @@ public class SecuritySettings extends RestrictedSettingsFragment
             Settings.Secure.putInt(getContentResolver(),
                     Settings.Secure.LOCK_BEFORE_UNLOCK,
                     ((Boolean) value) ? 1 : 0);
+        } else if (preference == mBlurRadius) {
+        	Settings.System.putInt(getContentResolver(), Settings.System.LOCKSCREEN_BLUR_RADIUS, (Integer)value);
         }
         return true;
     }
