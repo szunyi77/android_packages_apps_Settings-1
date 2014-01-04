@@ -69,6 +69,13 @@
         android:fragment="com.android.settings.liquid.InterfaceSettings"
         android:icon="@drawable/ic_liquid_interface" />
 
+    <!-- Navigation -->
+    <header
+        android:id="@+id/navigation_settings"
+        android:title="@string/navigation_settings_title"
+        android:fragment="com.android.settings.liquid.NavigationSettings"
+        android:icon="@drawable/ic_liquid_navigation" />
+
     <!-- ADVANCED -->
     <header android:id="@+id/advanced_section"
         android:title="@string/advanced_category_title" />
@@ -93,13 +100,6 @@
 		android:title="@string/notification_drawer_title"
         android:fragment="com.android.settings.liquid.NotificationDrawer"
         android:icon="@drawable/ic_liquid_notification_drawer" />
-
-    <!-- Navigation -->
-    <header
-        android:id="@+id/navigation_settings"
-        android:icon="@drawable/ic_settings_navigation"
-        android:fragment="com.android.settings.liquid.NavigationSettings"
-        android:title="@string/navigation_settings_title" />
 
     <!-- Themes -->
     <header

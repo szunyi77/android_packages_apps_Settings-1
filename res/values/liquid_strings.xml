@@ -50,6 +50,7 @@
 
     <!-- General settings -->
     <string name="interface_settings_title">Interface</string>
+    <string name="navigation_settings_title">Navigation</string>
 
     <!-- Advanced settings -->
     <string name="active_display_title">Active display</string>
@@ -579,10 +580,6 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="notification_shortcuts_settings_title">Shortcuts</string>
     <string name="notification_shortcuts_settings_summary">Show shortcuts in the notification drawer</string>
 
-    <!-- Navigation -->
-    <string name="navigation_settings_options_title">Navigation options</string>
-    <string name="navigation_settings_title">Navigation</string>
-
     <!-- Power menu -->
     <string name="power_menu_title">Power menu</string>
     <string name="power_menu_style_summary">Change power menu colors</string>
@@ -603,7 +600,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="navigation_menu_default_jb_behavior">Show on request (default)</string>
     <string name="navigation_menu_never_show">Never show</string>
     <string name="navigation_menu_always_show">Always show</string>
-    <string name="navigation_bar">Navigation bar</string>
+    <string name="navigation_bar_title">Navigation bar</string>
     <string name="navbar_button_cat">Navigation bar buttons</string>
     <string name="title_pref_menu_location">Menu location</string>
     <string name="summary_pref_menu_location">Where do you want the menu buttons to appear?</string>
