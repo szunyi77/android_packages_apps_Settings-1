@@ -13,6 +13,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
+
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <!-- General strings -->
@@ -39,22 +40,24 @@
     <!-- Memory info -->
     <string name="mem_info">Memory</string>
 
-    <!-- Advanced category -->
-    <string name="advanced_category_title">ADVANCED</string>
-
-    <!-- Advanced options -->
+    <!-- Advanced titles -->
+    <string name="advanced_category_title">Advanced</string>
     <string name="advanced_options_title">Advanced options</string>
 
-    <!-- Additional options -->
-    <string name="additional_options_title">Additional options</string>
+    <!-- Category titles -->
+    <string name="additional_category_title">Additional</string>
+    <string name="general_category_title">General</string>
 
-    <!-- Interface settings -->
+    <!-- General settings -->
     <string name="interface_settings_title">Interface</string>
 
-    <!-- Superuser settings  -->
+    <!-- Advanced settings -->
+    <string name="active_display_title">Active display</string>
+
+    <!-- Superuser title -->
     <string name="superuser_settings_title">Superuser</string>
 
-    <!-- Themes settings  -->
+    <!-- Themes title-->
     <string name="themes_settings_title">Themes</string>
 
     <!-- Color picker -->
@@ -628,9 +631,6 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="nav_button_color_mode_summary">Change the navigation bar button color mode</string>
     <string name="navigation_bar_glow_tint_title">Glow color</string>
 
-    <!-- Advanced settings -->
-    <string name="advanced_options_settings_title">Advanced options</string>
-
     <!-- MediaScanner behavior on boot -->
     <string name="media_scanner_on_boot_title">MediaScanner behavior on boot</string>
     <string name="media_scanner_on_boot_enabled">Scan media</string>
@@ -895,7 +895,6 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="quick_pulldown_right">Right</string>
 
     <!-- Active display -->
-    <string name="active_display_title">Active display</string>
     <string name="ad_enable_title">Enable</string>
     <string name="ad_enable_summary_on">Active display enabled</string>
     <string name="ad_enable_summary_off">Active display disabled</string>

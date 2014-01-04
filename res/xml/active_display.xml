@@ -20,8 +20,8 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
     <PreferenceCategory
-        android:key="general_group"
-        android:title="@string/advanced_category_title">
+        android:key="general_category"
+        android:title="@string/general_category_title">
 
         <SwitchPreference
             android:key="ad_enable"
@@ -70,8 +70,8 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:key="advanced_group"
-        android:title="@string/advanced_settings">
+        android:key="advanced_category"
+        android:title="@string/advanced_category_title">
 
         <com.android.settings.liquid.SeekBarPreference
             android:key="ad_brightness"
@@ -115,7 +115,7 @@
             android:summary="@string/ad_show_date_summary"
             android:dependency="ad_enable" />
 
-	<ListPreference
+	    <ListPreference
             android:key="ad_timeout"
             android:persistent="false"
             android:dialogTitle="@string/ad_timeout_title"
