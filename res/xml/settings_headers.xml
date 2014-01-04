@@ -101,12 +101,12 @@
         android:fragment="com.android.settings.liquid.NotificationDrawer"
         android:icon="@drawable/ic_liquid_notification_drawer" />
 
-    <!-- Themes -->
+    <!-- Liquid blackout -->
     <header
         android:id="@+id/theme_settings"
+		android:title="@string/theme_settings_title"
         android:fragment="com.android.settings.liquid.themes.ThemeSettings"
-        android:icon="@drawable/ic_settings_theme"
-        android:title="@string/theme_settings_title" />
+        android:icon="@drawable/ic_liquid_theme_settings" />
 
     <!-- Performance -->
     <header

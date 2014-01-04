@@ -14,8 +14,9 @@
      limitations under the License.
 -->
 
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-        android:title="@string/theme_settings_title">
+<PreferenceScreen
+    android:title="@string/theme_settings_title"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <ListPreference
         android:key="pref_theme_auto_mode"
