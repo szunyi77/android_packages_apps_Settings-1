@@ -69,12 +69,12 @@
         android:fragment="com.android.settings.liquid.ActiveDisplay"
         android:icon="@drawable/ic_liquid_active_display" />
 
-    <!-- HALO -->
+    <!-- Halo options -->
     <header
-        android:id="@+id/halo_settings"
-		android:title="@string/halo_settings_title"
-        android:fragment="com.android.settings.liquid.Halo"
-        android:icon="@drawable/ic_settings_halo"  />
+        android:id="@+id/halo_options"
+		android:title="@string/halo_options_title"
+        android:fragment="com.android.settings.liquid.HaloOptions"
+        android:icon="@drawable/ic_liquid_halo_options" />
 
     <!-- Interface -->
     <header

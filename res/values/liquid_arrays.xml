@@ -1011,7 +1011,7 @@
         <item>3</item>
     </string-array>
 
-    <!-- Halo -->
+    <!-- Halo options -->
     <string-array name="entries_halo_state">
         <item>@string/halo_state_black</item>
         <item>@string/halo_state_white</item>
@@ -1058,7 +1058,7 @@
         <item>1</item>
         <item>2</item>
     </string-array>
-    
+
     <!-- Themes -->
     <string-array name="theme_auto_mode_entries">
         <item>@string/theme_auto_mode_off</item>

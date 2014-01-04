@@ -31,7 +31,7 @@ import android.provider.Settings;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-public class Halo extends SettingsPreferenceFragment
+public class HaloOptions extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener {
 
     private static final String KEY_HALO_ENABLED = "halo_enabled";
@@ -65,7 +65,7 @@ public class Halo extends SettingsPreferenceFragment
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        addPreferencesFromResource(R.xml.halo_settings);
+        addPreferencesFromResource(R.xml.halo_options);
         PreferenceScreen prefSet = getPreferenceScreen();
         mContext = getActivity();
 
