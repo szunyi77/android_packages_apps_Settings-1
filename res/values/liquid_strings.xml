@@ -51,7 +51,8 @@
     <!-- General settings -->
     <string name="interface_settings_title">Interface</string>
     <string name="navigation_settings_title">Navigation</string>
-    <string name="statusbar_settings_title">Statusbar</string>
+    <string name="performance_settings_title">Performance</string>
+    <string name="statusbar_settings_title">Status bar</string>
 
     <!-- Advanced settings -->
     <string name="active_display_title">Active display</string>
@@ -884,7 +885,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
 
     <!-- Quick settings quick pulldown -->
     <string name="title_quick_pulldown">Quick pulldown</string>
-    <string name="summary_quick_pulldown">%1$s edge of the statusbar pulls down quick settings</string>
+    <string name="summary_quick_pulldown">%1$s edge of the status bar pulls down quick settings</string>
     <string name="quick_pulldown_off">Off</string>
     <string name="quick_pulldown_left">Left</string>
     <string name="quick_pulldown_right">Right</string>
@@ -949,9 +950,6 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <!-- Lock screen battery ring -->
     <string name="battery_around_lockscreen_ring">Battery around unlock ring</string>
 
-    <!-- Performance Settings -->
-    <string name="performance_settings_title">Performance</string>
-     
     <!-- Halo options -->
     <string name="halo_behavior_title">Halo Behavior</string>
     <string name="halo_hide_title">Hide Halo after activity</string>

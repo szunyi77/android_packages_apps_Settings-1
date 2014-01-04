@@ -76,6 +76,13 @@
         android:fragment="com.android.settings.liquid.NavigationSettings"
         android:icon="@drawable/ic_liquid_navigation" />
 
+    <!-- Performance -->
+    <header
+        android:id="@+id/performance_settings"
+        android:title="@string/performance_settings_title"
+        android:fragment="com.brewcrewfoo.performance.activities.MainActivity"
+        android:icon="@drawable/ic_liquid_performance" />
+
     <!-- Statusbar -->
     <header
         android:id="@+id/statusbar_settings"
@@ -114,13 +121,6 @@
 		android:title="@string/theme_settings_title"
         android:fragment="com.android.settings.liquid.themes.ThemeSettings"
         android:icon="@drawable/ic_liquid_theme_settings" />
-
-    <!-- Performance -->
-    <header
-        android:id="@+id/performance_controls"
-        android:fragment="com.brewcrewfoo.performance.activities.MainActivity"
-        android:icon="@drawable/ic_liquid_performance"
-        android:title="@string/performance_settings_title" />
 
     <!-- DEVICE -->
     <header android:id="@+id/device_section"
