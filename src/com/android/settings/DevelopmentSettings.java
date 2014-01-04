@@ -138,10 +138,10 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
     private static final String WIFI_DISPLAY_CERTIFICATION_KEY = "wifi_display_certification";
     private static final String MEDIA_SCANNER_ON_BOOT = "media_scanner_on_boot";
 
-    private static final String OPENGL_TRACES_KEY = "enable_opengl_traces";
-
     private static final String ROOT_ACCESS_KEY = "root_access";
     private static final String ROOT_ACCESS_PROPERTY = "persist.sys.root_access";
+
+    private static final String OPENGL_TRACES_KEY = "enable_opengl_traces";
 
     private static final String IMMEDIATELY_DESTROY_ACTIVITIES_KEY
             = "immediately_destroy_activities";
@@ -206,13 +206,13 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
     private ListPreference mOverlayDisplayDevices;
     private ListPreference mOpenGLTraces;
 
+    private ListPreference mRootAccess;
+    private Object mSelectedRootValue;
+
     private CheckBoxPreference mImmediatelyDestroyActivities;
     private ListPreference mAppProcessLimit;
 
     private CheckBoxPreference mShowAllANRs;
-
-    private ListPreference mRootAccess;
-    private Object mSelectedRootValue;
 
     private final ArrayList<Preference> mAllPrefs = new ArrayList<Preference>();
     private final ArrayList<CheckBoxPreference> mResetCbPrefs
@@ -227,8 +227,9 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
     private Dialog mAdbTcpDialog;
     private Dialog mAdbKeysDialog;
 
-    private boolean mUnavailable;
     private Dialog mRootDialog;
+
+    private boolean mUnavailable;
 
     public DevelopmentSettings() {
         super(RESTRICTIONS_PIN_SET);
@@ -604,7 +605,6 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
             }
         }
         resetDebuggerOptions();
-        resetRootAccessOptions();
         resetAdbNotifyOptions();
         resetVerifyAppsOverUsbOptions();
         resetMSOBOptions();
@@ -617,6 +617,7 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
         updateAllOptions();
         mDontPokeProperties = false;
         pokeSystemProperties();
+        resetRootAccessOptions();
     }
 
     void filterRuntimeOptions(Preference selectRuntime) {
@@ -1269,9 +1270,7 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
             if (isChecked != mLastEnabledState) {
                 if (isChecked) {
                     mDialogClicked = false;
-                    if (mEnableDialog != null) {
-                        dismissDialogs();
-                    }
+                    if (mEnableDialog != null) dismissDialogs();
                     mEnableDialog = new AlertDialog.Builder(getActivity()).setMessage(
                             getActivity().getResources().getString(
                                     R.string.dev_settings_warning_message))
@@ -1319,9 +1318,7 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
         if (preference == mEnableAdb) {
             if (mEnableAdb.isChecked()) {
                 mDialogClicked = false;
-                if (mAdbDialog != null) {
-                    dismissDialogs();
-                }
+                if (mAdbDialog != null) dismissDialogs();
                 mAdbDialog = new AlertDialog.Builder(getActivity()).setMessage(
                         getActivity().getResources().getString(R.string.adb_warning_message))
                         .setTitle(R.string.adb_warning_title)
@@ -1509,7 +1506,7 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
                 writeRootAccessOptions(newValue);
             }
             return true;
-         } else if (preference == mMSOB) {
+        } else if (preference == mMSOB) {
             writeMSOBOptions(newValue);
             return true;
         }
