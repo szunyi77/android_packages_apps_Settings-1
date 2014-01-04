@@ -54,6 +54,7 @@
     <!-- Advanced settings -->
     <string name="active_display_title">Active display</string>
     <string name="halo_options_title">Halo options</string>
+    <string name="notification_drawer_title">Notification drawer</string>
 
     <!-- Superuser title -->
     <string name="superuser_settings_title">Superuser</string>
@@ -572,9 +573,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="shortcuts_color_mode_title">Icon color mode</string>
     <string name="shortcuts_color_mode_summary">Change the shorcuts icon color mode</string>
 
-    <!-- Notification drawer settings  -->
-    <string name="notification_drawer_qs_title">Notification &amp; QS drawer</string>
-    <string name="notification_drawer_title">Notification drawer</string>
+    <!-- Notification drawer -->
     <string name="notification_hide_carrier_title">Hide network label</string>
     <string name="notification_hide_carrier_summary">Hide carrier and Wi-Fi label on the notification drawer</string>
     <string name="notification_shortcuts_settings_title">Shortcuts</string>
@@ -890,7 +889,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
 
     <!-- Quick settings quick pulldown -->
     <string name="title_quick_pulldown">Quick pulldown</string>
-    <string name="summary_quick_pulldown">%1$s edge of the status bar pulls down Quick Settings</string>
+    <string name="summary_quick_pulldown">%1$s edge of the statusbar pulls down quick settings</string>
     <string name="quick_pulldown_off">Off</string>
     <string name="quick_pulldown_left">Left</string>
     <string name="quick_pulldown_right">Right</string>

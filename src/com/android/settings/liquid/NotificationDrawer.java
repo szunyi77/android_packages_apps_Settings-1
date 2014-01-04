@@ -35,10 +35,10 @@ import com.android.settings.liquid.quicksettings.QuickSettingsUtil;
 import com.android.settings.R;
 import com.android.settings.widget.SeekBarPreference;
 
-public class NotificationDrawerQsSettings extends SettingsPreferenceFragment
+public class NotificationDrawer extends SettingsPreferenceFragment
             implements OnPreferenceChangeListener  {
 
-    public static final String TAG = "NotificationDrawerSettings";
+    public static final String TAG = "NotificationDrawer";
 
     private static final String PREF_NOTIFICATION_HIDE_CARRIER =
             "notification_hide_carrier";
@@ -59,7 +59,7 @@ public class NotificationDrawerQsSettings extends SettingsPreferenceFragment
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // Load the preferences from an XML resource
-        addPreferencesFromResource(R.xml.notification_drawer_qs_settings);
+        addPreferencesFromResource(R.xml.notification_drawer);
 
         PreferenceScreen prefs = getPreferenceScreen();
 
