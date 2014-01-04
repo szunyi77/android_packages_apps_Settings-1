@@ -122,7 +122,7 @@
     <string name="battery_light_medium_color_title">Medium charge</string>
     <string name="battery_light_full_color_title">Fully charged</string>
 
-    <!-- Touchkey Button Light Timeout -->
+    <!-- Touchkey button light timeout -->
     <string name="button_timeout_title">TouchKey light timeout</string>
     <string name="button_timeout_1s">1 second</string>
     <string name="button_timeout_2s">2 seconds</string>
@@ -251,13 +251,13 @@
     <string name="status_bar_toggle_brightness_summary">Adjust brightness by sliding across status bar</string>
     <string name="status_bar_toggle_info">Automatic brightness is enabled</string>
 
-    <!-- Status Bar Signal -->
+    <!-- Status bar signal -->
     <string name="status_bar_style_icon">Signal bars</string>
     <string name="status_bar_style_hidden">Hidden</string>
     <string name="status_bar_signal_text_show_text">Signal text</string>
     <string name="status_bar_signal_text_title">Signal</string>
 
-    <!-- Status Bar Notif Count -->
+    <!-- Status bar notification count -->
     <string name="status_bar_notification_count_title">Notification count</string>
     <string name="status_bar_notification_count_summary">Display the number of notifications</string>
 
@@ -303,7 +303,7 @@
     <string name="disable_fullscreen_keyboard_title">Disable fullscreen keyboard</string>
     <string name="disable_fullscreen_keyboard_summary">Landscape keyboard will never take up entire screen</string>
 
-    <!--- Volume key cursor control -->
+    <!-- Volume key cursor control -->
     <string name="volume_key_cursor_control_title">Volume key cursor control</string>
     <string name="volume_key_cursor_control_on">Volume up/down moves cursor left/right</string>
     <string name="volume_key_cursor_control_on_reverse">Volume up/down moves cursor right/left</string>
@@ -582,10 +582,10 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <!-- Navigation -->
     <string name="navigation_settings_options_title">Navigation options</string>
     <string name="navigation_settings_title">Navigation</string>
-    <string name="power_menu_title">Global menu</string>
 
     <!-- Power menu -->
-    <string name="power_menu_style_summary">Change global menu colors</string>
+    <string name="power_menu_title">Power menu</string>
+    <string name="power_menu_style_summary">Change power menu colors</string>
 
     <!-- Navigation bar -->
     <string name="navigation_bar_size_42_dp_default">42 dp (default)</string>
@@ -772,7 +772,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="unlock_quick_unlock_control_title">Quick unlock</string>
     <string name="unlock_quick_unlock_control_summary">Unlock automatically when the correct PIN/password is entered</string>
 
-    <!-- Lockscreen style -->
+    <!-- Lock screen style -->
     <string name="lockscreen_style_reset_message">Reset all lockscreen colors?</string>
     <string name="lockscreen_icon_title">Lock handle icon</string>
     <string name="lockscreen_lock_icon_custom">Custom icon</string>
@@ -936,7 +936,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="ad_pocket_mode_notifications">Notifications only</string>
     <string name="ad_pocket_mode_always">Always</string>
 
-    <!--- Clock widget -->
+    <!-- Clock widget -->
     <string name="lock_clock_title">Clock widget</string>
     <string name="lock_clock_summary">Change how home and lock screen widgets will display</string>
 
@@ -944,14 +944,14 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="usb_mass_storage_title">Mass storage</string>
     <string name="usb_mass_storage_summary">Enable USB mass storage</string>
 
-    <!-- LiquidSmooth Anonymous Stats -->
+    <!-- Anonymous stats -->
     <string name="rominfo_settings_list_item_title">LiquidSmooth Statistics</string>
 
-    <!--Lockscreen See Through-->
+    <!--Lock screen see through-->
     <string name="see_through_title">See through</string>
     <string name="see_through_summary">Shows the content behind your lockscreen, your data may be visible to those around you</string>
    
-    <!-- Lockscreen battery ring -->
+    <!-- Lock screen battery ring -->
     <string name="battery_around_lockscreen_ring">Battery around unlock ring</string>
 
     <!-- Performance Settings -->
@@ -1013,7 +1013,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <!-- Header on first screen of choose encryption password [CHAR LIMIT=30] -->
     <string name="encryptionpassword_choose_your_password_header">Set encryption password</string>
 
-    <!-- Stylus Gestures -->
+    <!-- Stylus gestures -->
     <string name="gestures_settings_title">Stylus gestures</string>
     <string name="category_spen_title">Stylus gestures</string>
     <string name="enable_subcat_title">Stylus</string>
@@ -1033,7 +1033,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="gestures_double_spen_title_head">Double tap</string>
     <string name="gestures_double_spen_summary_head">Launch custom action on double tap</string>
 
-    <!-- Gestures Options -->
+    <!-- Gestures options -->
     <string name="gestures_action_empty">No action</string>
     <string name="gestures_action_home">Emulate home key</string>
     <string name="gestures_action_back">Emulate back key</string>
@@ -1044,11 +1044,11 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <!-- Stylus gestures support -->
     <string name="stylus_app_not_installed">%s is not installed</string>
 
-    <!-- Stylus Icon -->
+    <!-- Stylus icon -->
     <string name="stylus_icon_enabled_title">Show icon when using stylus</string>
     <string name="stylus_icon_enabled_summary">Show the pointer icon while using stylus</string>
 
-    <!-- Volume Keys Media Control -->
+    <!-- Volume keys media control -->
     <string name="volume_keys_control_media_stream">Media control</string>
     <string name="volume_keys_control_media_stream_summary">Volume keys control media volume rather than notifications</string>
 
