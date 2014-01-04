@@ -35,7 +35,8 @@ import com.android.settings.SettingsPreferenceFragment;
 
 import com.android.internal.util.liquid.DeviceUtils;
 
-public class StatusBar extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
+public class StatusBarSettings extends SettingsPreferenceFragment
+        implements OnPreferenceChangeListener {
 
     private static final String TAG = "StatusBarSettings";
 
@@ -53,9 +54,13 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        addPreferencesFromResource(R.xml.status_bar_settings);
+        addPreferencesFromResource(R.xml.liquid_statusbar_settings);
 
         PreferenceScreen prefSet = getPreferenceScreen();
+
+        mStatusBarNotifCount = (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_NOTIFICATION_COUNT);
+        mStatusBarNotifCount.setChecked((Settings.System.getInt(getContentResolver(),
+                Settings.System.STATUS_BAR_NOTIFICATION_COUNT, 0) == 1));
 
         mStatusBarCmSignal = (ListPreference) prefSet.findPreference(STATUS_BAR_SIGNAL);
         int signalStyle = Settings.System.getInt(getContentResolver(),
@@ -63,10 +68,6 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         mStatusBarCmSignal.setValue(String.valueOf(signalStyle));
         mStatusBarCmSignal.setSummary(mStatusBarCmSignal.getEntry());
         mStatusBarCmSignal.setOnPreferenceChangeListener(this);
-
-        mStatusBarNotifCount = (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_NOTIFICATION_COUNT);
-        mStatusBarNotifCount.setChecked((Settings.System.getInt(getContentResolver(),
-                Settings.System.STATUS_BAR_NOTIFICATION_COUNT, 0) == 1));
 
         // Start observing for changes on auto brightness
         StatusBarBrightnessChangedObserver statusBarBrightnessChangedObserver =
@@ -83,22 +84,20 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         mStatusBarBrightnessControl.setChecked((Settings.System.getInt(getContentResolver(),
                             Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL, 0) == 1));
         mStatusBarBrightnessControl.setOnPreferenceChangeListener(this);
-
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        boolean result = false;
-        if (preference == mStatusBarCmSignal) {
+        if (preference == mStatusBarBrightnessControl) {
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL,
+                    (Boolean) newValue ? 1 : 0);
+            return true;
+        } else if (preference == mStatusBarCmSignal) {
             int signalStyle = Integer.valueOf((String) newValue);
             int index = mStatusBarCmSignal.findIndexOfValue((String) newValue);
             Settings.System.putInt(getContentResolver(),
                     Settings.System.STATUS_BAR_SIGNAL_TEXT, signalStyle);
             mStatusBarCmSignal.setSummary(mStatusBarCmSignal.getEntries()[index]);
-            return true;
-        } else if (preference == mStatusBarBrightnessControl) {
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL,
-                    (Boolean) newValue ? 1 : 0);
             return true;
         }
         return false;
@@ -108,7 +107,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         boolean value;
 
         if (preference == mStatusBarNotifCount) {
-            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+            Settings.System.putInt(getContentResolver(),
                     Settings.System.STATUS_BAR_NOTIFICATION_COUNT,
                     mStatusBarNotifCount.isChecked() ? 1 : 0);
             return true;
@@ -116,7 +115,6 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
 
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
-
 
     @Override
     public void onResume() {
@@ -151,7 +149,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
             mClockStyle.setSummary(getString(R.string.enabled));
         } else {
             mClockStyle.setSummary(getString(R.string.disabled));
-         }
+        }
     }
 
     private class StatusBarBrightnessChangedObserver extends ContentObserver {

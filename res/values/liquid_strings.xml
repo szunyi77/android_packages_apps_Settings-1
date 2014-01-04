@@ -51,6 +51,7 @@
     <!-- General settings -->
     <string name="interface_settings_title">Interface</string>
     <string name="navigation_settings_title">Navigation</string>
+    <string name="statusbar_settings_title">Statusbar</string>
 
     <!-- Advanced settings -->
     <string name="active_display_title">Active display</string>
@@ -193,10 +194,6 @@
 
     <!-- WiFi forget all networks -->
     <string name="wifi_menu_forget_all">Forget all networks</string>
-
-    <!-- Status bar -->
-    <string name="status_bar_title">Status bar</string>
-    <string name="status_bar_general_title">General</string>
 
     <!-- Status bar battery -->
     <string name="battery_icon_title">Battery icon</string>

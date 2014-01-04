@@ -76,6 +76,13 @@
         android:fragment="com.android.settings.liquid.NavigationSettings"
         android:icon="@drawable/ic_liquid_navigation" />
 
+    <!-- Statusbar -->
+    <header
+        android:id="@+id/statusbar_settings"
+        android:title="@string/statusbar_settings_title"
+        android:fragment="com.android.settings.liquid.StatusBarSettings"
+        android:icon="@drawable/ic_liquid_statusbar" />
+
     <!-- ADVANCED -->
     <header android:id="@+id/advanced_section"
         android:title="@string/advanced_category_title" />
