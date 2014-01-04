@@ -58,6 +58,17 @@
         android:fragment="com.android.settings.WirelessSettings"
         android:icon="@drawable/empty_icon" />
 
+    <!-- GENERAL -->
+    <header android:id="@+id/general_section"
+        android:title="@string/general_category_title" />
+
+    <!-- Interface -->
+    <header
+        android:id="@+id/interface_settings"
+        android:title="@string/interface_settings_title"
+        android:fragment="com.android.settings.liquid.InterfaceSettings"
+        android:icon="@drawable/ic_liquid_interface" />
+
     <!-- ADVANCED -->
     <header android:id="@+id/advanced_section"
         android:title="@string/advanced_category_title" />
@@ -82,13 +93,6 @@
 		android:title="@string/notification_drawer_title"
         android:fragment="com.android.settings.liquid.NotificationDrawer"
         android:icon="@drawable/ic_liquid_notification_drawer" />
-
-    <!-- Interface -->
-    <header
-        android:id="@+id/interface_settings"
-        android:icon="@drawable/ic_settings_interface"
-        android:fragment="com.android.settings.liquid.InterfaceSettings"
-        android:title="@string/interface_settings_title" />
 
     <!-- Navigation -->
     <header
