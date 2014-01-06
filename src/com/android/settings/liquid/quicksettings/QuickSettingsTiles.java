@@ -62,7 +62,7 @@ import com.android.internal.util.liquid.DeviceUtils;
 import com.android.internal.util.liquid.QSConstants;
 import com.android.settings.R;
 import com.android.settings.liquid.quicksettings.QuickSettingsUtil.TileInfo;
-import com.android.internal.util.l.AppHelper;
+import com.android.internal.util.liquid.AppHelper;
 import com.android.internal.util.liquid.LockscreenTargetUtils;
 import com.android.settings.liquid.util.IconPicker;
 import com.android.settings.liquid.util.IconPicker.OnIconPickListener;
