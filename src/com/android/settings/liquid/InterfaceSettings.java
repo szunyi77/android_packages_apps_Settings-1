@@ -34,6 +34,7 @@ import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.provider.Settings;
 import android.preference.ListPreference;
+import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.text.Editable;
@@ -81,27 +82,8 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
         mActivity = getActivity();
 
         updateSettings();
-    }
-
-    private void updateSettings() {
-        setPreferenceScreen(null);
-        addPreferencesFromResource(R.xml.slim_interface_settings);
-
-        mLcdDensity = (ListPreference) findPreference(KEY_LCD_DENSITY);
-        String current = SystemProperties.get(DENSITY_PROP,
-                SystemProperties.get("ro.sf.lcd_density"));
-        final ArrayList<String> array = new ArrayList<String>(
-                Arrays.asList(getResources().getStringArray(R.array.lcd_density_entries)));
-        if (array.contains(current)) {
-            mLcdDensity.setValue(current);
-        } else {
-            mLcdDensity.setValue("custom");
-        }
-        mLcdDensity.setSummary(getResources().getString(R.string.current_lcd_density) + current);
-        mLcdDensity.setOnPreferenceChangeListener(this);
-    }
-	
-	mListViewAnimation = (ListPreference) findPreference(KEY_LISTVIEW_ANIMATION);
+  
+        mListViewAnimation = (ListPreference) findPreference(KEY_LISTVIEW_ANIMATION);
         int listviewanimation = Settings.System.getInt(getContentResolver(),
                 Settings.System.LISTVIEW_ANIMATION, 0);
         mListViewAnimation.setValue(String.valueOf(listviewanimation));
@@ -118,6 +100,24 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
 
     }
 
+    private void updateSettings() {
+        setPreferenceScreen(null);
+        addPreferencesFromResource(R.xml.liquid_interface_settings);
+
+        mLcdDensity = (ListPreference) findPreference(KEY_LCD_DENSITY);
+        String current = SystemProperties.get(DENSITY_PROP,
+                SystemProperties.get("ro.sf.lcd_density"));
+        final ArrayList<String> array = new ArrayList<String>(
+                Arrays.asList(getResources().getStringArray(R.array.lcd_density_entries)));
+        if (array.contains(current)) {
+            mLcdDensity.setValue(current);
+        } else {
+            mLcdDensity.setValue("custom");
+        }
+        mLcdDensity.setSummary(getResources().getString(R.string.current_lcd_density) + current);
+        mLcdDensity.setOnPreferenceChangeListener(this);
+    }
+	
     @Override
     public void onResume() {
         super.onResume();
