@@ -43,8 +43,9 @@
                    android:targetPackage="com.cyanogenmod.lockclock"
                    android:targetClass="com.cyanogenmod.lockclock.preference.Preferences" />
         </PreferenceScreen>
+    </PreferenceCategory>
 
-		<PreferenceCategory
+	<PreferenceCategory
             android:key="interface_settings_animation_prefs"
             android:title="@string/interface_settings_animation_title">
 
