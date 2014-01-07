@@ -71,6 +71,8 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        addPreferencesFromResource(R.xml.liquid_interface_settings);
+        mActivity = getActivity();
 
         mUseAltResolver = (CheckBoxPreference) findPreference(KEY_USE_ALT_RESOLVER);
         mUseAltResolver.setOnPreferenceChangeListener(this);
@@ -78,10 +80,6 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
                 getActivity().getContentResolver(),
                 Settings.System.ACTIVITY_RESOLVER_USE_ALT, 0) == 1);
 
-        addPreferencesFromResource(R.xml.liquid_interface_settings);
-        mActivity = getActivity();
-
-        updateSettings();
   
         mListViewAnimation = (ListPreference) findPreference(KEY_LISTVIEW_ANIMATION);
         int listviewanimation = Settings.System.getInt(getContentResolver(),
