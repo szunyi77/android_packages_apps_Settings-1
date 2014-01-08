@@ -60,6 +60,11 @@
             android:key="advanced_category"
             android:title="@string/advanced_category_title">
 
+        <PreferenceScreen
+            android:key="animation_controls"
+            android:fragment="com.android.settings.liquid.AnimationControls"
+            android:title="@string/title_animation_controls" />
+
         <ListPreference
             android:key="listview_animation"
             android:dialogTitle="@string/listview_animation_title"
