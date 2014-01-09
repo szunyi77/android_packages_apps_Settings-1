@@ -65,7 +65,7 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
     private static final String KEY_LISTVIEW_INTERPOLATOR = "listview_interpolator";
     private static final String KEY_USE_ALT_RESOLVER = "use_alt_resolver";
     private static final String PREF_CUSTOM_CARRIER_LABEL = "custom_carrier_label";
-    private static final String KEY_FORCE_DUAL_PANE = "force_dualpanel";
+    private static final String KEY_FORCE_DUAL_PANE = "force_dual_pane";
 	
     private static ListPreference mLcdDensity;
     private static Activity mActivity;
@@ -111,7 +111,7 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
         mDualPane.setOnPreferenceChangeListener(this);
         boolean preferDualPane = getResources().getBoolean(
                 com.android.internal.R.bool.preferences_prefer_dual_pane);
-        boolean dualPaneMode = Settings.System.getInt(getActivity().getContentResolver(),
+        boolean dualPaneMode = Settings.System.getInt(getContentResolver(),
                 Settings.System.DUAL_PANE_PREFS, (preferDualPane ? 1 : 0)) == 1;
         mDualPane.setChecked(dualPaneMode);
     }
