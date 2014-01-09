@@ -1177,4 +1177,12 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="ram_bar_reset">Reset</string>
     <string name="ram_bar_reset_message">Reset RAM bar style to default?</string>
 
+    <!-- Clear recents position -->
+    <string name="clear_recents_position_title">Clear recents position</string>
+    <string name="clear_recents_position_disabled">Disabled</string>
+    <string name="clear_recents_position_bottom_right">Bottom Right</string>
+    <string name="clear_recents_position_bottom_left">Bottom Left</string>
+    <string name="clear_recents_position_top_right">Top Right</string>
+    <string name="clear_recents_position_top_left">Top Left</string>
+
 </resources>
