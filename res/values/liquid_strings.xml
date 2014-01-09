@@ -1190,4 +1190,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <!-- Vibration multiplier -->
     <string name="vibrator_multiplier_title">Vibration multiplier</string>
 
+    <!-- Minimum vibration duration -->
+    <string name="minimum_vibration_duration">Minimum vibration duration</string>
+
 </resources>
