@@ -50,6 +50,7 @@
 
     <!-- General settings -->
     <string name="interface_settings_title">Interface</string>
+    <string name="lockscreen_settings_title">Lock screen</string>
     <string name="navigation_settings_title">Navigation</string>
     <string name="performance_settings_title">Performance</string>
     <string name="statusbar_settings_title">Status bar</string>
@@ -764,9 +765,9 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="icon_picker_search">Search</string>
     <string name="icon_picker_twitter">Twitter</string>
 
-    <!-- Quick unlock -->
+    <!-- Lock screen quick unlock -->
     <string name="unlock_quick_unlock_control_title">Quick unlock</string>
-    <string name="unlock_quick_unlock_control_summary">Unlock automatically when the correct PIN/password is entered</string>
+    <string name="unlock_quick_unlock_control_summary">Unlock automatically when using correct PIN/password</string>
 
     <!-- Lock screen style -->
     <string name="lockscreen_style_reset_message">Reset all lockscreen colors?</string>
@@ -801,9 +802,9 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="lock_numpad_random_always">Always</string>
     <string name="lock_numpad_random_on_request">On request</string>
 
-    <!-- Lock before unlock -->
-    <string name="lock_before_unlock_title">Show slider before secure unlock</string>
-    <string name="lock_before_unlock_summary">Show slider lock screen before secure unlock mechanism</string>
+    <!-- Lock screen before unlock -->
+    <string name="lock_before_unlock_title">Lock before unlock</string>
+    <string name="lock_before_unlock_summary">Show slider before secure unlock</string>
 
     <!-- Notification drawer background -->
     <string name="notification_style_title">Background style</string>
@@ -934,7 +935,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
 
     <!-- Clock widget -->
     <string name="lock_clock_title">Clock widget</string>
-    <string name="lock_clock_summary">Change how home and lock screen widgets will display</string>
+    <string name="lock_clock_summary">Change home and lock screen widget display</string>
 
     <!-- USB mass storage -->
     <string name="usb_mass_storage_title">Mass storage</string>
@@ -945,10 +946,11 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
 
     <!--Lock screen see through-->
     <string name="see_through_title">See through</string>
-    <string name="see_through_summary">Shows the content behind your lockscreen, your data may be visible to those around you</string>
+    <string name="see_through_summary">Shows the content behind your lockscreen</string>
    
     <!-- Lock screen battery ring -->
-    <string name="battery_around_lockscreen_ring">Battery around unlock ring</string>
+    <string name="battery_around_ring_title">Battery around ring</string>
+    <string name="battery_around_ring_summary">Displays battery level around unlock ring</string>
 
     <!-- Halo options -->
     <string name="halo_behavior_title">Halo Behavior</string>
@@ -1044,8 +1046,8 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="volume_keys_control_media_stream">Media control</string>
     <string name="volume_keys_control_media_stream_summary">Volume keys control media volume rather than notifications</string>
 
-	<!-- Lockscreen notifications -->
-    <string name="lockscreen_notifications">Lockscreen notifications</string>
+	<!-- Lock screen notifications -->
+    <string name="lockscreen_notifications">Lock screen notifications</string>
     <string name="lockscreen_notifications_summary">Show pending notifications on lockscreen</string>
     <string name="pocket_mode">Pocket mode</string>
     <string name="pocket_mode_summary">Turn screen on and show all notifications when device is pulled out of pocket. Turn screen off when device gets back into pocket.</string>
@@ -1075,9 +1077,9 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="storage_rescan_media">Rescan media for the storage volume</string>
     <string name="storage_rescan_media_complete">Scan completed</string>
 	
-    <!-- Density changer -->
-    <string name="custom_density_title">Custom lcd density</string>
-    <string name="custom_density">custom</string>
+    <!-- Custom LCD changer -->
+    <string name="custom_density_title">Custom LCD density</string>
+    <string name="custom_density">Custom</string>
     <string name="set_custom_density_title">Set custom density</string>
     <string name="set_custom_density_set">Set</string>
     <string name="reboot_now">Reboot</string>
