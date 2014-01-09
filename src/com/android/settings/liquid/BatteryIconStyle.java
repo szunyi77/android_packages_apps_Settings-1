@@ -55,7 +55,6 @@ public class BatteryIconStyle extends SettingsPreferenceFragment
     private static final String PREF_STATUS_BAR_BATTERY_TEXT_CHARGING_COLOR = "battery_text_charging_color";
     private static final String PREF_STATUS_BAR_CIRCLE_BATTERY_ANIMATIONSPEED = "circle_battery_animation_speed";
 
-
     private static final int MENU_RESET = Menu.FIRST;
 
     private static final int DLG_RESET = 0;
@@ -158,7 +157,7 @@ public class BatteryIconStyle extends SettingsPreferenceFragment
         mCircleAnimSpeed.setOnPreferenceChangeListener(this);
         mCircleAnimSpeed.setValue((Settings.System
                 .getInt(getActivity().getContentResolver(),
-                        Settings.System.STATUS_BAR_CIRCLE_BATTERY_ANIMATIONSPEED, 3))
+                        Settings.System.STATUS_BAR_CIRCLE_BATTERY_ANIMATIONSPEED, 0))
                 + "");
         mCircleAnimSpeed.setSummary(mCircleAnimSpeed.getEntry());
 
