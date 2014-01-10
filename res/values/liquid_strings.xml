@@ -1180,6 +1180,9 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="clear_recents_position_top_left">Top Left</string>
 
     <!-- Delete apn confirmation dialog message -->
-    <string name="confirm_delete_apn">The APN will be deleted.</string>
+    <string name="confirm_delete_apn">The APN will be deleted</string>
+
+    <!-- Vibration multiplier -->
+    <string name="vibrator_multiplier_title">Vibration multiplier</string>
 
 </resources>

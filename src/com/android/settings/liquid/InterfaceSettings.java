@@ -66,6 +66,7 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
     private static final String KEY_USE_ALT_RESOLVER = "use_alt_resolver";
     private static final String PREF_CUSTOM_CARRIER_LABEL = "custom_carrier_label";
     private static final String KEY_FORCE_DUAL_PANE = "force_dual_pane";
+    private static final String KEY_VIBRATION_MULTIPLIER = "vibrator_multiplier";
 	
     private static ListPreference mLcdDensity;
     private static Activity mActivity;
@@ -74,6 +75,7 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
     private CheckBoxPreference mUseAltResolver;
     private Preference mCustomLabel;
     private CheckBoxPreference mDualPane;
+    private ListPreference mVibrationMultiplier;
 
     String mCustomLabelText = null;
 
@@ -114,6 +116,13 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
         boolean dualPaneMode = Settings.System.getInt(getContentResolver(),
                 Settings.System.DUAL_PANE_PREFS, (preferDualPane ? 1 : 0)) == 1;
         mDualPane.setChecked(dualPaneMode);
+
+        mVibrationMultiplier = (ListPreference) findPreference(KEY_VIBRATION_MULTIPLIER);
+        mVibrationMultiplier.setOnPreferenceChangeListener(this);
+        String currentValue = Float.toString(Settings.System.getFloat(getActivity()
+                .getContentResolver(), Settings.System.VIBRATION_MULTIPLIER, 1));
+        mVibrationMultiplier.setValue(currentValue);
+        mVibrationMultiplier.setSummary(currentValue);
     }
 
     private void updateCustomLabelTextSummary() {
@@ -221,6 +230,13 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.DUAL_PANE_PREFS,
                     (Boolean) newValue ? 1 : 0);
+            return true;
+        } else if (preference == mVibrationMultiplier) {
+            String currentValue = (String) newValue;
+            float val = Float.parseFloat(currentValue);
+            Settings.System.putFloat(getActivity().getContentResolver(),
+                    Settings.System.VIBRATION_MULTIPLIER, val);
+            mVibrationMultiplier.setSummary(currentValue);
             return true;
         }
         return false;
