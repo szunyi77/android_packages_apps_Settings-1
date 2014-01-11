@@ -957,6 +957,10 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="quick_pulldown_left">Left</string>
     <string name="quick_pulldown_right">Right</string>
 
+    <!-- Quick settings quick collapse -->
+    <string name="title_collapse_panel">Quick collapse</string>
+    <string name="summary_collapse_panel">Close the notification panel upon toggle</string>
+
     <!-- Active display -->
     <string name="ad_enable_title">Enable</string>
     <string name="ad_enable_summary_on">Active display enabled</string>
