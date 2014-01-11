@@ -113,7 +113,7 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
         mDualPane.setOnPreferenceChangeListener(this);
         boolean preferDualPane = getResources().getBoolean(
                 com.android.internal.R.bool.preferences_prefer_dual_pane);
-        boolean dualPaneMode = Settings.System.getInt(getContentResolver(),
+        boolean dualPaneMode = Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.DUAL_PANE_PREFS, (preferDualPane ? 1 : 0)) == 1;
         mDualPane.setChecked(dualPaneMode);
 
