@@ -65,7 +65,6 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
     private static final String KEY_LISTVIEW_INTERPOLATOR = "listview_interpolator";
     private static final String KEY_USE_ALT_RESOLVER = "use_alt_resolver";
     private static final String PREF_CUSTOM_CARRIER_LABEL = "custom_carrier_label";
-    private static final String KEY_FORCE_DUAL_PANE = "force_dual_pane";
     private static final String KEY_VIBRATION_MULTIPLIER = "vibrator_multiplier";
 	
     private static ListPreference mLcdDensity;
@@ -74,7 +73,6 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
     private ListPreference mListViewInterpolator;
     private CheckBoxPreference mUseAltResolver;
     private Preference mCustomLabel;
-    private CheckBoxPreference mDualPane;
     private ListPreference mVibrationMultiplier;
 
     String mCustomLabelText = null;
@@ -82,6 +80,7 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         addPreferencesFromResource(R.xml.liquid_interface_settings);
         mActivity = getActivity();
 
@@ -108,14 +107,6 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
 
         mCustomLabel = findPreference(PREF_CUSTOM_CARRIER_LABEL);
         updateCustomLabelTextSummary();
-
-        mDualPane = (CheckBoxPreference) findPreference(KEY_FORCE_DUAL_PANE);
-        mDualPane.setOnPreferenceChangeListener(this);
-        boolean preferDualPane = getResources().getBoolean(
-                com.android.internal.R.bool.preferences_prefer_dual_pane);
-        boolean dualPaneMode = Settings.System.getInt(getActivity().getContentResolver(),
-                Settings.System.DUAL_PANE_PREFS, (preferDualPane ? 1 : 0)) == 1;
-        mDualPane.setChecked(dualPaneMode);
 
         mVibrationMultiplier = (ListPreference) findPreference(KEY_VIBRATION_MULTIPLIER);
         mVibrationMultiplier.setOnPreferenceChangeListener(this);
@@ -224,11 +215,6 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
         } else if (preference == mUseAltResolver) {
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.ACTIVITY_RESOLVER_USE_ALT,
-                    (Boolean) newValue ? 1 : 0);
-            return true;
-        } else if (preference == mDualPane) {
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.DUAL_PANE_PREFS,
                     (Boolean) newValue ? 1 : 0);
             return true;
         } else if (preference == mVibrationMultiplier) {
