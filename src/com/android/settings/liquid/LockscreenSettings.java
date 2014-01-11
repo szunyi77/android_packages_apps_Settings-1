@@ -42,6 +42,7 @@ public class LockscreenSettings extends SettingsPreferenceFragment
     private static final String KEY_WIDGETS_SETTINGS = "lock_screen_widgets";
     private static final String KEY_GENERAL_CATEGORY = "general_category";
     private static final String KEY_BATTERY_AROUND_RING = "battery_around_ring";
+    private static final String KEY_ALWAYS_BATTERY_PREF = "lockscreen_battery_status";
     private static final String KEY_LOCK_BEFORE_UNLOCK = "lock_before_unlock";
     private static final String KEY_QUICK_UNLOCK_CONTROL = "quick_unlock_control";
     private static final String KEY_LOCKSCREEN_TORCH = "lockscreen_torch";
@@ -53,6 +54,7 @@ public class LockscreenSettings extends SettingsPreferenceFragment
     private Preference mLockscreenWidgets;
 
     private CheckBoxPreference mLockRingBattery;
+    private CheckBoxPreference mBatteryStatus;
     private CheckBoxPreference mLockBeforeUnlock;
     private CheckBoxPreference mLockQuickUnlock;
     private CheckBoxPreference mGlowpadTorch;
@@ -96,6 +98,14 @@ public class LockscreenSettings extends SettingsPreferenceFragment
             mGlowpadTorch.setChecked(Settings.System.getInt(getContentResolver(),
                 Settings.System.LOCKSCREEN_GLOWPAD_TORCH, 0) == 1);
             mGlowpadTorch.setOnPreferenceChangeListener(this);
+        }
+
+        mBatteryStatus = (CheckBoxPreference) prefs
+                .findPreference(KEY_ALWAYS_BATTERY_PREF);
+        if (mBatteryStatus != null) {
+            mBatteryStatus.setChecked(Settings.System.getInt(getContentResolver(),
+                Settings.System.System.LOCKSCREEN_ALWAYS_SHOW_BATTERY, 0) == 1);
+            mBatteryStatus.setOnPreferenceChangeListener(this);
         }
 
         if (!DeviceUtils.deviceSupportsTorch(getActivity())) {
@@ -161,6 +171,10 @@ public class LockscreenSettings extends SettingsPreferenceFragment
         } else if (preference == mGlowpadTorch) {
             Settings.System.putInt(getContentResolver(),
                     Settings.System.LOCKSCREEN_GLOWPAD_TORCH,
+                    ((Boolean) value) ? 1 : 0);
+        } else if (preference == mBatteryStatus) {
+            Settings.System.putIntForUser(getContentResolver(),
+                    Settings.System.LOCKSCREEN_ALWAYS_SHOW_BATTERY,
                     ((Boolean) value) ? 1 : 0);
         }
         return true;

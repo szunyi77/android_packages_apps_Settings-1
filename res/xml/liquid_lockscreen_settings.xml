@@ -59,6 +59,11 @@
             android:summary="@string/battery_around_ring_summary" />
 
         <CheckBoxPreference
+            android:key="lockscreen_battery_status"
+            android:title="@string/lockscreen_battery_status_title"
+            android:summary="@string/lockscreen_battery_status_summary" />
+
+        <CheckBoxPreference
             android:key="lockscreen_torch"
             android:title="@string/lockscreen_glowpad_torch_title"
             android:summary="@string/lockscreen_glowpad_torch_summary" />
