@@ -57,7 +57,7 @@
 
     <!-- Advanced settings -->
     <string name="active_display_title">Active display</string>
-    <string name="halo_options_title">Halo options</string>
+    <string name="halo_options_title">Bubble options</string>
     <string name="notification_drawer_title">Notification drawer</string>
     <string name="theme_settings_title">Liquid blackout</string>
 
@@ -952,46 +952,45 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="battery_around_ring_title">Battery around ring</string>
     <string name="battery_around_ring_summary">Displays battery level around unlock ring</string>
 
-    <!-- Halo options -->
-    <string name="halo_behavior_title">Halo Behavior</string>
-    <string name="halo_hide_title">Hide Halo after activity</string>
-    <string name="halo_enabled_title">Enable HALO</string>
-    <string name="halo_enabled_summary">Completely enable or disable HALO</string>
-    <string name="halo_hide_summary">Halo will appear for incoming tasks and scroll out of sight after a while</string>
-    <string name="halo_reversed_title">Reverse Halo</string>
-    <string name="halo_reversed_summary">Applies for task switching and moving gestures</string>
-    <string name="halo_state_title">Halo policy</string>
-    <string name="halo_state_summary">Enables black/white listing notifications</string>
+    <!-- Bubble options -->
+    <string name="halo_hide_title">Hide after activity</string>
+    <string name="halo_hide_summary">Appear for activity then disappears</string>
+    <string name="halo_enabled_title">Enable Bubble</string>
+    <string name="halo_enabled_summary">Completely enable or disable bubble</string>
+    <string name="halo_reversed_title">Reverse Bubble</string>
+    <string name="halo_reversed_summary">Used for task switching then moving</string>
+    <string name="halo_state_title">Bubble policy</string>
+    <string name="halo_state_summary">Black or white listing notification</string>
     <string name="halo_state_black">Black list</string>
     <string name="halo_state_white">White list</string>
     <string name="halo_pause_title">Pause active app</string>
-    <string name="halo_pause_summary">When opening an app with Halo the underlying app will get paused</string>
+    <string name="halo_pause_summary">Opening new app pauses current one</string>
     <string name="halo_ninja_title">Ninja mode</string>
-    <string name="halo_ninja_summary">Halo will disappear completely when empty</string>
-    <string name="halo_notification_msgbox_title">Enable message pop-up</string>
-    <string name="halo_notification_msgbox_summary">Show message box for incoming notifications</string>
+    <string name="halo_ninja_summary">Disappears out of sight when empty</string>
+    <string name="halo_notification_msgbox_title">Enable message box</string>
+    <string name="halo_notification_msgbox_summary">Show box for incoming notifications</string>
     <string name="halo_unlock_ping_title">Ping on unlock</string>
-    <string name="halo_unlock_ping_summary">Halo will ping when device is unlocked if new notifications were received</string>
-    <string name="halo_size_title">Halo size</string>
-    <string name="halo_size_summary">Defines how big Halo is going to be</string>
+    <string name="halo_unlock_ping_summary">When new notifications are received</string>
+    <string name="halo_size_title">Bubble size</string>
+    <string name="halo_size_summary">Determine the actual size of bubble</string>
     <string name="halo_size_miniscule">Miniscule</string>
     <string name="halo_size_small">Small</string>
-    <string name="halo_size_default">Normal (default)</string>
+    <string name="halo_size_default">Normal (Default)</string>
     <string name="halo_size_large">Large</string>
     <string name="halo_size_gigantic">Gigantic</string>
     <string name="halo_size_monster">Monster</string>
     <string name="halo_notification_count_title">Notification count</string>
-    <string name="halo_notification_count_summary">Display notification counts on Halo</string>
+    <string name="halo_notification_count_summary">Display bubble notification counts</string>
     <string name="halo_notification_count_none">None</string>
     <string name="halo_notification_count_total">Total</string>
     <string name="halo_notification_count_individual">Per app</string>
     <string name="halo_notification_count_both">Both</string>
     <string name="halo_msgbox_animation_title">Message box animation</string>
-    <string name="halo_msgbox_animation_summary">Halo message box animation for incoming notifications</string>
+    <string name="halo_msgbox_animation_summary">Animation for incoming notification</string>
     <string name="halo_msgbox_animation_none">None</string>
     <string name="halo_msgbox_animation_flip">Flip</string>
-    <string name="app_halo_label_black">Blacklist from HALO</string>
-    <string name="app_halo_label_white">Whitelist from HALO</string>
+    <string name="app_halo_label_black">Blacklist from Bubble</string>
+    <string name="app_halo_label_white">Whitelist from Bubble</string>
 
     <!-- Liquid blackout -->
     <string name="theme_auto_mode_title">Switch theme</string>
