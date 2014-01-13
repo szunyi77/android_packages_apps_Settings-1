@@ -559,7 +559,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="shortcuts_icon_picker_unlock">Unlock</string>
 
     <string name="icon_picker_type">Select icon type:</string>
-    <string name="icon_default">Default</string>
+    <string name="icon_default">Default icon</string>
     <string name="icon_presets">System icons</string>
     <string name="icon_custom">Gallery</string>
     <string name="icon_pack">Icon pack</string>
@@ -576,9 +576,9 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
 
     <!-- Notification drawer -->
     <string name="notification_hide_carrier_title">Hide network label</string>
-    <string name="notification_hide_carrier_summary">Hide carrier and Wi-Fi label on the notification drawer</string>
+    <string name="notification_hide_carrier_summary">Hides carrier and wireless labels</string>
     <string name="notification_shortcuts_settings_title">Shortcuts</string>
-    <string name="notification_shortcuts_settings_summary">Show shortcuts in the notification drawer</string>
+    <string name="notification_shortcuts_settings_summary">Enable shortcuts in the notification drawer</string>
 
     <!-- Power menu -->
     <string name="power_menu_title">Power menu</string>
@@ -857,7 +857,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
 
     <!-- Notification drawer background -->
     <string name="notification_style_title">Background style</string>
-    <string name="notification_style_summary">View or change your notification drawer and quick settings background</string>
+    <string name="notification_style_summary">Customizes style of the notification drawer</string>
     <string name="notification_wallpaper_title">Background</string>
     <string name="notification_wallpaper_landscape_title">Different landscape background</string>
     <string name="notification_background_color_fill">Color fill</string>
@@ -934,8 +934,8 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="music_tile_mode_tracktitle">Show track title</string>
 
     <!-- Quick settings quick pulldown -->
-    <string name="title_quick_pulldown">Quick pulldown</string>
-    <string name="summary_quick_pulldown">%1$s edge of the status bar pulls down quick settings</string>
+    <string name="quick_pulldown_title">Quick pulldown</string>
+    <string name="quick_pulldown_summary">%1$s status bar edge enables quick pulldown</string>
     <string name="quick_pulldown_off">Off</string>
     <string name="quick_pulldown_left">Left</string>
     <string name="quick_pulldown_right">Right</string>
