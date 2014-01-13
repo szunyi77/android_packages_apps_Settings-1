@@ -134,7 +134,7 @@ public class InterfaceSettings extends SettingsPreferenceFragment
         mCustomLabelText = Settings.System.getString(getActivity().getContentResolver(),
                 Settings.System.CUSTOM_CARRIER_LABEL);
         if (mCustomLabelText == null || mCustomLabelText.length() == 0) {
-            mCustomLabel.setSummary(R.string.custom_carrier_label_notset);
+            mCustomLabel.setSummary(R.string.custom_carrier_label_summary);
         } else {
             mCustomLabel.setSummary(mCustomLabelText);
         }
@@ -165,7 +165,7 @@ public class InterfaceSettings extends SettingsPreferenceFragment
                             Settings.System.CUSTOM_CARRIER_LABEL, value);
                     updateCustomLabelTextSummary();
                     Intent i = new Intent();
-                    i.setAction("com.android.settins.LABEL_CHANGED");
+                    i.setAction("com.android.settings.LABEL_CHANGED");
                     getActivity().sendBroadcast(i);
                 }
             });
