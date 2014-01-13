@@ -580,25 +580,25 @@
     </string-array>
 
     <!-- Navigation bar -->
-    <string-array name="pref_navigation_menu_entries">
-        <item>@string/navigation_menu_right</item>
-        <item>@string/navigation_menu_left</item>
-        <item>@string/navigation_menu_both</item>
-    </string-array>
-
-    <string-array name="pref_navigation_menu_values" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-    </string-array>
-
-    <string-array name="pref_menu_display_entries">
+    <string-array name="navbar_menu_display_entries">
         <item>@string/navigation_menu_always_show</item>
         <item>@string/navigation_menu_never_show</item>
         <item>@string/navigation_menu_default_jb_behavior</item>
     </string-array>
 
-    <string-array name="pref_menu_display_values" translatable="false">
+    <string-array name="navbar_menu_display_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <string-array name="navbar_menu_location_entries">
+        <item>@string/navigation_menu_right</item>
+        <item>@string/navigation_menu_left</item>
+        <item>@string/navigation_menu_both</item>
+    </string-array>
+
+    <string-array name="navbar_menu_location_values" translatable="false">
         <item>0</item>
         <item>1</item>
         <item>2</item>

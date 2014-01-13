@@ -15,7 +15,7 @@
 -->
 
 <PreferenceScreen
-    android:title="@string/navigation_bar_title"
+    android:title="@string/navigation_settings_title"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
@@ -29,29 +29,32 @@
         android:title="@string/general_category_title">
 
         <PreferenceScreen
-                android:key="navbar_button_settings"
-                android:fragment="com.android.settings.liquid.dslv.ButtonsListViewSettings"
-                android:title="@string/navbar_button_title">
-            <extra android:name="buttonMode" android:value="0" />
-            <extra android:name="maxAllowedButtons" android:value="5" />
-            <extra android:name="disableDeleteLastEntry" android:value="true" />
-            <extra android:name="fragment" android:value="com.android.settings.liquid.fragments.NavbarButtonFragment" />
+            android:key="navbar_button_settings"
+            android:title="@string/navbar_buttons_title"
+            android:summary="@string/navbar_buttons_summary"
+            android:fragment="com.android.settings.liquid.dslv.ButtonsListViewSettings">
+                <extra android:name="buttonMode" android:value="0" />
+                <extra android:name="maxAllowedButtons" android:value="5" />
+                <extra android:name="disableDeleteLastEntry" android:value="true" />
+                <extra android:name="fragment" android:value="com.android.settings.liquid.fragments.NavbarButtonFragment" />
         </PreferenceScreen>
 
         <PreferenceScreen
-                android:key="navbar_targets_settings"
-                android:fragment="com.android.settings.liquid.dslv.ButtonsListViewSettings"
-                android:title="@string/navbar_targets_title">
-            <extra android:name="buttonMode" android:value="3" />
-            <extra android:name="maxAllowedButtons" android:value="5" />
-            <extra android:name="actionValues" android:value="shortcut_action_navring_values" />
-            <extra android:name="actionEntries" android:value="shortcut_action_navring_entries" />
-        </PreferenceScreen>
+            android:key="navbar_dimensions_settings"
+            android:title="@string/navbar_dimensions_title"
+            android:summary="@string/navbar_dimensions_summary"
+            android:fragment="com.android.settings.liquid.NavbarStyleDimenSettings" />
 
         <PreferenceScreen
-            android:key="navbar_style_dimen_settings"
-            android:fragment="com.android.settings.liquid.NavbarStyleDimenSettings"
-            android:title="@string/navbar_style_dimen_title" />
+            android:key="navbar_targets_settings"
+            android:title="@string/navbar_targets_title"
+            android:summary="@string/navbar_targets_summary"
+            android:fragment="com.android.settings.liquid.dslv.ButtonsListViewSettings">
+                <extra android:name="buttonMode" android:value="3" />
+                <extra android:name="maxAllowedButtons" android:value="5" />
+                <extra android:name="actionValues" android:value="shortcut_action_navring_values" />
+                <extra android:name="actionEntries" android:value="shortcut_action_navring_entries" />
+        </PreferenceScreen>
 
     </PreferenceCategory>
 
@@ -59,24 +62,24 @@
         android:key="advanced_category"
         android:title="@string/advanced_category_title">
 
-        <ListPreference
-            android:key="pref_navbar_menu_display"
-            android:entries="@array/pref_menu_display_entries"
-            android:entryValues="@array/pref_menu_display_values"
-            android:title="@string/title_pref_menu_display"
-            android:summary="@string/summary_pref_menu_display" />
-
-        <ListPreference
-            android:key="pref_navbar_menu_location"
-            android:entries="@array/pref_navigation_menu_entries"
-            android:entryValues="@array/pref_navigation_menu_values"
-            android:title="@string/title_pref_menu_location"
-            android:summary="@string/summary_pref_menu_location" />
-
         <CheckBoxPreference
             android:key="navbar_can_move"
-            android:title="@string/navbar_can_move"
+            android:title="@string/navbar_can_move_title"
             android:summary="@string/navbar_can_move_summary" />
+
+        <ListPreference
+            android:key="navbar_menu_display"
+            android:title="@string/navbar_menu_display_title"
+            android:summary="@string/navbar_menu_display_summary"
+            android:entries="@array/navbar_menu_display_entries"
+            android:entryValues="@array/navbar_menu_display_values" />
+
+        <ListPreference
+            android:key="navbar_menu_location"
+            android:title="@string/navbar_menu_location_title"
+            android:summary="@string/navbar_menu_location_summary"
+            android:entries="@array/navbar_menu_location_entries"
+            android:entryValues="@array/navbar_menu_location_values" />
 
     </PreferenceCategory>
 

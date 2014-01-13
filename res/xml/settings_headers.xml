@@ -78,9 +78,9 @@
 
     <!-- Navigation -->
     <header
-        android:id="@+id/navigation_settings"
+        android:id="@+id/navbar_settings"
         android:title="@string/navigation_settings_title"
-        android:fragment="com.android.settings.liquid.NavigationSettings"
+        android:fragment="com.android.settings.liquid.NavbarSettings"
         android:icon="@drawable/ic_liquid_navigation" />
 
     <!-- Performance -->
