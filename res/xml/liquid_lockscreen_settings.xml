@@ -25,28 +25,27 @@
 
         <PreferenceScreen
             android:key="lock_screen_interface"
-            android:fragment="com.android.settings.liquid.LockscreenInterface"
-            android:title="@string/lock_screen_title" />
+            android:title="@string/lock_screen_interface_title"
+            android:summary="@string/lock_screen_interface_summary"
+            android:fragment="com.android.settings.liquid.LockscreenInterface" />
 
         <PreferenceScreen
             android:key="lock_screen_notifications"
-            android:fragment="com.android.settings.liquid.LockscreenNotifications"
-            android:title="@string/lockscreen_notifications" />
+            android:title="@string/lock_screen_notifications_title"
+            android:summary="@string/lock_screen_notifications_summary"
+            android:fragment="com.android.settings.liquid.LockscreenNotifications" />
 
         <PreferenceScreen
             android:key="lock_screen_style"
-            android:fragment="com.android.settings.liquid.LockscreenStyle"
-            android:title="@string/lockscreen_style_title" />
-
-        <PreferenceScreen
-            android:key="lock_screen_targets"
-            android:fragment="com.android.settings.liquid.LockscreenTargets"
-            android:title="@string/lockscreen_target_title" />
+            android:title="@string/lock_screen_style_title"
+            android:summary="@string/lock_screen_style_summary"
+            android:fragment="com.android.settings.liquid.LockscreenStyle" />
 
         <PreferenceScreen
             android:key="lock_screen_widgets"
-            android:fragment="com.android.settings.liquid.LockscreenWidgets"
-            android:title="@string/lockscreen_widgets_title" />
+            android:title="@string/lock_screen_widgets_title"
+            android:summary="@string/lock_screen_widgets_summary"
+            android:fragment="com.android.settings.liquid.LockscreenWidgets" />
 
     </PreferenceCategory>
 
@@ -82,7 +81,6 @@
         <SeekBarPreference
             android:key="blur_radius"
             android:title="@string/blur_radius_title"
-            android:summary="@string/blur_radius_summary"
             android:max="25"
             android:defaultValue="12" />
 

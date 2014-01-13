@@ -36,12 +36,12 @@ import com.android.settings.SettingsPreferenceFragment;
 import java.io.File;
 import java.io.IOException;
 
-public class LockscreenInterface extends SettingsPreferenceFragment implements
-        Preference.OnPreferenceChangeListener {
+public class LockscreenInterface extends SettingsPreferenceFragment
+        implements Preference.OnPreferenceChangeListener {
+
     private static final String TAG = "LockscreenInterface";
 
     private static final int DLG_ENABLE_EIGHT_TARGETS = 0;
-
     private static final String PREF_LOCKSCREEN_EIGHT_TARGETS = "lockscreen_eight_targets";
     private static final String PREF_LOCKSCREEN_SHORTCUTS = "lockscreen_shortcuts";
 
@@ -68,7 +68,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
             prefs.removeAll();
         }
 
-        addPreferencesFromResource(R.xml.lockscreen_interface_settings);
+        addPreferencesFromResource(R.xml.lockscreen_interface);
         prefs = getPreferenceScreen();
 
         mLockscreenEightTargets = (CheckBoxPreference) findPreference(
