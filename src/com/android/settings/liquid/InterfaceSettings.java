@@ -91,6 +91,19 @@ public class InterfaceSettings extends SettingsPreferenceFragment
                 getActivity().getContentResolver(),
                 Settings.System.ACTIVITY_RESOLVER_USE_ALT, 0) == 1);
 
+        mLcdDensity = (ListPreference) findPreference(KEY_LCD_DENSITY);
+        String current = SystemProperties.get(DENSITY_PROP,
+                SystemProperties.get("ro.sf.lcd_density"));
+        final ArrayList<String> array = new ArrayList<String>(
+                Arrays.asList(getResources().getStringArray(R.array.lcd_density_entries)));
+        if (array.contains(current)) {
+            mLcdDensity.setValue(current);
+        } else {
+            mLcdDensity.setValue("custom");
+        }
+        mLcdDensity.setSummary(getResources().getString(R.string.current_lcd_density) + current);
+        mLcdDensity.setOnPreferenceChangeListener(this);
+
         mListViewAnimation = (ListPreference) findPreference(KEY_LISTVIEW_ANIMATION);
         int listviewanimation = Settings.System.getInt(getContentResolver(),
                 Settings.System.LISTVIEW_ANIMATION, 0);
@@ -127,24 +140,6 @@ public class InterfaceSettings extends SettingsPreferenceFragment
         }
     }
 
-    private void updateSettings() {
-        setPreferenceScreen(null);
-        addPreferencesFromResource(R.xml.liquid_interface_settings);
-
-        mLcdDensity = (ListPreference) findPreference(KEY_LCD_DENSITY);
-        String current = SystemProperties.get(DENSITY_PROP,
-                SystemProperties.get("ro.sf.lcd_density"));
-        final ArrayList<String> array = new ArrayList<String>(
-                Arrays.asList(getResources().getStringArray(R.array.lcd_density_entries)));
-        if (array.contains(current)) {
-            mLcdDensity.setValue(current);
-        } else {
-            mLcdDensity.setValue("custom");
-        }
-        mLcdDensity.setSummary(getResources().getString(R.string.current_lcd_density) + current);
-        mLcdDensity.setOnPreferenceChangeListener(this);
-    }
-	
     @Override
     public void onResume() {
         super.onResume();
@@ -252,14 +247,6 @@ public class InterfaceSettings extends SettingsPreferenceFragment
         } catch (RemoteException e) {
             Slog.w(TAG, "Failure communicating with window manager", e);
         }
-    }
-
-    private static void killCurrentLauncher() {
-        ComponentName defaultLauncher = mActivity.getPackageManager().getHomeActivities(
-                        new ArrayList<ResolveInfo>());
-                ActivityManager am = (ActivityManager) mActivity.getSystemService(
-                        Context.ACTIVITY_SERVICE);
-                am.killBackgroundProcesses(defaultLauncher.getPackageName());
     }
 
     private void showDialogInner(int id) {
