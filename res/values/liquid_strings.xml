@@ -249,18 +249,18 @@
     <string name="clock_date_format_custom">Custom java format</string>
     <string name="status_bar_clock_style_reset_message">Reset clock color?</string>
     <string name="status_bar_toggle_brightness">Brightness control</string>
-    <string name="status_bar_toggle_brightness_summary">Adjust brightness by sliding across status bar</string>
-    <string name="status_bar_toggle_info">Automatic brightness is enabled</string>
+    <string name="status_bar_toggle_brightness_summary">Adjust by sliding across the status bar</string>
+    <string name="status_bar_toggle_info">Automatic brightness currently enabled</string>
 
     <!-- Status bar signal -->
-    <string name="status_bar_style_icon">Signal bars</string>
     <string name="status_bar_style_hidden">Hidden</string>
+    <string name="status_bar_style_icon">Signal icon</string>
+    <string name="status_bar_signal_text_title">Signal display</string>
     <string name="status_bar_signal_text_show_text">Signal text</string>
-    <string name="status_bar_signal_text_title">Signal</string>
 
     <!-- Status bar notification count -->
     <string name="status_bar_notification_count_title">Notification count</string>
-    <string name="status_bar_notification_count_summary">Display the number of notifications</string>
+    <string name="status_bar_notification_count_summary">Display number of similar notifications</string>
 
     <!-- CRT off animation mode -->
     <string name="display_category_animation_options_title">Animation options</string>
@@ -870,8 +870,8 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <!-- Quick settings -->
     <string name="quick_settings_title">Quick settings</string>
     <string name="tile_picker_title">Tiles and layout</string>
-    <string name="tile_picker_summary">View, select or change the displayed tiles</string>
-    <string name="tile_choose_title">Choose a tile</string>
+    <string name="tile_picker_summary">View or change current quick settings tiles</string>
+    <string name="tile_choose_title">Choose tile</string>
     <string name="title_tile_airplane">Airplane mode</string>
     <string name="title_tile_battery">Battery</string>
     <string name="title_tile_bluetooth">Bluetooth</string>
@@ -909,12 +909,12 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="disable_qs_message">All tiles were removed. Quick settings are disabled.\n\nTo enable add a tile.</string>
     <string name="help_qs_message">To add a quick settings tile, press the Add button and choose the tile you would like. To rearrange your tiles, longpress the tile and drag it into the position you want. If you want to delete a tile, drag it to the delete button which appears while dragging the tile.\n\nTo setup dynamic tiles press the respective icon on the top right of the screen\n\nTo disable quick settings, remove all tiles.</string>
 
-    <!-- Quick settings style options -->
-    <string name="summary_quicksettings_tiles_style">View or change quick settings style options</string>
+    <!-- Quick settings style -->
+    <string name="summary_quicksettings_tiles_style">View or change current quick settings style</string>
     <string name="quicksettings_tiles_style_additional_options">Additional options</string>
     <string name="tiles_per_row_title">Tiles per row</string>
     <string name="tiles_per_row_duplicate_landscape_title">Scale landscape quantity</string>
-    <string name="tiles_per_row_duplicate_landscape_summary">Landscape view doubles tiles per row quantity</string>
+    <string name="tiles_per_row_duplicate_landscape_summary">Landscape view doubles tiles per row</string>
     <string name="quick_tiles_bg_color_title">Tiles background color</string>
     <string name="quick_tiles_bg_pressed_color_title">Tiles pressed background color</string>
     <string name="quick_tiles_text_color_title">Tiles text color</string>
