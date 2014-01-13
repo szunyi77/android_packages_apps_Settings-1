@@ -54,21 +54,22 @@ import java.lang.Thread;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class InterfaceSettings extends SettingsPreferenceFragment implements
-        OnPreferenceChangeListener {
+public class InterfaceSettings extends SettingsPreferenceFragment
+        implements OnPreferenceChangeListener {
 
     private static final String TAG = "InterfaceSettings";
-    private static final String KEY_LCD_DENSITY = "lcd_density";
+
     private static final int DIALOG_CUSTOM_DENSITY = 101;
+    private static final String KEY_LCD_DENSITY = "lcd_density";
     private static final String DENSITY_PROP = "persist.sys.lcd_density";
     private static final String KEY_LISTVIEW_ANIMATION = "listview_animation";
     private static final String KEY_LISTVIEW_INTERPOLATOR = "listview_interpolator";
     private static final String KEY_USE_ALT_RESOLVER = "use_alt_resolver";
     private static final String PREF_CUSTOM_CARRIER_LABEL = "custom_carrier_label";
     private static final String KEY_VIBRATION_MULTIPLIER = "vibrator_multiplier";
-	
-    private static ListPreference mLcdDensity;
+
     private static Activity mActivity;
+    private static ListPreference mLcdDensity;
     private ListPreference mListViewAnimation;
     private ListPreference mListViewInterpolator;
     private CheckBoxPreference mUseAltResolver;
@@ -89,7 +90,7 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
         mUseAltResolver.setChecked(Settings.System.getInt(
                 getActivity().getContentResolver(),
                 Settings.System.ACTIVITY_RESOLVER_USE_ALT, 0) == 1);
-  
+
         mListViewAnimation = (ListPreference) findPreference(KEY_LISTVIEW_ANIMATION);
         int listviewanimation = Settings.System.getInt(getContentResolver(),
                 Settings.System.LISTVIEW_ANIMATION, 0);
