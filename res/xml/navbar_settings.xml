@@ -73,12 +73,11 @@
             android:title="@string/navbar_can_move_title"
             android:summary="@string/navbar_can_move_summary" />
 
-        <ListPreference
-            android:key="navbar_menu_display"
-            android:title="@string/navbar_menu_display_title"
-            android:summary="@string/navbar_menu_display_summary"
-            android:entries="@array/navbar_menu_display_entries"
-            android:entryValues="@array/navbar_menu_display_values" />
+        <CheckBoxPreference
+            android:key="navigation_bar_left"
+            android:title="@string/navigation_bar_left_title"
+            android:summary="@string/navigation_bar_left_summary"
+            android:defaultValue="false" />
 
         <ListPreference
             android:key="navbar_menu_location"
@@ -86,6 +85,13 @@
             android:summary="@string/navbar_menu_location_summary"
             android:entries="@array/navbar_menu_location_entries"
             android:entryValues="@array/navbar_menu_location_values" />
+
+        <ListPreference
+            android:key="navbar_menu_display"
+            android:title="@string/navbar_menu_display_title"
+            android:summary="@string/navbar_menu_display_summary"
+            android:entries="@array/navbar_menu_display_entries"
+            android:entryValues="@array/navbar_menu_display_values" />
 
     </PreferenceCategory>
 
