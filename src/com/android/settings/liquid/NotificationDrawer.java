@@ -90,7 +90,6 @@ public class NotificationDrawer extends SettingsPreferenceFragment
         }
         mNotificationAlpha = (SeekBarPreference) findPreference(PREF_NOTIFICATION_ALPHA);
         mNotificationAlpha.setInitValue((int) (transparency * 100));
-        mNotificationAlpha.setProperty(Settings.System.NOTIFICATION_ALPHA);
         mNotificationAlpha.setOnPreferenceChangeListener(this);
 
         mQuickPulldown = (ListPreference) findPreference(PRE_QUICK_PULLDOWN);
