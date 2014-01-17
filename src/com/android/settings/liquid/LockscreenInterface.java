@@ -43,7 +43,9 @@ public class LockscreenInterface extends SettingsPreferenceFragment
     private static final String TAG = "LockscreenInterface";
 
     private static final int DLG_ENABLE_EIGHT_TARGETS = 0;
+    private static final String LOCKSCREEN_GENERAL_CATEGORY = "general_category";
     private static final String PREF_LOCKSCREEN_EIGHT_TARGETS = "lockscreen_eight_targets";
+    private static final String PREF_LOCKSCREEN_BUTTONS = "lockscreen_buttons";
     private static final String PREF_LOCKSCREEN_SHORTCUTS = "lockscreen_shortcuts";
     private static final String PREF_LOCKSCREEN_TORCH = "lockscreen_torch";
 
@@ -94,6 +96,13 @@ public class LockscreenInterface extends SettingsPreferenceFragment
 
         mShortcuts = (Preference) findPreference(PREF_LOCKSCREEN_SHORTCUTS);
         mShortcuts.setEnabled(!mLockscreenEightTargets.isChecked());
+
+        PreferenceCategory generalCategory = (PreferenceCategory)
+                findPreference(LOCKSCREEN_GENERAL_CATEGORY);
+
+        if (!hasButtons()) {
+            generalCategory.removePreference(findPreference(PREF_LOCKSCREEN_BUTTONS));
+        }
 
         mCheckPreferences = true;
         return prefs;
