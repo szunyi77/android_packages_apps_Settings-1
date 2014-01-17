@@ -59,6 +59,11 @@
             android:summary="@string/battery_around_ring_summary" />
 
         <CheckBoxPreference
+            android:key="lockscreen_torch"
+            android:title="@string/lockscreen_glowpad_torch_title"
+            android:summary="@string/lockscreen_glowpad_torch_summary" />
+
+        <CheckBoxPreference
             android:key="lock_before_unlock"
             android:title="@string/lock_before_unlock_title"
             android:summary="@string/lock_before_unlock_summary" />
