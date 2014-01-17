@@ -133,13 +133,6 @@
     <header android:id="@+id/device_section"
         android:title="@string/header_category_device" />
 
-    <!-- Home -->
-    <header
-        android:id="@+id/home_settings"
-        android:icon="@drawable/ic_settings_home"
-        android:fragment="com.android.settings.HomeSettings"
-        android:title="@string/home_settings" />
-
     <!-- Sound -->
     <header
         android:id="@+id/sound_settings"
@@ -153,6 +146,13 @@
         android:icon="@drawable/ic_settings_display"
         android:fragment="com.android.settings.DisplaySettings"
         android:title="@string/display_settings" />
+
+    <!-- Buttons -->
+    <header
+        android:id="@+id/button_settings"
+        android:icon="@drawable/ic_settings_buttons"
+        android:fragment="com.android.settings.liquid.ButtonSettings"
+        android:title="@string/button_settings" />
 
     <!-- Storage -->
     <header
@@ -199,6 +199,13 @@
     <!-- PERSONAL -->
     <header android:id="@+id/personal_section"
         android:title="@string/header_category_personal" />
+
+    <!-- Home -->
+    <header
+        android:id="@+id/home_settings"
+        android:icon="@drawable/ic_settings_home"
+        android:fragment="com.android.settings.HomeSettings"
+        android:title="@string/home_settings" />
 
     <!-- Location -->
     <header
