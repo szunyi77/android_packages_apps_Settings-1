@@ -474,16 +474,16 @@ public class QuickSettingsTiles extends Fragment implements View.OnClickListener
             return mEmptyLabel;
         } else if (uri == null && longpressUri != null) {
             return getResources().getString(R.string.custom_tile_long_press)
-                    + " " + AppHelper.getShortcutPreferred(
+                    + " " + AppHelper.getFriendlyNameForUri(
                     getActivity(), getActivity().getPackageManager(), longpressUri);
         } else if (uri != null && longpressUri == null) {
-            return AppHelper.getShortcutPreferred(
+            return AppHelper.getFriendlyNameForUri(
                     getActivity(), getActivity().getPackageManager(), uri);
         } else {
-            return AppHelper.getShortcutPreferred(
+            return AppHelper.getFriendlyNameForUri(
                     getActivity(), getActivity().getPackageManager(), uri)
                     + "\n" + getResources().getString(R.string.custom_tile_long_press)
-                    + " "+ AppHelper.getShortcutPreferred(
+                    + " "+ AppHelper.getFriendlyNameForUri(
                     getActivity(), getActivity().getPackageManager(), longpressUri);
         }
     }
