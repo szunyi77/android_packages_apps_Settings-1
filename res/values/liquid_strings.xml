@@ -959,7 +959,14 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
 
     <!-- Quick settings quick collapse -->
     <string name="title_collapse_panel">Quick collapse</string>
-    <string name="summary_collapse_panel">Close the notification panel upon toggle</string>
+    <string name="summary_collapse_panel">Toggle to close notification panel</string>
+
+    <!-- Quick settings smart pulldown -->
+    <string name="smart_pulldown_title">Smart pulldown</string>
+    <string name="smart_pulldown_summary">When there are no %1$s notifications present</string>
+    <string name="smart_pulldown_off">Off</string>
+    <string name="smart_pulldown_dismissable">Dismissable</string>
+    <string name="smart_pulldown_persistent">Persistent</string>
 
     <!-- Active display -->
     <string name="ad_enable_title">Enable</string>
