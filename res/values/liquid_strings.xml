@@ -254,6 +254,13 @@
     <string name="status_bar_signal_text_title">Signal display</string>
     <string name="status_bar_signal_text_show_text">Signal text</string>
 
+    <!-- Volume overlay -->
+    <string name="volume_overlay_title">Volume panel style</string>
+    <string name="volume_overlay_single">Single</string>
+    <string name="volume_overlay_expandable">Expandable</string>
+    <string name="volume_overlay_expanded">Expanded</string>
+    <string name="volume_overlay_disable">Disable</string>
+
     <!-- Status bar notification count -->
     <string name="status_bar_notification_count_title">Notification count</string>
     <string name="status_bar_notification_count_summary">Display number of similar notifications</string>
