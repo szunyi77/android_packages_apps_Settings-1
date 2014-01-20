@@ -104,7 +104,7 @@ public class LockscreenSettings extends SettingsPreferenceFragment
                 .findPreference(KEY_ALWAYS_BATTERY_PREF);
         if (mBatteryStatus != null) {
             mBatteryStatus.setChecked(Settings.System.getInt(getContentResolver(),
-                Settings.System.System.LOCKSCREEN_ALWAYS_SHOW_BATTERY, 0) == 1);
+                Settings.System.LOCKSCREEN_ALWAYS_SHOW_BATTERY, 0) == 1);
             mBatteryStatus.setOnPreferenceChangeListener(this);
         }
 
@@ -173,7 +173,7 @@ public class LockscreenSettings extends SettingsPreferenceFragment
                     Settings.System.LOCKSCREEN_GLOWPAD_TORCH,
                     ((Boolean) value) ? 1 : 0);
         } else if (preference == mBatteryStatus) {
-            Settings.System.putIntForUser(getContentResolver(),
+            Settings.System.putInt(getContentResolver(),
                     Settings.System.LOCKSCREEN_ALWAYS_SHOW_BATTERY,
                     ((Boolean) value) ? 1 : 0);
         }

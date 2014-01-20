@@ -81,17 +81,6 @@ public class LockscreenInterface extends SettingsPreferenceFragment
                 Settings.System.LOCKSCREEN_EIGHT_TARGETS, 0) == 1);
         mLockscreenEightTargets.setOnPreferenceChangeListener(this);
 
-        mGlowpadTorch = (CheckBoxPreference) findPreference(
-                PREF_LOCKSCREEN_TORCH);
-        mGlowpadTorch.setChecked(Settings.System.getInt(
-                getActivity().getApplicationContext().getContentResolver(),
-                Settings.System.LOCKSCREEN_GLOWPAD_TORCH, 0) == 1);
-        mGlowpadTorch.setOnPreferenceChangeListener(this);
-
-        if (!DeviceUtils.deviceSupportsTorch(getActivity().getApplicationContext())) {
-            prefs.removePreference(mGlowpadTorch);
-        }
-
         mShortcuts = (Preference) findPreference(PREF_LOCKSCREEN_SHORTCUTS);
         mShortcuts.setEnabled(!mLockscreenEightTargets.isChecked());
 
