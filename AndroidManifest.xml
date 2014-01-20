@@ -1747,6 +1747,9 @@
                 android:excludeFromRecents="true"
                 android:theme="@*android:style/Theme.Holo.Dialog.Alert" />
 
+
+        <activity android:name=".liquid.StatusBarColor" />
+
         <activity android:name=".ApnEditor" />
 
          <!-- "Blacklist settings" UI, used only on voice-capable phone devices. -->
