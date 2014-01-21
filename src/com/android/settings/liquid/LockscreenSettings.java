@@ -19,6 +19,7 @@ package com.android.settings.liquid;
 import android.app.ActivityManager;
 import android.app.admin.DevicePolicyManager;
 import android.content.Context;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.Preference;
@@ -45,6 +46,7 @@ public class LockscreenSettings extends SettingsPreferenceFragment
     private static final String KEY_ALWAYS_BATTERY_PREF = "lockscreen_battery_status";
     private static final String KEY_LOCK_BEFORE_UNLOCK = "lock_before_unlock";
     private static final String KEY_QUICK_UNLOCK_CONTROL = "quick_unlock_control";
+    private static final String KEY_MENU_UNLOCK_PREF = "menu_unlock";
     private static final String KEY_LOCKSCREEN_TORCH = "lockscreen_torch";
     private static final String KEY_SEE_TRHOUGH = "see_through";
     private static final String KEY_BLUR_BEHIND = "blur_behind";
@@ -57,10 +59,16 @@ public class LockscreenSettings extends SettingsPreferenceFragment
     private CheckBoxPreference mBatteryStatus;
     private CheckBoxPreference mLockBeforeUnlock;
     private CheckBoxPreference mLockQuickUnlock;
+    private CheckBoxPreference mMenuUnlock;
     private CheckBoxPreference mGlowpadTorch;
     private CheckBoxPreference mSeeThrough;
     private CheckBoxPreference mBlurBehind;
     private SeekBarPreference mBlurRadius;
+
+    // needed for menu unlock
+    private Resources keyguardResource;
+    private boolean mMenuUnlockDefault;
+    private static final int KEY_MASK_MENU = 0x04;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -91,6 +99,16 @@ public class LockscreenSettings extends SettingsPreferenceFragment
             mLockQuickUnlock.setChecked(Settings.System.getInt(getContentResolver(),
                     Settings.System.LOCKSCREEN_QUICK_UNLOCK_CONTROL, 0) == 1);
         }
+
+        Resources keyguardResources = null;
+        try {
+            keyguardResources = mPM.getResourcesForApplication("com.android.keyguard");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        mMenuUnlockDefault = keyguardResources != null
+            ? keyguardResources.getBoolean(keyguardResources.getIdentifier(
+            "com.android.keyguard:bool/config_disableMenuKeyInLockScreen", null, null)) : false;
 
         mGlowpadTorch = (CheckBoxPreference) prefs
                 .findPreference(KEY_LOCKSCREEN_TORCH);
@@ -156,6 +174,23 @@ public class LockscreenSettings extends SettingsPreferenceFragment
                 mLockscreenWidgets.setEnabled(!disabled);
             }
         }
+
+        mMenuUnlock = (CheckBoxPreference) root.findPreference(MENU_UNLOCK_PREF);
+        if (mMenuUnlock != null) {
+            int deviceKeys = getResources().getInteger(
+                    com.android.internal.R.integer.config_deviceHardwareKeys);
+            boolean hasMenuKey = (deviceKeys & KEY_MASK_MENU) != 0;
+            if (hasMenuKey) {
+                boolean settingsEnabled = Settings.System.getIntForUser(
+                        getContentResolver(),
+                        Settings.System.MENU_UNLOCK_SCREEN, mMenuUnlockDefault ? 0 : 1,
+                        UserHandle.USER_CURRENT) == 1;
+                mMenuUnlock.setChecked(settingsEnabled);
+                mMenuUnlock.setOnPreferenceChangeListener(this);
+            } else {
+                securityCategory.removePreference(mMenuUnlock);
+            }
+        }
     }
 
     @Override
@@ -176,6 +211,10 @@ public class LockscreenSettings extends SettingsPreferenceFragment
             Settings.System.putInt(getContentResolver(),
                     Settings.System.LOCKSCREEN_ALWAYS_SHOW_BATTERY,
                     ((Boolean) value) ? 1 : 0);
+        } else if (preference == mMenuUnlock) {
+            Settings.System.putIntForUser(getContentResolver(),
+                    Settings.System.MENU_UNLOCK_SCREEN,
+                    ((Boolean) value) ? 1 : 0, UserHandle.USER_CURRENT);
         }
         return true;
     }

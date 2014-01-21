@@ -1305,4 +1305,8 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <!-- Header on first screen of choose encryption password [CHAR LIMIT=30] -->
     <string name="encryptionpassword_choose_your_password_header">Set encryption password</string>
 
+    <!-- Lock screen menu unlock -->
+    <string name="unlock_menu_unlock_title">Menu unlock</string>
+    <string name="unlock_menu_unlock_summary">Pressing menu button unlocks device</string>
+
 </resources>

@@ -28,6 +28,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.pm.UserInfo;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.os.UserManager;
@@ -111,10 +112,11 @@ public class SecuritySettings extends RestrictedSettingsFragment
     private CheckBoxPreference mToggleVerifyApps;
     private CheckBoxPreference mPowerButtonInstantlyLocks;
     private ListPreference mLockNumpadRandom;
-    private Preference mNotificationAccess;
+    private CheckBoxPreference mBatteryStatus;
 
     private boolean mIsPrimary;
     private PreferenceScreen mBlacklist;
+    private Preference mNotificationAccess;
     private ListPreference mSmsSecurityCheck;
 
     public SecuritySettings() {
@@ -521,7 +523,6 @@ public class SecuritySettings extends RestrictedSettingsFragment
         if (mResetCredentials != null) {
             mResetCredentials.setEnabled(!mKeyStore.isEmpty());
         }
-
         updateBlacklistSummary();
     }
 
