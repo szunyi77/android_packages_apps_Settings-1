@@ -58,6 +58,8 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
 
     private static final String KEY_USE_ALT_RESOLVER = "use_alt_resolver";
     private static final String KEY_LCD_DENSITY = "lcd_density";
+    private static final String RECENT_MENU_CLEAR_ALL = "recent_menu_clear_all";
+    private static final String RECENT_MENU_CLEAR_ALL_LOCATION = "recent_menu_clear_all_location";
 
     private static final int DIALOG_CUSTOM_DENSITY = 101;
 
@@ -66,6 +68,8 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
     private static Activity mActivity;
     private CheckBoxPreference mUseAltResolver;
     private static ListPreference mLcdDensity;
+    private CheckBoxPreference mRecentClearAll;
+    private ListPreference mRecentClearAllPosition;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -97,6 +101,19 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
         }
         mLcdDensity.setSummary(getResources().getString(R.string.current_lcd_density) + current);
         mLcdDensity.setOnPreferenceChangeListener(this);
+
+        mRecentClearAll = (CheckBoxPreference) findPreference(RECENT_MENU_CLEAR_ALL);
+        mRecentClearAll.setChecked(Settings.System.getInt(getActivity()
+                .getContentResolver(), Settings.System.SHOW_CLEAR_RECENTS_BUTTON, 1) == 1);
+        mRecentClearAll.setOnPreferenceChangeListener(this);
+
+        mRecentClearAllPosition = (ListPreference) findPreference(RECENT_MENU_CLEAR_ALL_LOCATION);
+        String recentClearAllPosition = Settings.System.getString(getActivity()
+                .getContentResolver(), Settings.System.CLEAR_RECENTS_BUTTON_LOCATION);
+        if (recentClearAllPosition != null) {
+             mRecentClearAllPosition.setValue(recentClearAllPosition);
+        }
+        mRecentClearAllPosition.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -119,6 +136,16 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
                     setDensity(Integer.parseInt(density));
                 }
             }
+            return true;
+        } else if (preference == mRecentClearAll) {
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.SHOW_CLEAR_RECENTS_BUTTON,
+                    (Boolean) newValue ? 1 : 0);
+            return true;
+        } else if (preference == mRecentClearAllPosition) {
+            String value = (String) newValue;
+            Settings.System.putString(getActivity().getContentResolver(),
+                    Settings.System.CLEAR_RECENTS_BUTTON_LOCATION, value);
             return true;
         }
         return false;
