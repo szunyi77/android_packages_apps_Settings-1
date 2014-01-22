@@ -53,10 +53,10 @@
             android:fragment="com.android.settings.liquid.ProgressBar" />
 
         <PreferenceScreen
-            android:key="ram_bar_settings"
-            android:title="@string/ram_bar_title"
-            android:summary="@string/ram_bar_summary"
-            android:fragment="com.android.settings.liquid.RamBarSettings" />
+            android:key="recents_panel"
+            android:title="@string/recents_panel_title"
+            android:summary="@string/recents_panel_summary"
+            android:fragment="com.android.settings.liquid.RecentsPanelSettings" />
 
     </PreferenceCategory>
 
@@ -64,28 +64,22 @@
         android:key="advanced_category"
         android:title="@string/advanced_category_title">
 
-        <ListPreference
-            android:key="lcd_density"
-            android:title="@string/custom_density_title"
-            android:entries="@array/lcd_density_entries"
-            android:entryValues="@array/lcd_density_entries" />
-
         <CheckBoxPreference
             android:key="use_alt_resolver"
             android:title="@string/alt_resolver"
             android:summary="@string/alt_resolver_summary"
             android:defaultValue="false" />
 
-		<CheckBoxPreference
-            android:key="custom_recent_mode"
-            android:title="@string/custom_recent_title"
-            android:summary="@string/custom_recent_summary"
-            android:persistent="true" />
-
         <PreferenceScreen
             android:key="gesture_anywhere"
             android:fragment="com.android.settings.liquid.gestureanywhere.GestureAnywhereSettings"
             android:title="@string/gesture_anywhere_title" />
+
+        <ListPreference
+            android:key="lcd_density"
+            android:title="@string/custom_density_title"
+            android:entries="@array/lcd_density_entries"
+            android:entryValues="@array/lcd_density_entries" />
 
     </PreferenceCategory>
 	
