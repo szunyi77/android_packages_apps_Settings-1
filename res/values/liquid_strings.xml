@@ -59,7 +59,8 @@
     <string name="active_display_title">Active display</string>
     <string name="halo_options_title">Bubble options</string>
     <string name="notification_drawer_title">Notification drawer</string>
-    <string name="theme_settings_title">Liquid blackout</string>
+    <string name="pie_control_title">Pie control</string>
+    <string name="theme_settings_title">Total blackout</string>
 
     <!-- Superuser title -->
     <string name="superuser_settings_title">Superuser</string>
@@ -75,6 +76,7 @@
     <string name="hex">Hex:</string>
     <string name="hex_hint">#ff000000</string>
     <string name="set">Set</string>
+    <string name="color_default">Default</string>
 
     <!-- Device hostname -->
     <string name="device_hostname">Device hostname</string>
@@ -1062,7 +1064,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="app_halo_label_black">Blacklist from Bubble</string>
     <string name="app_halo_label_white">Whitelist from Bubble</string>
 
-    <!-- Liquid blackout -->
+    <!-- Total blackout -->
     <string name="theme_auto_mode_title">Switch theme</string>
     <string name="theme_auto_mode_off">Manual</string>
     <string name="theme_auto_mode_lightsensor">On light condition change</string>
@@ -1282,5 +1284,68 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <!-- Keyguard always show battery -->
     <string name="lockscreen_battery_status_title">Battery status</string>
     <string name="lockscreen_battery_status_summary">Always show keyguard battery status</string>
+
+    <!-- Pie control -->
+    <string name="pie_control_always">Show always</string>
+    <string name="pie_control_expanded">Expanded desktop</string>
+    <string name="pie_control_disabled">Disabled</string>
+    <string name="pie_control_size">Navigation size</string>
+    <string name="pie_control_trigger_positions">Trigger options</string>
+    <string name="pie_control_trigger_left">Left screen border</string>
+    <string name="pie_control_trigger_bottom">Bottom screen border</string>
+    <string name="pie_control_trigger_right">Right screen border</string>
+    <string name="pie_control_trigger_top">Top screen border</string>
+    <string name="pie_button_style">Buttons style</string>
+    <string name="pie_button_color_title">Button color</string>
+    <string name="pie_button_alpha_title">Button transparency</string>
+    <string name="pie_button_outline_color_title">Outline color</string>
+    <string name="pie_button_pressed_color_title">Pressed color</string>
+    <string name="pie_button_long_pressed_color_title">Longpress color</string>
+    <string name="pie_button_pressed_alpha_title">Pressed transparency</string>
+    <string name="pie_icon_color_title">Icon color</string>
+    <string name="pie_icon_color_mode_title">Icon color mode</string>
+    <string name="pie_icon_color_mode_dialog_title">Colorize</string>
+    <string name="pie_icon_color_mode_summary">Change the button icon color mode</string>
+    <string name="pie_trigger_thickness_title">Trigger thickness</string>
+    <string name="pie_trigger_height_title">Trigger height</string>
+    <string name="pie_trigger_gravity_left_right_title">Trigger gravity</string>
+    <string name="pie_trigger_gravity_left_right_dialog_title">Set trigger gravity</string>
+    <string name="pie_trigger_gravity_left_right_bottom">Bottom</string>
+    <string name="pie_trigger_gravity_left_right_center">Center</string>
+    <string name="pie_trigger_gravity_left_right_top">Top</string>
+    <string name="pie_trigger_settings_reset">Reset trigger dimensions</string>
+    <string name="pie_trigger_title">Triggers</string>
+    <string name="pie_trigger_summary">Change how you trigger pie control</string>
+    <string name="pie_trigger_note_title">Note</string>
+    <string name="pie_trigger_note_summary">Triggers are disabled when visible</string>
+    <string name="pie_disable_ime_triggers_title">Disable keyboard triggers</string>
+    <string name="pie_disable_ime_triggers_summary">Reduce trigger when keyboard appears</string>
+    <string name="pie_background_color_title">Background color</string>
+    <string name="pie_snap_color_title">Snap point color</string>
+    <string name="pie_text_color_title">Text color</string>
+    <string name="pie_background_alpha_title">Background transparency</string>
+    <string name="pie_mirror_right_title">Mirror right pie</string>
+    <string name="pie_mirror_right_summary">Show right pie on horizontal axis</string>
+    <string name="pie_style_title">Style</string>
+    <string name="pie_style_summary">Customize pie control size and style</string>
+    <string name="pie_default">Default</string>
+    <string name="pie_show_snap_title">Snap points</string>
+    <string name="pie_show_snap_summary">Shows snap points to change trigger</string>
+    <string name="pie_show_text_title">Status and clock</string>
+    <string name="pie_show_text_summary">Shows phone, time and date info</string>
+    <string name="pie_disable_statusbar_info_title">Statusbar info</string>
+    <string name="pie_disable_statusbar_info_summary">Hide redundant statusbar display</string>
+    <string name="pie_show_background_title">Show background</string>
+    <string name="pie_show_background_summary">Enable pie screen background</string>
+    <string name="pie_button_title">Buttons</string>
+    <string name="pie_button_summary">Configure buttons and their position</string>
+    <string name="pie_second_layer_title">Enable second layer</string>
+    <string name="pie_second_layer_summary">Enable or disable second button row</string>
+    <string name="pie_button_second_layer">Second layer buttons</string>
+    <string name="pie_button_second_layer_summary">Change second layer buttons</string>
+    <string name="pie_button_style_summary">Change pie button style</string>
+    <string name="pie_reset">Reset</string>
+    <string name="pie_style_reset_message">Reset style to default?</string>
+    <string name="pie_trigger_reset_message">Reset trigger to default?</string>
 
 </resources>

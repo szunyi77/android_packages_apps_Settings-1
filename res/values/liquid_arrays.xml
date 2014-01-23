@@ -1090,7 +1090,7 @@
         <item>2</item>
     </string-array>
 
-    <!-- Liquid blackout -->
+    <!-- Theme blackout -->
     <string-array name="theme_auto_mode_entries">
         <item>@string/theme_auto_mode_off</item>
         <item>@string/theme_auto_mode_lightsensor</item>
@@ -1292,6 +1292,67 @@
         <item>PLAYPAUSE</item>
         <item>SOUND</item>
         <item>SLEEP</item>
+    </string-array>
+
+    <!-- Pie control -->
+    <string-array name="pie_control_entries">
+        <item>@string/pie_control_disabled</item>
+        <item>@string/pie_control_expanded</item>
+        <item>@string/pie_control_always</item>
+    </string-array>
+
+    <string-array name="pie_control_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <string-array name="pie_qty_entries" translatable="false">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+
+    <string-array name="pie_qty_values" translatable="false">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+
+    <string-array name="pie_qty_second_layer_entries" translatable="false">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+    </string-array>
+
+    <string-array name="pie_qty_second_layer_values" translatable="false">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+    </string-array>
+
+    <string-array name="pie_trigger_gravity_left_right_entries">
+        <item>@string/pie_trigger_gravity_left_right_bottom</item>
+        <item>@string/pie_trigger_gravity_left_right_center</item>
+        <item>@string/pie_trigger_gravity_left_right_top</item>
+    </string-array>
+
+    <string-array name="pie_trigger_gravity_left_right_values" translatable="false">
+        <item>80</item>
+        <item>16</item>
+        <item>48</item>
     </string-array>
 
 </resources>
