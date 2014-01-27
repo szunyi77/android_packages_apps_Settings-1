@@ -81,9 +81,6 @@
     <!-- Device hostname -->
     <string name="device_hostname">Device hostname</string>
 
-    <!-- Font size sample -->
-    <string name="font_size_sample">Sample</string>
-
     <!-- Notification lights -->
     <string name="display_category_light_options_title">Light options</string>
     <string name="notification_light_title">Notification light</string>
