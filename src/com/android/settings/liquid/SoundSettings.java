@@ -47,6 +47,7 @@ public class SoundSettings extends SettingsPreferenceFragment implements
     private static final int DLG_SAFE_HEADSET_VOLUME = 0;
     private static final int DLG_CAMERA_SOUND = 1;
 
+    private static final String KEY_VOLBTN_MUSIC_CTRL = "volbtn_music_controls";
     private static final String KEY_SAFE_HEADSET_VOLUME = "safe_headset_volume";
     private static final String KEY_POWER_NOTIFICATIONS = "power_notifications";
     private static final String KEY_POWER_NOTIFICATIONS_VIBRATE = "power_notifications_vibrate";
@@ -62,6 +63,7 @@ public class SoundSettings extends SettingsPreferenceFragment implements
     // Used for power notification uri string if set to silent
     private static final String POWER_NOTIFICATIONS_SILENT_URI = "silent";
 
+    private CheckBoxPreference mVolBtnMusicCtrl;
     private CheckBoxPreference mSafeHeadsetVolume;
     private CheckBoxPreference mPowerSounds;
     private CheckBoxPreference mPowerSoundsVibrate;
@@ -75,6 +77,11 @@ public class SoundSettings extends SettingsPreferenceFragment implements
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.liquid_sound_settings);
+
+        mVolBtnMusicCtrl = (CheckBoxPreference) findPreference(KEY_VOLBTN_MUSIC_CTRL);
+        mVolBtnMusicCtrl.setChecked(Settings.System.getInt(getContentResolver(),
+                Settings.System.VOLUME_MUSIC_CONTROLS, 1) != 0);
+        mVolBtnMusicCtrl.setOnPreferenceChangeListener(this);
 
         mSafeHeadsetVolume = (CheckBoxPreference) findPreference(KEY_SAFE_HEADSET_VOLUME);
         mSafeHeadsetVolume.setChecked(Settings.System.getInt(getContentResolver(),
@@ -159,7 +166,11 @@ public class SoundSettings extends SettingsPreferenceFragment implements
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
         final String key = preference.getKey();
-
+        if (KEY_VOLBTN_MUSIC_CTRL.equals(key)) {
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.VOLUME_MUSIC_CONTROLS,
+                    (Boolean) objValue ? 1 : 0);
+        }
         if (KEY_SAFE_HEADSET_VOLUME.equals(key)) {
             if ((Boolean) objValue) {
                 Settings.System.putInt(getContentResolver(),
@@ -172,11 +183,13 @@ public class SoundSettings extends SettingsPreferenceFragment implements
             Settings.Global.putInt(getContentResolver(),
                     Settings.Global.POWER_NOTIFICATIONS_ENABLED,
                     (Boolean) objValue ? 1 : 0);
+
         }
         if (KEY_POWER_NOTIFICATIONS_VIBRATE.equals(key)) {
             Settings.Global.putInt(getContentResolver(),
                     Settings.Global.POWER_NOTIFICATIONS_VIBRATE,
                     (Boolean) objValue ? 1 : 0);
+
         }
         if (KEY_CAMERA_SOUNDS.equals(key)) {
             if ((Boolean) objValue) {

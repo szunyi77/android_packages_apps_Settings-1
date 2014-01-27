@@ -138,6 +138,8 @@
 
     <!-- Sound settings -->
     <string name="sound_title">Sound</string>
+    <string name="volbtn_music_controls_title">Volume rocker music controls</string>
+    <string name="volbtn_music_controls_summary">When screen off, long-pressing the volume rockers will seek music tracks</string>
 
     <!-- Volume adjust sound -->
     <string name="volume_adjust_sounds_enable_title">Volume adjust sound</string>
