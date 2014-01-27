@@ -61,6 +61,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_BATTERY_LIGHT = "battery_light";
     private static final String KEY_BUTTON_LIGHT = "button_light_timeout";
     private static final String KEY_SCREEN_SAVER = "screensaver";
+    private static final String KEY_VOLUME_WAKE = "pref_volume_wake";
     private static final String KEY_ANIMATION_OPTIONS = "category_animation_options";
     private static final String KEY_POWER_CRT_MODE = "system_power_crt_mode";
     private static final String KEY_WAKEUP_WHEN_PLUGGED_UNPLUGGED = "wakeup_when_plugged_unplugged";
@@ -81,6 +82,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private PreferenceScreen mNotificationLight;
     private PreferenceScreen mBatteryPulse;
     private ListPreference mButtonLights;
+    private CheckBoxPreference mVolumeWake;
     private ListPreference mCrtMode;
     private CheckBoxPreference mWakeUpWhenPluggedOrUnplugged;
     private PreferenceCategory mWakeUpOptions;
@@ -189,6 +191,18 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         }
 
         mWakeUpOptions = (PreferenceCategory) prefSet.findPreference(KEY_WAKEUP_CATEGORY);
+        int counter = 0;
+        mVolumeWake = (CheckBoxPreference) findPreference(KEY_VOLUME_WAKE);
+        if (mVolumeWake != null) {
+            if (!res.getBoolean(R.bool.config_show_volumeRockerWake)) {
+                mWakeUpOptions.removePreference(mVolumeWake);
+                counter++;
+            } else {
+                mVolumeWake.setChecked(Settings.System.getInt(resolver,
+                        Settings.System.VOLUME_WAKE_SCREEN, 0) == 1);
+                mVolumeWake.setOnPreferenceChangeListener(this);
+            }
+        }
 
         mWakeUpWhenPluggedOrUnplugged =
             (CheckBoxPreference) findPreference(KEY_WAKEUP_WHEN_PLUGGED_UNPLUGGED);
@@ -196,10 +210,15 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         if(!getResources().getBoolean(
                 com.android.internal.R.bool.config_unplugTurnsOnScreen)) {
                 mWakeUpOptions.removePreference(mWakeUpWhenPluggedOrUnplugged);
+                counter++;
         } else {
             mWakeUpWhenPluggedOrUnplugged.setChecked(Settings.System.getInt(resolver,
                         Settings.System.WAKEUP_WHEN_PLUGGED_UNPLUGGED, 1) == 1);
             mWakeUpWhenPluggedOrUnplugged.setOnPreferenceChangeListener(this);
+        }
+
+        if (counter == 2) {
+            prefSet.removePreference(mWakeUpOptions);
         }
 
         // respect device default configuration
@@ -449,6 +468,11 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         }
         if (KEY_FONT_SIZE.equals(key)) {
             writeFontSizePreference(objValue);
+        }
+        if (KEY_VOLUME_WAKE.equals(key)) {
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.VOLUME_WAKE_SCREEN,
+                    (Boolean) objValue ? 1 : 0);
         }
         if (preference == mButtonLights) {
             int buttonLights = Integer.valueOf((String) objValue);
