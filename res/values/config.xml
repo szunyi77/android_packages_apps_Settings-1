@@ -29,17 +29,10 @@
          very long strings too. -->
     <integer name="maximum_user_dictionary_word_length" translatable="false">48</integer>
 
-    <!-- Home button Wake Support. Some devices do not support this.
-         Setting to false will disable Home button Wake support -->
-    <bool name="config_show_homeWake">true</bool>
-
     <!-- Volume Rocker Wake Support. Some devices do not support (PMU) this.
-         Setting to false will disable Volume Rocker Wake support -->
+        Setting to false will disable Volume Rocker Wake support -->
     <bool name="config_show_volumeRockerWake">true</bool>
 
-    <!-- Show Expanded Desktop preference -->
-    <bool name="config_show_expandedDesktop">true</bool>
-	
 	<!-- Change density on the fly -->
     <integer name="lcd_density_max" translatable="false">160</integer>
     <integer name="lcd_density_min" translatable="false">480</integer>
