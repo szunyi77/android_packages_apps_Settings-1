@@ -65,7 +65,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_POWER_CRT_MODE = "system_power_crt_mode";
     private static final String KEY_WAKEUP_WHEN_PLUGGED_UNPLUGGED = "wakeup_when_plugged_unplugged";
     private static final String KEY_WAKEUP_CATEGORY = "category_wakeup_options";
-    private static final String KEY_LOCKSCREEN_ROTATION = "lockscreen_rotation";
 
     private static final int DLG_GLOBAL_CHANGE_WARNING = 1;
 
@@ -75,12 +74,10 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String ROTATION_ANGLE_270 = "270";
 
     private PreferenceScreen mDisplayRotationPreference;
+    private WarnedListPreference mFontSizePref;
     private CheckBoxPreference mNotificationPulse;
     private PreferenceCategory mLightOptions;
     private PreferenceScreen mNotificationLight;
-    private CheckBoxPreference mAccelerometer;
-    private WarnedListPreference mFontSizePref;
-    private PreferenceScreen mNotificationPulse;
     private PreferenceScreen mBatteryPulse;
     private CheckBoxPreference mVolumeWake;
     private ListPreference mCrtMode;
@@ -88,11 +85,11 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private PreferenceCategory mWakeUpOptions;
 
     private final Configuration mCurConfig = new Configuration();
-    
+
     private ListPreference mScreenTimeoutPreference;
     private Preference mScreenSaverPreference;
 
-    private ContentObserver mAccelerometerRotationObserver = 
+    private ContentObserver mAccelerometerRotationObserver =
             new ContentObserver(new Handler()) {
         @Override
         public void onChange(boolean selfChange) {
@@ -104,27 +101,21 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ContentResolver resolver = getActivity().getContentResolver();
-        Resources res = getResources();
 
         addPreferencesFromResource(R.xml.display_settings);
 
         PreferenceScreen prefSet = getPreferenceScreen();
 
         mDisplayRotationPreference = (PreferenceScreen) findPreference(KEY_DISPLAY_ROTATION);
-
-         final CheckBoxPreference lockScreenRotation =
-                 (CheckBoxPreference) findPreference(KEY_LOCKSCREEN_ROTATION);
-         if (lockScreenRotation != null) {
-             if (!res.getBoolean(com.android.internal.R.bool.config_enableLockScreenRotation)) {
-                 getPreferenceScreen().removePreference(lockScreenRotation);
-             }
-         }
+        if (!RotationPolicy.isRotationSupported(getActivity())) {
+            getPreferenceScreen().removePreference(mDisplayRotationPreference);
+        }
 
         mScreenSaverPreference = findPreference(KEY_SCREEN_SAVER);
-        if (mScreenSaverPreference != null) {
-             if (!res.getBoolean(com.android.internal.R.bool.config_dreamsSupported)) {
-                 getPreferenceScreen().removePreference(mScreenSaverPreference);
-             }
+        if (mScreenSaverPreference != null
+                && getResources().getBoolean(
+                        com.android.internal.R.bool.config_dreamsSupported) == false) {
+            getPreferenceScreen().removePreference(mScreenSaverPreference);
         }
 
         mScreenTimeoutPreference = (ListPreference) findPreference(KEY_SCREEN_TIMEOUT);
@@ -181,7 +172,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         int counter = 0;
         mVolumeWake = (CheckBoxPreference) findPreference(KEY_VOLUME_WAKE);
         if (mVolumeWake != null) {
-            if (!res.getBoolean(R.bool.config_show_volumeRockerWake)) {
+            if (!getResources().getBoolean(R.bool.config_show_volumeRockerWake)) {
                 mWakeUpOptions.removePreference(mVolumeWake);
                 counter++;
             } else {
@@ -215,14 +206,16 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         PreferenceCategory animationOptions =
             (PreferenceCategory) prefSet.findPreference(KEY_ANIMATION_OPTIONS);
         mCrtMode = (ListPreference) prefSet.findPreference(KEY_POWER_CRT_MODE);
-        if (!electronBeamFadesConfig && mCrtMode != null) {
-            int crtMode = Settings.System.getInt(getContentResolver(),
-                    Settings.System.SYSTEM_POWER_CRT_MODE, 1);
-            mCrtMode.setValue(String.valueOf(crtMode));
-            mCrtMode.setSummary(mCrtMode.getEntry());
-            mCrtMode.setOnPreferenceChangeListener(this);
-        } else if (animationOptions != null) {
-            prefSet.removePreference(animationOptions);
+        if (mCrtMode != null) {
+            if (!electronBeamFadesConfig) {
+                int crtMode = Settings.System.getInt(getContentResolver(),
+                        Settings.System.SYSTEM_POWER_CRT_MODE, 1);
+                mCrtMode.setValue(String.valueOf(crtMode));
+                mCrtMode.setSummary(mCrtMode.getEntry());
+                mCrtMode.setOnPreferenceChangeListener(this);
+            } else if (animationOptions != null) {
+                animationOptions.removePreference(mCrtMode);
+            }
         }
     }
 
@@ -379,21 +372,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         }
     }
 
-    private void updateAccelerometerRotationCheckbox() {
-        if (getActivity() == null) return;
-
-        mAccelerometer.setChecked(!RotationPolicy.isRotationLocked(getActivity()));
-    }
-
-    public void writeFontSizePreference(Object objValue) {
-        try {
-            mCurConfig.fontScale = Float.parseFloat(objValue.toString());
-            ActivityManagerNative.getDefault().updatePersistentConfiguration(mCurConfig);
-        } catch (RemoteException e) {
-            Log.w(TAG, "Unable to save font size");
-        }
-    }
-
     private void updateLightPulseDescription() {
         if (mNotificationLight == null) {
             return;
@@ -471,6 +449,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
+    @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
         final String key = preference.getKey();
         if (KEY_SCREEN_TIMEOUT.equals(key)) {
