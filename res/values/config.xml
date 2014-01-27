@@ -39,9 +39,6 @@
 
     <!-- Show Expanded Desktop preference -->
     <bool name="config_show_expandedDesktop">true</bool>
-
-    <!-- Button Duration Pref -->
-    <bool name="config_show_ButtonDur">false</bool>
 	
 	<!-- Change density on the fly -->
     <integer name="lcd_density_max" translatable="false">160</integer>
