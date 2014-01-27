@@ -34,13 +34,13 @@
     <string name="device_info_default">Unknown</string>
     <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
     <plurals name="show_dev_countdown">
-        <item quantity="one">You are now <xliff:g id="step_count">%1$d</xliff:g> step away from enabling development settings.</item>
-        <item quantity="other">You are now <xliff:g id="step_count">%1$d</xliff:g> steps away from enabling development settings.</item>
+        <item quantity="one">You are now <xliff:g id="step_count">%1$d</xliff:g> step away from enabling developer options.</item>
+        <item quantity="other">You are now <xliff:g id="step_count">%1$d</xliff:g> steps away from enabling developer options.</item>
     </plurals>
     <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
-    <string name="show_dev_on">You have enabled development settings!</string>
+    <string name="show_dev_on">You have enabled developer options!</string>
     <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
-    <string name="show_dev_already">No need, you have already enabled development settings.</string>
+    <string name="show_dev_already">No need, you have already enabled developer options.</string>
 
     <!-- Category headings in left-pane header menu --> <skip />
     <!-- Settings main menu category heading. Wireless and networks (Wi-Fi, Bluetooth, data usage...). [CHAR LIMIT=40] -->
@@ -145,7 +145,7 @@
     <string name="large_font">Large</string>
 
     <!-- Do not translate. label for font size preview.  Does not need to be translated. -->
-    <string name="font_size_preview_text">Servez ? ce monsieur une bi?re et des kiwis.</string>
+    <string name="font_size_preview_text">Servez à ce monsieur une bière et des kiwis.</string>
     <!-- Button. Chosen when they want to save the chosen text size. -->
     <string name="font_size_save">OK</string>
 
@@ -2444,7 +2444,7 @@
     <string name="location_mode_sensors_only_description">Use GPS to determine your location</string>
     <!-- [CHAR LIMIT=130] Location mode screen, temporary value to show as the status of a location
          setting injected by an external app while the app is being queried for the actual value -->
-    <string name="location_loading_injected_setting">Retrieving?</string>
+    <string name="location_loading_injected_setting">Retrieving…</string>
 
     <!-- [CHAR LIMIT=30] Security & location settings screen, setting check box label for Google location service (cell ID, wifi, etc.) -->
     <string name="location_network_based">Wi\u2011Fi &amp; mobile network location</string>
@@ -3076,7 +3076,7 @@
     <!-- User dictionary settings. The list item to choose to insert a word into the user dictionary for all languages -->
     <string name="user_dict_settings_all_languages">For all languages</string>
     <!-- User dictionary settings. The text to show for the option that shows the entire list of supported locales to choose one [CHAR LIMIT=30] -->
-    <string name="user_dict_settings_more_languages">More languages?</string>
+    <string name="user_dict_settings_more_languages">More languages…</string>
 
     <!-- This is for diagnostics screen. The title of a screen with various items realted to launching screens that will giev the user info. For example, it contains "Phone information" and "Battery information" -->
     <string name="testing">Testing</string>
@@ -3154,9 +3154,9 @@
     <!-- Setting checkbox title for Whether to enable USB debugging support on the phone. -->
     <!-- Error message for users that aren't allowed to modify developer options [CHAR LIMIT=none] -->
     <string name="development_settings_not_available">Developer options are not available for this user</string>
-    <string name="enable_adb">Android debugging</string>
-    <!-- Setting checkbox summary for Whether to enable Android debugging support on the phone -->
-    <string name="enable_adb_summary">Allow Android debug mode, the adb interface on USB (or on network)</string>
+    <string name="enable_adb">USB debugging</string>
+    <!-- Setting checkbox summary for Whether to enable USB debugging support on the phone -->
+    <string name="enable_adb_summary">Debug mode when USB is connected</string>
     <!-- Setting title to revoke secure USB debugging authorizations -->
     <string name="clear_adb_keys">Revoke USB debugging authorizations</string>
     <!-- [CHAR LIMIT=NONE] Setting checkbox title for Whether to include bug report item in power menu. -->
@@ -4920,4 +4920,7 @@
     <!-- Text to display in regulatory info screen (from device overlay). -->
     <string name="regulatory_info_text"></string>
 
+    <!-- Setting checkbox summary for displaying USB debugging notification -->
+    <string name="adb_notify">USB debugging notify</string>
+    <string name="adb_notify_summary">Display a notification when USB debugging is connected</string>
 </resources>
