@@ -96,6 +96,7 @@ public class DisplayRotation extends SettingsPreferenceFragment implements OnPre
         if (hasRotationLock) {
             // Disable accelerometer checkbox, but leave others enabled
             mAccelerometer.setEnabled(false);
+            mSwapVolumeButtons.setDependency(null);
             mRotation0Pref.setDependency(null);
             mRotation90Pref.setDependency(null);
             mRotation180Pref.setDependency(null);
