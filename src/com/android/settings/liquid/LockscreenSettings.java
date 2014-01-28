@@ -18,9 +18,11 @@ package com.android.settings.liquid;
 
 import android.app.ActivityManager;
 import android.app.admin.DevicePolicyManager;
+import android.content.pm.PackageManager;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.os.UserHandle;
 import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
@@ -52,6 +54,7 @@ public class LockscreenSettings extends SettingsPreferenceFragment
     private static final String KEY_BLUR_BEHIND = "blur_behind";
     private static final String KEY_BLUR_RADIUS = "blur_radius";
 
+    private PackageManager mPM;
     private DevicePolicyManager mDPM;
     private Preference mLockscreenWidgets;
 
@@ -100,6 +103,7 @@ public class LockscreenSettings extends SettingsPreferenceFragment
                     Settings.System.LOCKSCREEN_QUICK_UNLOCK_CONTROL, 0) == 1);
         }
 
+        mPM = getActivity().getPackageManager();
         Resources keyguardResources = null;
         try {
             keyguardResources = mPM.getResourcesForApplication("com.android.keyguard");
@@ -175,7 +179,7 @@ public class LockscreenSettings extends SettingsPreferenceFragment
             }
         }
 
-        mMenuUnlock = (CheckBoxPreference) root.findPreference(MENU_UNLOCK_PREF);
+        mMenuUnlock = (CheckBoxPreference) prefs.findPreference(KEY_MENU_UNLOCK_PREF);
         if (mMenuUnlock != null) {
             int deviceKeys = getResources().getInteger(
                     com.android.internal.R.integer.config_deviceHardwareKeys);
@@ -187,8 +191,6 @@ public class LockscreenSettings extends SettingsPreferenceFragment
                         UserHandle.USER_CURRENT) == 1;
                 mMenuUnlock.setChecked(settingsEnabled);
                 mMenuUnlock.setOnPreferenceChangeListener(this);
-            } else {
-                securityCategory.removePreference(mMenuUnlock);
             }
         }
     }

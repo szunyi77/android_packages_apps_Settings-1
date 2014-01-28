@@ -366,6 +366,24 @@
         <item>5</item>
     </string-array>
 
+    <!-- Lock screen lock icon -->
+    <string-array name="lock_icon_entries">
+        <item>@string/lockscreen_lock_icon_custom</item>
+        <item>@string/lockscreen_lock_icon_default</item>
+    </string-array>
+
+    <string-array name="lock_icon_values" translatable="false">
+        <item>0</item>
+        <item>2</item>
+    </string-array>
+
+    <!-- Lock screen icon type -->
+    <string-array name="icon_types">
+        <item>@string/icon_default</item>
+        <item>@string/icon_presets</item>
+        <item>@string/icon_custom</item>
+    </string-array>
+
     <!-- Button shortcut actions -->
     <string-array name="shortcut_icon_picker_labels" translatable="false">
         <item>@string/shortcuts_icon_picker_alarm</item>
@@ -831,13 +849,6 @@
         <item>ic_lockscreen_rss_normal</item>
         <item>ic_lockscreen_google_normal</item>
         <item>ic_lockscreen_twitter_normal</item>
-    </string-array>
-
-    <!-- Lock screen shortcuts -->
-    <string-array name="icon_types">
-        <item>@string/icon_default</item>
-        <item>@string/icon_presets</item>
-        <item>@string/icon_custom</item>
     </string-array>
 
     <!-- QuietHours Incoming Contact -->
