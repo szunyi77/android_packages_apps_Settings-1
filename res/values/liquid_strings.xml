@@ -586,7 +586,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="navbar_menu_display_summary">When you want the menu buttons to appear</string>
     <string name="navbar_menu_location_title">Menu location</string>
     <string name="navbar_menu_location_summary">Where you want the menu buttons to appear</string>
-    <string name="navbar_enable_bar">Enable navigation bar</string>
+    <string name="navbar_enable_bar_title">Enable navbar</string>
     <string name="navbar_enable_bar_summary">Enable on screen virtual navigation bar</string>
     <string name="navigation_bar_height_title">Navigation bar height</string>
     <string name="navigation_bar_height_summary">Navigation bar height while in portrait</string>
@@ -1020,7 +1020,8 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="storage_rescan_media_complete">Scan completed</string>
 
     <!-- Hardware keys -->
-    <string name="button_keys_title">Hardware Buttons</string>
+    <string name="button_keys_title">Hardware buttons</string>
+    <string name="button_keys_summary">Enable for devices with physical keys</string>
     <string name="keys_bindings_title">Key actions</string>
     <string name="keys_enable_custom_title">Enable custom actions</string>
     <string name="keys_enable_custom_summary">Enable custom hardware key actions</string>

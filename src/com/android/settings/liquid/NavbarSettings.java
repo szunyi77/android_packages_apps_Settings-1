@@ -41,6 +41,7 @@ public class NavbarSettings extends SettingsPreferenceFragment
     private static final String PREF_RING = "navbar_targets_settings";
     private static final String PREF_STYLE_DIMEN = "navbar_dimensions_settings";
     private static final String PREF_NAVIGATION_BAR_CAN_MOVE = "navbar_can_move";
+    private static final String PREF_HARDWARE_KEYS = "hardwarekeys_settings";
 
     private int mNavBarMenuDisplayValue;
 
@@ -60,6 +61,14 @@ public class NavbarSettings extends SettingsPreferenceFragment
         addPreferencesFromResource(R.xml.navbar_settings);
 
         PreferenceScreen prefs = getPreferenceScreen();
+
+        // Hide Hardware Keys menu if device doesn't have any
+        PreferenceScreen hardwareKeys = (PreferenceScreen) findPreference(PREF_HARDWARE_KEYS);
+        int deviceKeys = getResources().getInteger(
+                com.android.internal.R.integer.config_deviceHardwareKeys);
+        if (deviceKeys == 0 && hardwareKeys != null) {
+            getPreferenceScreen().removePreference(hardwareKeys);
+        }
 
         mMenuDisplayLocation = (ListPreference) findPreference(PREF_MENU_LOCATION);
         mMenuDisplayLocation.setValue(Settings.System.getInt(getActivity()

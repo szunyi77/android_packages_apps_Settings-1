@@ -24,6 +24,12 @@
         android:title="@string/navbar_enable_bar"
         android:summary="@string/navbar_enable_bar_summary" />
 
+    <PreferenceScreen
+        android:key="hardwarekeys_settings"
+        android:title="@string/button_keys_title"
+        android:summary="@string/button_keys_summary"
+        android:fragment="com.android.settings.liquid.HardwareKeysSettings" />
+
     <PreferenceCategory
         android:key="general_category"
         android:title="@string/general_category_title">
