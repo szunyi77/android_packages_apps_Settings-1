@@ -1337,16 +1337,6 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="unlock_menu_unlock_title">Menu unlock</string>
     <string name="unlock_menu_unlock_summary">Pressing menu button unlocks device</string>
 
-    <!-- App ops detail -->
-    <string name="app_ops_entry_summary"><xliff:g id="op">%1$s</xliff:g> (used <xliff:g id="count">%2$s</xliff:g>)</string>
-    <string name="app_ops_allowed_count">Allowed <xliff:g id="count" example="2 times">%s</xliff:g></string>
-    <string name="app_ops_ignored_count">Denied <xliff:g id="count" example="2 times">%s</xliff:g></string>
-    <string name="app_ops_both_count">Allowed <xliff:g id="count">%1$s</xliff:g>, denied <xliff:g id="count">%2$s</xliff:g></string>
-    <plurals name="app_ops_count">
-        <item quantity="one">once</item>
-        <item quantity="other">%d times</item>
-    </plurals>
-
     <!-- App ops -->
     <string name="app_ops_summaries_wifi_change">wifi change</string>
     <string name="app_ops_labels_wifi_change">Wi-Fi change</string>
