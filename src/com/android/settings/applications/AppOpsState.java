@@ -188,21 +188,13 @@ public class AppOpsState {
                     AppOpsManager.OP_CALL_PHONE,
                     AppOpsManager.OP_WRITE_SETTINGS,
                     AppOpsManager.OP_SYSTEM_ALERT_WINDOW,
-                    AppOpsManager.OP_WAKE_LOCK,
-                    AppOpsManager.OP_WIFI_CHANGE,
-                    AppOpsManager.OP_BLUETOOTH_CHANGE,
-                    AppOpsManager.OP_DATA_CONNECT_CHANGE,
-                    AppOpsManager.OP_ALARM_WAKEUP, },
+                    AppOpsManager.OP_WAKE_LOCK },
             new boolean[] { false,
                     true,
                     true,
                     true,
                     true,
-                    true,
-                    true,
-                    true,
-                    true,
-                    true }
+                    true,  }
             );
 
     public static final OpsTemplate[] ALL_TEMPLATES = new OpsTemplate[] {
