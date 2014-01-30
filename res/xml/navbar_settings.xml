@@ -66,26 +66,26 @@
 
     <PreferenceCategory
         android:key="advanced_category"
-        android:title="@string/advanced_category_title">
+        android:title="@string/advanced_settings_title" />
+
+        <ListPreference
+            android:key="pref_navbar_menu_display"
+            android:entries="@array/pref_menu_display_entries"
+            android:entryValues="@array/pref_menu_display_values"
+            android:title="@string/title_pref_menu_display"
+            android:summary="@string/summary_pref_menu_display" />
+
+        <ListPreference
+            android:key="pref_navbar_menu_location"
+            android:entries="@array/pref_navigation_menu_entries"
+            android:entryValues="@array/pref_navigation_menu_values"
+            android:title="@string/title_pref_menu_location"
+            android:summary="@string/summary_pref_menu_location" />
 
         <CheckBoxPreference
             android:key="navbar_can_move"
-            android:title="@string/navbar_can_move_title"
+            android:title="@string/navbar_can_move"
             android:summary="@string/navbar_can_move_summary" />
-
-        <ListPreference
-            android:key="navbar_menu_display"
-            android:title="@string/navbar_menu_display_title"
-            android:summary="@string/navbar_menu_display_summary"
-            android:entries="@array/navbar_menu_display_entries"
-            android:entryValues="@array/navbar_menu_display_values" />
-
-        <ListPreference
-            android:key="navbar_menu_location"
-            android:title="@string/navbar_menu_location_title"
-            android:summary="@string/navbar_menu_location_summary"
-            android:entries="@array/navbar_menu_location_entries"
-            android:entryValues="@array/navbar_menu_location_values" />
 
     </PreferenceCategory>
 
