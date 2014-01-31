@@ -120,7 +120,6 @@ public class SecuritySettings extends RestrictedSettingsFragment
     private CheckBoxPreference mToggleVerifyApps;
     private CheckBoxPreference mPowerButtonInstantlyLocks;
     private ListPreference mLockNumpadRandom;
-    private CheckBoxPreference mBatteryStatus;
 
     private boolean mIsPrimary;
     private PreferenceScreen mBlacklist;
@@ -606,10 +605,8 @@ public class SecuritySettings extends RestrictedSettingsFragment
             Settings.Global.putInt(getContentResolver(), Settings.Global.PACKAGE_VERIFIER_ENABLE,
                     mToggleVerifyApps.isChecked() ? 1 : 0);
         } else {
-            // If we didn't handle it, let preferences handle it.
             return super.onPreferenceTreeClick(preferenceScreen, preference);
         }
-
         return true;
     }
 

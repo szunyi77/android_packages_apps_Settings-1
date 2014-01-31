@@ -17,22 +17,46 @@
 package com.android.settings.liquid;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.app.DialogFragment;
-import android.content.DialogInterface;
+import android.app.ActivityManager;
+import android.content.ActivityNotFoundException;
+import android.content.ComponentName;
+import android.content.ContentResolver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
+import android.content.res.Configuration;
+import android.content.res.Resources;
+import android.database.ContentObserver;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Point;
+import android.graphics.Rect;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.os.Handler;
+import android.os.IBinder;
+import android.os.RemoteException;
+import android.os.UserHandle;
+import android.provider.Settings;
+import android.provider.Settings.SettingNotFoundException;
 import android.preference.CheckBoxPreference;
+import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.preference.PreferenceCategory;
-import android.provider.Settings;
+import android.preference.Preference.OnPreferenceChangeListener;
+import android.preference.SeekBarPreference;
+import android.provider.MediaStore;
 import android.util.Log;
+import android.view.Display;
+import android.view.Window;
 import android.widget.Toast;
 
-import com.android.internal.util.liquid.DeviceUtils;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.internal.policy.IKeyguardService;
+import com.android.internal.util.liquid.DeviceUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -43,17 +67,39 @@ public class LockscreenInterface extends SettingsPreferenceFragment
     private static final String TAG = "LockscreenInterface";
 
     private static final int DLG_ENABLE_EIGHT_TARGETS = 0;
+    private static final int REQUEST_CODE_BG_WALLPAPER = 1024;
+
     private static final String LOCKSCREEN_GENERAL_CATEGORY = "general_category";
     private static final String PREF_LOCKSCREEN_EIGHT_TARGETS = "lockscreen_eight_targets";
     private static final String PREF_LOCKSCREEN_BUTTONS = "lockscreen_buttons";
     private static final String PREF_LOCKSCREEN_SHORTCUTS = "lockscreen_shortcuts";
     private static final String PREF_LOCKSCREEN_TORCH = "lockscreen_torch";
+    private static final String KEY_LOCKSCREEN_WALLPAPER = "lockscreen_wallpaper";
+    private static final String KEY_SELECT_LOCKSCREEN_WALLPAPER = "select_lockscreen_wallpaper";
 
     private CheckBoxPreference mLockscreenEightTargets;
     private CheckBoxPreference mGlowpadTorch;
+    private CheckBoxPreference mLockscreenWallpaper;
+    private Preference mSelectLockscreenWallpaper;
     private Preference mShortcuts;
 
     private boolean mCheckPreferences;
+
+    private File mWallpaperTemporary;
+
+    private IKeyguardService mKeyguardService;
+
+    private final ServiceConnection mKeyguardConnection = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder service) {
+            mKeyguardService = IKeyguardService.Stub.asInterface(service);
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+            mKeyguardService = null;
+        }
+    };
 
     public boolean hasButtons() {
         return !getResources().getBoolean(com.android.internal.R.bool.config_showNavigationBar);
@@ -62,7 +108,6 @@ public class LockscreenInterface extends SettingsPreferenceFragment
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         createCustomLockscreenView();
     }
 
@@ -104,6 +149,20 @@ public class LockscreenInterface extends SettingsPreferenceFragment
             generalCategory.removePreference(findPreference(PREF_LOCKSCREEN_BUTTONS));
         }
 
+        Intent intent = new Intent();
+        intent.setClassName("com.android.keyguard", "com.android.keyguard.KeyguardService");
+        if (!mContext.bindServiceAsUser(intent, mKeyguardConnection,
+                Context.BIND_AUTO_CREATE, UserHandle.OWNER)) {
+            Log.e(TAG, "*** Keyguard: can't bind to keyguard");
+        }
+
+        mLockscreenWallpaper = (CheckBoxPreference) findPreference(KEY_LOCKSCREEN_WALLPAPER);
+        mLockscreenWallpaper.setChecked(Settings.System.getInt(getContentResolver(), Settings.System.LOCKSCREEN_WALLPAPER, 0) == 1);
+
+        mSelectLockscreenWallpaper = findPreference(KEY_SELECT_LOCKSCREEN_WALLPAPER);
+        mSelectLockscreenWallpaper.setEnabled(mLockscreenWallpaper.isChecked());
+        mWallpaperTemporary = new File(getActivity().getCacheDir() + "/lockwallpaper.tmp");
+
         mCheckPreferences = true;
         return prefs;
     }
@@ -136,6 +195,77 @@ public class LockscreenInterface extends SettingsPreferenceFragment
         return false;
     }
 
+    public void onActivityResult(int requestCode, int resultCode,
+            Intent imageReturnedIntent) {
+        if (requestCode == REQUEST_CODE_BG_WALLPAPER) {
+            if (resultCode == Activity.RESULT_OK) {
+                if (mWallpaperTemporary.length() == 0 || !mWallpaperTemporary.exists()) {
+                    Toast.makeText(getActivity(),
+                            getResources().getString(R.string.shortcut_image_not_valid),
+                            Toast.LENGTH_LONG).show();
+                    return;
+                }
+                Bitmap bmp = BitmapFactory.decodeFile(mWallpaperTemporary.getAbsolutePath());
+                try {
+                    mKeyguardService.setWallpaper(bmp);
+                    Settings.System.putInt(getContentResolver(), Settings.System.LOCKSCREEN_SEE_THROUGH, 0);
+                } catch (Exception ex) {
+                    Log.e(TAG, "Failed to set wallpaper: " + ex);
+                }
+            }
+        }
+        if (mWallpaperTemporary.exists()) mWallpaperTemporary.delete();
+    }
+
+    @Override
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+        if (preference == mLockscreenWallpaper) {
+            if (!mLockscreenWallpaper.isChecked()) setWallpaper(null);
+            else Settings.System.putInt(getContentResolver(), Settings.System.LOCKSCREEN_WALLPAPER, 1);
+            mSelectLockscreenWallpaper.setEnabled(mLockscreenWallpaper.isChecked());
+        } else if (preference == mSelectLockscreenWallpaper) {
+            final Intent intent = new Intent(Intent.ACTION_PICK,
+                    android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+            intent.setType("image/*");
+            intent.putExtra("crop", "true");
+            intent.putExtra("scale", true);
+            intent.putExtra("scaleUpIfNeeded", false);
+            intent.putExtra("outputFormat", Bitmap.CompressFormat.PNG.toString());
+
+            final Display display = getActivity().getWindowManager().getDefaultDisplay();
+
+            boolean isPortrait = getResources().getConfiguration().orientation ==
+                    Configuration.ORIENTATION_PORTRAIT;
+
+            Point size = new Point();
+            display.getSize(size);
+
+            intent.putExtra("aspectX", isPortrait ? size.x : size.y);
+            intent.putExtra("aspectY", isPortrait ? size.y : size.x);
+
+            try {
+                mWallpaperTemporary.createNewFile();
+                mWallpaperTemporary.setWritable(true, false);
+                intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(mWallpaperTemporary));
+                getActivity().startActivityFromFragment(this, intent, REQUEST_CODE_BG_WALLPAPER);
+            } catch (IOException e) {
+                // Do nothing here
+            } catch (ActivityNotFoundException e) {
+                // Do nothing here
+            }
+        } else {
+            return super.onPreferenceTreeClick(preferenceScreen, preference);
+        }
+        return true;
+    }
+
+    private void setWallpaper(Bitmap bmp) {
+        try {
+            mKeyguardService.setWallpaper(bmp);
+        } catch (RemoteException ex) {
+            Log.e(TAG, "Unable to set wallpaper!");
+        }
+    }
 
     private void showDialogInner(int id, boolean state) {
         DialogFragment newFragment = MyAlertDialogFragment.newInstance(id, state);
