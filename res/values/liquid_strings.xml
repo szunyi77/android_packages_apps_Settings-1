@@ -785,6 +785,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="lockscreen_lock_color_summary">Color of the lock handles</string>
     <string name="lockscreen_dots_color_title">Dots color</string>
     <string name="lockscreen_dots_color_summary">Color of the glowpad dots</string>
+	<string name="notification_color">Notification background color</string>
 
     <!-- Lock screen widgets -->
     <string name="lockscreen_widgets_title">Widgets</string>
