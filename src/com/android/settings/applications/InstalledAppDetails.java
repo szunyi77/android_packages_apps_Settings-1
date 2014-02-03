@@ -342,6 +342,7 @@ public class InstalledAppDetails extends Fragment
             button.setText(R.string.enable_text);
             disableable = true;
         }
+
         return disableable;
     }
 
@@ -795,7 +796,8 @@ public class InstalledAppDetails extends Fragment
         }
 
         // Security permissions section
-        RelativeLayout permsView = (RelativeLayout) mRootView.findViewById(R.id.permissions_section);
+        RelativeLayout permsView =
+            (RelativeLayout) mRootView.findViewById(R.id.permissions_section);
         AppSecurityPermissions asp = new AppSecurityPermissions(getActivity(), packageName);
         int premiumSmsPermission = getPremiumSmsPermission(packageName);
         // Premium SMS permission implies the app also has SEND_SMS permission, so the original
@@ -907,6 +909,7 @@ public class InstalledAppDetails extends Fragment
                 return false;
             }
         }
+
         return true;
     }
 
@@ -1232,7 +1235,8 @@ public class InstalledAppDetails extends Fragment
                     .setNegativeButton(R.string.dlg_cancel,
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
-                            dialog.cancel();
+                            // Re-enable the checkbox
+                            getOwner().mNotificationSwitch.setChecked(true);
                         }
                     })
                     .create();
@@ -1253,17 +1257,6 @@ public class InstalledAppDetails extends Fragment
                     .create();
             }
             throw new IllegalArgumentException("unknown id " + id);
-        }
-
-        @Override
-        public void onCancel(DialogInterface dialog) {
-            int id = getArguments().getInt("id");
-            switch (id) {
-                case DLG_DISABLE_NOTIFICATIONS:
-                    // Re-enable the checkbox
-                    getOwner().mNotificationSwitch.setChecked(true);
-                    break;
-            }
         }
     }
 
@@ -1463,3 +1456,4 @@ public class InstalledAppDetails extends Fragment
         }
     }
 }
+
