@@ -24,6 +24,7 @@ import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
 import android.content.DialogInterface;
 import android.content.pm.ResolveInfo;
 import android.content.res.Configuration;
@@ -48,6 +49,7 @@ import android.widget.EditText;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.internal.util.liquid.OmniSwitchConstants;
 
 import java.lang.Thread;
 import java.util.ArrayList;
@@ -63,16 +65,44 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
 
     private static final int DIALOG_CUSTOM_DENSITY = 101;
     private static final String DENSITY_PROP = "persist.sys.lcd_density";
+	
+    private static final String RECENTS_USE_OMNISWITCH = "recents_use_omniswitch";
+    private static final String OMNISWITCH_START_SETTINGS = "omniswitch_start_settings";
+
+    // Package name of the omnniswitch app
+    public static final String OMNISWITCH_PACKAGE_NAME = "org.omnirom.omniswitch";
+
+    // Intent for launching the omniswitch settings actvity
+    public static Intent INTENT_OMNISWITCH_SETTINGS = new Intent(Intent.ACTION_MAIN)
+         .setClassName(OMNISWITCH_PACKAGE_NAME, OMNISWITCH_PACKAGE_NAME + ".SettingsActivity");
 
     private static Activity mActivity;
     private CheckBoxPreference mUseAltResolver;
     private static ListPreference mLcdDensity;
+    private CheckBoxPreference mRecentsUseOmniSwitch;
+    private Preference mOmniSwitchSettings;
+    private boolean mOmniSwitchStarted;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.liquid_interface_settings);
+		
+        boolean useOmniSwitch = false;
+        try {
+            useOmniSwitch = Settings.System.getInt(getContentResolver(), Settings.System.RECENTS_USE_OMNISWITCH) == 1
+                                && isOmniSwitchServiceRunning();
+        } catch(SettingNotFoundException e) {
+        }
+
+        // OmniSwitch
+        mRecentsUseOmniSwitch = (CheckBoxPreference) prefSet.findPreference(RECENTS_USE_OMNISWITCH);
+        mRecentsUseOmniSwitch.setChecked(useOmniSwitch);
+        mRecentsUseOmniSwitch.setOnPreferenceChangeListener(this);
+
+        mOmniSwitchSettings = (Preference) prefSet.findPreference(OMNISWITCH_START_SETTINGS);
+        mOmniSwitchSettings.setEnabled(useOmniSwitch);
 
         mActivity = getActivity();
 
@@ -99,6 +129,15 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
     public void onResume() {
         super.onResume();
     }
+	
+    @Override
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+        if (preference == mOmniSwitchSettings) {
+            startActivity(INTENT_OMNISWITCH_SETTINGS);
+            return true;
+        }
+        return super.onPreferenceTreeClick(preferenceScreen, preference);
+     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         if (preference == mUseAltResolver) {
@@ -117,8 +156,46 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
             }
             return true;
         }
+        } else if (preference == mRecentsUseOmniSwitch) {
+            boolean omniSwitchEnabled = (Boolean) newValue;
+
+            // Give user information that OmniSwitch service is not running
+            if (omniSwitchEnabled && !isOmniSwitchServiceRunning()) {
+                openOmniSwitchFirstTimeWarning();
+            }
+
+            Settings.System.putInt(getContentResolver(), Settings.System.RECENTS_USE_OMNISWITCH, omniSwitchEnabled ? 1 : 0);
+
+            // Update OmniSwitch UI components
+            mRecentsUseOmniSwitch.setChecked(omniSwitchEnabled);
+            mOmniSwitchSettings.setEnabled(omniSwitchEnabled);
+
+            // Update default recents UI components
+            mRecentClearAll.setEnabled(!omniSwitchEnabled);
+            mRecentClearAllPosition.setEnabled(!omniSwitchEnabled);
+        }
+
         return false;
     }
+        private boolean isOmniSwitchServiceRunning() {
+        String serviceName = "org.omnirom.omniswitch.SwitchService";
+        ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+        for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
+            if (serviceName.equals(service.service.getClassName())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void openOmniSwitchFirstTimeWarning() {
+        new AlertDialog.Builder(getActivity())
+            .setTitle(getResources().getString(R.string.omniswitch_first_time_title))
+            .setMessage(getResources().getString(R.string.omniswitch_first_time_message))
+            .setNegativeButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int whichButton) {
+                }
+            }).show();
 
     private static void setDensity(int density) {
         int max = mActivity.getResources().getInteger(R.integer.lcd_density_max);
