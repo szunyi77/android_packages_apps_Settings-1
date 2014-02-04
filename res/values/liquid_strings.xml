@@ -57,7 +57,7 @@
 
     <!-- Advanced settings -->
     <string name="active_display_title">Active display</string>
-    <string name="halo_options_title">Bubble options</string>
+    <string name="halo_options_title">Bubble and MultiWindow</string>
     <string name="notification_drawer_title">Notification drawer</string>
     <string name="pie_control_title">Pie control</string>
     <string name="theme_settings_title">Total blackout</string>
@@ -1293,10 +1293,10 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="rominfo_settings_list_item_title">LiquidSmooth Statistics</string>
 
     <!-- Bubble options -->
-    <string name="halo_enabled_title">Enable Bubble OR MultiWindow</string>
+    <string name="halo_hide_title">Hide after activity</string>
+    <string name="halo_hide_summary">Appear for activity then disappears</string>
+    <string name="halo_enabled_title">Enable Bubble OR Multiwindow</string>
     <string name="halo_enabled_summary">If Bubble has been enabled, multi window will be disabled completely</string>
-    <string name="halo_settings_title">Bubble and MultiWindow</string>
-    <string name="halo_enabled_summary">Completely enable or disable bubble</string>
     <string name="halo_reversed_title">Reverse Bubble</string>
     <string name="halo_reversed_summary">Used for task switching then moving</string>
     <string name="halo_state_title">Bubble policy</string>
