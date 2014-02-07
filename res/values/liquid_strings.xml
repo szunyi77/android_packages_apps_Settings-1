@@ -57,7 +57,7 @@
 
     <!-- Advanced settings -->
     <string name="active_display_title">Active display</string>
-    <string name="halo_options_title">Bubble and MultiWindow</string>
+    <string name="halo_options_title">Bubble and multi window</string>
     <string name="notification_drawer_title">Notification drawer</string>
     <string name="pie_control_title">Pie control</string>
     <string name="theme_settings_title">Total blackout</string>
@@ -77,7 +77,6 @@
     <string name="hex_hint">#ff000000</string>
     <string name="set">Set</string>
     <string name="color_default">Default</string>
-
 
     <!-- Notification lights -->
     <string name="display_category_light_options_title">Light options</string>
@@ -482,7 +481,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="shortcuts_icon_picker_pinterest">Pinterest</string>
     <string name="shortcuts_icon_picker_play">Play</string>
     <string name="shortcuts_icon_picker_pocket">Pocket</string>
-    <string name="shortcuts_icon_picker_quicksettings">Quicksettings</string>
+    <string name="shortcuts_icon_picker_quicksettings">Quick Settings</string>
     <string name="shortcuts_icon_picker_rss">RSS Feed</string>
     <string name="shortcuts_icon_picker_sdcard">SDCard</string>
     <string name="shortcuts_icon_picker_search">Search</string>
@@ -531,6 +530,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="battery_status_circle_percentage">Circle with percentage</string>
     <string name="battery_status_dotted_circle_percentage">Dotted Circle with percentage</string>
     <string name="battery_status_dotted_circle">Dotted Circle</string>
+    <string name="battery_status_icon_hidden">Hidden</string>
     <string name="battery_color_title">Battery color</string>
     <string name="circle_battery_animation_speed">Circle animation speed</string>
     <string name="circle_battery_animation_speed_none">None</string>
@@ -1292,11 +1292,11 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <!-- Anonymous stats -->
     <string name="rominfo_settings_list_item_title">LiquidSmooth Statistics</string>
 
-    <!-- Bubble options -->
+    <!-- Bubble and multi window -->
     <string name="halo_hide_title">Hide after activity</string>
     <string name="halo_hide_summary">Appear for activity then disappears</string>
-    <string name="halo_enabled_title">Enable Bubble OR Multiwindow</string>
-    <string name="halo_enabled_summary">If Bubble has been enabled, multi window will be disabled completely</string>
+    <string name="halo_enabled_title">Enable Bubble or multi window</string>
+    <string name="halo_enabled_summary">If bubble has been enabled, multi window will be disabled completely</string>
     <string name="halo_reversed_title">Reverse Bubble</string>
     <string name="halo_reversed_summary">Used for task switching then moving</string>
     <string name="halo_state_title">Bubble policy</string>

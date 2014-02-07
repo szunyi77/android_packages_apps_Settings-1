@@ -33,7 +33,10 @@
          Setting to false will disable Volume Rocker Wake support -->
     <bool name="config_show_volumeRockerWake">true</bool>
 
-	<!-- Change density on the fly -->
+    <!-- Show Expanded Desktop preference -->
+    <bool name="config_show_expandedDesktop">true</bool>
+
+    <!-- Custom LCD density -->
     <integer name="lcd_density_max" translatable="false">160</integer>
     <integer name="lcd_density_min" translatable="false">480</integer>
 

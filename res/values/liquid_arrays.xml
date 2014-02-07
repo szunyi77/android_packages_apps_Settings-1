@@ -79,41 +79,6 @@
         <item>BR</item>
     </string-array>
 
-    <!-- Status bar battery -->
-    <string-array name="entries_battery_icon">
-        <item>@string/battery_status_icon</item>
-        <item>@string/battery_status_percentage</item>
-        <item>@string/battery_status_icon_percentage</item>
-        <item>@string/battery_status_circle</item>
-        <item>@string/battery_status_circle_percentage</item>
-        <item>@string/battery_status_dotted_circle</item>
-        <item>@string/battery_status_dotted_circle_percentage</item>
-    </string-array>
-
-    <string-array name="values_battery_icon" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-    </string-array>
-
-    <string-array name="circle_battery_animation_speed_entries" >
-        <item>@string/circle_battery_animation_speed_none</item>
-        <item>@string/circle_battery_animation_speed_slow</item>
-        <item>@string/circle_battery_animation_speed_stock</item>
-        <item>@string/circle_battery_animation_speed_fast</item>
-    </string-array>
-
-    <string-array name="circle_battery_animation_speed_values" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>3</item>
-        <item>5</item>
-    </string-array>
-
     <!-- Status bar clock -->
     <string-array name="clock_style_entries" translatable="false">
         <item>@string/right_clock</item>
@@ -213,6 +178,43 @@
         <item>4</item>
     </string-array>
 
+    <!-- Status bar battery -->
+    <string-array name="entries_battery_icon">
+        <item>@string/battery_status_icon</item>
+        <item>@string/battery_status_percentage</item>
+        <item>@string/battery_status_icon_percentage</item>
+        <item>@string/battery_status_circle</item>
+        <item>@string/battery_status_circle_percentage</item>
+        <item>@string/battery_status_dotted_circle</item>
+        <item>@string/battery_status_dotted_circle_percentage</item>
+        <item>@string/battery_status_icon_hidden</item>
+    </string-array>
+
+    <string-array name="values_battery_icon" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+    </string-array>
+
+    <string-array name="circle_battery_animation_speed_entries" >
+        <item>@string/circle_battery_animation_speed_none</item>
+        <item>@string/circle_battery_animation_speed_slow</item>
+        <item>@string/circle_battery_animation_speed_stock</item>
+        <item>@string/circle_battery_animation_speed_fast</item>
+    </string-array>
+
+    <string-array name="circle_battery_animation_speed_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>3</item>
+        <item>5</item>
+    </string-array>
+
     <!-- Volume key cursor control -->
     <string-array name="volume_key_cursor_control_entries">
         <item>@string/disabled</item>
@@ -275,22 +277,7 @@
         <item>3</item>
     </string-array>
 
-    <!-- Sms security limit -->
-    <string-array name="sms_security_check_limit_entries" translatable="false">
-        <item>@string/sms_security_check_limit_default</item>
-        <item>50</item>
-        <item>100</item>
-        <item>200</item>
-    </string-array>
-
-    <string-array name="sms_security_check_limit_values" translatable="false">
-        <item>30</item>
-        <item>50</item>
-        <item>100</item>
-        <item>200</item>
-    </string-array>
-
-    <!-- Automatic brightness -->
+    <!-- Auto-brightness sensitivity -->
     <string-array name="auto_brightness_sensitivity_entries" translatable="false">
         <item>@string/auto_brightness_sensitivity_verylow</item>
         <item>@string/auto_brightness_sensitivity_low</item>
@@ -307,7 +294,7 @@
         <item>25</item>
     </integer-array>
 
-    <!-- Blacklist preferences -->
+    <!-- Phone blacklist management -->
     <string-array name="blacklist_policy_unknown_entries" translatable="false">
         <item>@string/blacklist_policy_block_calls</item>
         <item>@string/blacklist_policy_block_messages</item>
@@ -326,7 +313,7 @@
         <item>1</item>
     </string-array>
 
-    <!-- Ascending ringtone -->
+    <!-- Ascending ringtone increase intervals -->
     <string-array name="increasing_ring_interval_entries" translatable="false">
         <item>@string/increasing_ring_interval_eachring</item>
         <item>@string/increasing_ring_interval_half_second</item>
@@ -1150,6 +1137,21 @@
         <item>3</item>
     </string-array>
 
+    <!-- Sms security limit -->
+    <string-array name="sms_security_check_limit_entries" translatable="false">
+        <item>@string/sms_security_check_limit_default</item>
+        <item>50</item>
+        <item>100</item>
+        <item>200</item>
+    </string-array>
+
+    <string-array name="sms_security_check_limit_values" translatable="false">
+        <item>30</item>
+        <item>50</item>
+        <item>100</item>
+        <item>200</item>
+    </string-array>
+
     <!-- Clear recents position -->
     <string-array name="clear_recents_position_entries">
         <item>@string/clear_recents_position_disabled</item>
@@ -1385,5 +1387,5 @@
         <item>Friday</item>
         <item>Saturday</item>
     </string-array>
-	
+
 </resources>
