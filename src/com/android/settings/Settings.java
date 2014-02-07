@@ -633,10 +633,6 @@ public class Settings extends PreferenceActivity
                 if (um.hasUserRestriction(UserManager.DISALLOW_MODIFY_ACCOUNTS)) {
                     target.remove(i);
                 }
-            } else if (id == R.id.superuser) {
-                if (!DevelopmentSettings.isRootForAppsEnabled()) {
-                    target.remove(i);
-                }
             }
 
             if (i < target.size() && target.get(i) == header
@@ -1134,7 +1130,6 @@ public class Settings extends PreferenceActivity
     public static class DeviceInfoSettingsActivity extends Settings { /* empty */ }
     public static class ApplicationSettingsActivity extends Settings { /* empty */ }
     public static class ManageApplicationsActivity extends Settings { /* empty */ }
-    public static class AppOpsDetailsActivity extends Settings { /* empty */ }
     public static class AppOpsSummaryActivity extends Settings {
         @Override
         public boolean isValidFragment(String className) {

@@ -5,7 +5,6 @@
 
     <original-package android:name="com.android.settings" />
 
-    <uses-permission android:name="android.permission.ACCESS_SUPERUSER" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
@@ -160,7 +159,6 @@
 
         <activity android:name=".SubSettings"
                 android:taskAffinity="com.android.settings"
-                android:configChanges="orientation|keyboardHidden|screenSize"
                 android:parentActivityName="Settings">
         </activity>
 
@@ -380,7 +378,6 @@
 
         <activity android:name="Settings$BluetoothSettingsActivity"
                 android:uiOptions="splitActionBarWhenNarrow"
-                android:configChanges="orientation|keyboardHidden|screenSize"
                 android:label="@string/bluetooth_settings_title"
                 android:taskAffinity=""
                 android:excludeFromRecents="true">
