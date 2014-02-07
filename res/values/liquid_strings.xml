@@ -1014,9 +1014,6 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="theme_auto_mode_twilight">On daytime</string>
     <string name="theme_auto_switch_mode_error">Automatic light condition change mode is enabled. Manual switching is not possible.</string>
 
-    <!-- Device hostname -->
-    <string name="device_hostname">Device hostname</string>
-
     <!-- Volume keys media control -->
     <string name="volume_keys_control_media_stream">Media control</string>
     <string name="volume_keys_control_media_stream_summary">Volume keys control media volume rather than notifications</string>
