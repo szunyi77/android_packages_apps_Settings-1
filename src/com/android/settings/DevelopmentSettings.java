@@ -22,7 +22,6 @@ import android.app.Activity;
 import android.app.ActivityManagerNative;
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.app.DialogFragment;
 import android.app.admin.DevicePolicyManager;
 import android.app.backup.IBackupManager;
 import android.bluetooth.BluetoothAdapter;
@@ -96,8 +95,8 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
     private static final String ENABLE_ADB = "enable_adb";
     private static final String ADB_NOTIFY = "adb_notify";
     private static final String CLEAR_ADB_KEYS = "clear_adb_keys";
-    private static final String ADB_TCPIP  = "adb_over_network";
     private static final String ENABLE_TERMINAL = "enable_terminal";
+    private static final String ADB_TCPIP  = "adb_over_network";
     private static final String KEEP_SCREEN_ON = "keep_screen_on";
     private static final String BT_HCI_SNOOP_LOG = "bt_hci_snoop_log";
     private static final String SELECT_RUNTIME_KEY = "select_runtime";
@@ -157,9 +156,6 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
     private static final String TERMINAL_APP_PACKAGE = "com.android.terminal";
 
     private static final int RESULT_DEBUG_APP = 1000;
-
-    // Dialog identifiers used in showDialog
-    private static final int DLG_ADBTCP = 0;
 
     private IWindowManager mWindowManager;
     private IBackupManager mBackupManager;
@@ -228,6 +224,7 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
     private boolean mDialogClicked;
     private Dialog mEnableDialog;
     private Dialog mAdbDialog;
+    private Dialog mAdbTcpDialog;
     private Dialog mAdbKeysDialog;
 
     private Dialog mRootDialog;
@@ -259,7 +256,8 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
                 findPreference(DEBUG_DEBUGGING_CATEGORY_KEY);
 
         mEnableAdb = findAndInitCheckboxPref(ENABLE_ADB);
-        mAdbNotify = findAndInitCheckboxPref(ADB_NOTIFY);
+        mAdbNotify = (CheckBoxPreference) findPreference(ADB_NOTIFY);
+        mAllPrefs.add(mAdbNotify);
         mClearAdbKeys = findPreference(CLEAR_ADB_KEYS);
         if (!SystemProperties.getBoolean("ro.adb.secure", false)) {
             if (debugDebuggingCategory != null) {
@@ -294,7 +292,8 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
         mDebugAppPref = findPreference(DEBUG_APP_KEY);
         mAllPrefs.add(mDebugAppPref);
         mWaitForDebugger = findAndInitCheckboxPref(WAIT_FOR_DEBUGGER_KEY);
-        mVerifyAppsOverUsb = findAndInitCheckboxPref(VERIFY_APPS_OVER_USB_KEY);
+        mVerifyAppsOverUsb = (CheckBoxPreference) findPreference(VERIFY_APPS_OVER_USB_KEY);
+        mAllPrefs.add(mVerifyAppsOverUsb);
         if (!showVerifierSetting()) {
             if (debugDebuggingCategory != null) {
                 debugDebuggingCategory.removePreference(mVerifyAppsOverUsb);
@@ -386,6 +385,7 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
                 return true;
             }
         }
+
         return false;
     }
 
@@ -437,12 +437,6 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
     private void removePreference(Preference preference) {
         getPreferenceScreen().removePreference(preference);
         mAllPrefs.remove(preference);
-    }
-
-    private void addPreference(Preference preference) {
-        getPreferenceScreen().addPreference(preference);
-        preference.setOnPreferenceChangeListener(this);
-        mAllPrefs.add(preference);
     }
 
     private void setPrefsEnabledState(boolean enabled) {
@@ -573,6 +567,34 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
         mMSOB.setSummary(mMSOB.getEntry());
     }
 
+    private void updateAdbOverNetwork() {
+        int port = Settings.Secure.getInt(getActivity().getContentResolver(),
+                Settings.Secure.ADB_PORT, 0);
+        boolean enabled = port > 0;
+
+        updateCheckBox(mAdbOverNetwork, enabled);
+
+        WifiInfo wifiInfo = null;
+
+        if (enabled) {
+            IWifiManager wifiManager = IWifiManager.Stub.asInterface(
+                    ServiceManager.getService(Context.WIFI_SERVICE));
+            try {
+                wifiInfo = wifiManager.getConnectionInfo();
+            } catch (RemoteException e) {
+                Log.e(TAG, "wifiManager, getConnectionInfo()", e);
+            }
+        }
+
+        if (wifiInfo != null) {
+            String hostAddress = NetworkUtils.intToInetAddress(
+                    wifiInfo.getIpAddress()).getHostAddress();
+            mAdbOverNetwork.setSummary(hostAddress + ":" + String.valueOf(port));
+        } else {
+            mAdbOverNetwork.setSummary(R.string.adb_over_network_summary);
+        }
+    }
+
     private void resetDangerousOptions() {
         mDontPokeProperties = true;
         for (int i=0; i<mResetCbPrefs.size(); i++) {
@@ -583,6 +605,8 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
             }
         }
         resetDebuggerOptions();
+        resetAdbNotifyOptions();
+        resetVerifyAppsOverUsbOptions();
         resetMSOBOptions();
         writeAnimationScaleOption(0, mWindowAnimationScale, null);
         writeAnimationScaleOption(1, mTransitionAnimationScale, null);
@@ -682,6 +706,11 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
         updateRootAccessOptions();
     }
 
+    private void resetAdbNotifyOptions() {
+        Settings.Secure.putInt(getActivity().getContentResolver(),
+                Settings.Secure.ADB_NOTIFY, 1);
+    }
+
     private void updateHdcpValues() {
         ListPreference hdcpChecking = (ListPreference) findPreference(HDCP_CHECKING_KEY);
         if (hdcpChecking != null) {
@@ -759,6 +788,11 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
             mDebugAppPref.setSummary(getResources().getString(R.string.debug_app_not_set));
             mWaitForDebugger.setEnabled(false);
         }
+    }
+
+    private void resetVerifyAppsOverUsbOptions() {
+        Settings.Global.putInt(getActivity().getContentResolver(),
+              Settings.Global.PACKAGE_VERIFIER_INCLUDE_ADB, 1);
     }
 
     private void updateVerifyAppsOverUsbOptions() {
@@ -1300,14 +1334,10 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
                 mVerifyAppsOverUsb.setChecked(false);
                 updateBugreportOptions();
             }
-        } else if (preference == mAdbOverNetwork) {
-            if (mAdbOverNetwork.isChecked()) {
-                showDialogInner(DLG_ADBTCP);
-            } else {
-                Settings.Secure.putInt(getActivity().getContentResolver(),
-                        Settings.Secure.ADB_PORT, -1);
-                updateAdbOverNetwork();
-            }
+        } else if (preference == mAdbNotify) {
+            Settings.Secure.putInt(getActivity().getContentResolver(),
+                    Settings.Secure.ADB_NOTIFY,
+                    mAdbNotify.isChecked() ? 1 : 0);
         } else if (preference == mClearAdbKeys) {
             if (mAdbKeysDialog != null) dismissDialogs();
             mAdbKeysDialog = new AlertDialog.Builder(getActivity())
@@ -1315,10 +1345,6 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
                         .setPositiveButton(android.R.string.ok, this)
                         .setNegativeButton(android.R.string.cancel, null)
                         .show();
-        } else if (preference == mAdbNotify) {
-            Settings.Secure.putInt(getActivity().getContentResolver(),
-                    Settings.Secure.ADB_NOTIFY,
-                    mAdbNotify.isChecked() ? 1 : 0);
         } else if (preference == mEnableTerminal) {
             final PackageManager pm = getActivity().getPackageManager();
             pm.setApplicationEnabledSetting(TERMINAL_APP_PACKAGE,
@@ -1328,6 +1354,24 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
             Settings.Secure.putInt(getActivity().getContentResolver(),
                     Settings.Secure.BUGREPORT_IN_POWER_MENU,
                     mBugreportInPower.isChecked() ? 1 : 0);
+	} else if (preference == mAdbOverNetwork) {
+            if (mAdbOverNetwork.isChecked()) {
+                if (mAdbTcpDialog != null) {
+                    dismissDialogs();
+                }
+                mAdbTcpDialog = new AlertDialog.Builder(getActivity()).setMessage(
+                        getResources().getString(R.string.adb_over_network_warning))
+                        .setTitle(R.string.adb_over_network)
+                        .setIconAttribute(android.R.attr.alertDialogIcon)
+                        .setPositiveButton(android.R.string.yes, this)
+                        .setNegativeButton(android.R.string.no, this)
+                        .show();
+                mAdbTcpDialog.setOnDismissListener(this);
+            } else {
+                Settings.Secure.putInt(getActivity().getContentResolver(),
+                        Settings.Secure.ADB_PORT, -1);
+                updateAdbOverNetwork();
+            }
         } else if (preference == mKeepScreenOn) {
             Settings.Global.putInt(getActivity().getContentResolver(),
                     Settings.Global.STAY_ON_WHILE_PLUGGED_IN,
@@ -1478,6 +1522,10 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
             mAdbKeysDialog.dismiss();
             mAdbKeysDialog = null;
         }
+        if (mAdbTcpDialog != null) {
+            mAdbTcpDialog.dismiss();
+            mAdbTcpDialog = null;
+        }
         if (mEnableDialog != null) {
             mEnableDialog.dismiss();
             mEnableDialog = null;
@@ -1497,9 +1545,11 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
                 mVerifyAppsOverUsb.setEnabled(true);
                 updateVerifyAppsOverUsbOptions();
                 updateBugreportOptions();
-            } else {
-                // Reset the toggle
-                mEnableAdb.setChecked(false);
+            }
+        } else if (dialog == mAdbTcpDialog) {
+            if (which == DialogInterface.BUTTON_POSITIVE) {
+                Settings.Secure.putInt(getActivity().getContentResolver(),
+                        Settings.Secure.ADB_PORT, 5555);
             }
         } else if (dialog == mAdbKeysDialog) {
             if (which == DialogInterface.BUTTON_POSITIVE) {
@@ -1543,6 +1593,11 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
                 mEnableAdb.setChecked(false);
             }
             mAdbDialog = null;
+
+        } else if (dialog == mAdbTcpDialog) {
+            updateAdbOverNetwork();
+            mAdbTcpDialog = null;
+
         } else if (dialog == mEnableDialog) {
             if (!mDialogClicked) {
                 mEnabledSwitch.setChecked(false);
@@ -1596,84 +1651,6 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
             return context.getPackageManager().getPackageInfo(packageName, 0) != null;
         } catch (NameNotFoundException e) {
             return false;
-        }
-    }
-
-    private void updateAdbOverNetwork() {
-        int port = Settings.Secure.getInt(getActivity().getContentResolver(),
-                Settings.Secure.ADB_PORT, 0);
-        boolean enabled = port > 0;
-
-        updateCheckBox(mAdbOverNetwork, enabled);
-
-        WifiInfo wifiInfo = null;
-
-        if (enabled) {
-            IWifiManager wifiManager = IWifiManager.Stub.asInterface(
-                    ServiceManager.getService(Context.WIFI_SERVICE));
-            try {
-                wifiInfo = wifiManager.getConnectionInfo();
-            } catch (RemoteException e) {
-                Log.e(TAG, "wifiManager, getConnectionInfo()", e);
-            }
-        }
-
-        if (wifiInfo != null) {
-            String hostAddress = NetworkUtils.intToInetAddress(
-                    wifiInfo.getIpAddress()).getHostAddress();
-            mAdbOverNetwork.setSummary(hostAddress + ":" + String.valueOf(port));
-        } else {
-            mAdbOverNetwork.setSummary(R.string.adb_over_network_summary);
-        }
-    }
-
-    private void showDialogInner(int id) {
-        DialogFragment newFragment = MyAlertDialogFragment.newInstance(id);
-        newFragment.setTargetFragment(this, 0);
-        newFragment.show(getFragmentManager(), "dialog " + id);
-    }
-
-    public static class MyAlertDialogFragment extends DialogFragment {
-
-        public static MyAlertDialogFragment newInstance(int id) {
-            MyAlertDialogFragment frag = new MyAlertDialogFragment();
-            Bundle args = new Bundle();
-            args.putInt("id", id);
-            frag.setArguments(args);
-            return frag;
-        }
-
-        DevelopmentSettings getOwner() {
-            return (DevelopmentSettings) getTargetFragment();
-        }
-
-        @Override
-        public Dialog onCreateDialog(Bundle savedInstanceState) {
-            int id = getArguments().getInt("id");
-            switch (id) {
-                case DLG_ADBTCP:
-                    return new AlertDialog.Builder(getActivity())
-                    .setTitle(R.string.adb_over_network)
-                    .setMessage(getActivity().getString(R.string.adb_over_network_warning))
-                    .setIconAttribute(android.R.attr.alertDialogIcon)
-                    .setPositiveButton(R.string.dlg_ok,
-                        new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            Settings.Secure.putInt(getActivity().getContentResolver(),
-                                    Settings.Secure.ADB_PORT, 5555);
-                            getOwner().updateAdbOverNetwork();
-                        }
-                    })
-                    .setNegativeButton(R.string.dlg_cancel,
-                        new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            // Reset the toggle
-                            getOwner().mAdbOverNetwork.setChecked(false);
-                        }
-                    })
-                    .create();
-            }
-            throw new IllegalArgumentException("unknown id " + id);
         }
     }
 }
