@@ -97,14 +97,6 @@
             android:dialogTitle="@string/listview_interpolator_title"
             android:defaultValue="0" />
 
-        <ListPreference
-            android:key="vibrator_multiplier"
-            android:title="@string/vibrator_multiplier_title"
-            android:entries="@array/vibration_multiplier_values"
-            android:entryValues="@array/vibration_multiplier_values"
-            android:dialogTitle="@string/vibrator_multiplier_title"
-            android:persistent="false" />
-
     </PreferenceCategory>
 
 </PreferenceScreen>
