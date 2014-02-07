@@ -1340,4 +1340,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="unlock_menu_unlock_title">Menu unlock</string>
     <string name="unlock_menu_unlock_summary">Pressing menu button unlocks device</string>
 
+    <!-- Vibration multiplier -->
+    <string name="vibrator_multiplier_title">Vibration multiplier</string>
+
 </resources>
