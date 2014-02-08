@@ -1,6 +1,7 @@
 /*
  * Copyright (C) 2008 The Android Open Source Project
  * Portions Copyright (C) 2013 The CyanogenMod Project
+ * Portions Copyright (C) 2013 SlimRoms Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -381,7 +382,6 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
                 return true;
             }
         }
-
         return false;
     }
 
@@ -498,7 +498,7 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
         updateCheckBox(mEnableAdb, Settings.Global.getInt(cr,
                 Settings.Global.ADB_ENABLED, 0) != 0);
         mAdbNotify.setChecked(Settings.Secure.getInt(cr,
-            Settings.Secure.ADB_NOTIFY, 1) != 0);
+                Settings.Secure.ADB_NOTIFY, 1) != 0);
         if (mEnableTerminal != null) {
             updateCheckBox(mEnableTerminal,
                     context.getPackageManager().getApplicationEnabledSetting(TERMINAL_APP_PACKAGE)
@@ -511,7 +511,7 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
         updateCheckBox(mBtHciSnoopLog, Settings.Secure.getInt(cr,
                 Settings.Secure.BLUETOOTH_HCI_LOG, 0) != 0);
         updateAdbOverNetwork();
-        updateCheckBox(mAllowMockLocation, Settings.Secure.getInt(cr,
+	    updateCheckBox(mAllowMockLocation, Settings.Secure.getInt(cr,
                 Settings.Secure.ALLOW_MOCK_LOCATION, 0) != 0);
         updateRuntimeValue();
         updateHdcpValues();
@@ -553,7 +553,6 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
             }
         }
         resetDebuggerOptions();
-        resetRootAccessOptions();
         writeAnimationScaleOption(0, mWindowAnimationScale, null);
         writeAnimationScaleOption(1, mTransitionAnimationScale, null);
         writeAnimationScaleOption(2, mAnimatorDurationScale, null);
@@ -1492,9 +1491,6 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
                 getActivity().getSharedPreferences(PREF_FILE, Context.MODE_PRIVATE).edit()
                     .putBoolean(PREF_SHOW, true)
                     .apply();
-            } else {
-                // Reset the toggle
-                mEnabledSwitch.setChecked(false);
             }
         } else if (dialog == mRootDialog) {
             if (which == DialogInterface.BUTTON_POSITIVE) {
