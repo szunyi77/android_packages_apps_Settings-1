@@ -62,7 +62,7 @@
     <string name="pie_control_title">Pie control</string>
     <string name="theme_settings_title">Total blackout</string>
 
-    <!-- Device title -->
+    <!-- Device settings -->
     <string name="device_settings_title">Device</string>
 
     <!-- Superuser title -->
@@ -617,12 +617,6 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="nav_button_color_mode_summary">Change the navigation bar button color mode</string>
     <string name="navigation_bar_glow_tint_title">Glow color</string>
 
-    <!-- MediaScanner behavior on boot -->
-    <string name="media_scanner_on_boot_title">MediaScanner behavior on boot</string>
-    <string name="media_scanner_on_boot_enabled">Scan media</string>
-    <string name="media_scanner_on_boot_ask">Ask to scan (notification)</string>
-    <string name="media_scanner_on_boot_disabled">Do not scan media</string>
-
     <!-- Basic numbers -->
     <string name="two">Two</string>
     <string name="three">Three</string>
@@ -1081,7 +1075,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="listview_overshoot_interpolator">Overshoot</string>
     <string name="listview_anticipate_overshoot_interpolator">Anticipate and overshoot</string>
     <string name="listview_bounce_interpolator">Bounce</string>
-	
+
     <!-- Alternate default app picker -->
     <string name="alt_resolver">Default app picker</string>
     <string name="alt_resolver_summary">Use an alternate default app picker grid</string>
@@ -1124,14 +1118,6 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="ram_bar_button_reset">Reset colors</string>
     <string name="ram_bar_reset">Reset</string>
     <string name="ram_bar_reset_message">Reset RAM bar style to default?</string>
-
-    <!-- Clear recents position -->
-    <string name="clear_recents_position_title">Clear recents position</string>
-    <string name="clear_recents_position_disabled">Disabled</string>
-    <string name="clear_recents_position_bottom_right">Bottom Right</string>
-    <string name="clear_recents_position_bottom_left">Bottom Left</string>
-    <string name="clear_recents_position_top_right">Top Right</string>
-    <string name="clear_recents_position_top_left">Top Left</string>
 
     <!-- Delete apn confirmation dialog message -->
     <string name="confirm_delete_apn">The APN will be deleted.</string>
@@ -1340,5 +1326,11 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
 
     <!-- Hostname setting -->
     <string name="device_hostname">Device hostname</string>
+
+    <!-- MediaScanner behavior on boot -->
+    <string name="media_scanner_on_boot_title">MediaScanner behavior on boot</string>
+    <string name="media_scanner_on_boot_enabled">Scan media</string>
+    <string name="media_scanner_on_boot_ask">Ask to scan (notification)</string>
+    <string name="media_scanner_on_boot_disabled">Do not scan media</string>
 
 </resources>
