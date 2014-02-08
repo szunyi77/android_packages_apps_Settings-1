@@ -28,7 +28,6 @@ import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
-import android.preference.SeekBarPreference;
 import android.provider.Settings;
 
 import com.android.settings.R;

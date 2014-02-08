@@ -29,6 +29,7 @@ import android.content.pm.ResolveInfo;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.RemoteException;
+import android.os.ServiceManager;
 import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.provider.Settings;
@@ -40,6 +41,7 @@ import android.preference.PreferenceCategory;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.text.Editable;
 import android.util.Slog;
+import android.view.IWindowManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
@@ -151,43 +153,29 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
         return false;
     }
 
-   private static void setDensity(int density) {
+    private static void setDensity(int density) {
         int max = mActivity.getResources().getInteger(R.integer.lcd_density_max);
         int min = mActivity.getResources().getInteger(R.integer.lcd_density_min);
-        int navbarHeight = Settings.System.getIntForUser(mActivity.getContentResolver(),
-                Settings.System.NAVIGATION_BAR_HEIGHT, mActivity.getResources()
-                .getDimensionPixelSize(com.android.internal.R.dimen.navigation_bar_height),
-                UserHandle.USER_CURRENT);
-        if (density < min && density > max) {
+        if (density < min || density > max) {
             mLcdDensity.setSummary(mActivity.getResources().getString(
                                             R.string.custom_density_summary_invalid));
         }
         SystemProperties.set(DENSITY_PROP, Integer.toString(density));
-        Settings.System.putInt(mActivity.getContentResolver(),
-                Settings.System.LCD_DENSITY, density);
-
-        killCurrentLauncher();
-        Configuration mConfiguration = new Configuration();
-        mConfiguration.setToDefaults();
+        Configuration configuration = new Configuration();
+        configuration.setToDefaults();
+        configuration.densityDpi = density;
         try {
-            ActivityManagerNative.getDefault().updateConfiguration(mConfiguration);
+            ActivityManagerNative.getDefault().updateConfiguration(configuration);
         } catch (RemoteException e) {
             Slog.w(TAG, "Failure communicating with activity manager", e);
         }
-        mActivity.recreate();
+        final IWindowManager windowManagerService = IWindowManager.Stub.asInterface(
+                ServiceManager.getService(Context.WINDOW_SERVICE));
         try {
-            Thread.sleep(2000);
-        } catch (Exception e){}
-        Settings.System.putInt(mActivity.getContentResolver(),
-                Settings.System.NAVIGATION_BAR_HEIGHT, navbarHeight);
-    }
-
-    private static void killCurrentLauncher() {
-        ComponentName defaultLauncher = mActivity.getPackageManager().getHomeActivities(
-                new ArrayList<ResolveInfo>());
-        ActivityManager am = (ActivityManager) mActivity.getSystemService(
-                Context.ACTIVITY_SERVICE);
-        am.killBackgroundProcesses(defaultLauncher.getPackageName());
+            windowManagerService.updateSettings();
+        } catch (RemoteException e) {
+            Slog.w(TAG, "Failure communicating with window manager", e);
+        }
     }
 
     private void showDialogInner(int id) {

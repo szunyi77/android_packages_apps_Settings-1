@@ -35,6 +35,7 @@ import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
+import android.preference.SeekBarPreference;
 import android.provider.MediaStore;
 import android.provider.Settings;
 import android.util.Log;
@@ -197,7 +198,6 @@ public class LockscreenStyle extends SettingsPreferenceFragment
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == Activity.RESULT_OK) {
             if (requestCode == REQUEST_PICK_LOCK_ICON) {
-
                 if (mLockImage.length() == 0 || !mLockImage.exists()) {
                     Toast.makeText(getActivity(),
                             getResources().getString(R.string.shortcut_image_not_valid),
@@ -280,7 +280,7 @@ public class LockscreenStyle extends SettingsPreferenceFragment
         } else if (preference == mBlurRadius) {
             Settings.System.putInt(getContentResolver(),
                     Settings.System.LOCKSCREEN_BLUR_RADIUS,
-                    (Integer)value);
+                    (Integer) newValue);
             return true;
         }
         return false;

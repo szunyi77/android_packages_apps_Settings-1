@@ -1141,7 +1141,7 @@
         <item>2</item>
     </string-array>
 
-    <!-- Halo options -->
+    <!-- HALO options -->
     <string-array name="entries_halo_state">
         <item>@string/halo_state_black</item>
         <item>@string/halo_state_white</item>
@@ -1272,7 +1272,6 @@
         <item>Friday</item>
         <item>Saturday</item>
     </string-array>
-<<<<<<< HEAD
 
     <!-- Vibration multiplier -->
     <string-array name="vibration_multiplier_values">
