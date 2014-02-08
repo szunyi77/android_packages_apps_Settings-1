@@ -62,6 +62,9 @@
     <string name="pie_control_title">Pie control</string>
     <string name="theme_settings_title">Total blackout</string>
 
+    <!-- Device title -->
+    <string name="device_settings_title">Device</string>
+
     <!-- Superuser title -->
     <string name="superuser_settings_title">Superuser</string>
 
@@ -1346,5 +1349,8 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <!-- Warning for Adb over Network -->
     <string name="adb_over_network_warning">WARNING: When ADB over network is enabled, your phone is open for intrusions on all connected networks, including GSM data network!
     \n\nOnly use this feature when you are connected on trusted networks.\n\nDo you really want to enable this function?</string>
+
+    <!-- Hostname setting -->
+    <string name="device_hostname">Device hostname</string>
 
 </resources>
