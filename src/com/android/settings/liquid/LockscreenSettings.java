@@ -50,9 +50,6 @@ public class LockscreenSettings extends SettingsPreferenceFragment
     private static final String KEY_LOCK_BEFORE_UNLOCK = "lock_before_unlock";
     private static final String KEY_QUICK_UNLOCK_CONTROL = "quick_unlock_control";
     private static final String KEY_MENU_UNLOCK_PREF = "menu_unlock";
-    private static final String KEY_SEE_TRHOUGH = "see_through";
-    private static final String KEY_BLUR_BEHIND = "blur_behind";
-    private static final String KEY_BLUR_RADIUS = "blur_radius";
 
     private PackageManager mPM;
     private DevicePolicyManager mDPM;
@@ -63,9 +60,6 @@ public class LockscreenSettings extends SettingsPreferenceFragment
     private CheckBoxPreference mLockBeforeUnlock;
     private CheckBoxPreference mLockQuickUnlock;
     private CheckBoxPreference mMenuUnlock;
-    private CheckBoxPreference mSeeThrough;
-    private CheckBoxPreference mBlurBehind;
-    private SeekBarPreference mBlurRadius;
 
     // needed for menu unlock
     private Resources keyguardResource;
@@ -121,19 +115,6 @@ public class LockscreenSettings extends SettingsPreferenceFragment
             mBatteryStatus.setOnPreferenceChangeListener(this);
         }
 
-        mSeeThrough = (CheckBoxPreference) prefs.findPreference(KEY_SEE_TRHOUGH);
-
-        mBlurBehind = (CheckBoxPreference) prefs.findPreference(KEY_BLUR_BEHIND);
-        mBlurBehind.setChecked(Settings.System.getInt(getContentResolver(), 
-                        Settings.System.LOCKSCREEN_BLUR_BEHIND, 0) == 1);
-        mBlurBehind.setEnabled(mSeeThrough.isChecked());
-
-        mBlurRadius = (SeekBarPreference) prefs.findPreference(KEY_BLUR_RADIUS);
-        mBlurRadius.setProgress(Settings.System.getInt(getContentResolver(), 
-                        Settings.System.LOCKSCREEN_BLUR_RADIUS, 12));
-        mBlurRadius.setOnPreferenceChangeListener(this);
-        mBlurRadius.setEnabled(mBlurBehind.isChecked() && mBlurBehind.isEnabled());
-
         PreferenceCategory generalCategory = (PreferenceCategory) prefs
                 .findPreference(KEY_GENERAL_CATEGORY);
 
@@ -188,10 +169,6 @@ public class LockscreenSettings extends SettingsPreferenceFragment
             Settings.Secure.putInt(getContentResolver(),
                     Settings.Secure.LOCK_BEFORE_UNLOCK,
                     ((Boolean) value) ? 1 : 0);
-        } else if (preference == mBlurRadius) {
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.LOCKSCREEN_BLUR_RADIUS,
-                    (Integer)value);
         } else if (preference == mBatteryStatus) {
             Settings.System.putInt(getContentResolver(),
                     Settings.System.LOCKSCREEN_ALWAYS_SHOW_BATTERY,
@@ -206,20 +183,7 @@ public class LockscreenSettings extends SettingsPreferenceFragment
 
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-        if (preference == mSeeThrough) {
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.LOCKSCREEN_SEE_THROUGH,
-                    mSeeThrough.isChecked() ? 1 : 0);
-            mBlurBehind.setEnabled(mSeeThrough.isChecked());
-            mBlurRadius.setEnabled(mBlurBehind.isChecked() && mBlurBehind.isEnabled());
-            return true;
-        } else if (preference == mBlurBehind) {
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.LOCKSCREEN_BLUR_BEHIND,
-                    mBlurBehind.isChecked() ? 1 : 0);
-            mBlurRadius.setEnabled(mBlurBehind.isChecked());
-            return true;
-        } else if (preference == mLockQuickUnlock) {
+        if (preference == mLockQuickUnlock) {
             Settings.System.putInt(getContentResolver(),
                     Settings.System.LOCKSCREEN_QUICK_UNLOCK_CONTROL,
                     mLockQuickUnlock.isChecked() ? 1 : 0);

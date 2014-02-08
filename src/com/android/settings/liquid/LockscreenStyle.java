@@ -71,13 +71,19 @@ public class LockscreenStyle extends SettingsPreferenceFragment
     private static final String KEY_LOCKSCREEN_DOTS_COLOR =
             "lockscreen_dots_color";
 
+    private static final String KEY_SEE_TRHOUGH = "see_through";
+    private static final String KEY_BLUR_BEHIND = "blur_behind";
+    private static final String KEY_BLUR_RADIUS = "blur_radius";
+
     private String mDefault;
 
     private CheckBoxPreference mColorizeCustom;
-
     private ColorPickerPreference mFrameColor;
     private ColorPickerPreference mLockColor;
     private ColorPickerPreference mDotsColor;
+    private CheckBoxPreference mSeeThrough;
+    private CheckBoxPreference mBlurBehind;
+    private SeekBarPreference mBlurRadius;
 
     private ListPreference mLockIcon;
 
@@ -150,6 +156,22 @@ public class LockscreenStyle extends SettingsPreferenceFragment
                 getResources().getString(
                 R.string.lockscreen_dots_color_summary), dotsColor);
         mDotsColor.setNewPreviewColor(dotsColor);
+
+        mSeeThrough = (CheckBoxPreference)
+                findPreference(KEY_SEE_TRHOUGH);
+
+        mBlurBehind = (CheckBoxPreference)
+                findPreference(KEY_BLUR_BEHIND);
+        mBlurBehind.setChecked(Settings.System.getInt(getContentResolver(), 
+                Settings.System.LOCKSCREEN_BLUR_BEHIND, 0) == 1);
+        mBlurBehind.setEnabled(mSeeThrough.isChecked());
+
+        mBlurRadius = (SeekBarPreference)
+                findPreference(KEY_BLUR_RADIUS);
+        mBlurRadius.setProgress(Settings.System.getInt(getContentResolver(), 
+                Settings.System.LOCKSCREEN_BLUR_RADIUS, 12));
+        mBlurRadius.setOnPreferenceChangeListener(this);
+        mBlurRadius.setEnabled(mBlurBehind.isChecked() && mBlurBehind.isEnabled());
 
         // No lock-slider is available
         boolean dotsDisabled = new LockPatternUtils(getActivity()).isSecure()
@@ -255,8 +277,32 @@ public class LockscreenStyle extends SettingsPreferenceFragment
             setPreferenceSummary(preference,
                     getResources().getString(R.string.lockscreen_dots_color_summary), val);
             return true;
+        } else if (preference == mBlurRadius) {
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.LOCKSCREEN_BLUR_RADIUS,
+                    (Integer)value);
+            return true;
         }
         return false;
+    }
+
+    @Override
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+        if (preference == mSeeThrough) {
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.LOCKSCREEN_SEE_THROUGH,
+                    mSeeThrough.isChecked() ? 1 : 0);
+            mBlurBehind.setEnabled(mSeeThrough.isChecked());
+            mBlurRadius.setEnabled(mBlurBehind.isChecked() && mBlurBehind.isEnabled());
+            return true;
+        } else if (preference == mBlurBehind) {
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.LOCKSCREEN_BLUR_BEHIND,
+                    mBlurBehind.isChecked() ? 1 : 0);
+            mBlurRadius.setEnabled(mBlurBehind.isChecked());
+            return true;
+        }
+        return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
     private void setPreferenceSummary(
@@ -377,8 +423,6 @@ public class LockscreenStyle extends SettingsPreferenceFragment
 
         @Override
         public void onCancel(DialogInterface dialog) {
-
         }
     }
 }
-
