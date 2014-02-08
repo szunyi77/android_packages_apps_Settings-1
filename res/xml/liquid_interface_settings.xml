@@ -81,22 +81,6 @@
             android:entries="@array/lcd_density_entries"
             android:entryValues="@array/lcd_density_entries" />
 
-        <ListPreference
-            android:key="listview_animation"
-            android:title="@string/listview_animation_title"
-            android:entries="@array/listview_animation_entries"
-            android:entryValues="@array/listview_animation_values"
-            android:dialogTitle="@string/listview_animation_title"
-            android:defaultValue="0" />
-
-        <ListPreference
-            android:key="listview_interpolator"
-            android:title="@string/listview_interpolator_title"
-            android:entries="@array/listview_interpolator_entries"
-            android:entryValues="@array/listview_interpolator_values"
-            android:dialogTitle="@string/listview_interpolator_title"
-            android:defaultValue="0" />
-
     </PreferenceCategory>
 
 </PreferenceScreen>
