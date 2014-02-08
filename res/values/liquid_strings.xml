@@ -1334,4 +1334,8 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <!-- Vibration multiplier -->
     <string name="vibrator_multiplier_title">Vibration multiplier</string>
 
+    <!-- USB debugging notification -->
+    <string name="adb_notify">USB debugging notify</string>
+    <string name="adb_notify_summary">Display a notification when USB debugging is connected</string>
+
 </resources>
