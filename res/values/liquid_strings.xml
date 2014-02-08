@@ -1333,4 +1333,13 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="media_scanner_on_boot_ask">Ask to scan (notification)</string>
     <string name="media_scanner_on_boot_disabled">Do not scan media</string>
 
+    <!-- Custom LCD density -->
+    <string name="custom_density_title">Custom LCD density</string>
+    <string name="custom_density">Custom</string>
+    <string name="set_custom_density_title">Set custom density</string>
+    <string name="set_custom_density_set">Set</string>
+    <string name="custom_density_summary_invalid">"INVALID DENSITY!"</string>
+    <string name="dpi">DPI</string>
+    <string name="current_lcd_density">"Current LCD Density: "</string>
+
 </resources>
