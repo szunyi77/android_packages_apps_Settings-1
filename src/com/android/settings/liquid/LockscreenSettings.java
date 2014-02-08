@@ -31,9 +31,10 @@ import android.preference.PreferenceScreen;
 import android.preference.SeekBarPreference;
 import android.provider.Settings;
 
-import com.android.internal.util.liquid.DeviceUtils;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+
+import com.android.internal.util.liquid.DeviceUtils;
 
 public class LockscreenSettings extends SettingsPreferenceFragment
         implements OnPreferenceChangeListener {
@@ -49,7 +50,6 @@ public class LockscreenSettings extends SettingsPreferenceFragment
     private static final String KEY_LOCK_BEFORE_UNLOCK = "lock_before_unlock";
     private static final String KEY_QUICK_UNLOCK_CONTROL = "quick_unlock_control";
     private static final String KEY_MENU_UNLOCK_PREF = "menu_unlock";
-    private static final String KEY_LOCKSCREEN_TORCH = "lockscreen_torch";
     private static final String KEY_SEE_TRHOUGH = "see_through";
     private static final String KEY_BLUR_BEHIND = "blur_behind";
     private static final String KEY_BLUR_RADIUS = "blur_radius";
@@ -63,7 +63,6 @@ public class LockscreenSettings extends SettingsPreferenceFragment
     private CheckBoxPreference mLockBeforeUnlock;
     private CheckBoxPreference mLockQuickUnlock;
     private CheckBoxPreference mMenuUnlock;
-    private CheckBoxPreference mGlowpadTorch;
     private CheckBoxPreference mSeeThrough;
     private CheckBoxPreference mBlurBehind;
     private SeekBarPreference mBlurRadius;
@@ -114,24 +113,12 @@ public class LockscreenSettings extends SettingsPreferenceFragment
             ? keyguardResources.getBoolean(keyguardResources.getIdentifier(
             "com.android.keyguard:bool/config_disableMenuKeyInLockScreen", null, null)) : false;
 
-        mGlowpadTorch = (CheckBoxPreference) prefs
-                .findPreference(KEY_LOCKSCREEN_TORCH);
-        if (mGlowpadTorch != null) {
-            mGlowpadTorch.setChecked(Settings.System.getInt(getContentResolver(),
-                Settings.System.LOCKSCREEN_GLOWPAD_TORCH, 0) == 1);
-            mGlowpadTorch.setOnPreferenceChangeListener(this);
-        }
-
         mBatteryStatus = (CheckBoxPreference) prefs
                 .findPreference(KEY_ALWAYS_BATTERY_PREF);
         if (mBatteryStatus != null) {
             mBatteryStatus.setChecked(Settings.System.getInt(getContentResolver(),
                 Settings.System.LOCKSCREEN_ALWAYS_SHOW_BATTERY, 0) == 1);
             mBatteryStatus.setOnPreferenceChangeListener(this);
-        }
-
-        if (!DeviceUtils.deviceSupportsTorch(getActivity())) {
-            prefs.removePreference(mGlowpadTorch);
         }
 
         mSeeThrough = (CheckBoxPreference) prefs.findPreference(KEY_SEE_TRHOUGH);
@@ -205,10 +192,6 @@ public class LockscreenSettings extends SettingsPreferenceFragment
             Settings.System.putInt(getContentResolver(),
                     Settings.System.LOCKSCREEN_BLUR_RADIUS,
                     (Integer)value);
-        } else if (preference == mGlowpadTorch) {
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.LOCKSCREEN_GLOWPAD_TORCH,
-                    ((Boolean) value) ? 1 : 0);
         } else if (preference == mBatteryStatus) {
             Settings.System.putInt(getContentResolver(),
                     Settings.System.LOCKSCREEN_ALWAYS_SHOW_BATTERY,
