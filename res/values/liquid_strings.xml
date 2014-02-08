@@ -395,6 +395,8 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="battery_stats_title">Statistics</string>
 
     <!-- Button shortcut actions -->
+    <string name="shortcut_action_navbar">Navigation bar</string>
+    <string name="shortcut_action_pie">Pie control</string>
     <string name="shortcut_action_airplane">Airplane mode</string>
     <string name="shortcut_action_expanded_desktop">Expanded desktop</string>
     <string name="shortcut_action_power_off">Power off</string>
@@ -611,6 +613,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="navbar_buttons_summary">Customize or reorder navigation bar buttons</string>
     <string name="navbar_targets_title">Targets</string>
     <string name="navbar_targets_summary">Customize or reorder navigation bar rings</string>
+    <string name="navigation_bar_warning_no_navigation_present">No other navigation is currently enabled. Turning off the navigation bar can result in an unusable device. Do you want to enable pie controls instead?</string>
 
     <!-- Navigation bar button style -->
     <string name="nav_bar_button_style_summary">Customize the navigation bar button colors</string>
@@ -1385,5 +1388,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="pie_button_second_layer_summary">Change second layer buttons</string>
     <string name="pie_button_style_summary">Change pie button style</string>
     <string name="pie_style_reset_message">Reset style entries to default?</string>
+    <string name="pie_warning_no_navigation_present">No other navigation is currently enabled. Turning off pie controls can result in an unusable device. Do you want to enable navigation bar instead?</string>
+    <string name="pie_trigger_warning">Minimum one of the main triggers (bottom, left or right) needs to be enabled.</string>
 
 </resources>
