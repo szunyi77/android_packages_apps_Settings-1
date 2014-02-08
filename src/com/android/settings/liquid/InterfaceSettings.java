@@ -25,7 +25,6 @@ import android.app.DialogFragment;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -40,7 +39,6 @@ import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceScreen;
 import android.text.Editable;
-import android.text.Spannable;
 import android.util.Slog;
 import android.view.IWindowManager;
 import android.view.LayoutInflater;
@@ -63,14 +61,11 @@ public class InterfaceSettings extends SettingsPreferenceFragment
     private static final String KEY_LCD_DENSITY = "lcd_density";
     private static final String DENSITY_PROP = "persist.sys.lcd_density";
     private static final String KEY_USE_ALT_RESOLVER = "use_alt_resolver";
-    private static final String PREF_CUSTOM_CARRIER_LABEL = "custom_carrier_label";
-
+	
+    private static ListPreference mLcdDensity;
     private static Activity mActivity;
     private static ListPreference mLcdDensity;
     private CheckBoxPreference mUseAltResolver;
-    private Preference mCustomLabel;
-
-    String mCustomLabelText = null;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -97,59 +92,11 @@ public class InterfaceSettings extends SettingsPreferenceFragment
         }
         mLcdDensity.setSummary(getResources().getString(R.string.current_lcd_density) + current);
         mLcdDensity.setOnPreferenceChangeListener(this);
-
-        mCustomLabel = findPreference(PREF_CUSTOM_CARRIER_LABEL);
-        updateCustomLabelTextSummary();
-    }
-
-    private void updateCustomLabelTextSummary() {
-        mCustomLabelText = Settings.System.getString(getActivity().getContentResolver(),
-                Settings.System.CUSTOM_CARRIER_LABEL);
-        if (mCustomLabelText == null || mCustomLabelText.length() == 0) {
-            mCustomLabel.setSummary(R.string.custom_carrier_label_summary);
-        } else {
-            mCustomLabel.setSummary(mCustomLabelText);
-        }
     }
 
     @Override
     public void onResume() {
         super.onResume();
-    }
-
-    @Override
-    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-        if (preference == mCustomLabel) {
-            AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
-
-            alert.setTitle(R.string.custom_carrier_label_title);
-            alert.setMessage(R.string.custom_carrier_label_explain);
-
-            // Set an EditText view to get user input
-            final EditText input = new EditText(getActivity());
-            input.setText(mCustomLabelText != null ? mCustomLabelText : "");
-            alert.setView(input);
-
-            alert.setPositiveButton(getResources().getString(R.string.ok), new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int whichButton) {
-                    String value = ((Spannable) input.getText()).toString();
-                    Settings.System.putString(getActivity().getContentResolver(),
-                            Settings.System.CUSTOM_CARRIER_LABEL, value);
-                    updateCustomLabelTextSummary();
-                    Intent i = new Intent();
-                    i.setAction("com.android.settings.LABEL_CHANGED");
-                    getActivity().sendBroadcast(i);
-                }
-            });
-            alert.setNegativeButton(getResources().getString(R.string.cancel), new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int whichButton) {
-                    // Canceled.
-                }
-            });
-
-            alert.show();
-        }
-        return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
