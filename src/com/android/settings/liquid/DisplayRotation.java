@@ -163,7 +163,7 @@ public class DisplayRotation extends SettingsPreferenceFragment implements OnPre
                 mode |= ROTATION_0_MODE;
                 mRotation0Pref.setChecked(true);
             }
-            Settings.System.putInt(getActivity().getContentResolver(),
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.ACCELEROMETER_ROTATION_ANGLES, mode);
             return true;
         } else if (preference == mLockScreenRotationPref) {
