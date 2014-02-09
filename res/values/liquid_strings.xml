@@ -65,6 +65,9 @@
     <!-- Device settings -->
     <string name="device_settings_title">Device</string>
 
+    <!-- Action shortcuts -->
+    <string name="shortcut_picker_title">Action shortcuts</string>
+
     <!-- Superuser title -->
     <string name="superuser_settings_title">Superuser</string>
 

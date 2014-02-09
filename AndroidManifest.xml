@@ -170,6 +170,30 @@
             </intent-filter>
         </activity>
 
+        <!-- Action shortcuts -->
+        <activity
+            android:name="CreateLiquidShortcut"
+            android:label="@string/shortcut_picker_title"
+            android:icon="@drawable/ic_liquid_theme_settings"
+            android:theme="@style/Theme.DialogWhenLarge"
+            android:excludeFromRecents="true"
+            android:configChanges="orientation|keyboardHidden|screenSize" >
+            <intent-filter>
+                <action android:name="android.intent.action.CREATE_SHORTCUT" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".liquid.LiquidActionShortcut"
+            android:theme="@android:style/Theme.NoDisplay"
+            android:excludeFromRecents="true"
+            android:launchMode="singleInstance" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
         <!-- QuietHours SmsCall Service -->
 
         <service android:name=".liquid.service.SmsCallService"/>
