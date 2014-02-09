@@ -50,6 +50,7 @@ public class NavbarSettings extends SettingsPreferenceFragment implements
     private static final String PREF_RING = "navbar_targets_settings";
     private static final String PREF_STYLE_DIMEN = "navbar_style_dimen_settings";
     private static final String PREF_NAVIGATION_BAR_CAN_MOVE = "navbar_can_move";
+    private static final String PREF_NAVIGATION_BAR_LEFT = "navigation_bar_left";
 
     private static final int DLG_NAVIGATION_WARNING = 0;
 
@@ -62,6 +63,7 @@ public class NavbarSettings extends SettingsPreferenceFragment implements
     PreferenceScreen mButtonPreference;
     PreferenceScreen mRingPreference;
     PreferenceScreen mStyleDimenPreference;
+    CheckBoxPreference mNavigationBarLeft;
 
     private SettingsObserver mSettingsObserver = new SettingsObserver(new Handler());
     private final class SettingsObserver extends ContentObserver {
@@ -106,10 +108,13 @@ public class NavbarSettings extends SettingsPreferenceFragment implements
         mEnableNavigationBar.setOnPreferenceChangeListener(this);
 
         mNavigationBarCanMove = (CheckBoxPreference) findPreference(PREF_NAVIGATION_BAR_CAN_MOVE);
+        mNavigationBarLeft = (CheckBoxPreference) findPreference(PREF_NAVIGATION_BAR_LEFT);
+
         if (DeviceUtils.isPhone(getActivity())) {
             mNavigationBarCanMove.setOnPreferenceChangeListener(this);
         } else {
             prefs.removePreference(mNavigationBarCanMove);
+            prefs.removePreference(mNavigationBarLeft);
             mNavigationBarCanMove = null;
         }
         updateSettings();
