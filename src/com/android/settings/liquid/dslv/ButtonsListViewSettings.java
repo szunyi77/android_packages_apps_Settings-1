@@ -475,12 +475,6 @@ public class ButtonsListViewSettings extends ListFragment implements
             case NAV_BAR:
                 return ButtonsHelper.getNavBarConfigWithDescription(
                     mActivity, mActionValuesKey, mActionEntriesKey);
-            case PIE:
-                return ButtonsHelper.getPieConfigWithDescription(
-                    mActivity, mActionValuesKey, mActionEntriesKey);
-            case PIE_SECOND:
-                return ButtonsHelper.getPieSecondLayerConfigWithDescription(
-                    mActivity, mActionValuesKey, mActionEntriesKey);
             case NAV_RING:
                 return ButtonsHelper.getNavRingConfigWithDescription(
                     mActivity, mActionValuesKey, mActionEntriesKey);
@@ -499,12 +493,6 @@ public class ButtonsListViewSettings extends ListFragment implements
         switch (mButtonMode) {
             case NAV_BAR:
                 ButtonsHelper.setNavBarConfig(mActivity, buttonConfigs, reset);
-                break;
-            case PIE:
-                ButtonsHelper.setPieConfig(mActivity, buttonConfigs, reset);
-                break;
-            case PIE_SECOND:
-                ButtonsHelper.setPieSecondLayerConfig(mActivity, buttonConfigs, reset);
                 break;
             case NAV_RING:
                 ButtonsHelper.setNavRingConfig(mActivity, buttonConfigs, reset);
@@ -673,8 +661,8 @@ public class ButtonsListViewSettings extends ListFragment implements
                             break;
                         case NAV_BAR:
                         case NAV_RING:
-                        case PIE:
-                        case PIE_SECOND:
+                        // case PIE:
+                        // case PIE_SECOND:
                         default:
                             buttonMode = res.getString(R.string.shortcut_action_help_button);
                             break;
