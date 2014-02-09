@@ -64,7 +64,6 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
     private static final String RECENT_MENU_CLEAR_ALL_LOCATION = "recent_menu_clear_all_location";
 
     private static final int DIALOG_CUSTOM_DENSITY = 101;
-
     private static final String DENSITY_PROP = "persist.sys.lcd_density";
 
     private static Activity mActivity;
@@ -77,14 +76,9 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mActivity = getActivity();
-
-        updateSettings();
-    }
-
-    private void updateSettings() {
-        setPreferenceScreen(null);
         addPreferencesFromResource(R.xml.liquid_interface_settings);
+
+        mActivity = getActivity();
 
         mUseAltResolver = (CheckBoxPreference) findPreference(KEY_USE_ALT_RESOLVER);
         mUseAltResolver.setChecked(Settings.System.getInt(getActivity()
