@@ -57,10 +57,10 @@
 
         <ListPreference
             android:key="pie_menu"
-            android:entries="@array/pref_menu_display_entries"
-            android:entryValues="@array/pref_menu_display_values"
-            android:title="@string/title_pref_menu_display"
-            android:summary="@string/summary_pref_menu_display"
+            android:entries="@array/navbar_menu_display_entries"
+            android:entryValues="@array/navbar_menu_display_values"
+            android:title="@string/navbar_menu_display_title"
+            android:summary="@string/navbar_menu_display_summary"
             android:dependency="pie_control" />
 
     </PreferenceCategory>
