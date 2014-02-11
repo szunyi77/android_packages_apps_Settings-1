@@ -43,8 +43,8 @@ public class NavbarSettings extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
     private static final String TAG = "NavBar";
-    private static final String PREF_MENU_LOCATION = "pref_navbar_menu_location";
-    private static final String PREF_NAVBAR_MENU_DISPLAY = "pref_navbar_menu_display";
+    private static final String PREF_MENU_LOCATION = "navbar_menu_location";
+    private static final String PREF_NAVBAR_MENU_DISPLAY = "navbar_menu_display";
     private static final String ENABLE_NAVIGATION_BAR = "enable_nav_bar";
     private static final String PREF_BUTTON = "navbar_button_settings";
     private static final String PREF_RING = "navbar_targets_settings";
