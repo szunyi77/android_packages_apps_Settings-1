@@ -48,7 +48,7 @@ public class NavbarSettings extends SettingsPreferenceFragment implements
     private static final String ENABLE_NAVIGATION_BAR = "enable_nav_bar";
     private static final String PREF_BUTTON = "navbar_button_settings";
     private static final String PREF_RING = "navbar_targets_settings";
-    private static final String PREF_STYLE_DIMEN = "navbar_style_dimen_settings";
+    private static final String PREF_STYLE_DIMEN = "navbar_dimensions_settings";
     private static final String PREF_NAVIGATION_BAR_CAN_MOVE = "navbar_can_move";
     private static final String PREF_NAVIGATION_BAR_LEFT = "navigation_bar_left";
 
@@ -116,6 +116,7 @@ public class NavbarSettings extends SettingsPreferenceFragment implements
             prefs.removePreference(mNavigationBarCanMove);
             prefs.removePreference(mNavigationBarLeft);
             mNavigationBarCanMove = null;
+            mNavigationBarLeft = null;
         }
         updateSettings();
     }
