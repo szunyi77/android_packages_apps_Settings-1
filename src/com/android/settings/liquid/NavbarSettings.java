@@ -151,6 +151,9 @@ public class NavbarSettings extends SettingsPreferenceFragment implements
         if (mNavigationBarCanMove != null) {
             mNavigationBarCanMove.setEnabled(show);
         }
+        if (mNavigationBarLeft != null) {
+            mNavigationBarLeft.setEnabled(show);
+        }
         mMenuDisplayLocation.setEnabled(show
             && mNavBarMenuDisplayValue != 1);
     }
