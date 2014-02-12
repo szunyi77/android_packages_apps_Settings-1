@@ -51,6 +51,7 @@ public class NavbarSettings extends SettingsPreferenceFragment implements
     private static final String PREF_STYLE_DIMEN = "navbar_dimensions_settings";
     private static final String PREF_NAVIGATION_BAR_CAN_MOVE = "navbar_can_move";
     private static final String PREF_NAVIGATION_BAR_LEFT = "navigation_bar_left";
+    private static final String KEY_HARDWARE_KEYS = "hardwarekeys_settings";
 
     private static final int DLG_NAVIGATION_WARNING = 0;
 
@@ -110,6 +111,13 @@ public class NavbarSettings extends SettingsPreferenceFragment implements
         mNavigationBarCanMove = (CheckBoxPreference) findPreference(PREF_NAVIGATION_BAR_CAN_MOVE);
         mNavigationBarLeft = (CheckBoxPreference) findPreference(PREF_NAVIGATION_BAR_LEFT);
 
+        PreferenceScreen hardwareKeys = (PreferenceScreen) findPreference(KEY_HARDWARE_KEYS);
+        int deviceKeys = getResources().getInteger(
+                com.android.internal.R.integer.config_deviceHardwareKeys);
+        if (deviceKeys == 0 && hardwareKeys != null) {
+            getPreferenceScreen().removePreference(hardwareKeys);
+        }
+
         if (DeviceUtils.isPhone(getActivity())) {
             mNavigationBarCanMove.setOnPreferenceChangeListener(this);
         } else {
@@ -118,6 +126,7 @@ public class NavbarSettings extends SettingsPreferenceFragment implements
             mNavigationBarCanMove = null;
             mNavigationBarLeft = null;
         }
+
         updateSettings();
     }
 
