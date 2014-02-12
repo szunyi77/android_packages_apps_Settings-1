@@ -187,6 +187,7 @@
         <activity
             android:name=".liquid.LiquidActionShortcut"
             android:theme="@android:style/Theme.NoDisplay"
+            android:icon="@drawable/liquid_lock"
             android:excludeFromRecents="true"
             android:launchMode="singleInstance" >
             <intent-filter>
