@@ -387,7 +387,7 @@ public class LockscreenStyle extends SettingsPreferenceFragment
             intent.putExtra("crop", "true");
             intent.putExtra("scale", true);
             intent.putExtra("scaleUpIfNeeded", false);
-            intent.putExtra("outputFormat", Bitmap.CompressFormat.JPEG.toString());
+            intent.putExtra("outputFormat", Bitmap.CompressFormat.PNG.toString());
 
             final Display display = getActivity().getWindowManager().getDefaultDisplay();
 
