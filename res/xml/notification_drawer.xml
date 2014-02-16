@@ -65,8 +65,8 @@
 
     </PreferenceCategory>
 	
-	<PreferenceCategory	
-        android:title="@string/noti_reminder_category" />
+    <PreferenceCategory	
+        android:title="@string/noti_reminder_category">
 
     <CheckBoxPreference
         android:key="noti_reminder_enabled"
@@ -90,7 +90,7 @@
         android:showSilent="false"
         android:dependency="noti_reminder_enabled" />
 		
-	</PreferenceCategory>
+    </PreferenceCategory>
 
     <PreferenceCategory
         android:key="advanced_category"
