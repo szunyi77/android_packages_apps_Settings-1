@@ -44,6 +44,14 @@
     <PreferenceCategory
         android:key="advanced_category"
         android:title="@string/advanced_category_title">
+		
+		<CheckBoxPreference
+            android:key="lockscreen_wallpaper"
+            android:title="@string/lockscreen_wallpaper" />
+
+        <Preference
+            android:key="select_lockscreen_wallpaper"
+            android:title="@string/select_wallpaper" />
 
         <ListPreference
             android:key="lockscreen_lock_icon"
