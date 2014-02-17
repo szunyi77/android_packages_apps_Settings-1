@@ -1334,17 +1334,6 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="dpi">DPI</string>
     <string name="current_lcd_density">"Current LCD Density: "</string>
 
-    <!-- Clear recents button location -->
-    <string name="recents_panel_settings_title" >Recents panel settings</string>
-    <string name="show_recent_clear_all_button_title">Show clear all button</string>
-    <string name="show_recent_clear_all_button_summary">Enable or disable clear all button</string>
-    <string name="recent_clear_all_button_location_title">Clear all button position</string>
-    <string name="recent_clear_all_button_location_summary">The corner for button to be visible</string>
-    <string name="recent_clear_all_button_location_top_left">Top left</string>
-    <string name="recent_clear_all_button_location_top_right">Top right</string>
-    <string name="recent_clear_all_button_location_bottom_left">Bottom left</string>
-    <string name="recent_clear_all_button_location_bottom_right">Bottom right</string>
-
     <!-- Custom carrier label -->
     <string name="notification_carrier_label_title">Carrier label</string>
     <string name="notification_custom_carrier_label_title">Custom carrier label</string>
@@ -1399,12 +1388,16 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="pie_disable_ime_triggers_title">Trigger size on keyboard</string>
     <string name="pie_disable_ime_triggers_summary">Reduces left and right trigger size</string>
 
-	<!-- Lockscreen wallpaper -->
+    <!-- Lockscreen wallpaper -->
     <string name="lockscreen_wallpaper">Custom wallpaper</string>
     <string name="select_wallpaper">Select wallpaper</string>
 	
-	<!-- QuickSettings fliptiles -->
+    <!--  development shortcut -->
+    <string name="development_shortcut_title">Development shortcut</string>
+    <string name="development_shortcut_summary">Enable \'wipe data\' and \'force close\' options in notification area and recent apps list</string>
+
+    <!-- QuickSettings fliptiles -->
     <string name="flip_qs_tiles_title">Flip tiles</string>
     <string name="flip_qs_tiles_summary">Flips the tiles on touch</string>
-	
+
 </resources>
