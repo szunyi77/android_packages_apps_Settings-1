@@ -62,7 +62,7 @@ public class NotificationDrawer extends SettingsPreferenceFragment
     ListPreference mQuickPulldown;
     ListPreference mSmartPulldown;
     CheckBoxPreference mCollapsePanel;
-	CheckBoxPreference mFlipQsTiles;
+    CheckBoxPreference mFlipQsTiles;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
