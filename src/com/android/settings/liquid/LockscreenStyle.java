@@ -41,6 +41,7 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.RemoteException;
+import android.os.UserHandle;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
@@ -77,8 +78,6 @@ import java.io.IOException;
 public class LockscreenStyle extends SettingsPreferenceFragment
         implements OnPreferenceChangeListener {
 		
-		
-	private final static String TAG = "AdditionalSettings";
 
     private static final int REQUEST_CODE_BG_WALLPAPER = 1024;
 
@@ -95,10 +94,10 @@ public class LockscreenStyle extends SettingsPreferenceFragment
     private static final String KEY_LOCKSCREEN_DOTS_COLOR =
             "lockscreen_dots_color";
 
-    private static final String KEY_SEE_TRHOUGH = "see_through";
+    private static final String KEY_SEE_THROUGH = "see_through";
     private static final String KEY_BLUR_BEHIND = "blur_behind";
     private static final String KEY_BLUR_RADIUS = "blur_radius";
-	private static final String KEY_LOCKSCREEN_WALLPAPER = "lockscreen_wallpaper";
+    private static final String KEY_LOCKSCREEN_WALLPAPER = "lockscreen_wallpaper";
     private static final String KEY_SELECT_LOCKSCREEN_WALLPAPER = "select_lockscreen_wallpaper";
 
     private String mDefault;
@@ -110,22 +109,19 @@ public class LockscreenStyle extends SettingsPreferenceFragment
     private CheckBoxPreference mSeeThrough;
     private CheckBoxPreference mBlurBehind;
     private SeekBarPreference mBlurRadius;
-	private CheckBoxPreference mLockscreenWallpaper;
-	private Preference mSelectLockscreenWallpaper;
+    private CheckBoxPreference mLockscreenWallpaper;
+    private Preference mSelectLockscreenWallpaper;
 
     private ListPreference mLockIcon;
 
     private boolean mCheckPreferences;
 
-    private File mLockImage;
-
     private static final int MENU_RESET = Menu.FIRST;
-
     private static final int DLG_RESET = 0;
     private static final int REQUEST_PICK_LOCK_ICON = 100;
-	
-	private File mWallpaperTemporary;
 
+    private File mLockImage;
+    private File mWallpaperTemporary;
     private IKeyguardService mKeyguardService;
 
     private final ServiceConnection mKeyguardConnection = new ServiceConnection() {
@@ -145,7 +141,6 @@ public class LockscreenStyle extends SettingsPreferenceFragment
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         createCustomView();
-    }
 	
         Intent intent = new Intent();
         intent.setClassName("com.android.keyguard", "com.android.keyguard.KeyguardService");
@@ -153,6 +148,7 @@ public class LockscreenStyle extends SettingsPreferenceFragment
                 Context.BIND_AUTO_CREATE, UserHandle.OWNER)) {
             Log.e(TAG, "*** Keyguard: can't bind to keyguard");
         }
+    }
 
     private PreferenceScreen createCustomView() {
         mCheckPreferences = false;
@@ -210,7 +206,7 @@ public class LockscreenStyle extends SettingsPreferenceFragment
         mDotsColor.setNewPreviewColor(dotsColor);
 
         mSeeThrough = (CheckBoxPreference)
-                findPreference(KEY_SEE_TRHOUGH);
+                findPreference(KEY_SEE_THROUGH);
 
         mBlurBehind = (CheckBoxPreference)
                 findPreference(KEY_BLUR_BEHIND);
@@ -225,7 +221,7 @@ public class LockscreenStyle extends SettingsPreferenceFragment
         mBlurRadius.setOnPreferenceChangeListener(this);
         mBlurRadius.setEnabled(mBlurBehind.isChecked() && mBlurBehind.isEnabled());
 		
-		mLockscreenWallpaper = (CheckBoxPreference) findPreference(KEY_LOCKSCREEN_WALLPAPER);
+	mLockscreenWallpaper = (CheckBoxPreference) findPreference(KEY_LOCKSCREEN_WALLPAPER);
         mLockscreenWallpaper.setChecked(Settings.System.getInt(getContentResolver(), Settings.System.LOCKSCREEN_WALLPAPER, 0) == 1);
 
         mSelectLockscreenWallpaper = findPreference(KEY_SELECT_LOCKSCREEN_WALLPAPER);
@@ -253,10 +249,16 @@ public class LockscreenStyle extends SettingsPreferenceFragment
         return prefSet;
     }
 
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    public void onActivityResult(int requestCode, int resultCode, Intent data, Intent imageReturnedIntent) {
         if (resultCode == Activity.RESULT_OK) {
             if (requestCode == REQUEST_PICK_LOCK_ICON) {
                 if (mLockImage.length() == 0 || !mLockImage.exists()) {
+                    Toast.makeText(getActivity(),
+                            getResources().getString(R.string.shortcut_image_not_valid),
+                            Toast.LENGTH_LONG).show();
+        if (requestCode == REQUEST_CODE_BG_WALLPAPER) {
+            if (resultCode == Activity.RESULT_OK) {
+		if (mWallpaperTemporary.length() == 0 || !mWallpaperTemporary.exists()) {
                     Toast.makeText(getActivity(),
                             getResources().getString(R.string.shortcut_image_not_valid),
                             Toast.LENGTH_LONG).show();
@@ -274,12 +276,25 @@ public class LockscreenStyle extends SettingsPreferenceFragment
 
                 mColorizeCustom.setEnabled(path != null);
             }
-        } else {
+         } else {
             if (mLockImage.exists()) {
                 mLockImage.delete();
             }
+         }
+         updateLockSummary();
+            }
+         }
+     }
+                Bitmap bmp = BitmapFactory.decodeFile(mWallpaperTemporary.getAbsolutePath());
+                try {
+                    mKeyguardService.setWallpaper(bmp);
+                    Settings.System.putInt(getContentResolver(), Settings.System.LOCKSCREEN_SEE_THROUGH, 0);
+                } catch (Exception ex) {
+                    Log.e(TAG, "Failed to set wallpaper: " + ex);
+            }
+	   if (mWallpaperTemporary.exists()) { 
+               mWallpaperTemporary.delete();
         }
-        updateLockSummary();
     }
 
     @Override
@@ -343,28 +358,6 @@ public class LockscreenStyle extends SettingsPreferenceFragment
         }
         return false;
     }
-	
-	public void onActivityResult(int requestCode, int resultCode,
-            Intent imageReturnedIntent) {
-        if (requestCode == REQUEST_CODE_BG_WALLPAPER) {
-            if (resultCode == Activity.RESULT_OK) {
-			    if (mWallpaperTemporary.length() == 0 || !mWallpaperTemporary.exists()) {
-                    Toast.makeText(getActivity(),
-                            getResources().getString(R.string.shortcut_image_not_valid),
-                            Toast.LENGTH_LONG).show();
-                    return;
-                }
-                Bitmap bmp = BitmapFactory.decodeFile(mWallpaperTemporary.getAbsolutePath());
-                try {
-                    mKeyguardService.setWallpaper(bmp);
-                    Settings.System.putInt(getContentResolver(), Settings.System.LOCKSCREEN_SEE_THROUGH, 0);
-                } catch (Exception ex) {
-                    Log.e(TAG, "Failed to set wallpaper: " + ex);
-                }
-            }
-        }
-		if (mWallpaperTemporary.exists()) mWallpaperTemporary.delete();
-    }
 
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
@@ -419,7 +412,9 @@ public class LockscreenStyle extends SettingsPreferenceFragment
             }
         }else {
             return super.onPreferenceTreeClick(preferenceScreen, preference);
-    }
+        }
+        return true;
+  }
 
     private void setPreferenceSummary(
             Preference preference, String defaultSummary, int value) {

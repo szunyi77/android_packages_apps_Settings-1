@@ -122,8 +122,8 @@ public class NotificationDrawer extends SettingsPreferenceFragment
             updateSmartPulldownSummary(smartPulldown);
         }
 		
-		mFlipQsTiles = (CheckBoxPreference) findPreference(PREF_FLIP_QS_TILES);
-        mFlipQsTiles.setChecked(Settings.System.getInt(resolver,
+	mFlipQsTiles = (CheckBoxPreference) findPreference(PREF_FLIP_QS_TILES);
+        mFlipQsTiles.setChecked(Settings.System.getInt(getContentResolver(),
                 Settings.System.QUICK_SETTINGS_TILES_FLIP, 0) == 1);
 
         mCollapsePanel = (CheckBoxPreference) findPreference(PRE_COLLAPSE_PANEL);
@@ -188,7 +188,7 @@ public class NotificationDrawer extends SettingsPreferenceFragment
                     (Boolean) newValue ? 1 : 0, UserHandle.USER_CURRENT);
             return true;
 		} else if (preference == mFlipQsTiles) {
-            Settings.System.putInt(resolver,
+            Settings.System.putInt(getContentResolver(),
                     Settings.System.QUICK_SETTINGS_TILES_FLIP,
                     ((CheckBoxPreference) preference).isChecked() ? 1 : 0);
             return true;
