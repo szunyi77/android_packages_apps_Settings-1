@@ -53,22 +53,18 @@
         </PreferenceScreen>
 
         <PreferenceScreen
+            android:key="progressbar_settings"
+            android:title="@string/progressbar_title"
+            android:summary="@string/progressbar_summary"
+            android:fragment="com.android.settings.liquid.ProgressBar" />
+
+        <PreferenceScreen
             android:key="ram_bar_settings"
             android:title="@string/ram_bar_title"
             android:summary="@string/ram_bar_summary"
             android:fragment="com.android.settings.liquid.RamBarSettings" />
 
     </PreferenceCategory>
-	
-    <PreferenceCategory
-	    android:key="progressbar"
-	    android:title="@string/progressbar_title" >
-
-        <PreferenceScreen
-            android:key="progressbar_settings"
-            android:fragment="com.android.settings.cyanogenmod.ProgressBar"
-            android:title="@string/progressbar_title" >
-        </PreferenceScreen>
 
     </PreferenceCategory>
 
