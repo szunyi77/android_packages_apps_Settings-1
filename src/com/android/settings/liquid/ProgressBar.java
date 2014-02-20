@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.cyanogenmod;
+package com.android.settings.liquid;
 
 import android.content.ContentResolver;
 import android.content.Context;
