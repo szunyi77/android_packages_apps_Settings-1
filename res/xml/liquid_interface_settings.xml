@@ -66,9 +66,7 @@
 
     </PreferenceCategory>
 
-    </PreferenceCategory>
-
-	<PreferenceCategory
+    <PreferenceCategory
         android:key="advanced_category"
         android:title="@string/advanced_category_title">
 
