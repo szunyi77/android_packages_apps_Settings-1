@@ -121,7 +121,7 @@
         android:fragment="com.android.settings.liquid.PieControl"
         android:icon="@drawable/ic_liquid_pie_control" />
 
-    <!-- Wakelock Blocker -->
+    <!-- Wakelock blocker -->
     <header
         android:id="@+id/wakelock_blocker"
         android:fragment="com.android.settings.liquid.WakeLockBlocker"

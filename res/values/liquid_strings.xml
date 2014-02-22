@@ -57,7 +57,6 @@
 
     <!-- Advanced settings -->
     <string name="active_display_title">Active display</string>
-    <string name="halo_options_title">HALO options</string>
     <string name="notification_drawer_title">Notification drawer</string>
     <string name="pie_control_title">Pie control</string>
     <string name="theme_settings_title">Total blackout</string>
@@ -1221,46 +1220,6 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <!-- Anonymous stats -->
     <string name="rominfo_settings_list_item_title">LiquidSmooth Statistics</string>
 
-    <!-- HALO options -->
-    <string name="halo_hide_title">Hide after activity</string>
-    <string name="halo_hide_summary">Appear for activity then disappears</string>
-    <string name="halo_enabled_title">Enable HALO</string>
-    <string name="halo_enabled_summary">When used multi window is disabled</string>
-    <string name="halo_reversed_title">Reverse HALO</string>
-    <string name="halo_reversed_summary">Used for task switching then moving</string>
-    <string name="halo_state_title">HALO policy</string>
-    <string name="halo_state_summary">Black or white listing notification</string>
-    <string name="halo_state_black">Black list</string>
-    <string name="halo_state_white">White list</string>
-    <string name="halo_pause_title">Pause active app</string>
-    <string name="halo_pause_summary">Opening new app pauses current one</string>
-    <string name="halo_ninja_title">Ninja mode</string>
-    <string name="halo_ninja_summary">Disappears out of sight when empty</string>
-    <string name="halo_notification_msgbox_title">Enable message box</string>
-    <string name="halo_notification_msgbox_summary">Show box for incoming notifications</string>
-    <string name="halo_unlock_ping_title">Ping on unlock</string>
-    <string name="halo_unlock_ping_summary">When new notifications are received</string>
-    <string name="halo_size_title">HALO size</string>
-    <string name="halo_size_summary">This determines the current size</string>
-    <string name="halo_size_miniscule">Miniscule</string>
-    <string name="halo_size_small">Small</string>
-    <string name="halo_size_default">Normal (Default)</string>
-    <string name="halo_size_large">Large</string>
-    <string name="halo_size_gigantic">Gigantic</string>
-    <string name="halo_size_monster">Monster</string>
-    <string name="halo_notification_count_title">Notification count</string>
-    <string name="halo_notification_count_summary">Display the notification counts</string>
-    <string name="halo_notification_count_none">None</string>
-    <string name="halo_notification_count_total">Total</string>
-    <string name="halo_notification_count_individual">Per app</string>
-    <string name="halo_notification_count_both">Both</string>
-    <string name="halo_msgbox_animation_title">Message box animation</string>
-    <string name="halo_msgbox_animation_summary">Animation for incoming notification</string>
-    <string name="halo_msgbox_animation_none">None</string>
-    <string name="halo_msgbox_animation_flip">Flip</string>
-    <string name="app_halo_label_black">Blacklist from HALO</string>
-    <string name="app_halo_label_white">Whitelist from HALO</string>
-
     <!-- Title for PreferenceScreen to change encryption password [CHAR LIMIT=22] -->
     <string name="change_crypt_password_title">Change password</string>
     <!-- Summary for PreferenceScreen to change encryption password [CHAR LIMIT=45] -->
@@ -1395,13 +1354,13 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="progressbar_reset_message">Reset progress bar style to default?</string>
 	
 	<!-- Wakelock blocker -->
-    <string name="wakelock_blocker">Wakelock Blocker</string>
+    <string name="wakelock_blocker">Wakelock blocker</string>
     <string name="wakelock_blocker_title">Enable</string>
     <string name="wakelock_blocker_summary">Activate blocking for checked wakelocks</string>
     <string name="wakelock_blocker_save">Save</string>
-    <string name="wakelock_list_header">Available Wakelocks</string>
+    <string name="wakelock_list_header">Available wakelocks</string>
     <string name="wakelock_blocker_reload">Reload</string>
-    <string name="wakelock_blocker_warning_title">Proceed with Caution</string>
+    <string name="wakelock_blocker_warning_title">Proceed with caution</string>
     <string name="wakelock_blocker_warning">Blocking wakelocks have the potential to cause instability, crashes or data loss.</string>
 	
     <!-- Volume Steps -->
