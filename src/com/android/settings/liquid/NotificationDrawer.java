@@ -131,7 +131,7 @@ public class NotificationDrawer extends SettingsPreferenceFragment
             updateSmartPulldownSummary(smartPulldown);
         }
 		
-	mFlipQsTiles = (CheckBoxPreference) findPreference(PREF_FLIP_QS_TILES);
+	    mFlipQsTiles = (CheckBoxPreference) findPreference(PREF_FLIP_QS_TILES);
         mFlipQsTiles.setChecked(Settings.System.getInt(getContentResolver(),
                 Settings.System.QUICK_SETTINGS_TILES_FLIP, 0) == 1);
 
@@ -202,7 +202,7 @@ public class NotificationDrawer extends SettingsPreferenceFragment
                     ((CheckBoxPreference) preference).isChecked() ? 1 : 0);
             return true;
         } else if (preference == mStatusBarCustomHeader) {
-            boolean value = (Boolean) objValue;
+            boolean value = (Boolean) newValue;
             Settings.System.putInt(getContentResolver(),
                 Settings.System.STATUS_BAR_CUSTOM_HEADER, value ? 1 : 0);
             return true;
