@@ -109,6 +109,10 @@ public class PieControl extends SettingsPreferenceFragment
                 Settings.System.PIE_CONTROLS, 0) == 1);
     }
 
+    private void updatePieControlPreferences(boolean show) {
+        mPieMenuDisplay.setEnabled(show);
+    }
+
     @Override
     public void onResume() {
         super.onResume();
