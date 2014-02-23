@@ -609,8 +609,6 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="navigation_bar_width_summary">Navigation bar height when along the side</string>
     <string name="navbar_can_move_title">Show landscape</string>
     <string name="navbar_can_move_summary">Shows navigation bar in landscape</string>
-    <string name="navigation_bar_left_title">Left handed mode</string>
-    <string name="navigation_bar_left_summary">Shows navbar on left side in landscape</string>
     <string name="navbar_dimensions_title">Dimensions</string>
     <string name="navbar_dimensions_reset_message">Reset dimensions to default?</string>
     <string name="navbar_dimensions_summary">Change the dimensions of the navigation bar</string>

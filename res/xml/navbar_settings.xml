@@ -73,12 +73,6 @@
             android:title="@string/navbar_can_move_title"
             android:summary="@string/navbar_can_move_summary" />
 
-        <CheckBoxPreference
-            android:key="navigation_bar_left"
-            android:title="@string/navigation_bar_left_title"
-            android:summary="@string/navigation_bar_left_summary"
-            android:defaultValue="false" />
-
         <ListPreference
             android:key="navbar_menu_location"
             android:title="@string/navbar_menu_location_title"
