@@ -1327,11 +1327,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="pie_disable_ime_triggers_title">Trigger size on keyboard</string>
     <string name="pie_disable_ime_triggers_summary">Reduces left and right trigger size</string>
 
-    <!-- Lockscreen wallpaper -->
-    <string name="lockscreen_wallpaper">Custom wallpaper</string>
-    <string name="select_wallpaper">Select wallpaper</string>
-	
-    <!--  development shortcut -->
+    <!--  Development shortcut -->
     <string name="development_shortcut_title">Development shortcut</string>
     <string name="development_shortcut_summary">Enable \'wipe data\' and \'force close\' options in notification area and recent apps list</string>
 
@@ -1339,9 +1335,9 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="flip_qs_tiles_title">Flip tiles</string>
     <string name="flip_qs_tiles_summary">Flips the tiles on touch</string>
 	
-	<!-- Smooth Progress bar -->
-    <string name="progressbar_title">Custom Progress bar</string>
-    <string name="progressbar_summary">Choose color and size of the progress bar</string>
+	<!-- Progress bar -->
+    <string name="progressbar_title">Progress bar</string>
+    <string name="progressbar_summary">Customize color and size of progress bar</string>
     <string name="progressbar_mirror_title">Mirror mode</string>
     <string name="progressbar_reverse_title">Reversed</string>
     <string name="progressbar_speed_title">Speed</string>
@@ -1371,7 +1367,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="wakelock_blocker_warning_title">Proceed with caution</string>
     <string name="wakelock_blocker_warning">Blocking wakelocks have the potential to cause instability, crashes or data loss.</string>
 	
-    <!-- Volume Steps -->
+    <!-- Volume steps -->
     <string name="volume_steps_title">Volume Steps</string>
     <string name="volume_steps_60">60</string>
     <string name="volume_steps_45">45</string>
@@ -1387,7 +1383,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="volume_steps_system_title">System</string>
     <string name="volume_steps_voice_call_title">Voice Call</string>
 	
-    <!-- Allow Multiuser -->
+    <!-- Allow multiuser -->
     <string name="multiuser_preference_title">Multiuser support</string>
 	
     <!-- Custom notification panel header -->
