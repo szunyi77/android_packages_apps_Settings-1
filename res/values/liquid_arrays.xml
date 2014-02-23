@@ -1221,7 +1221,7 @@
         <item>10</item>
     </string-array>
 
-    <!-- Listview Interpolator -->
+    <!-- Listview interpolator -->
     <string-array name="listview_interpolator_entries">
         <item>@string/listview_off</item>
         <item>@string/listview_accelerate_interpolator</item>
@@ -1276,7 +1276,7 @@
         <item>@string/custom_density</item>
     </string-array>
 	
-    <!-- ProgressBar -->
+    <!-- Progress bar -->
     <string-array name="progressbar_interpolators_entries">
         <item>@string/progressbar_none</item>
         <item>@string/progressbar_acclerate</item>
@@ -1293,7 +1293,7 @@
         <item>4</item>
     </string-array>
 	
-    <!-- Volume step options. -->
+    <!-- Volume step -->
     <string-array name="volume_steps_entries" translatable="false">
         <item>@string/volume_steps_60</item>
         <item>@string/volume_steps_45</item>
@@ -1301,6 +1301,23 @@
         <item>@string/volume_steps_15</item>
         <item>@string/volume_steps_7</item>
         <item>@string/volume_steps_5</item>
+    </string-array>
+
+    <!-- Clock font style -->
+    <string-array name="clock_font_style_entries">
+        <item>@string/clock_font_bold</item>
+        <item>@string/clock_font_condensed</item>
+        <item>@string/clock_font_light</item>
+        <item>@string/clock_font_light_italic</item>
+        <item>@string/clock_font_normal</item>
+    </string-array>
+
+    <string-array name="clock_font_style_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
     </string-array>
 
 </resources>
