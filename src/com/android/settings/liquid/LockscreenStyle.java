@@ -427,7 +427,7 @@ public class LockscreenStyle extends SettingsPreferenceFragment
                 Settings.Secure.LOCKSCREEN_LOCK_ICON);
         if (value == null) {
             resId = R.string.lockscreen_lock_icon_default;
-            mLockIcon.setValueIndex(2);
+            mLockIcon.setValueIndex(1);
         } else {
             resId = R.string.lockscreen_lock_icon_custom;
             mLockIcon.setValueIndex(0);
