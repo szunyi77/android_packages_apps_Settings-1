@@ -937,7 +937,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
 
     <!-- Quick settings style -->
     <string name="summary_quicksettings_tiles_style">View or change current quick settings style</string>
-    <string name="quicksettings_tiles_style_additional_options">Additional options</string>
+    <string name="quicksettings_tiles_style_additional_options">Additional</string>
     <string name="tiles_per_row_title">Tiles per row</string>
     <string name="tiles_per_row_duplicate_landscape_title">Scale landscape quantity</string>
     <string name="tiles_per_row_duplicate_landscape_summary">Landscape view doubles tiles per row</string>
@@ -978,10 +978,8 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="summary_collapse_panel">Close the notification panel upon toggle</string>
 
     <!-- Quick ribbon -->
-    <string name="category_quick_access">Quick ribbon</string>
-    <string name="title_quick_access">Show in drawer</string>
-    <string name="title_quick_access_linked">Linked layout</string>
-    <string name="summary_quick_access_linked">Use same quick settings tile layout</string>
+    <string name="title_quick_ribbon_title">Quick ribbon</string>
+    <string name="title_quick_ribbon_summary">Enable ribbon in notification drawer</string>
 
     <!-- Stylus gestures -->
     <string name="gestures_settings_title">Stylus gestures</string>
@@ -1327,9 +1325,9 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="development_shortcut_title">Development shortcut</string>
     <string name="development_shortcut_summary">Enable \'wipe data\' and \'force close\' options in notification area and recent apps list</string>
 
-    <!-- QuickSettings fliptiles -->
+    <!-- Quick settings flip tiles -->
     <string name="flip_qs_tiles_title">Flip tiles</string>
-    <string name="flip_qs_tiles_summary">Flips the tiles on touch</string>
+    <string name="flip_qs_tiles_summary">Animate flipping quick settings tiles</string>
 	
 	<!-- Progress bar -->
     <string name="progressbar_title">Progress bar</string>
