@@ -30,7 +30,6 @@ import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
-import android.preference.SwitchPreference;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.Menu;
@@ -65,6 +64,8 @@ public class QuickSettingsTilesStyle extends SettingsPreferenceFragment implemen
     private static final String PREF_ADDITIONAL_OPTIONS =
             "quicksettings_tiles_style_additional_options";
 
+    private static final String QUICK_RIBBON = "tile_picker";
+
     private static final int DEFAULT_QUICK_TILES_TEXT_COLOR = 0xffcccccc;
 
     private static final int MENU_RESET = Menu.FIRST;
@@ -77,6 +78,9 @@ public class QuickSettingsTilesStyle extends SettingsPreferenceFragment implemen
     private ColorPickerPreference mQuickTilesBgPressedColor;
     private ColorPickerPreference mQuickTilesTextColor;
     private SeekBarPreference mQsTileAlpha;
+    private PreferenceScreen mQuickRibbon;
+    private boolean isLinked;
+    private boolean isRibbon;
 
     private boolean mCheckPreferences;
 
@@ -188,6 +192,16 @@ public class QuickSettingsTilesStyle extends SettingsPreferenceFragment implemen
             additionalOptions.removePreference(
                 findPreference(PREF_TILES_PER_ROW_DUPLICATE_LANDSCAPE));
         }
+
+        mQuickRibbon = (PreferenceScreen) findPreference(QUICK_RIBBON);
+
+        isRibbon = Settings.System.getInt(resolver,
+            Settings.System.QS_QUICK_ACCESS, 1) == 1;
+
+        isLinked = Settings.System.getInt(resolver,
+            Settings.System.QS_QUICK_ACCESS_LINKED, 0) == 1;
+
+        mQuickRibbon.setEnabled(!isLinked && isRibbon? true : false);
 
         setHasOptionsMenu(true);
         mCheckPreferences = true;
