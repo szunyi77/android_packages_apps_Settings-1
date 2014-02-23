@@ -137,8 +137,7 @@ public class LockscreenStyle extends SettingsPreferenceFragment
     private PreferenceScreen createCustomView() {
 
         addPreferencesFromResource(R.xml.lockscreen_style);
-
-        PreferenceScreen prefs = getPreferenceScreen();
+        prefSet = getPreferenceScreen();
 
         Intent intent = new Intent();
         intent.setClassName("com.android.keyguard", "com.android.keyguard.KeyguardService");
@@ -236,7 +235,7 @@ public class LockscreenStyle extends SettingsPreferenceFragment
         updateLockSummary();
 
         setHasOptionsMenu(true);
-        return prefs;
+        return prefSet;
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
