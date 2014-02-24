@@ -18,7 +18,7 @@
     android:title="@string/pie_control_title">
 
     <CheckBoxPreference
-        android:key="pie_controls"
+        android:key="pie_control"
         android:title="@string/pie_control_title"
         android:summary="@string/pie_control_summary" />
 
@@ -30,7 +30,7 @@
                 android:key="pie_button"
                 android:fragment="com.android.settings.liquid.dslv.ButtonsListViewSettings"
                 android:title="@string/pie_button"
-                android:dependency="pie_controls">
+                android:dependency="pie_control">
             <extra android:name="buttonMode" android:value="1" />
             <extra android:name="maxAllowedButtons" android:value="5" />
             <extra android:name="disableDeleteLastEntry" android:value="true" />
@@ -41,13 +41,13 @@
             android:key="pie_style"
             android:fragment="com.android.settings.liquid.PieStyleSettings"
             android:title="@string/pie_style"
-            android:dependency="pie_controls" />
+            android:dependency="pie_control" />
 
         <PreferenceScreen
             android:key="pie_trigger"
             android:fragment="com.android.settings.liquid.PieTriggerSettings"
             android:title="@string/pie_control_trigger_positions"
-            android:dependency="pie_controls" />
+            android:dependency="pie_control" />
 
     </PreferenceCategory>
 
@@ -61,7 +61,7 @@
             android:entryValues="@array/navbar_menu_display_values"
             android:title="@string/navbar_menu_display_title"
             android:summary="@string/navbar_menu_display_summary"
-            android:dependency="pie_controls" />
+            android:dependency="pie_control" />
 
     </PreferenceCategory>
 
