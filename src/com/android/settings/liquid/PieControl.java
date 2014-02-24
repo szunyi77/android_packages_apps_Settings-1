@@ -75,11 +75,18 @@ public class PieControl extends SettingsPreferenceFragment
 
         PreferenceScreen prefSet = getPreferenceScreen();
 
-        mPieControl = (CheckBoxPreference) findPreference(PIE_CONTROL);
+        mPieControl = (CheckBoxPreference) prefSet.findPreference(PIE_CONTROL);
         mPieControl.setOnPreferenceChangeListener(this);
 
-        mPieMenuDisplay = (ListPreference) findPreference(PIE_MENU);
+        mPieMenuDisplay = (ListPreference) prefSet.findPreference(PIE_MENU);
         mPieMenuDisplay.setOnPreferenceChangeListener(this);
+    }
+
+    private void updateSettings() {
+        mPieMenuDisplay.setValue(Settings.System.getInt(getContentResolver(),
+                Settings.System.PIE_MENU, 2) + "");
+        mPieControl.setChecked(Settings.System.getInt(getContentResolver(),
+                Settings.System.PIE_CONTROLS, 0) == 1);
     }
 
     @Override
@@ -91,26 +98,13 @@ public class PieControl extends SettingsPreferenceFragment
                 return true;
             }
             Settings.System.putInt(getContentResolver(),
-                    Settings.System.PIE_CONTROLS,
-                    (Boolean) newValue ? 1 : 0);
-            updatePieControlPreferences((Boolean) newValue);
+                    Settings.System.PIE_CONTROLS, (Boolean) newValue ? 1 : 0);
             return true;
         } else if (preference == mPieMenuDisplay) {
             Settings.System.putInt(getContentResolver(),
                     Settings.System.PIE_MENU, Integer.parseInt((String) newValue));
         }
         return true;
-    }
-
-    private void updateSettings() {
-        mPieMenuDisplay.setValue(Settings.System.getInt(getContentResolver(),
-                Settings.System.PIE_MENU, 2) + "");
-        mPieControl.setChecked(Settings.System.getInt(getContentResolver(),
-                Settings.System.PIE_CONTROLS, 0) == 1);
-    }
-
-    private void updatePieControlPreferences(boolean show) {
-        mPieMenuDisplay.setEnabled(show);
     }
 
     @Override
@@ -167,7 +161,6 @@ public class PieControl extends SettingsPreferenceFragment
                                     Settings.System.PIE_CONTROLS, 0);
                             Settings.System.putInt(getActivity().getContentResolver(),
                                     Settings.System.NAVIGATION_BAR_SHOW, 1);
-                            getOwner().updatePieControlPreferences(false);
                         }
                     })
                     .create();
@@ -181,7 +174,6 @@ public class PieControl extends SettingsPreferenceFragment
             switch (id) {
                 case DLG_NAVIGATION_WARNING:
                     getOwner().mPieControl.setChecked(true);
-                    getOwner().updatePieControlPreferences(true);
                     break;
             }
         }
