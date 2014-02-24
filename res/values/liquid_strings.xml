@@ -1337,7 +1337,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
 
     <!-- Quick settings flip tiles -->
     <string name="flip_qs_tiles_title">Flip tiles</string>
-    <string name="flip_qs_tiles_summary">Animate flipping quick settings tiles</string>
+    <string name="flip_qs_tiles_summary">Animates tile flips upon setting change</string>
 	
 	<!-- Progress bar -->
     <string name="progressbar_title">Progress bar</string>
@@ -1392,7 +1392,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
 	
     <!-- Contextual header -->
     <string name="custom_statusbar_header_title">Contextual header</string>
-    <string name="custom_statusbar_header_summary">Sets panel header based on date and time</string>
+    <string name="custom_statusbar_header_summary">Sets header based on date and time</string>
 
     <!-- Lockscreen wallpaper -->
     <string name="lockscreen_wallpaper">Custom wallpaper</string>
