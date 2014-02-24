@@ -88,6 +88,11 @@
             android:fragment="com.android.settings.liquid.quicksettings.QuickSettingsTiles" />
 
         <CheckBoxPreference
+            android:key="quick_settings_tiles_flip"
+            android:title="@string/flip_qs_tiles_title"
+            android:summary="@string/flip_qs_tiles_summary" />
+
+        <CheckBoxPreference
             android:key="collapse_panel"
             android:title="@string/title_collapse_panel"
             android:summary="@string/summary_collapse_panel"
@@ -106,11 +111,6 @@
             android:entries="@array/smart_pulldown_entries"
             android:entryValues="@array/smart_pulldown_values"
             android:persistent="false" />
-
-        <CheckBoxPreference
-            android:key="flip_qs_tiles"
-            android:title="@string/flip_qs_tiles_title"
-            android:summary="@string/flip_qs_tiles_summary" />
 
     </PreferenceCategory>
 
