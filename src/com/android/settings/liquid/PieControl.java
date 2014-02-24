@@ -72,20 +72,24 @@ public class PieControl extends SettingsPreferenceFragment
 
         addPreferencesFromResource(R.xml.pie_control);
 
-        PreferenceScreen prefSet = getPreferenceScreen();
+        PreferenceScreen prefs = getPreferenceScreen();
 
-        mPieControl = (CheckBoxPreference) prefSet.findPreference(PIE_CONTROL);
+        mPieControl = (CheckBoxPreference) findPreference(PIE_CONTROL);
         mPieControl.setOnPreferenceChangeListener(this);
 
-        mPieMenuDisplay = (ListPreference) prefSet.findPreference(PIE_MENU);
+        mPieMenuDisplay = (ListPreference) findPreference(PIE_MENU);
         mPieMenuDisplay.setOnPreferenceChangeListener(this);
+
+        updateSettings();
     }
 
     private void updateSettings() {
-        mPieMenuDisplay.setValue(Settings.System.getInt(getContentResolver(),
-                Settings.System.PIE_MENU, 2) + "");
-        mPieControl.setChecked(Settings.System.getInt(getContentResolver(),
-                Settings.System.PIE_CONTROLS, 0) == 1);
+        mPieMenuDisplay.setValue(Settings.System.getInt(getActivity()
+                .getContentResolver(), Settings.System.PIE_MENU,
+                2) + "");
+        mPieControl.setChecked(Settings.System.getInt(getActivity()
+                .getContentResolver(), Settings.System.PIE_CONTROLS,
+                0) == 1);
     }
 
     @Override
@@ -96,14 +100,16 @@ public class PieControl extends SettingsPreferenceFragment
                 showDialogInner(DLG_NAVIGATION_WARNING);
                 return true;
             }
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.PIE_CONTROLS, (Boolean) newValue ? 1 : 0);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.PIE_CONTROLS,
+                    (Boolean) newValue ? 1 : 0);
             return true;
         } else if (preference == mPieMenuDisplay) {
             Settings.System.putInt(getContentResolver(),
                     Settings.System.PIE_MENU, Integer.parseInt((String) newValue));
+            return true;
         }
-        return true;
+        return false;
     }
 
     @Override
