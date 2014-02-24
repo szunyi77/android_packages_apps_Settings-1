@@ -44,13 +44,11 @@ public class StatusBarSettings extends SettingsPreferenceFragment
     private static final String STATUS_BAR_BRIGHTNESS_CONTROL = "status_bar_brightness_control";
     private static final String STATUS_BAR_NOTIFICATION_COUNT = "status_bar_notification_count";
     private static final String STATUS_BAR_SIGNAL = "status_bar_signal";
-	private static final String STATUS_BAR_TRAFFIC = "status_bar_traffic";
 
     private PreferenceScreen mClockStyle;
     private CheckBoxPreference mStatusBarBrightnessControl;
     private CheckBoxPreference mStatusBarNotifCount;
     private ListPreference mStatusBarCmSignal;
-	private CheckBoxPreference mStatusBarTraffic;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -86,12 +84,6 @@ public class StatusBarSettings extends SettingsPreferenceFragment
         mStatusBarBrightnessControl.setChecked((Settings.System.getInt(getContentResolver(),
                             Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL, 0) == 1));
         mStatusBarBrightnessControl.setOnPreferenceChangeListener(this);
-
-        mStatusBarTraffic = (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_TRAFFIC);
-        mStatusBarTraffic.setChecked(Settings.System.getInt(getContentResolver(),
-            Settings.System.STATUS_BAR_TRAFFIC, 0) == 1);
-        mStatusBarTraffic.setOnPreferenceChangeListener(this);
-
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -107,13 +99,8 @@ public class StatusBarSettings extends SettingsPreferenceFragment
                     Settings.System.STATUS_BAR_SIGNAL_TEXT, signalStyle);
             mStatusBarCmSignal.setSummary(mStatusBarCmSignal.getEntries()[index]);
             return true;
-        } else if (preference == mStatusBarTraffic) {
-            Settings.System.putInt(getContentResolver(),
-                Settings.System.STATUS_BAR_TRAFFIC, (Boolean) newValue ? 1 : 0);
-            return true;
-        } else {
-        return false;
         }
+        return false;
     }
 
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
