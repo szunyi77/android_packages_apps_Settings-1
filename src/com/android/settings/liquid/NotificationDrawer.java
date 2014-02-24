@@ -57,7 +57,7 @@ public class NotificationDrawer extends SettingsPreferenceFragment
 	private static final String PREF_FLIP_QS_TILES = 
 	        "flip_qs_tiles";
     private static final String STATUS_BAR_CUSTOM_HEADER = 
-            "custom_status_bar_header";
+            "status_bar_custom_header";
 
     ListPreference mHideLabels;
     SeekBarPreference mNotificationAlpha;
@@ -65,8 +65,7 @@ public class NotificationDrawer extends SettingsPreferenceFragment
     ListPreference mSmartPulldown;
     CheckBoxPreference mCollapsePanel;
     CheckBoxPreference mFlipQsTiles;
-	
-    private CheckBoxPreference mStatusBarCustomHeader;
+    CheckBoxPreference mStatusBarCustomHeader;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
