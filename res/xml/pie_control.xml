@@ -18,7 +18,7 @@
     android:title="@string/pie_control_title">
 
     <CheckBoxPreference
-        android:key="pie_control"
+        android:key="pie_controls"
         android:title="@string/pie_control_title"
         android:summary="@string/pie_control_summary" />
 

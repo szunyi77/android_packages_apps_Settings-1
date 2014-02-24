@@ -31,15 +31,14 @@ import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
 
-import com.android.internal.util.liquid.LiquidActions;
-
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.internal.util.liquid.LiquidActions;
 
 public class PieControl extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener {
 
-    private static final String PIE_CONTROL = "pie_control";
+    private static final String PIE_CONTROL = "pie_controls";
     private static final String PIE_MENU = "pie_menu";
 
     private static final int DLG_NAVIGATION_WARNING = 0;
