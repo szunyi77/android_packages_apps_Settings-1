@@ -18,7 +18,6 @@ package com.android.settings.liquid;
 
 import android.content.ContentResolver;
 import android.database.ContentObserver;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.CheckBoxPreference;
@@ -36,8 +35,6 @@ import com.android.settings.SettingsPreferenceFragment;
 
 import com.android.internal.util.liquid.DeviceUtils;
 
-import net.margaritov.preference.colorpicker.ColorPickerPreference;
-
 public class StatusBarSettings extends SettingsPreferenceFragment
         implements OnPreferenceChangeListener {
 
@@ -47,22 +44,16 @@ public class StatusBarSettings extends SettingsPreferenceFragment
     private static final String STATUS_BAR_BRIGHTNESS_CONTROL = "status_bar_brightness_control";
     private static final String STATUS_BAR_NOTIFICATION_COUNT = "status_bar_notification_count";
     private static final String STATUS_BAR_SIGNAL = "status_bar_signal";
-    private static final String STATUS_BAR_NETWORK_STATS_TEXT_COLOR = "status_bar_network_stats_text_color";
 
     private PreferenceScreen mClockStyle;
     private CheckBoxPreference mStatusBarBrightnessControl;
     private CheckBoxPreference mStatusBarNotifCount;
     private ListPreference mStatusBarCmSignal;
 
-    private ColorPickerPreference mStatusBarNetworkStatsTextColor;
-	
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        
-        int intColor;
-        String hexColor;
-		
+
         addPreferencesFromResource(R.xml.liquid_statusbar_settings);
 
         PreferenceScreen prefSet = getPreferenceScreen();
@@ -77,20 +68,6 @@ public class StatusBarSettings extends SettingsPreferenceFragment
         mStatusBarCmSignal.setValue(String.valueOf(signalStyle));
         mStatusBarCmSignal.setSummary(mStatusBarCmSignal.getEntry());
         mStatusBarCmSignal.setOnPreferenceChangeListener(this);
-		
-        mStatusBarNetworkStatsTextColor = (ColorPickerPreference) findPreference(STATUS_BAR_NETWORK_STATS_TEXT_COLOR);
-        mStatusBarNetworkStatsTextColor.setOnPreferenceChangeListener(this);
-        int intNetworkColor = Settings.System.getInt(getActivity().getContentResolver(),
-                 Settings.System.STATUS_BAR_NETWORK_STATS_TEXT_COLOR, -2);
-        if (intNetworkColor == -2) {
-              intNetworkColor = getResources().getColor(
-                    com.android.internal.R.color.holo_blue_light);
-                    mStatusBarNetworkStatsTextColor.setSummary(getResources().getString(R.string.color_default));
-        } else {
-              hexColor = String.format("#%08x", (0xffffffff & intColor));
-              mStatusBarNetworkStatsTextColor.setSummary(hexColor);
-        }
-        mStatusBarNetworkStatsTextColor.setNewPreviewColor(intNetworkColor);
 
         // Start observing for changes on auto brightness
         StatusBarBrightnessChangedObserver statusBarBrightnessChangedObserver =
@@ -121,14 +98,6 @@ public class StatusBarSettings extends SettingsPreferenceFragment
             Settings.System.putInt(getContentResolver(),
                     Settings.System.STATUS_BAR_SIGNAL_TEXT, signalStyle);
             mStatusBarCmSignal.setSummary(mStatusBarCmSignal.getEntries()[index]);
-            return true;
-		} else if (preference == mStatusBarNetworkStatsTextColor) {
-            String hex = ColorPickerPreference.convertToARGB(Integer.valueOf(String
-                    .valueOf(newValue)));
-            preference.setSummary(hex);
-            int intHex = ColorPickerPreference.convertToColorInt(hex);
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.STATUS_BAR_NETWORK_STATS_TEXT_COLOR, intHex);
             return true;
         }
         return false;
