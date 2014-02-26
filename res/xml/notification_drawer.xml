@@ -124,6 +124,14 @@
             android:summaryOn="@string/enabled"
             android:summaryOff="@string/disabled"
             android:defaultValue="false" />
+			
+        <ListPreference
+            android:key="noti_reminder_interval"
+            android:defaultValue="1500"
+            android:title="@string/noti_reminder_interval"
+            android:entries="@array/noti_reminder_interval_entries"
+            android:entryValues="@array/noti_reminder_interval_values"
+            android:dependency="noti_reminder_enabled" />
 
         <ListPreference
             android:key="noti_reminder_sound"
