@@ -234,6 +234,7 @@ public class SecuritySettings extends RestrictedSettingsFragment
             root.removePreference(mAllowMultiuserPreference);
         }
 
+     
         // biometric weak liveliness
         mBiometricWeakLiveliness =
                 (CheckBoxPreference) root.findPreference(KEY_BIOMETRIC_WEAK_LIVELINESS);
@@ -292,6 +293,7 @@ public class SecuritySettings extends RestrictedSettingsFragment
         mKeyStore = KeyStore.getInstance(); // needs to be initialized for onResume()
         if (!um.hasUserRestriction(UserManager.DISALLOW_CONFIG_CREDENTIALS)) {
             Preference credentialStorageType = root.findPreference(KEY_CREDENTIAL_STORAGE_TYPE);
+
 
             final int storageSummaryRes =
                 mKeyStore.isHardwareBacked() ? R.string.credential_storage_type_hardware
