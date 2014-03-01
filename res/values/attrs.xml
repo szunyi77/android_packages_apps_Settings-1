@@ -128,5 +128,9 @@
         <attr name="unitsLeft" format="string" />
         <attr name="unitsRight" format="string" />
     </declare-styleable>
+	
+	<declare-styleable name="SeekBarPreferenceCham">
+        <attr name="interval" format="integer" />
+    </declare-styleable>
 
 </resources>
