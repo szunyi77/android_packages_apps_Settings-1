@@ -48,9 +48,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 
+import com.android.settings.liquid.util.CMDProcessor;
+import com.android.settings.liquid.util.Helpers;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.liquid.util.Helpers;
 
 import java.lang.Thread;
 import java.util.ArrayList;
@@ -63,14 +64,15 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
 
     private static final String KEY_USE_ALT_RESOLVER = "use_alt_resolver";
     private static final String KEY_LCD_DENSITY = "lcd_density";
+    private static final String CUSTOM_RECENT_MODE = "custom_recent_mode";
+
     private static final int DIALOG_CUSTOM_DENSITY = 101;
     private static final String DENSITY_PROP = "persist.sys.lcd_density";
-    private static final String RECENTS_USE_SLIM = "recents_use_slim";
 
     private static Activity mActivity;
     private CheckBoxPreference mUseAltResolver;
     private static ListPreference mLcdDensity;
-	private CheckBoxPreference mRecentsUseSlim;
+	private CheckBoxPreference mRecentsCustom;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -79,10 +81,6 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.liquid_interface_settings);
 		PreferenceScreen prefSet = getPreferenceScreen();
 
-        mRecentsUseSlim = (CheckBoxPreference) prefSet.findPreference(RECENTS_USE_SLIM);
-        mRecentsUseSlim.setChecked(useSlimRecents);
-        mRecentsUseSlim.setOnPreferenceChangeListener(this);
-
         mActivity = getActivity();
 
         mUseAltResolver = (CheckBoxPreference) findPreference(KEY_USE_ALT_RESOLVER);
@@ -90,6 +88,12 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
                 .getContentResolver(), Settings.System.ACTIVITY_RESOLVER_USE_ALT, 0) == 1);
         mUseAltResolver.setOnPreferenceChangeListener(this);
 
+        boolean enableRecentsCustom = Settings.System.getIntForUser(getActivity().getContentResolver(),
+                                      Settings.System.CUSTOM_RECENT, false);
+        mRecentsCustom = (CheckBoxPreference) findPreference(CUSTOM_RECENT_MODE);
+        mRecentsCustom.setChecked(enableRecentsCustom);
+        mRecentsCustom.setOnPreferenceChangeListener(this);
+		
         mLcdDensity = (ListPreference) findPreference(KEY_LCD_DENSITY);
         String current = SystemProperties.get(DENSITY_PROP,
                 SystemProperties.get("ro.sf.lcd_density"));
@@ -130,11 +134,10 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
                 }
             }
             return true;
-        } else if (preference == mRecentsUseSlim) {
-            boolean useSlimRecents = (Boolean) newValue;
-
-            Settings.System.putInt(getContentResolver(), Settings.System.RECENTS_USE_SLIM,
-                    useSlimRecents ? 1 : 0);
+        } else if (preference == mRecentsCustom) {
+            Settings.System.getIntForUser(getActivity().getContentResolver(),
+                    Settings.System.CUSTOM_RECENT, (Boolean) newValue ? 1 : 0);
+            Helpers.restartSystemUI();
             return true;
         }
         return false;

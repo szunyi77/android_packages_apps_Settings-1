@@ -1123,9 +1123,13 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="listview_cycle_interpolator">Cycle</string>
     <string name="listview_linear_interpolator">Linear</string>
 
-    <!-- Alternate default app picker -->
+    <!-- Default app picker -->
     <string name="alt_resolver">Default app picker</string>
     <string name="alt_resolver_summary">Use an alternate default app picker grid</string>
+
+    <!-- Enable slim recents -->
+    <string name="custom_recent_title">Enable slim recents</string>
+    <string name="custom_recent_summary">Use an alternate recents preview window</string>
 
     <!-- Animation controls -->	
     <string name="animation_controls_title">Animation controls</string>
@@ -1517,6 +1521,10 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="toast_GrowFadeCenter_animation">GrowFadeCenter Animation</string>
     <string name="toast_GrowFadeBottom_animation">GrowFadeBottom Animation</string>
     <string name="toast_Translucent_animation">Translucent Animation</string>
+	
+    <!-- Custom Recent Settings -->
+    <string name="custom_recent_title">Enable Slim Recents</string>
+    <string name="custom_recent_summary">Tick this box to switch between Slim/AOSB RecentApps</string>
 
     <!-- OTA App -->
     <string name="ota_app">LiquidSmooth Updates</string>
