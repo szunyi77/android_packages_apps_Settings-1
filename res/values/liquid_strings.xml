@@ -1474,7 +1474,6 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="screen_recorder_bitrate_50000000">50000000</string>
     <string name="screen_recorder_bitrate_100000000">100000000</string>
 	
-
    <!-- Toast Animations -->
     <string name="toast_animation_title">Toast Animations</string>
     <string name="toast_none_animation">None</string>
@@ -1491,5 +1490,9 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="toast_GrowFadeCenter_animation">GrowFadeCenter Animation</string>
     <string name="toast_GrowFadeBottom_animation">GrowFadeBottom Animation</string>
     <string name="toast_Translucent_animation">Translucent Animation</string>
+	
+    <!-- Custom Recent Settings -->
+    <string name="custom_recent_title">Enable Slim Recents</string>
+    <string name="custom_recent_summary">Tick this box to switch between Slim/AOSB RecentApps</string>
 
 </resources>

@@ -46,6 +46,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 
+import com.android.settings.liquid.util.CMDProcessor;
+import com.android.settings.liquid.util.Helpers;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
@@ -60,6 +62,7 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
 
     private static final String KEY_USE_ALT_RESOLVER = "use_alt_resolver";
     private static final String KEY_LCD_DENSITY = "lcd_density";
+    private static final String CUSTOM_RECENT_MODE = "custom_recent_mode";
 
     private static final int DIALOG_CUSTOM_DENSITY = 101;
     private static final String DENSITY_PROP = "persist.sys.lcd_density";
@@ -67,6 +70,7 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
     private static Activity mActivity;
     private CheckBoxPreference mUseAltResolver;
     private static ListPreference mLcdDensity;
+	private CheckBoxPreference mRecentsCustom;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -81,6 +85,12 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
                 .getContentResolver(), Settings.System.ACTIVITY_RESOLVER_USE_ALT, 0) == 1);
         mUseAltResolver.setOnPreferenceChangeListener(this);
 
+        boolean enableRecentsCustom = Settings.System.getIntForUser(getActivity().getContentResolver(),
+                                      Settings.System.CUSTOM_RECENT, false);
+        mRecentsCustom = (CheckBoxPreference) findPreference(CUSTOM_RECENT_MODE);
+        mRecentsCustom.setChecked(enableRecentsCustom);
+        mRecentsCustom.setOnPreferenceChangeListener(this);
+		
         mLcdDensity = (ListPreference) findPreference(KEY_LCD_DENSITY);
         String current = SystemProperties.get(DENSITY_PROP,
                 SystemProperties.get("ro.sf.lcd_density"));
@@ -115,6 +125,12 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
                     setDensity(Integer.parseInt(density));
                 }
             }
+            return true;
+        } else if (preference == mRecentsCustom) { // Enable||disable Slim Recent
+            Settings.System.getIntForUser(getActivity().getContentResolver(),
+                    Settings.System.CUSTOM_RECENT,
+                    (Boolean) newValue ? 1 : 0);
+            Helpers.restartSystemUI();
             return true;
         }
         return false;
