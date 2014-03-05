@@ -20,8 +20,10 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 
 import com.android.internal.util.liquid.LiquidActions;
+import com.android.internal.util.liquid.ButtonsConstants;
 
 public class LiquidActionShortcut extends Activity  {
 
@@ -34,7 +36,12 @@ public class LiquidActionShortcut extends Activity  {
     public void onResume() {
         super.onResume();
         String value = getIntent().getStringExtra("value");
-        LiquidActions.processAction(this, value, false);
+        if (ButtonsConstants.ACTION_RECENTS.equals(value)) {
+            LiquidActions.triggerVirtualKeypress(
+                    KeyEvent.KEYCODE_APP_SWITCH, false);
+        } else {
+            LiquidActions.processAction(this, value, false);
+        }
         this.finish();
     }
 }
