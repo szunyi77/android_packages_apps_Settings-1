@@ -22,7 +22,6 @@
   <string name="interface_settings_title">Interfaz</string>
   <string name="lockscreen_settings_title">Pantalla de bloqueo</string>
   <string name="navigation_settings_title">Navegación</string>
-  <string name="performance_settings_title">Rendimiento</string>
   <string name="statusbar_settings_title">Barra de estado</string>
   <string name="active_display_title">Pantalla Activa</string>
   <string name="halo_options_title">HALO y MultiVentana</string>

@@ -82,12 +82,16 @@
         android:fragment="com.android.settings.liquid.NavbarSettings"
         android:icon="@drawable/ic_liquid_navigation" />
 
-    <!-- Performance -->
+    <!-- Kernel Tweaker -->
     <header
-        android:id="@+id/performance_settings"
-        android:title="@string/performance_settings_title"
-        android:fragment="com.brewcrewfoo.performance.activities.MainActivity"
-        android:icon="@drawable/ic_liquid_performance" />
+        android:id="@+id/kernel_tweaker"
+        android:title="@string/kernel_tweaker_title"
+        android:icon="@drawable/ic_liquid_performance" >
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetClass="com.dsht.kerneltweaker.MainActivity"
+            android:targetPackage="com.dsht.kerneltweaker" />
+	</header>
 
     <!-- Status bar -->
     <header

@@ -52,7 +52,6 @@
     <string name="interface_settings_title">Interface</string>
     <string name="lockscreen_settings_title">Lock screen</string>
     <string name="navigation_settings_title">Navigation</string>
-    <string name="performance_settings_title">Performance</string>
     <string name="statusbar_settings_title">Status bar</string>
 
     <!-- Advanced settings -->
@@ -1499,5 +1498,8 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <!-- OTA App -->
     <string name="ota_app">LiquidSmooth Updates</string>
     <string name="ota_app_summary">Check for ROM updates</string>
+	
+	<!-- Kernel Tweaker -->
+    <string name="kernel_tweaker_title">Kernel Tweaker</string>
 
 </resources>

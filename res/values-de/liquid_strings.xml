@@ -22,7 +22,6 @@
   <string name="interface_settings_title">Oberfläche</string>
   <string name="lockscreen_settings_title">Bildschirm sperre</string>
   <string name="navigation_settings_title">Navigation</string>
-  <string name="performance_settings_title">Leistung</string>
   <string name="statusbar_settings_title">Statusleiste</string>
   <string name="active_display_title">Aktive Anzeige</string>
   <string name="halo_options_title">HALO Optionen</string>
