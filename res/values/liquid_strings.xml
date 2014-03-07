@@ -1228,6 +1228,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
 
     <!-- Anonymous stats -->
     <string name="rominfo_settings_list_item_title">LiquidSmooth Statistics</string>
+    <string name="rominfo_settings_list_item_summary">Help make LiquidSmooth better by opting into anonymous statistics reporting</string>
 
     <!-- Title for PreferenceScreen to change encryption password [CHAR LIMIT=22] -->
     <string name="change_crypt_password_title">Change password</string>
