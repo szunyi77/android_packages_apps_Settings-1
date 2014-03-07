@@ -1154,14 +1154,18 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="animation_duration_default">Default</string>
     <string name="header_summary_animation">@null</string>
 
+    <!-- Custom recents -->
+    <string name="custom_recent_title">Switch recents styles</string>
+    <string name="custom_recent_summary">Tick to use slim style recents panel</string>
+
     <!-- Recents panel -->
     <string name="recents_panel_title">Recents panel</string>
     <string name="recents_panel_summary">Enables and customize recent apps display</string>
     <string name="show_recent_clear_all_button_title">Show clear all button</string>
-    <string name="show_recent_clear_all_button_summary">Tick to show or untick to hide the clear all button within the recent applications screen</string>
+    <string name="show_recent_clear_all_button_summary">Tick to show or untick to hide clear all</string>
     <string name="recents_clear_all_button">Recents clear all button</string>
     <string name="recent_clear_all_button_location_title">Clear all button position</string>
-    <string name="recent_clear_all_button_location_summary">Choose in which corner the clear all recent apps button is shown</string>
+    <string name="recent_clear_all_button_location_summary">Which corner the clear all recent button</string>
     <string name="recent_clear_all_button_location_top_left">Top left</string>
     <string name="recent_clear_all_button_location_top_right">Top right</string>
     <string name="recent_clear_all_button_location_bottom_left">Bottom left</string>

@@ -19,6 +19,12 @@
     android:title="@string/recents_panel_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
+    <CheckBoxPreference
+        android:key="custom_recent_mode"
+        android:title="@string/custom_recent_title"
+        android:summary="@string/custom_recent_summary"
+        android:persistent="false" />
+
     <PreferenceCategory
         android:key="general_category"
         android:title="@string/general_category_title">
