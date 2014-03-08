@@ -854,6 +854,8 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="offset_top">Offset value to top of screen:</string>
     <string name="privacy_mode">Privacy mode</string>
     <string name="privacy_mode_summary">Only shows icons for notifications</string>
+    <string name="dynamic_width">Dynamic width</string>
+    <string name="dynamic_width_summary">Sets the width of notifications dynamic, so that they only use the space they really need</string>
 
     <!-- Lock screen battery ring -->
     <string name="battery_around_ring_title">Battery around ring</string>
