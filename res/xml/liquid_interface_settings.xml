@@ -98,4 +98,15 @@
             android:summary="@string/omniswitch_start_settings_summary" />
 
     </PreferenceCategory>
+	
+    <PreferenceCategory
+            android:key="category_slimrecents"
+            android:title="@string/slim_recents_category"/>
+
+    <CheckBoxPreference
+            android:key="recents_use_slim"
+            android:title="@string/recents_use_slim_title"
+            android:summary="@string/recents_use_slim_summary" />
+
+    </PreferenceCategory>
 </PreferenceScreen>

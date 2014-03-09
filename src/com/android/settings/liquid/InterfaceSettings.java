@@ -49,6 +49,7 @@ import android.widget.EditText;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.util.Helpers;
 import com.android.internal.util.liquid.OmniSwitchConstants;
 
 import java.lang.Thread;
@@ -69,6 +70,8 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
     private static final String RECENTS_USE_OMNISWITCH = "recents_use_omniswitch";
     private static final String OMNISWITCH_START_SETTINGS = "omniswitch_start_settings";
 
+    private static final String RECENTS_USE_SLIM = "recents_use_slim";
+
     // Package name of the omnniswitch app
     public static final String OMNISWITCH_PACKAGE_NAME = "org.omnirom.omniswitch";
 
@@ -82,6 +85,7 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
     private CheckBoxPreference mRecentsUseOmniSwitch;
     private Preference mOmniSwitchSettings;
     private boolean mOmniSwitchStarted;
+	private CheckBoxPreference mRecentsUseSlim;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -90,19 +94,29 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.liquid_interface_settings);
 		
         boolean useOmniSwitch = false;
+        boolean useSlimRecents = false;
         try {
             useOmniSwitch = Settings.System.getInt(getContentResolver(), Settings.System.RECENTS_USE_OMNISWITCH) == 1
                                 && isOmniSwitchServiceRunning();
+            useSlimRecents = Settings.System.getInt(getContentResolver(), Settings.System.RECENTS_USE_SLIM) == 1;
         } catch(SettingNotFoundException e) {
+                e.printStackTrace();
         }
 
         // OmniSwitch
         mRecentsUseOmniSwitch = (CheckBoxPreference) prefSet.findPreference(RECENTS_USE_OMNISWITCH);
         mRecentsUseOmniSwitch.setChecked(useOmniSwitch);
         mRecentsUseOmniSwitch.setOnPreferenceChangeListener(this);
+		mRecentsUseOmniSwitch.setEnabled(!useSlimRecents);
 
         mOmniSwitchSettings = (Preference) prefSet.findPreference(OMNISWITCH_START_SETTINGS);
         mOmniSwitchSettings.setEnabled(useOmniSwitch);
+		
+        // Slim recents
+        mRecentsUseSlim = (CheckBoxPreference) prefSet.findPreference(RECENTS_USE_SLIM);
+        mRecentsUseSlim.setChecked(useSlimRecents);
+        mRecentsUseSlim.setOnPreferenceChangeListener(this);
+        mRecentsUseSlim.setEnabled(!useOmniSwitch);
 
         mActivity = getActivity();
 
@@ -169,12 +183,28 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
             // Update OmniSwitch UI components
             mRecentsUseOmniSwitch.setChecked(omniSwitchEnabled);
             mOmniSwitchSettings.setEnabled(omniSwitchEnabled);
+		
+            // Update Slim recents UI components
+            mRecentsUseSlim.setEnabled(!omniSwitchEnabled);
+            return true;
+        } else if (preference == mRecentsUseSlim) {
+            boolean useSlimRecents = (Boolean) newValue;
+
+            Settings.System.putInt(getContentResolver(), Settings.System.RECENTS_USE_SLIM,
+                    useSlimRecents ? 1 : 0);
+
+            // Give user information that Slim Recents needs restart SystemUI
+            openSlimRecentsWarning();
+
+            // Update OmniSwitch UI components
+            mRecentsUseOmniSwitch.setEnabled(!useSlimRecents);
+            mRecentsUseSlim.setChecked(useSlimRecents);
 
             // Update default recents UI components
-            mRecentClearAll.setEnabled(!omniSwitchEnabled);
-            mRecentClearAllPosition.setEnabled(!omniSwitchEnabled);
+            mRecentClearAll.setEnabled(!useSlimRecents);
+            mRecentClearAllPosition.setEnabled(!useSlimRecents);
+            return true;
         }
-
         return false;
     }
         private boolean isOmniSwitchServiceRunning() {
@@ -196,6 +226,18 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
                 public void onClick(DialogInterface dialog, int whichButton) {
                 }
             }).show();
+    }
+
+    private void openSlimRecentsWarning() {
+        new AlertDialog.Builder(getActivity())
+            .setTitle(getResources().getString(R.string.slim_recents_warning_title))
+            .setMessage(getResources().getString(R.string.slim_recents_warning_message))
+            .setNegativeButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int whichButton) {
+                    Helpers.restartSystemUI();
+                }
+            }).show();
+    }
 
     private static void setDensity(int density) {
         int max = mActivity.getResources().getInteger(R.integer.lcd_density_max);
