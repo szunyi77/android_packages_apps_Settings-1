@@ -255,7 +255,7 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
         final IWindowManager windowManagerService = IWindowManager.Stub.asInterface(
                 ServiceManager.getService(Context.WINDOW_SERVICE));
         try {
-            windowManagerService.updateSettings();
+            windowManagerService.updateStatusBarNavBarHeight();
         } catch (RemoteException e) {
             Slog.w(TAG, "Failure communicating with window manager", e);
         }
