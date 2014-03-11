@@ -79,7 +79,6 @@ public class LockscreenStyle extends SettingsPreferenceFragment
 
 
     private static final String KEY_SEE_THROUGH = "see_through";
-    private static final String KEY_BLUR_BEHIND = "blur_behind";
     private static final String KEY_BLUR_RADIUS = "blur_radius";
 
     private String mDefault;
@@ -89,7 +88,6 @@ public class LockscreenStyle extends SettingsPreferenceFragment
     private ColorPickerPreference mLockColor;
     private ColorPickerPreference mDotsColor;
     private CheckBoxPreference mSeeThrough;
-    private CheckBoxPreference mBlurBehind;
     private SeekBarPreference mBlurRadius;
     private ColorPickerPreference mTargetsColor;
     private ColorPickerPreference mMiscColor;
@@ -168,18 +166,12 @@ public class LockscreenStyle extends SettingsPreferenceFragment
         mSeeThrough = (CheckBoxPreference)
                 findPreference(KEY_SEE_THROUGH);
 
-        mBlurBehind = (CheckBoxPreference)
-                findPreference(KEY_BLUR_BEHIND);
-        mBlurBehind.setChecked(Settings.System.getInt(getContentResolver(), 
-                Settings.System.LOCKSCREEN_BLUR_BEHIND, 0) == 1);
-        mBlurBehind.setEnabled(mSeeThrough.isChecked());
-
         mBlurRadius = (SeekBarPreference)
                 findPreference(KEY_BLUR_RADIUS);
         mBlurRadius.setProgress(Settings.System.getInt(getContentResolver(), 
                 Settings.System.LOCKSCREEN_BLUR_RADIUS, 12));
         mBlurRadius.setOnPreferenceChangeListener(this);
-        mBlurRadius.setEnabled(mBlurBehind.isChecked() && mBlurBehind.isEnabled());
+        mBlurRadius.setEnabled(mSeeThrough.isChecked() && mSeeThrough.isEnabled());
 
         mTargetsColor = (ColorPickerPreference)
                 findPreference(KEY_LOCKSCREEN_TARGETS_COLOR);
@@ -336,13 +328,7 @@ public class LockscreenStyle extends SettingsPreferenceFragment
                     Settings.System.LOCKSCREEN_SEE_THROUGH,
                     mSeeThrough.isChecked() ? 1 : 0);
             mBlurBehind.setEnabled(mSeeThrough.isChecked());
-            mBlurRadius.setEnabled(mBlurBehind.isChecked() && mBlurBehind.isEnabled());
-            return true;
-        } else if (preference == mBlurBehind) {
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.LOCKSCREEN_BLUR_BEHIND,
-                    mBlurBehind.isChecked() ? 1 : 0);
-            mBlurRadius.setEnabled(mBlurBehind.isChecked());
+            mBlurRadius.setEnabled(mSeeThrough.isChecked() && mSeeThrough.isEnabled());
             return true;
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
