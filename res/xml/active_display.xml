@@ -73,23 +73,41 @@
         android:key="advanced_category"
         android:title="@string/advanced_category_title">
 
-        <com.android.settings.liquid.SeekBarPreference
-            android:key="ad_brightness"
+        <CheckBoxPreference
+            android:key="ad_content"
             android:persistent="false"
-            android:title="@string/ad_brightness_title"
-            android:summary="@string/ad_brightness_summary"
-            android:max="100"
-            settings:minimum="0"
-            settings:unitsLeft=""
-            settings:unitsRight="%"
-            android:defaultValue="100"
-            android:dependency="ad_enable" />
+            android:title="@string/ad_content_title"
+            android:summary="@string/ad_content_summary"
+            android:dependency="ad_enable"/>
+
+        <CheckBoxPreference
+            android:key="ad_bypass"
+            android:persistent="false"
+            android:title="@string/ad_bypass_title"
+            android:summary="@string/ad_bypass_summary"
+            android:dependency="ad_enable"/>
 
         <com.android.settings.liquid.AppMultiSelectListPreference
             android:key="ad_excluded_apps"
             android:persistent="false"
             android:title="@string/ad_excluded_apps_title"
             android:summary="@string/ad_excluded_apps_summary"
+            android:dependency="ad_enable" />
+
+        <com.android.settings.liquid.AppMultiSelectListPreference
+            android:key="ad_privacy_apps"
+            android:persistent="false"
+            android:title="@string/ad_privacy_apps_title"
+            android:summary="@string/ad_privacy_apps_summary"
+            android:dependency="ad_enable" />
+
+        <com.android.settings.liquid.SeekBarPreference
+            android:key="ad_brightness"
+            android:persistent="false"
+            android:title="@string/ad_brightness_title"
+            android:summary="@string/ad_brightness_summary"
+            settings:unitsLeft=""
+            settings:unitsRight="%"
             android:dependency="ad_enable" />
 
         <ListPreference
@@ -100,6 +118,23 @@
             android:entries="@array/ad_redisplay_entries"
             android:entryValues="@array/ad_redisplay_values"
             android:dependency="ad_enable" />
+
+        <CheckBoxPreference
+            android:key="ad_turnoff_mode"
+            android:persistent="true"
+            android:title="@string/ad_turnoff_mode_title"
+            android:summary="@string/ad_turnoff_mode_summary"
+            android:dependency="ad_enable"/>
+
+        <ListPreference
+            android:key="ad_threshold"
+            android:persistent="false"
+            android:dialogTitle="@string/ad_threshold_title"
+            android:summary="@string/ad_threshold_summary"
+            android:title="@string/ad_threshold_title"
+            android:entries="@array/ad_threshold_entries"
+            android:entryValues="@array/ad_threshold_values"
+            android:dependency="ad_enable"/>
 
         <CheckBoxPreference
             android:key="ad_show_ampm"
