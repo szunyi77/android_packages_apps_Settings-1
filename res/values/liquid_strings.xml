@@ -1660,4 +1660,5 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="ga_gestures_rename_label">Gesture name</string>
     <!-- Message, displayed when the sdcard cannot be found, 1st parameter is the name of the file that stores the gestures.  CHAR LIMIT=80 -->
     <string name="ga_gestures_error_loading">Could not load %s. Make sure you have storage available.</string>
+    <string name="profile_applist_title">Apps</string>
 </resources>
