@@ -64,8 +64,6 @@ public class QuickSettingsTilesStyle extends SettingsPreferenceFragment implemen
     private static final String PREF_ADDITIONAL_OPTIONS =
             "quicksettings_tiles_style_additional_options";
 
-    private static final String PREF_FLIP_QS_TILES = "flip_qs_tiles";
-
     private static final int DEFAULT_QUICK_TILES_TEXT_COLOR = 0xffcccccc;
 
     private static final int MENU_RESET = Menu.FIRST;
@@ -78,7 +76,6 @@ public class QuickSettingsTilesStyle extends SettingsPreferenceFragment implemen
     private ColorPickerPreference mQuickTilesBgPressedColor;
     private ColorPickerPreference mQuickTilesTextColor;
     private SeekBarPreference mQsTileAlpha;
-    private CheckBoxPreference mFlipQsTiles;
 
     private boolean mCheckPreferences;
 
@@ -168,7 +165,7 @@ public class QuickSettingsTilesStyle extends SettingsPreferenceFragment implemen
             mQsTileAlpha.setInitValue((int) (transparency * 100));
             mQsTileAlpha.setOnPreferenceChangeListener(this);
         }
-
+        
 		mFlipQsTiles = (CheckBoxPreference) findPreference(PREF_FLIP_QS_TILES);
         mFlipQsTiles.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.QUICK_SETTINGS_TILES_FLIP, 1) == 1);
