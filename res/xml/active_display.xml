@@ -110,6 +110,18 @@
             settings:unitsRight="%"
             android:dependency="ad_enable" />
 
+        <com.android.settings.liquid.SeekBarPreference
+            android:key="ad_annoying"
+            android:persistent="false"
+            android:title="@string/ad_annoying_title"
+            android:summary="@string/ad_annoying_summary"
+            android:max="60"
+            settings:minimum="0"
+            settings:interval="1"
+            settings:unitsLeft=""
+            settings:unitsRight="s"
+            android:dependency="ad_enable" />
+
         <ListPreference
             android:key="ad_redisplay"
             android:persistent="false"
@@ -150,7 +162,7 @@
             android:summary="@string/ad_show_date_summary"
             android:dependency="ad_enable" />
 
-	    <ListPreference
+	<ListPreference
             android:key="ad_timeout"
             android:persistent="false"
             android:dialogTitle="@string/ad_timeout_title"
@@ -158,6 +170,12 @@
             android:entries="@array/ad_timeout_entries"
             android:entryValues="@array/ad_timeout_values"
             android:dependency="ad_enable" />
+
+        <CheckBoxPreference
+            android:key="ad_double_tap"
+            android:title="@string/ad_double_tap_title"
+            android:summary="@string/ad_double_tap_summary"
+            android:dependency="ad_enable"/>
 
     </PreferenceCategory>
 
