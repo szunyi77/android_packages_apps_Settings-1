@@ -1576,19 +1576,6 @@
         <item>2</item>
     </string-array>
 
-    <!-- Quiet hours auto switch -->
-    <string-array name="quiet_hours_auto_entries">
-        <item>@string/disabled</item>
-        <item>@string/quiet_hours_auto_silent</item>
-        <item>@string/quiet_hours_auto_vibrate</item>
-    </string-array>
-
-    <string-array name="quiet_hours_auto_values" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-    </string-array>
-
     <!-- Battery saver mode -->
     <string-array name="enabled_networks_gsm_choices" translatable="false">
         <item>@string/network_3G</item>
@@ -1762,6 +1749,19 @@
     </string-array>
 
     <string-array name="values_halo_msgbox_animation">
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <!-- Quiet hours auto switch -->
+    <string-array name="quiet_hours_auto_entries">
+        <item>@string/disabled</item>
+        <item>@string/quiet_hours_auto_silent</item>
+        <item>@string/quiet_hours_auto_vibrate</item>
+    </string-array>
+
+    <string-array name="quiet_hours_auto_values" translatable="false">
+        <item>0</item>
         <item>1</item>
         <item>2</item>
     </string-array>
