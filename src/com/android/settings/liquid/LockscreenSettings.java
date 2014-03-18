@@ -46,6 +46,7 @@ public class LockscreenSettings extends SettingsPreferenceFragment
     private static final String KEY_GENERAL_CATEGORY = "general_category";
     private static final String KEY_BATTERY_AROUND_RING = "battery_around_ring";
     private static final String KEY_ALWAYS_BATTERY_PREF = "lockscreen_battery_status";
+    private static final String KEY_LOCKSCREEN_ROTATION = "lockscreen_rotation";
     private static final String KEY_LOCK_BEFORE_UNLOCK = "lock_before_unlock";
     private static final String KEY_QUICK_UNLOCK_CONTROL = "quick_unlock_control";
     private static final String KEY_MENU_UNLOCK_PREF = "menu_unlock";
@@ -56,6 +57,7 @@ public class LockscreenSettings extends SettingsPreferenceFragment
 
     private CheckBoxPreference mLockRingBattery;
     private CheckBoxPreference mBatteryStatus;
+    private ListPreference mLockscreenRotation;
     private CheckBoxPreference mLockBeforeUnlock;
     private CheckBoxPreference mLockQuickUnlock;
     private CheckBoxPreference mMenuUnlock;
@@ -112,6 +114,24 @@ public class LockscreenSettings extends SettingsPreferenceFragment
             mBatteryStatus.setChecked(Settings.System.getInt(getContentResolver(),
                 Settings.System.LOCKSCREEN_ALWAYS_SHOW_BATTERY, 0) == 1);
             mBatteryStatus.setOnPreferenceChangeListener(this);
+        }
+
+        mLockscreenRotation = (ListPreference) prefs
+                .findPreference(KEY_LOCKSCREEN_ROTATION);
+        if (mLockscreenRotation != null) {
+            boolean defaultVal = !DeviceUtils.isPhone(getActivity());
+            int userVal = Settings.System.getIntForUser(getContentResolver(),
+                    Settings.System.LOCKSCREEN_ROTATION_ENABLED, defaultVal ? 1 : 0,
+                    UserHandle.USER_CURRENT);
+            mLockscreenRotation.setValue(String.valueOf(userVal));
+            if (userVal == 0) {
+                mLockscreenRotation.setSummary(mLockscreenRotation.getEntry());
+            } else {
+                mLockscreenRotation.setSummary(mLockscreenRotation.getEntry()
+                        + " " + getResources().getString(
+                        R.string.lockscreen_rotation_summary_extra));
+            }
+            mLockscreenRotation.setOnPreferenceChangeListener(this);
         }
 
         PreferenceCategory generalCategory = (PreferenceCategory) prefs
@@ -172,6 +192,19 @@ public class LockscreenSettings extends SettingsPreferenceFragment
             Settings.System.putInt(getContentResolver(),
                     Settings.System.LOCKSCREEN_ALWAYS_SHOW_BATTERY,
                     ((Boolean) value) ? 1 : 0);
+        } else if (preference == mLockscreenRotation) {
+            int userVal = Integer.valueOf((String) value);
+            Settings.System.putIntForUser(getContentResolver(),
+                    Settings.System.LOCKSCREEN_ROTATION_ENABLED,
+                    userVal, UserHandle.USER_CURRENT);
+            mLockscreenRotation.setValue(String.valueOf(value));
+            if (userVal == 0) {
+                mLockscreenRotation.setSummary(mLockscreenRotation.getEntry());
+            } else {
+                mLockscreenRotation.setSummary(mLockscreenRotation.getEntry()
+                        + " " + getResources().getString(
+                        R.string.lockscreen_rotation_summary_extra));
+            }
         } else if (preference == mMenuUnlock) {
             Settings.System.putIntForUser(getContentResolver(),
                     Settings.System.MENU_UNLOCK_SCREEN,

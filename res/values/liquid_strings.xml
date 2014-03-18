@@ -1196,6 +1196,12 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="lockscreen_buttons_toggle_sound">Toggle sound</string>
     <string name="lockscreen_buttons_sleep">Go to sleep</string>
 
+    <!-- Keyguard allow rotation -->
+    <string name="lockscreen_rotation_title">Lockscreen rotation</string>
+    <string name="lockscreen_rotation_portrait">Portrait only</string>
+    <string name="lockscreen_rotation_landscape">Landscape only</string>
+    <string name="lockscreen_rotation_summary_extra">(display rotation dependant)</string>
+
     <!-- Keyguard always show battery -->
     <string name="lockscreen_battery_status_title">Battery status</string>
     <string name="lockscreen_battery_status_summary">Always show keyguard battery status</string>
