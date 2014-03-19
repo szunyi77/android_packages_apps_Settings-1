@@ -46,6 +46,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 
+import com.android.settings.liquid.util.CMDProcessor;
 import com.android.settings.liquid.util.Helpers;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -69,7 +70,7 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
     private static Activity mActivity;
     private CheckBoxPreference mUseAltResolver;
     private static ListPreference mLcdDensity;
-    private CheckBoxPreference mRecentsCustom;
+	private CheckBoxPreference mRecentsCustom;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -84,7 +85,7 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
                 .getContentResolver(), Settings.System.ACTIVITY_RESOLVER_USE_ALT, 0) == 1);
         mUseAltResolver.setOnPreferenceChangeListener(this);
 
-        boolean enableRecentsCustom = Settings.System.getBoolean(getActivity().getContentResolver(),
+        boolean enableRecentsCustom = Settings.System.getIntForUser(getActivity().getContentResolver(),
                                       Settings.System.CUSTOM_RECENT, false);
         mRecentsCustom = (CheckBoxPreference) findPreference(CUSTOM_RECENT_MODE);
         mRecentsCustom.setChecked(enableRecentsCustom);
@@ -126,9 +127,9 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
             }
             return true;
         } else if (preference == mRecentsCustom) { // Enable||disable Slim Recent
-            Settings.System.putBoolean(getActivity().getContentResolver(),
+            Settings.System.getIntForUser(getActivity().getContentResolver(),
                     Settings.System.CUSTOM_RECENT,
-                    ((Boolean) newValue) ? true : false);
+                    (Boolean) newValue ? 1 : 0);
             Helpers.restartSystemUI();
             return true;
         }
