@@ -24,11 +24,6 @@
         android:title="@string/general_category_title">
 
         <PreferenceScreen
-            android:key="app_sidebar"
-            android:fragment="com.android.settings.liquid.AppSidebar"
-            android:title="@string/app_sidebar_title" />
-
-        <PreferenceScreen
             android:key="lock_clock"
             android:title="@string/lock_clock_title"
             android:summary="@string/lock_clock_summary">

@@ -1747,10 +1747,7 @@
                 android:excludeFromRecents="true"
                 android:theme="@*android:style/Theme.Holo.Dialog.Alert" />
 
-
         <activity android:name=".liquid.StatusBarColor" />
-
-        <activity android:name=".liquid.AppSidebar" />
 
         <activity android:name=".liquid.gestureanywhere.GestureAnywhereBuilderActivity" />
 
