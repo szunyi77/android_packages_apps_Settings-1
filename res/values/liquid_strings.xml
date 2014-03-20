@@ -1645,7 +1645,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="recent_panel_70">70%</string>
 	
     <!-- OmniSwitch -->
-    <string name="recents_use_omniswitch_title">Use for recents</string>
+    <string name="recents_use_omniswitch_title">OmniSwitch Recents Switcher</string>
     <string name="recents_use_omniswitch_summary">Use OmniSwitch instead of default recents view</string>
     <string name="omniswitch_start_settings_title">Settings</string>
     <string name="omniswitch_start_settings_summary">Open OmniSwitch settings</string>
@@ -1655,7 +1655,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <!-- Slim Recents -->
     <string name="slim_recents_warning_title">Warning</string>
     <string name="slim_recents_warning_message">SystemUI will restart to apply changes</string>
-    <string name="recents_use_slim_title">Use for recents</string>
+    <string name="recents_use_slim_title">Slim Recents Switcher</string>
     <string name="recents_use_slim_summary">Use Slim Recents instead of default recents view</string>
 	
     <!-- ATTENTION: RTL languages need to replace left with right -->
