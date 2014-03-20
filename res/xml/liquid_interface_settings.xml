@@ -81,7 +81,6 @@
             android:entries="@array/lcd_density_entries"
             android:entryValues="@array/lcd_density_entries" />
 
-    </PreferenceCategory>
 
     <PreferenceCategory
             android:key="category_omniswitch"
@@ -96,8 +95,6 @@
             android:key="omniswitch_start_settings"
             android:title="@string/omniswitch_start_settings_title"
             android:summary="@string/omniswitch_start_settings_summary" />
-
-    </PreferenceCategory>
 	
     <PreferenceCategory
             android:key="category_slimrecents"
@@ -109,4 +106,5 @@
             android:summary="@string/recents_use_slim_summary" />
 
     </PreferenceCategory>
+	
 </PreferenceScreen>

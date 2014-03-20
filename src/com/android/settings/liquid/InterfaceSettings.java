@@ -34,6 +34,7 @@ import android.os.ServiceManager;
 import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.provider.Settings;
+import android.provider.Settings.SettingNotFoundException;
 import android.preference.ListPreference;
 import android.preference.CheckBoxPreference;
 import android.preference.Preference;
@@ -49,7 +50,7 @@ import android.widget.EditText;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.util.Helpers;
+import com.android.settings.liquid.util.Helpers;
 import com.android.internal.util.liquid.OmniSwitchConstants;
 
 import java.lang.Thread;
@@ -86,12 +87,15 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
     private Preference mOmniSwitchSettings;
     private boolean mOmniSwitchStarted;
 	private CheckBoxPreference mRecentsUseSlim;
+	private ListPreference mRecentClearAllPosition;
+	private CheckBoxPreference mRecentClearAll;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.liquid_interface_settings);
+		PreferenceScreen prefSet = getPreferenceScreen();
 		
         boolean useOmniSwitch = false;
         boolean useSlimRecents = false;
@@ -169,7 +173,6 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
                 }
             }
             return true;
-        }
         } else if (preference == mRecentsUseOmniSwitch) {
             boolean omniSwitchEnabled = (Boolean) newValue;
 
