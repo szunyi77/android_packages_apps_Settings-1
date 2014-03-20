@@ -528,6 +528,9 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="notification_shortcuts_settings_title">Shortcuts</string>
     <string name="notification_shortcuts_settings_summary">Enable shortcuts in the notification drawer</string>
 
+    <!-- Brightness slider -->
+    <string name="notification_drawer_brightness_slider_title">Brightness slider</string>
+
     <!-- Notification hide labels -->
     <string name="notification_hide_labels_title">Hide notification labels</string>
     <string name="notification_hide_labels_disable">Show all labels</string>
