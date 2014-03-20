@@ -87,8 +87,6 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
     private Preference mOmniSwitchSettings;
     private boolean mOmniSwitchStarted;
 	private CheckBoxPreference mRecentsUseSlim;
-	private ListPreference mRecentClearAllPosition;
-	private CheckBoxPreference mRecentClearAll;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -202,10 +200,6 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
             // Update OmniSwitch UI components
             mRecentsUseOmniSwitch.setEnabled(!useSlimRecents);
             mRecentsUseSlim.setChecked(useSlimRecents);
-
-            // Update default recents UI components
-            mRecentClearAll.setEnabled(!useSlimRecents);
-            mRecentClearAllPosition.setEnabled(!useSlimRecents);
             return true;
         }
         return false;
