@@ -1665,4 +1665,10 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <!-- ATTENTION: RTL languages need to replace left with right -->
     <string name="recent_panel_lefty_mode_title">Show on the left edge</string>
     <string name="recent_panel_lefty_mode_summary">Show recent apps panel on the left edge.</string>
+	
+    <!-- Keyguard allow rotation -->
+    <string name="lockscreen_rotation_title">Lockscreen rotation</string>
+    <string name="lockscreen_rotation_portrait">Portrait only</string>
+    <string name="lockscreen_rotation_landscape">Landscape only</string>
+    <string name="lockscreen_rotation_summary_extra">(display rotation dependant)</string>
 </resources>
