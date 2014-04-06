@@ -74,6 +74,10 @@
             android:key="gesture_anywhere"
             android:fragment="com.android.settings.liquid.gestureanywhere.GestureAnywhereSettings"
             android:title="@string/gesture_anywhere_title" />
+			
+        <PreferenceScreen
+            android:fragment="com.android.settings.liquid.BatterySaverSettings"
+            android:title="@string/battery_saver_title" />
 
         <ListPreference
             android:key="lcd_density"
