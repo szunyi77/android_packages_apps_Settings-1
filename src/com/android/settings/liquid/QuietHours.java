@@ -48,7 +48,6 @@ import android.text.TextUtils;
 import android.widget.EditText;
 
 import com.android.settings.R;
-import com.android.settings.liquid.service.SmsCallHelper;
 import com.android.settings.liquid.service.SmsCallController;
 import com.android.settings.SettingsPreferenceFragment;
 
