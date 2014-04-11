@@ -1664,7 +1664,12 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="slim_recents_warning_message">SystemUI will restart to apply changes</string>
     <string name="recents_use_slim_title">Slim Recents Switcher</string>
     <string name="recents_use_slim_summary">Use Slim Recents instead of default recents view</string>
-	
+    <string name="recent_panel_expanded_mode_title">Expanded mode</string>
+    <string name="recent_panel_expanded_mode_summary">Recent tasks expanded preview mode</string>
+    <string name="recent_panel_expanded_mode_auto">Auto (default)</string>
+    <string name="recent_panel_expanded_mode_always">Always</string>
+    <string name="recent_panel_expanded_mode_never">Never</string>
+
     <!-- ATTENTION: RTL languages need to replace left with right -->
     <string name="recent_panel_lefty_mode_title">Show on the left edge</string>
     <string name="recent_panel_lefty_mode_summary">Show recent apps panel on the left edge.</string>
