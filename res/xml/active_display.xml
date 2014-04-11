@@ -131,6 +131,13 @@
             android:entryValues="@array/ad_redisplay_values"
             android:dependency="ad_enable" />
 
+        <CheckBoxPreference
+            android:key="ad_turnoff_mode"
+            android:persistent="true"
+            android:title="@string/ad_turnoff_mode_title"
+            android:summary="@string/ad_turnoff_mode_summary"
+            android:dependency="ad_enable"/>
+
         <ListPreference
             android:key="ad_threshold"
             android:persistent="false"
@@ -163,6 +170,12 @@
             android:entries="@array/ad_timeout_entries"
             android:entryValues="@array/ad_timeout_values"
             android:dependency="ad_enable" />
+
+        <CheckBoxPreference
+            android:key="ad_double_tap"
+            android:title="@string/ad_double_tap_title"
+            android:summary="@string/ad_double_tap_summary"
+            android:dependency="ad_enable"/>
 
     </PreferenceCategory>
 
