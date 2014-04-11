@@ -66,7 +66,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-<<<<<<< HEAD:src/com/android/settings/liquid/quicksettings/QuickSettingsTiles.java
 import com.android.internal.util.liquid.AppHelper;
 import com.android.internal.util.liquid.DeviceUtils;
 import com.android.internal.util.liquid.LockscreenTargetUtils;

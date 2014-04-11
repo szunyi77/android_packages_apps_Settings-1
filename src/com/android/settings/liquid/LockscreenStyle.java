@@ -365,8 +365,8 @@ public class LockscreenStyle extends SettingsPreferenceFragment
         if (value == null) {
             resId = R.string.lockscreen_lock_icon_default;
             mLockIcon.setValueIndex(2);
-        } else if (value.contains("Liquid_lock")) {
-            resId = R.string.lockscreen_lock_icon_Liquid;
+        } else if (value.contains("liquid_lock")) {
+            resId = R.string.lockscreen_lock_icon_liquid;
             mLockIcon.setValueIndex(1);
         } else {
             resId = R.string.lockscreen_lock_icon_custom;
@@ -421,7 +421,7 @@ public class LockscreenStyle extends SettingsPreferenceFragment
     }
 
     private void resizeLiquidLock() {
-        Bitmap LiquidLock = BitmapFactory.decodeResource(getResources(), R.drawable.Liquid_lock);
+        Bitmap LiquidLock = BitmapFactory.decodeResource(getResources(), R.drawable.liquid_lock);
         if (LiquidLock != null) {
             String path = null;
             int px = requestImageSize();
@@ -430,7 +430,7 @@ public class LockscreenStyle extends SettingsPreferenceFragment
                 mLockImage.createNewFile();
                 mLockImage.setWritable(true, false);
                 File image = new File(getActivity().getFilesDir() + File.separator
-                            + "Liquid_lock" + System.currentTimeMillis() + ".png");
+                            + "liquid_lock" + System.currentTimeMillis() + ".png");
                 path = image.getAbsolutePath();
                 mLockImage.renameTo(image);
                 FileOutputStream outPut = new FileOutputStream(image);
