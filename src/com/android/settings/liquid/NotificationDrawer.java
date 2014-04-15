@@ -67,7 +67,7 @@ public class NotificationDrawer extends SettingsPreferenceFragment
     private static final String PREF_TILE_PICKER =
             "tile_picker";
 	private static final String PREF_FLIP_QS_TILES = 
-	        "quick_settings_tiles_flip";
+	        "flip_qs_tiles";
     private static final String STATUS_BAR_CUSTOM_HEADER = 
             "custom_status_bar_header";
 
