@@ -1371,11 +1371,11 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="pie_disable_ime_triggers_title">Trigger size on keyboard</string>
     <string name="pie_disable_ime_triggers_summary">Reduces left and right trigger size</string>
 
-    <!--  Development shortcut -->
-    <string name="development_shortcut_title">Development shortcut</string>
-    <string name="development_shortcut_summary">Enable \'wipe data\' and \'force close\' options in notification area and recent apps list</string>
-
-    <!-- Quick settings flip tiles -->
+	<!-- Lockscreen wallpaper -->
+    <string name="lockscreen_wallpaper">Custom wallpaper</string>
+    <string name="select_wallpaper">Select wallpaper</string>
+	
+	<!-- QuickSettings fliptiles -->
     <string name="flip_qs_tiles_title">Flip tiles</string>
     <string name="flip_qs_tiles_summary">Animates tile flips upon setting change</string>
 	

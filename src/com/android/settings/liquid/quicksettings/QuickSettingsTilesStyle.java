@@ -20,7 +20,6 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
-import android.content.ContentResolver;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -96,7 +95,6 @@ public class QuickSettingsTilesStyle extends SettingsPreferenceFragment implemen
         addPreferencesFromResource(R.xml.quicksettings_tiles_style);
 
         prefs = getPreferenceScreen();
-        ContentResolver resolver = getActivity().getContentResolver();
 
         PackageManager pm = getPackageManager();
         Resources systemUiResources;
@@ -225,7 +223,6 @@ public class QuickSettingsTilesStyle extends SettingsPreferenceFragment implemen
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        ContentResolver resolver = getContentResolver();
         if (!mCheckPreferences) {
             return false;
         }
