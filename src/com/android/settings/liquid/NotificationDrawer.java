@@ -80,7 +80,6 @@ public class NotificationDrawer extends SettingsPreferenceFragment
     ListPreference mQuickPulldown;
     ListPreference mSmartPulldown;
     CheckBoxPreference mCollapsePanel;
-    CheckBoxPreference mFlipQsTiles;
     CheckBoxPreference mStatusBarCustomHeader;
 
     @Override
