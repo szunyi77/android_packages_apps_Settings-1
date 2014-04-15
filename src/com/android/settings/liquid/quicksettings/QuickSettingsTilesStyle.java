@@ -95,6 +95,7 @@ public class QuickSettingsTilesStyle extends SettingsPreferenceFragment implemen
         addPreferencesFromResource(R.xml.quicksettings_tiles_style);
 
         prefs = getPreferenceScreen();
+        ContentResolver resolver = getActivity().getContentResolver();
 
         PackageManager pm = getPackageManager();
         Resources systemUiResources;
@@ -223,6 +224,7 @@ public class QuickSettingsTilesStyle extends SettingsPreferenceFragment implemen
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
+        ContentResolver resolver = getContentResolver();
         if (!mCheckPreferences) {
             return false;
         }
