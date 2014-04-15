@@ -66,8 +66,6 @@ public class NotificationDrawer extends SettingsPreferenceFragment
             "quicksettings_tiles_style";
     private static final String PREF_TILE_PICKER =
             "tile_picker";
-	private static final String PREF_FLIP_QS_TILES = 
-	        "flip_qs_tiles";
     private static final String STATUS_BAR_CUSTOM_HEADER = 
             "custom_status_bar_header";
 
@@ -179,10 +177,6 @@ public class NotificationDrawer extends SettingsPreferenceFragment
             mSmartPulldown.setValue(String.valueOf(smartPulldown));
             updateSmartPulldownSummary(smartPulldown);
         }
-		
-	    mFlipQsTiles = (CheckBoxPreference) findPreference(PREF_FLIP_QS_TILES);
-        mFlipQsTiles.setChecked(Settings.System.getInt(getContentResolver(),
-                Settings.System.QUICK_SETTINGS_TILES_FLIP, 0) == 1);
 
         mCollapsePanel = (CheckBoxPreference) findPreference(PRE_COLLAPSE_PANEL);
         mCollapsePanel.setChecked(Settings.System.getIntForUser(getContentResolver(),
@@ -244,11 +238,6 @@ public class NotificationDrawer extends SettingsPreferenceFragment
             Settings.System.putIntForUser(getContentResolver(),
                     Settings.System.QS_COLLAPSE_PANEL,
                     (Boolean) newValue ? 1 : 0, UserHandle.USER_CURRENT);
-            return true;
-		} else if (preference == mFlipQsTiles) {
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.QUICK_SETTINGS_TILES_FLIP,
-                    ((CheckBoxPreference) preference).isChecked() ? 1 : 0);
             return true;
         } else if (preference == mStatusBarCustomHeader) {
             boolean value = (Boolean) newValue;
