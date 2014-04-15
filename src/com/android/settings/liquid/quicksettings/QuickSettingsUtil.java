@@ -55,7 +55,6 @@ import static com.android.internal.util.liquid.QSConstants.TILE_VOLUME;
 import static com.android.internal.util.liquid.QSConstants.TILE_WIFI;
 import static com.android.internal.util.liquid.QSConstants.TILE_WIFIAP;
 import static com.android.internal.util.liquid.QSConstants.TILE_REBOOT;
-import static com.android.internal.util.liquid.QSConstants.TILE_INTERNALMEMORY;
 import static com.android.internal.util.liquid.QSConstants.TILE_FCHARGE;
 import static com.android.internal.util.liquid.QSConstants.TILE_ONTHEGO;
 
@@ -172,9 +171,6 @@ public class QuickSettingsUtil {
         registerTile(new QuickSettingsUtil.TileInfo(
                 TILE_CONTACT, R.string.title_tile_contact,
                 "com.android.systemui:drawable/ic_qs_default_user"));
-        registerTile(new QuickSettingsUtil.TileInfo(
-                TILE_INTERNALMEMORY, R.string.internal_memory_tile,
-                "com.android.systemui:drawable/ic_qs_internalmemory"));
         registerTile(new QuickSettingsUtil.TileInfo(
                 TILE_FCHARGE, R.string.title_tile_fcharge,
                 "com.android.systemui:drawable/ic_qs_fcharge_off"));

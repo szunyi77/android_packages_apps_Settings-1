@@ -949,7 +949,6 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="custom_tile_long_press">Longpress:</string>
     <string name="custom_tile_null_warning">An action must be set first</string>
     <string name="custom_tile_resolve_name">Unknown</string>
-    <string name="internal_memory_tile">internal memory</string>
 
     <!-- Quick settings style -->
     <string name="summary_quicksettings_tiles_style">View or change current quick settings style</string>
