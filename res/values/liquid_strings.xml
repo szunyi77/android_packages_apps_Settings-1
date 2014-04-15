@@ -1441,29 +1441,21 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="noti_reminder_interval_3dot5s">3.5 second</string>
     <string name="noti_reminder_interval_4s">4 seconds</string>
 
-    <!-- Network Traffic -->
-    <string name="status_bar_show_network_stats_title">Show network speeds</string>
-    <string name="status_bar_show_network_stats_summary">Show network speeds in statusbar</string>
-    <string name="status_bar_network_stats_update_title">Update frequency</string>
-    <string name="status_bar_network_stats_update_summary">How often is indicator updated</string>
-    <string name="time_0_seconds_off">Off</string>
-    <string name="time_0_2_seconds">.2 seconds</string>
-    <string name="time_0_5_seconds">.5 seconds</string>
-    <string name="time_1_second">1 second</string>
-    <string name="time_1_5_seconds">1.5 seconds</string>
-    <string name="time_2_seconds">2 seconds</string>
-    <string name="time_2_5_seconds">2.5 seconds</string>
-    <string name="time_3_seconds">3 seconds</string>
-    <string name="time_3_5_seconds">3.5 seconds</string>
-    <string name="time_4_seconds">4 seconds</string>
-    <string name="time_4_5_seconds">4.5 seconds</string>
-    <string name="time_5_seconds">5 seconds</string>
-    <string name="time_5_5_seconds">5.5 seconds</string>
-    <string name="time_6_seconds">6 seconds</string>
-    <string name="time_7_seconds">7 seconds</string>
-    <string name="time_8_seconds">8 seconds</string>
-    <string name="time_9_seconds">9 seconds</string>
-    <string name="time_10_seconds">10 seconds</string>
+    <!-- Network traffic -->
+    <string name="network_traffic_title">Network traffic</string>
+    <string name="show_network_traffic_state">Status bar traffic monitor</string>
+    <string name="show_network_traffic_unit">Display unit</string>
+    <string name="show_network_traffic_frequency">Update interval</string>
+    <string name="show_network_traffic_disable">Disabled</string>
+    <string name="show_network_traffic_up">Outgoing</string>
+    <string name="show_network_traffic_down">Incoming</string>
+    <string name="show_network_traffic_all">Outgoing and incoming</string>
+    <string name="show_network_traffic_bit">Bits per second</string>
+    <string name="show_network_traffic_byte">Bytes per second</string>
+    <string name="show_network_traffic_500">500 ms</string>
+    <string name="show_network_traffic_1000">1000 ms</string>
+    <string name="show_network_traffic_1500">1500 ms</string>
+    <string name="show_network_traffic_2000">2000 ms</string>
     
      <!-- Screen recorder -->
     <string name="screen_recorder_title">Screen recorder</string>
