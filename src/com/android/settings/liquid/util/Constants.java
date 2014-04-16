@@ -16,7 +16,7 @@
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.android.settings.util;
+package com.android.settings.liquid.util;
 
 public interface Constants {
 

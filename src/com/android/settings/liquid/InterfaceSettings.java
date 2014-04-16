@@ -88,8 +88,8 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
                 .getContentResolver(), Settings.System.ACTIVITY_RESOLVER_USE_ALT, 0) == 1);
         mUseAltResolver.setOnPreferenceChangeListener(this);
 
-        boolean enableRecentsCustom = Settings.System.getIntForUser(getActivity().getContentResolver(),
-                                      Settings.System.CUSTOM_RECENT, false);
+        boolean enableRecentsCustom = Settings.System.getBoolean(getActivity().getContentResolver(),
+                                      Settings.System.CUSTOM_RECENT_TOGGLE, false);
         mRecentsCustom = (CheckBoxPreference) findPreference(CUSTOM_RECENT_MODE);
         mRecentsCustom.setChecked(enableRecentsCustom);
         mRecentsCustom.setOnPreferenceChangeListener(this);
@@ -135,8 +135,8 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
             }
             return true;
         } else if (preference == mRecentsCustom) {
-            Settings.System.getIntForUser(getActivity().getContentResolver(),
-                    Settings.System.CUSTOM_RECENT, (Boolean) newValue ? 1 : 0);
+            Settings.System.putBoolean(getActivity().getContentResolver(),
+                    Settings.System.CUSTOM_RECENT_TOGGLE, (Boolean) newValue ? true : false);
             Helpers.restartSystemUI();
             return true;
         }

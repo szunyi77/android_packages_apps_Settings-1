@@ -38,8 +38,8 @@ import android.widget.Switch;
 import android.widget.TextView;
 
 import com.android.settings.R;
-import com.android.settings.util.Constants;
-import com.android.settings.util.Helpers;
+import com.android.settings.liquid.util.Constants;
+import com.android.settings.liquid.util.Helpers;
 
 import java.io.File;
 import java.util.ArrayList;
