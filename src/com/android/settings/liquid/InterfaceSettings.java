@@ -79,13 +79,9 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.liquid_interface_settings);
 		PreferenceScreen prefSet = getPreferenceScreen();
 
-        boolean useSlimRecents = false;
-
-        // Slim recents
         mRecentsUseSlim = (CheckBoxPreference) prefSet.findPreference(RECENTS_USE_SLIM);
         mRecentsUseSlim.setChecked(useSlimRecents);
         mRecentsUseSlim.setOnPreferenceChangeListener(this);
-        mRecentsUseSlim.setEnabled(!useOmniSwitch);
 
         mActivity = getActivity();
 
@@ -139,9 +135,6 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
 
             Settings.System.putInt(getContentResolver(), Settings.System.RECENTS_USE_SLIM,
                     useSlimRecents ? 1 : 0);
-
-            // Give user information that Slim Recents needs restart SystemUI
-            openSlimRecentsWarning();
             return true;
         }
         return false;

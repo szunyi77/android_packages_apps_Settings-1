@@ -85,11 +85,6 @@
             android:entries="@array/lcd_density_entries"
             android:entryValues="@array/lcd_density_entries" />
 
-        <CheckBoxPreference
-            android:key="recents_use_slim"
-            android:title="@string/recents_use_slim_title"
-            android:summary="@string/recents_use_slim_summary" />
-
     </PreferenceCategory>
 	
 </PreferenceScreen>

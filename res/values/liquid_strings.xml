@@ -1635,10 +1635,6 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="recent_panel_70">70%</string>
 
     <!-- Slim Recents -->
-    <string name="slim_recents_warning_title">Warning</string>
-    <string name="slim_recents_warning_message">SystemUI will restart to apply changes</string>
-    <string name="recents_use_slim_title">Slim Recents Switcher</string>
-    <string name="recents_use_slim_summary">Use Slim Recents instead of default recents view</string>
     <string name="recent_panel_expanded_mode_title">Expanded mode</string>
     <string name="recent_panel_expanded_mode_summary">Recent tasks expanded preview mode</string>
     <string name="recent_panel_expanded_mode_auto">Auto (default)</string>
