@@ -64,6 +64,12 @@
         android:key="advanced_category"
         android:title="@string/advanced_category_title">
 
+        <ListPreference
+            android:key="lcd_density"
+            android:title="@string/custom_density_title"
+            android:entries="@array/lcd_density_entries"
+            android:entryValues="@array/lcd_density_entries" />
+
         <CheckBoxPreference
             android:key="use_alt_resolver"
             android:title="@string/alt_resolver"
@@ -77,19 +83,9 @@
             android:persistent="true" />
 
         <PreferenceScreen
-            android:fragment="com.android.settings.liquid.BatterySaverSettings"
-            android:title="@string/battery_saver_title" />
-
-        <PreferenceScreen
             android:key="gesture_anywhere"
             android:fragment="com.android.settings.liquid.gestureanywhere.GestureAnywhereSettings"
             android:title="@string/gesture_anywhere_title" />
-
-        <ListPreference
-            android:key="lcd_density"
-            android:title="@string/custom_density_title"
-            android:entries="@array/lcd_density_entries"
-            android:entryValues="@array/lcd_density_entries" />
 
     </PreferenceCategory>
 	

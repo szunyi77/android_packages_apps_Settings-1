@@ -1123,12 +1123,21 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="listview_cycle_interpolator">Cycle</string>
     <string name="listview_linear_interpolator">Linear</string>
 
+    <!-- Custom LCD density -->
+    <string name="custom_density_title">Custom LCD density</string>
+    <string name="custom_density">Custom</string>
+    <string name="set_custom_density_title">Set custom density</string>
+    <string name="set_custom_density_set">Set</string>
+    <string name="custom_density_summary_invalid">"INVALID DENSITY!"</string>
+    <string name="dpi">DPI</string>
+    <string name="current_lcd_density">"Current LCD Density: "</string>
+
     <!-- Default app picker -->
     <string name="alt_resolver">Default app picker</string>
     <string name="alt_resolver_summary">Use an alternate default app picker grid</string>
 
-    <!-- Enable slim recents -->
-    <string name="custom_recent_title">Enable slim recents</string>
+    <!-- Enable custom recents -->
+    <string name="custom_recent_title">Enable custom recents</string>
     <string name="custom_recent_summary">Use an alternate recents preview window</string>
 
     <!-- Animation controls -->	
@@ -1304,15 +1313,6 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="media_scanner_on_boot_ask">Ask to scan (notification)</string>
     <string name="media_scanner_on_boot_disabled">Do not scan media</string>
 
-    <!-- Custom LCD density -->
-    <string name="custom_density_title">Custom LCD density</string>
-    <string name="custom_density">Custom</string>
-    <string name="set_custom_density_title">Set custom density</string>
-    <string name="set_custom_density_set">Set</string>
-    <string name="custom_density_summary_invalid">"INVALID DENSITY!"</string>
-    <string name="dpi">DPI</string>
-    <string name="current_lcd_density">"Current LCD Density: "</string>
-
     <!-- Custom carrier label -->
     <string name="notification_carrier_label_title">Carrier label</string>
     <string name="notification_custom_carrier_label_title">Custom carrier label</string>
@@ -1467,6 +1467,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="screen_recorder_summary2">Power + Volume Up</string>
     <string name="screen_recorder_video_dimensions_title">Video size</string>
     <string name="screen_recorder_video_bitrate_title">Bitrate</string>
+
     <!-- video sizes -->
     <string name="screen_recorder_size_240x400">240x400</string>
     <string name="screen_recorder_size_360x640">360x640</string>
@@ -1475,6 +1476,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="screen_recorder_size_540x960">540x960</string>
     <string name="screen_recorder_size_600x1024">600x1024</string>
     <string name="screen_recorder_size_720x1280">720x1280</string>
+
     <!-- frame rates -->
     <string name="screen_recorder_bitrate_title_100000">100 kB/s</string>
     <string name="screen_recorder_bitrate_title_250000">250 kB/s</string>
@@ -1517,10 +1519,6 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="toast_GrowFadeCenter_animation">GrowFadeCenter Animation</string>
     <string name="toast_GrowFadeBottom_animation">GrowFadeBottom Animation</string>
     <string name="toast_Translucent_animation">Translucent Animation</string>
-	
-    <!-- Custom Recent Settings -->
-    <string name="custom_recent_title">Enable Slim Recents</string>
-    <string name="custom_recent_summary">Tick this box to switch between Slim/AOSB RecentApps</string>
 
     <!-- OTA App -->
     <string name="ota_app">LiquidSmooth Updates</string>
@@ -1577,9 +1575,9 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="battery_bar_animate_summary">The charging animation may result in a poor user experience. Enable at your own discretion.</string>
 	
     <!-- Gesture Anywhere -->
-    <string name="gesture_anywhere_title">Gesture Anywhere</string>
-    <string name="gesture_anywhere_enabled_title">Gesture Anywhere</string>
-    <string name="gesture_anywhere_enabled_summary">Enable the Gesture Anywhere feature</string>
+    <string name="gesture_anywhere_title">Gesture anywhere</string>
+    <string name="gesture_anywhere_enabled_title">Gesture anywhere</string>
+    <string name="gesture_anywhere_enabled_summary">Enable the Gesture anywhere feature</string>
     <string name="gesture_anywhere_position_title">Loction</string>
     <string name="gesture_anywhere_position_left">Left edge</string>
     <string name="gesture_anywhere_position_right">Right edge</string>
