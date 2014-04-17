@@ -558,8 +558,6 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="status_bar_style_icon">Signal icon</string>
     <string name="status_bar_signal_text_title">Signal display</string>
     <string name="status_bar_signal_text_show_text">Signal text</string>
-	<string name="status_bar_double_tap_to_sleep_title">Double-tap to sleep</string>
-    <string name="status_bar_double_tap_to_sleep_summary">Double-tap the status bar to goto sleep</string>
 
     <!-- Status bar notification count -->
     <string name="status_bar_notification_count_title">Notification count</string>
@@ -1262,8 +1260,6 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="ad_threshold_summary">Time the proximity sensor must be covered before active display is shown</string>
     <string name="ad_annoying_title">Less frequent notification</string>
     <string name="ad_annoying_summary">Limit the notification to once per time period</string>
-    <string name="ad_double_tap_title">Double tap to sleep</string>
-    <string name="ad_double_tap_summary">Turn screen off with double tap</string>
 
     <!-- Clock widget -->
     <string name="lock_clock_title">Clock widget</string>

@@ -162,7 +162,7 @@
             android:summary="@string/ad_show_date_summary"
             android:dependency="ad_enable" />
 
-	<ListPreference
+	    <ListPreference
             android:key="ad_timeout"
             android:persistent="false"
             android:dialogTitle="@string/ad_timeout_title"
@@ -170,12 +170,6 @@
             android:entries="@array/ad_timeout_entries"
             android:entryValues="@array/ad_timeout_values"
             android:dependency="ad_enable" />
-
-        <CheckBoxPreference
-            android:key="ad_double_tap"
-            android:title="@string/ad_double_tap_title"
-            android:summary="@string/ad_double_tap_summary"
-            android:dependency="ad_enable"/>
 
     </PreferenceCategory>
 
