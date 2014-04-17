@@ -1461,11 +1461,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="show_network_traffic_1500">1500 ms</string>
     <string name="show_network_traffic_2000">2000 ms</string>
 
-    <!-- Activity indicators -->
-    <string name="show_activity_indicators_on_status_bar_title">Activity indicators</string>
-    <string name="show_activity_indicators_on_status_bar_summary">Show indicators in signal bars</string>
-    
-     <!-- Screen recorder -->
+    <!-- Screen recorder -->
     <string name="screen_recorder_title">Screen recorder</string>
     <string name="screen_recorder_summary">Adjust screen recorder settings</string>
     <string name="screen_recorder_summary2">Power + Volume Up</string>

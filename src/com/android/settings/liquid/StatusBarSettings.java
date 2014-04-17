@@ -58,7 +58,6 @@ public class StatusBarSettings extends SettingsPreferenceFragment
     private ListPreference mNetTrafficState;
     private ListPreference mNetTrafficUnit;
     private ListPreference mNetTrafficPeriod;
-    private CheckBoxPreference mStatusBarNetworkActivity;
 
     private int mNetTrafficVal;
     private int MASK_UP;
