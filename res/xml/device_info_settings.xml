@@ -42,7 +42,7 @@
         <PreferenceScreen android:key="changelog"
             android:title="@string/changelog_title"
             android:summary="@string/changelog_title_summary"
-            android:fragment="com.android.settings.cyanogenmod.ChangeLog" >
+            android:fragment="com.android.settings.liquid.ChangeLog" >
         </PreferenceScreen>
 
         <!-- Device status - launches activity -->
