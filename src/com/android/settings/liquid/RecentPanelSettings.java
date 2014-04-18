@@ -31,6 +31,7 @@ import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.provider.Settings.SettingNotFoundException;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -44,10 +45,10 @@ import com.android.settings.util.Helpers;
 
 import java.util.Date;
 
-public class RecentsPanelSettings extends SettingsPreferenceFragment
-    implements OnPreferenceChangeListener {
+public class RecentPanelSettings extends SettingsPreferenceFragment
+        implements OnPreferenceChangeListener {
 
-    private static final String TAG = "RecentsPanelSettings";
+    private static final String TAG = "RecentPanelSettings";
 
     private static final String CUSTOM_RECENT_MODE = "custom_recent_mode";
     private static final String RECENT_MENU_CLEAR_ALL = "recent_menu_clear_all";
@@ -56,6 +57,9 @@ public class RecentsPanelSettings extends SettingsPreferenceFragment
     private static final String RAM_BAR_COLOR_APP_MEM = "ram_bar_color_app_mem";
     private static final String RAM_BAR_COLOR_CACHE_MEM = "ram_bar_color_cache_mem";
     private static final String RAM_BAR_COLOR_TOTAL_MEM = "ram_bar_color_total_mem";
+    private static final String RECENT_PANEL_LEFTY_MODE = "recent_panel_lefty_mode";
+    private static final String RECENT_PANEL_SCALE = "recent_panel_scale";
+    private static final String RECENT_PANEL_EXPANDED_MODE = "recent_panel_expanded_mode";
 
     private static final int MENU_RESET = Menu.FIRST;
     private static final int MENU_HELP = MENU_RESET + 1; 
@@ -71,6 +75,9 @@ public class RecentsPanelSettings extends SettingsPreferenceFragment
     private ColorPickerPreference mRamBarAppMemColor;
     private ColorPickerPreference mRamBarCacheMemColor;
     private ColorPickerPreference mRamBarTotalMemColor;
+    private CheckBoxPreference mRecentPanelLeftyMode;
+    private ListPreference mRecentPanelScale;
+    private ListPreference mRecentPanelExpandedMode;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -79,7 +86,7 @@ public class RecentsPanelSettings extends SettingsPreferenceFragment
         int intColor;
         String hexColor;
 
-        addPreferencesFromResource(R.xml.recents_panel_settings);
+        addPreferencesFromResource(R.xml.recent_panel_settings);
 
         PreferenceScreen prefSet = getPreferenceScreen();
 
@@ -131,6 +138,17 @@ public class RecentsPanelSettings extends SettingsPreferenceFragment
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mRamBarTotalMemColor.setSummary(hexColor);
         mRamBarTotalMemColor.setNewPreviewColor(intColor);
+
+        mRecentPanelLeftyMode = (CheckBoxPreference) findPreference(RECENT_PANEL_LEFTY_MODE);
+        mRecentPanelLeftyMode.setOnPreferenceChangeListener(this);
+        mRecentPanelScale = (ListPreference) findPreference(RECENT_PANEL_SCALE);
+        mRecentPanelScale.setOnPreferenceChangeListener(this);
+
+        mRecentPanelExpandedMode = (ListPreference) findPreference(RECENT_PANEL_EXPANDED_MODE);
+        mRecentPanelExpandedMode.setOnPreferenceChangeListener(this);
+        final int recentExpandedMode = Settings.System.getInt(getContentResolver(),
+                Settings.System.RECENT_PANEL_EXPANDED_MODE, 0);
+        mRecentPanelExpandedMode.setValue(recentExpandedMode + "");
 
         updateRecentsOptions();
         setHasOptionsMenu(true);
@@ -220,6 +238,21 @@ public class RecentsPanelSettings extends SettingsPreferenceFragment
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.RECENTS_RAM_BAR_MEM_COLOR, intHex);
             return true;
+        } else if (preference == mRecentPanelScale) {
+            int value = Integer.parseInt((String) newValue);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.RECENT_PANEL_SCALE_FACTOR, value);
+            return true;
+        } else if (preference == mRecentPanelLeftyMode) {
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.RECENT_PANEL_GRAVITY,
+                    ((Boolean) newValue) ? Gravity.LEFT : Gravity.RIGHT);
+            return true;
+        } else if (preference == mRecentPanelExpandedMode) {
+            int value = Integer.parseInt((String) newValue);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.RECENT_PANEL_EXPANDED_MODE, value);
+            return true;
         }
         return false;
     }
@@ -243,11 +276,20 @@ public class RecentsPanelSettings extends SettingsPreferenceFragment
         mRamBarTotalMemColor.setSummary(hexColor);
     }
 
+
     private void updateRecentsOptions() {
         int ramBarMode = Settings.System.getInt(getActivity().getContentResolver(),
                Settings.System.RECENTS_RAM_BAR_MODE, 0);
         boolean recentsStyle = Settings.System.getBoolean(getActivity().getContentResolver(),
                Settings.System.CUSTOM_RECENT_TOGGLE, false);
+
+        final boolean recentLeftyMode = Settings.System.getInt(getContentResolver(),
+                Settings.System.RECENT_PANEL_GRAVITY, Gravity.RIGHT) == Gravity.LEFT;
+        mRecentPanelLeftyMode.setChecked(recentLeftyMode);
+        final int recentScale = Settings.System.getInt(getContentResolver(),
+                Settings.System.RECENT_PANEL_SCALE_FACTOR, 100);
+        mRecentPanelScale.setValue(recentScale + "");
+
         if (recentsStyle) {
             mRecentClearAll.setEnabled(false);
             mRamBarMode.setEnabled(false);

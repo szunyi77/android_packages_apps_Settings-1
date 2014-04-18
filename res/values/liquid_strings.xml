@@ -1154,16 +1154,16 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="animation_duration_default">Default</string>
     <string name="header_summary_animation">@null</string>
 
-    <!-- Custom recents -->
-    <string name="custom_recent_title">Switch recents styles</string>
-    <string name="custom_recent_summary">Tick to use slim style recents panel</string>
+    <!-- Custom recent -->
+    <string name="custom_recent_title">Switch recent style</string>
+    <string name="custom_recent_summary">Tick to use slim style recent panel</string>
 
-    <!-- Recents panel -->
-    <string name="recents_panel_title">Recents panel</string>
-    <string name="recents_panel_summary">Enables and customize recent apps display</string>
+    <!-- Recent panel -->
+    <string name="recent_panel_title">Recent panel</string>
+    <string name="recent_panel_summary">Enables and customize recent apps display</string>
     <string name="show_recent_clear_all_button_title">Show clear all button</string>
     <string name="show_recent_clear_all_button_summary">Tick to show or untick to hide clear all</string>
-    <string name="recents_clear_all_button">Recents clear all button</string>
+    <string name="recent_clear_all_button">Recent clear all button</string>
     <string name="recent_clear_all_button_location_title">Clear all button position</string>
     <string name="recent_clear_all_button_location_summary">Which corner the clear all recent button</string>
     <string name="recent_clear_all_button_location_top_left">Top left</string>
@@ -1171,12 +1171,12 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="recent_clear_all_button_location_bottom_left">Bottom left</string>
     <string name="recent_clear_all_button_location_bottom_right">Bottom right</string>
 
-    <!-- Recents Ram Bar -->
-    <string name="ram_bar">Recents RAM bar</string>
+    <!-- Recent RAM bar -->
+    <string name="ram_bar">Recent RAM bar</string>
     <string name="ram_bar_note_title">Note</string>
     <string name="ram_bar_note_summary">This RAM bar shows the actual android memory (RAM) utilization. Please note that having cached apps helps your device open apps much faster.</string>
-    <string name="ram_bar_mode_title">Recents</string>
-    <string name="ram_bar_mode_dialog_title">Show on recents RAM bar</string>
+    <string name="ram_bar_mode_title">Recent</string>
+    <string name="ram_bar_mode_dialog_title">Show on recent RAM bar</string>
     <string name="ram_bar_none">None</string>
     <string name="ram_bar_apps">Applications</string>
     <string name="ram_bar_cache">Applications and cache</string>
@@ -1191,6 +1191,25 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="ram_bar_button_reset">Reset colors</string>
     <string name="ram_bar_reset">Reset</string>
     <string name="ram_bar_reset_message">Reset RAM bar style to default?</string>
+
+    <!-- Recent apps panel -->
+    <string name="recent_panel_category">Recent apps panel</string>
+    <string name="recent_panel_scale_title">Size</string>
+    <string name="recent_panel_scale_summary">Recent apps panel size in percent</string>
+    <string name="recent_panel_100">100% (default)</string>
+    <string name="recent_panel_85">85%</string>
+    <string name="recent_panel_70">70%</string>
+
+    <!-- Recent apps mode -->
+    <string name="recent_panel_expanded_mode_title">Expanded mode</string>
+    <string name="recent_panel_expanded_mode_summary">Recent tasks expanded preview mode</string>
+    <string name="recent_panel_expanded_mode_auto">Auto (default)</string>
+    <string name="recent_panel_expanded_mode_always">Always</string>
+    <string name="recent_panel_expanded_mode_never">Never</string>
+
+    <!-- ATTENTION: RTL languages need to replace left with right -->
+    <string name="recent_panel_lefty_mode_title">Show on the left edge</string>
+    <string name="recent_panel_lefty_mode_summary">Show recent apps panel on the left edge.</string>
 
     <!-- Delete apn confirmation dialog message -->
     <string name="confirm_delete_apn">The APN will be deleted.</string>
@@ -1658,25 +1677,6 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <!-- Message, displayed when the sdcard cannot be found, 1st parameter is the name of the file that stores the gestures.  CHAR LIMIT=80 -->
     <string name="ga_gestures_error_loading">Could not load %s. Make sure you have storage available.</string>
     <string name="profile_applist_title">Apps</string>
-
-    <!-- Recent panel -->
-    <string name="recent_panel_category">Recent apps panel</string>
-    <string name="recent_panel_scale_title">Size</string>
-    <string name="recent_panel_scale_summary">Recent apps panel size in percent.</string>
-    <string name="recent_panel_100">100% (default)</string>
-    <string name="recent_panel_85">85%</string>
-    <string name="recent_panel_70">70%</string>
-
-    <!-- Slim Recents -->
-    <string name="recent_panel_expanded_mode_title">Expanded mode</string>
-    <string name="recent_panel_expanded_mode_summary">Recent tasks expanded preview mode</string>
-    <string name="recent_panel_expanded_mode_auto">Auto (default)</string>
-    <string name="recent_panel_expanded_mode_always">Always</string>
-    <string name="recent_panel_expanded_mode_never">Never</string>
-
-    <!-- ATTENTION: RTL languages need to replace left with right -->
-    <string name="recent_panel_lefty_mode_title">Show on the left edge</string>
-    <string name="recent_panel_lefty_mode_summary">Show recent apps panel on the left edge.</string>
 
     <!-- Changelog -->
     <string name="changelog_title">Liquid Changelog</string>

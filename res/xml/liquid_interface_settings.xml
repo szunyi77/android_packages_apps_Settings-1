@@ -53,10 +53,10 @@
             android:fragment="com.android.settings.liquid.ProgressBar" />
 
         <PreferenceScreen
-            android:key="recents_panel"
-            android:title="@string/recents_panel_title"
-            android:summary="@string/recents_panel_summary"
-            android:fragment="com.android.settings.liquid.RecentsPanelSettings" />
+            android:key="recent_panel"
+            android:title="@string/recent_panel_title"
+            android:summary="@string/recent_panel_summary"
+            android:fragment="com.android.settings.liquid.RecentPanelSettings" />
 
     </PreferenceCategory>
 

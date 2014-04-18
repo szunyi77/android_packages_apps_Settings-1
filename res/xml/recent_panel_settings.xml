@@ -16,7 +16,7 @@
 
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/recents_panel_title"
+    android:title="@string/recent_panel_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
     <CheckBoxPreference
@@ -28,6 +28,37 @@
     <PreferenceCategory
         android:key="general_category"
         android:title="@string/general_category_title">
+
+        <ListPreference
+            android:key="recent_panel_expanded_mode"
+            android:entries="@array/recent_panel_expanded_mode_entries"
+            android:entryValues="@array/recent_panel_expanded_mode_values"
+            android:title="@string/recent_panel_expanded_mode_title"
+            android:summary="@string/recent_panel_expanded_mode_summary"
+            android:persistent="false"
+            android:dependency="custom_recent_mode" />
+
+        <CheckBoxPreference
+            android:key="recent_panel_lefty_mode"
+            android:title="@string/recent_panel_lefty_mode_title"
+            android:summary="@string/recent_panel_lefty_mode_summary"
+            android:persistent="false"
+            android:dependency="custom_recent_mode" />
+
+        <ListPreference
+            android:key="recent_panel_scale"
+            android:entries="@array/recent_panel_scale_entries"
+            android:entryValues="@array/recent_panel_scale_values"
+            android:title="@string/recent_panel_scale_title"
+            android:summary="@string/recent_panel_scale_summary"
+            android:persistent="false"
+            android:dependency="custom_recent_mode" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="advanced_category"
+        android:title="@string/advanced_category_title">
 
         <CheckBoxPreference
             android:key="recent_menu_clear_all"
