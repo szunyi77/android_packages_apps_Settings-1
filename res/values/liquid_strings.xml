@@ -1630,8 +1630,9 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="battery_bar_animate_title">Charging animation</string>
     <string name="battery_bar_animate_summary">The charging animation may result in a poor user experience. Enable at your own discretion.</string>
 	
-    <!-- Gesture Anywhere -->
+    <!-- Gesture anywhere -->
     <string name="gesture_anywhere_title">Gesture anywhere</string>
+    <string name="gesture_anywhere_summary">Custom screen gestures to execute actions</string>
     <string name="gesture_anywhere_enabled_title">Gesture anywhere</string>
     <string name="gesture_anywhere_enabled_summary">Enable the Gesture anywhere feature</string>
     <string name="gesture_anywhere_position_title">Loction</string>
