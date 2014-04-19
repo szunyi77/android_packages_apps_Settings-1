@@ -1127,6 +1127,14 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="listview_cycle_interpolator">Cycle</string>
     <string name="listview_linear_interpolator">Linear</string>
 
+    <!-- Advanced reboot -->
+    <string name="advanced_reboot_title">Advanced reboot</string>
+    <string name="advanced_reboot_summary">Include options in the power menu for rebooting into recovery and bootloader</string>
+    <string name="advanced_reboot_dialog_title">Advanced reboot menu</string>
+    <string name="advanced_reboot_disabled">Disable</string>
+    <string name="advanced_reboot_hide_on_keyguard">Hide on lock screen</string>
+    <string name="advanced_reboot_show_always">Show always</string>
+
     <!-- Custom LCD density -->
     <string name="custom_density_title">Custom LCD density</string>
     <string name="custom_density">Custom</string>
