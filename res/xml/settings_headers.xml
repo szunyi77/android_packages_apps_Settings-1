@@ -147,13 +147,6 @@
         android:layout="@layout/preference_wakelockblocker"
         android:title="@string/wakelock_blocker" />
 
-    <!-- Themes -->
-    <header
-        android:id="@+id/theme_settings"
-		android:title="@string/theme_settings_title"
-        android:fragment="com.android.settings.liquid.themes.ThemeSettings"
-        android:icon="@drawable/ic_liquid_theme_settings" />
-
     <!-- DEVICE -->
     <header android:id="@+id/device_section"
         android:title="@string/header_category_device" />
@@ -246,7 +239,7 @@
         android:title="@string/privacy_settings"
         android:id="@+id/privacy_settings" />
 
-    <!-- Themes -->
+    <!-- Theme chooser -->
     <header
         android:id="@+id/themes_settings"
         android:icon="@drawable/ic_settings_themes"
@@ -256,6 +249,13 @@
             android:targetPackage="com.tmobile.themechooser"
             android:targetClass="com.tmobile.themechooser.ThemeChooser" />
     </header>
+
+    <!-- Total blackout -->
+    <header
+        android:id="@+id/theme_settings"
+		android:title="@string/theme_settings_title"
+        android:fragment="com.android.settings.liquid.themes.ThemeSettings"
+        android:icon="@drawable/ic_liquid_theme_settings" />
 
     <!--  ACCOUNTS section -->
     <header
