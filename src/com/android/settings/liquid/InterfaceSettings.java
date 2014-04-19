@@ -64,7 +64,6 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
 
     private static final String KEY_USE_ALT_RESOLVER = "use_alt_resolver";
     private static final String KEY_LCD_DENSITY = "lcd_density";
-    private static final String CUSTOM_RECENT_MODE = "custom_recent_mode";
 
     private static final int DIALOG_CUSTOM_DENSITY = 101;
     private static final String DENSITY_PROP = "persist.sys.lcd_density";
@@ -87,12 +86,6 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
         mUseAltResolver.setChecked(Settings.System.getInt(getActivity()
                 .getContentResolver(), Settings.System.ACTIVITY_RESOLVER_USE_ALT, 0) == 1);
         mUseAltResolver.setOnPreferenceChangeListener(this);
-
-        boolean enableRecentsCustom = Settings.System.getBoolean(getActivity().getContentResolver(),
-                                      Settings.System.CUSTOM_RECENT_TOGGLE, false);
-        mRecentsCustom = (CheckBoxPreference) findPreference(CUSTOM_RECENT_MODE);
-        mRecentsCustom.setChecked(enableRecentsCustom);
-        mRecentsCustom.setOnPreferenceChangeListener(this);
 		
         mLcdDensity = (ListPreference) findPreference(KEY_LCD_DENSITY);
         String current = SystemProperties.get(DENSITY_PROP,
@@ -133,11 +126,6 @@ public class InterfaceSettings extends SettingsPreferenceFragment implements
                     setDensity(Integer.parseInt(density));
                 }
             }
-            return true;
-        } else if (preference == mRecentsCustom) {
-            Settings.System.putBoolean(getActivity().getContentResolver(),
-                    Settings.System.CUSTOM_RECENT_TOGGLE, (Boolean) newValue ? true : false);
-            Helpers.restartSystemUI();
             return true;
         }
         return false;
