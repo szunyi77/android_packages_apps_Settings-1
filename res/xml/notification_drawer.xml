@@ -88,11 +88,6 @@
             android:fragment="com.android.settings.liquid.quicksettings.QuickSettingsTiles" />
 
         <com.android.settings.liquid.SystemSettingCheckBoxPreference
-             android:key="notification_brightness_slider"
-             android:title="@string/notification_drawer_brightness_slider_title"
-             android:defaultValue="false" />
-
-        <com.android.settings.liquid.SystemSettingCheckBoxPreference
             android:key="qs_quick_access"
             android:title="@string/quick_ribbon_title"
             android:summary="@string/quick_ribbon_summary"
