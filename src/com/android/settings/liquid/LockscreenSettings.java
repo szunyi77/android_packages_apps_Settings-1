@@ -30,6 +30,7 @@ import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
+import android.util.Log;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -238,7 +239,7 @@ public class LockscreenSettings extends SettingsPreferenceFragment
                 Settings.Secure.putInt(getContentResolver(),
                         Settings.Secure.LOCK_SHAKE_SECURE_TIMER, shakeTime);
             } catch (NumberFormatException e) {
-                Log.e("SecuritySettings", "could not persist lockAfter timeout setting", e);
+                Log.e("LockscreenSettings", "could not persist lockAfter timeout setting", e);
             }
             updateShakeTimerPreferenceSummary();
         } else if (preference == mBatteryStatus) {
