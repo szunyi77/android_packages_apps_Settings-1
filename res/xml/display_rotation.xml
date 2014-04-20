@@ -14,7 +14,7 @@
      limitations under the License.
 -->
 
-<PreferenceScreen
+<PreferenceScreen 
     android:title="@string/display_rotation_title"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
@@ -22,6 +22,12 @@
     <CheckBoxPreference
         android:key="accelerometer"
         android:title="@string/accelerometer_title" />
+
+    <CheckBoxPreference
+        android:key="swap_volume_buttons"
+        android:title="@string/swap_volume_buttons_title"
+        android:summary="@string/swap_volume_buttons_summary"
+        android:dependency="accelerometer" />
 
     <PreferenceCategory
         android:key="display_rotation_category"
