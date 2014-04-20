@@ -89,15 +89,12 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
         = "notification_light_pulse_vmail_led_on";
     private static final String NOTIFICATION_LIGHT_PULSE_VMAIL_LED_OFF
         = "notification_light_pulse_vmail_led_off";
-    private static final String NOTIFICAIION_LIGHT_SCREEN_ON
-        = "notification_light_screen_on";
 
     private static final String PULSE_PREF = "pulse_enabled";
     private static final String DEFAULT_PREF = "default";
     private static final String CUSTOM_PREF = "custom_enabled";
     private static final String MISSED_CALL_PREF = "missed_call";
     private static final String VOICEMAIL_PREF = "voicemail";
-    private static final String SCREENON_PREF = "notification_light_screen_on";
     public static final int ACTION_TEST = 0;
     public static final int ACTION_DELETE = 1;
     private static final int MENU_ADD = 0;
@@ -114,7 +111,6 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
     private ApplicationLightPreference mCallPref;
     private ApplicationLightPreference mVoicemailPref;
     private CheckBoxPreference mCustomEnabledPref;
-    private CheckBoxPreference mScreenOnNotificationLed;
     private Menu mMenu;
     private PackageAdapter mPackageAdapter;
     private String mPackageList;
@@ -132,12 +128,6 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
                 com.android.internal.R.integer.config_defaultNotificationLedOn);
         mDefaultLedOff = resources.getInteger(
                 com.android.internal.R.integer.config_defaultNotificationLedOff);
-
-        // Notifications light with screen on
-        mScreenOnNotificationLed = (CheckBoxPreference) findPreference(NOTIFICAIION_LIGHT_SCREEN_ON);
-        mScreenOnNotificationLed.setChecked(Settings.System.getInt(getContentResolver(),
-                Settings.System.SCREEN_ON_NOTIFICATION_LED, 0) == 1);
-        mScreenOnNotificationLed.setOnPreferenceChangeListener(this);
 
         // Get launch-able applications
         mPackageManager = getPackageManager();
@@ -424,10 +414,6 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
             Settings.System.putInt(getContentResolver(), NOTIFICATION_LIGHT_PULSE_CUSTOM_ENABLE,
                     mCustomEnabled ? 1 : 0);
             setCustomEnabled();
-        } else if (SCREENON_PREF.equals(key)) {
-            boolean value = (Boolean) objValue;
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.SCREEN_ON_NOTIFICATION_LED, value ? 1 : 0);
         } else {
             ApplicationLightPreference tPref = (ApplicationLightPreference) preference;
             updateValues(key, tPref.getColor(), tPref.getOnValue(), tPref.getOffValue());

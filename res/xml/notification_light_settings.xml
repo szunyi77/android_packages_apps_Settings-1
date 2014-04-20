@@ -34,13 +34,7 @@
             android:key="custom_enabled"
             android:title="@string/notification_light_use_custom" />
 
-        <com.android.settings.liquid.SystemSettingCheckBoxPreference
-            android:key="notification_light_screen_on"
-            android:title="@string/notification_light_screen_on_title"
-            android:persistent="false"
-            android:dependency="notification_light_pulse" />
-
-    </PreferenceCategory>
+        </PreferenceCategory>
 
     <PreferenceCategory
         android:key="phone_list"
