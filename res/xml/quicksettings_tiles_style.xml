@@ -46,29 +46,6 @@
         android:title="@string/quicksettings_tiles_style_additional_options"
         android:key="quicksettings_tiles_style_additional_options">
 
-        <SwitchPreference
-            android:key="quicksettings_ribbon"
-            android:title="@string/quick_settings_ribbon"
-            android:summary="@string/quick_settings_ribbon_summary"
-            android:persistent="false"
-            android:defaultValue="true" />
-
-        <ListPreference
-            android:key="quicksettings_dynamic_row"
-            android:title="@string/qs_configurable_title"
-            android:summary="@string/qs_configurable_summary"
-            android:entries="@array/qs_configurable_entries"
-            android:entryValues="@array/qs_configurable_values"
-            android:persistent="false" />
-
-        <CheckBoxPreference
-            android:key="quicksettings_linked"
-            android:dependency="quicksettings_ribbon"
-            android:title="@string/quicksettings_linked_title"
-            android:summary="@string/quicksettings_linked_summary"
-            android:persistent="false"
-            android:defaultValue="false" />
-
         <ListPreference
             android:key="tiles_per_row"
             android:entries="@array/tiles_per_row_entries"

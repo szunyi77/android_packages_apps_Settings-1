@@ -30,18 +30,17 @@ import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
-import android.preference.SwitchPreference;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-import com.android.settings.R;
 import com.android.internal.util.liquid.DeviceUtils;
-import com.android.settings.widget.SeekBarPreference;
+
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.liquid.quicksettings.QuickSettingsUtil;
+import com.android.settings.R;
+import com.android.settings.widget.SeekBarPreference;
 
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
@@ -65,10 +64,6 @@ public class QuickSettingsTilesStyle extends SettingsPreferenceFragment implemen
     private static final String PREF_ADDITIONAL_OPTIONS =
             "quicksettings_tiles_style_additional_options";
 
-    private static final String QUICKSETTINGS_DYNAMIC = "quicksettings_dynamic_row";
-    private static final String QUICKSETTINGS_LINKED = "quicksettings_linked";
-    private static final String QUICKSETTINGS_RIBBON = "quicksettings_ribbon";
-
     private static final int DEFAULT_QUICK_TILES_TEXT_COLOR = 0xffcccccc;
 
     private static final int MENU_RESET = Menu.FIRST;
@@ -81,13 +76,6 @@ public class QuickSettingsTilesStyle extends SettingsPreferenceFragment implemen
     private ColorPickerPreference mQuickTilesBgPressedColor;
     private ColorPickerPreference mQuickTilesTextColor;
     private SeekBarPreference mQsTileAlpha;
-
-    private ListPreference mQuickSettingsDynamic;
-    private PreferenceScreen mQuickRibbon;
-    private SwitchPreference mQuickSettingsRibbon;
-    private CheckBoxPreference mQuickSettingsLinked;
-    private boolean isLinked;
-    private boolean isRibbon;
 
     private boolean mCheckPreferences;
 
@@ -200,29 +188,6 @@ public class QuickSettingsTilesStyle extends SettingsPreferenceFragment implemen
                 findPreference(PREF_TILES_PER_ROW_DUPLICATE_LANDSCAPE));
         }
 
-        mQuickRibbon = (PreferenceScreen) findPreference(QUICK_RIBBON);
-
-        mQuickSettingsRibbon = (SwitchPreference) prefSet.findPreference(QUICKSETTINGS_RIBBON);
-        isRibbon = Settings.System.getInt(resolver,
-            Settings.System.QUICK_SETTINGS_RIBBON_ENABLED, 1) != 0;
-        mQuickSettingsRibbon.setChecked(isRibbon);
-        mQuickSettingsRibbon.setOnPreferenceChangeListener(this);
-
-        mQuickSettingsLinked = (CheckBoxPreference) prefSet.findPreference(QUICKSETTINGS_LINKED);
-        isLinked = Settings.System.getInt(resolver,
-            Settings.System.QUICK_SETTINGS_LINKED_TILES, 0) == 1;
-        mQuickSettingsLinked.setChecked(isLinked);
-        mQuickSettingsLinked.setOnPreferenceChangeListener(this);
-
-        mQuickRibbon.setEnabled(!isLinked && isRibbon? true : false);
-
-        mQuickSettingsDynamic = (ListPreference) prefSet.findPreference(QUICKSETTINGS_DYNAMIC);
-        mQuickSettingsDynamic.setOnPreferenceChangeListener(this);
-        int statusQuickSettings = Settings.System.getInt(resolver,
-                Settings.System.QUICK_SETTINGS_TILES_ROW, 1);
-        mQuickSettingsDynamic.setValue(String.valueOf(statusQuickSettings));
-        mQuickSettingsDynamic.setSummary(mQuickSettingsDynamic.getEntry());
-
         setHasOptionsMenu(true);
         mCheckPreferences = true;
         return prefs;
@@ -244,18 +209,6 @@ public class QuickSettingsTilesStyle extends SettingsPreferenceFragment implemen
              default:
                 return super.onContextItemSelected(item);
         }
-    }
-
-    @Override
-    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-        // If we didn't handle it, let preferences handle it.
-        return super.onPreferenceTreeClick(preferenceScreen, preference);
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        QuickSettingsUtil.updateAvailableTiles(getActivity());
     }
 
     @Override
@@ -308,33 +261,6 @@ public class QuickSettingsTilesStyle extends SettingsPreferenceFragment implemen
             float valNav = Float.parseFloat((String) newValue);
             Settings.System.putFloat(getContentResolver(),
                     Settings.System.QUICK_TILES_BG_ALPHA, valNav / 100);
-            return true;
-        } else if (preference == mQuickSettingsDynamic) {
-            int val = Integer.parseInt((String) newValue);
-            int index = mQuickSettingsDynamic.findIndexOfValue((String) newValue);
-            Settings.System.putInt(resolver,
-                Settings.System.QUICK_SETTINGS_TILES_ROW, val);
-            mQuickSettingsDynamic.setSummary(mQuickSettingsDynamic.getEntries()[index]);
-            return true;
-        } else if (preference == mQuickSettingsLinked) {
-            boolean value = (Boolean) newValue;
-            Settings.System.putInt(resolver,
-                Settings.System.QUICK_SETTINGS_LINKED_TILES, value ? 1 : 0);
-            isLinked = Settings.System.getInt(resolver,
-                  Settings.System.QUICK_SETTINGS_LINKED_TILES, 0) == 1;
-            isRibbon = Settings.System.getInt(resolver,
-                  Settings.System.QUICK_SETTINGS_RIBBON_ENABLED, 1) == 1;
-            mQuickRibbon.setEnabled(!isLinked && isRibbon? true : false);
-            return true;
-        } else if (preference == mQuickSettingsRibbon) {
-            boolean value = (Boolean) newValue;
-            Settings.System.putInt(resolver,
-                Settings.System.QUICK_SETTINGS_RIBBON_ENABLED, value ? 1 : 0);
-            isLinked = Settings.System.getInt(resolver,
-                  Settings.System.QUICK_SETTINGS_LINKED_TILES, 0) == 1;
-            isRibbon = Settings.System.getInt(resolver,
-                  Settings.System.QUICK_SETTINGS_RIBBON_ENABLED, 1) == 1;
-            mQuickRibbon.setEnabled(!isLinked && isRibbon? true : false);
             return true;
         }
         return false;
