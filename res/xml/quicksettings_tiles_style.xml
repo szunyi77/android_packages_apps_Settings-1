@@ -46,6 +46,29 @@
         android:title="@string/quicksettings_tiles_style_additional_options"
         android:key="quicksettings_tiles_style_additional_options">
 
+        <SwitchPreference
+            android:key="quicksettings_ribbon"
+            android:title="@string/quick_settings_ribbon"
+            android:summary="@string/quick_settings_ribbon_summary"
+            android:persistent="false"
+            android:defaultValue="true" />
+
+        <ListPreference
+            android:key="quicksettings_dynamic_row"
+            android:title="@string/qs_configurable_title"
+            android:summary="@string/qs_configurable_summary"
+            android:entries="@array/qs_configurable_entries"
+            android:entryValues="@array/qs_configurable_values"
+            android:persistent="false" />
+
+        <CheckBoxPreference
+            android:key="quicksettings_linked"
+            android:dependency="quicksettings_ribbon"
+            android:title="@string/quicksettings_linked_title"
+            android:summary="@string/quicksettings_linked_summary"
+            android:persistent="false"
+            android:defaultValue="false" />
+
         <ListPreference
             android:key="tiles_per_row"
             android:entries="@array/tiles_per_row_entries"
@@ -56,27 +79,6 @@
             android:key="tiles_per_row_duplicate_landscape"
             android:title="@string/tiles_per_row_duplicate_landscape_title"
             android:summary="@string/tiles_per_row_duplicate_landscape_summary" />
-
-        <com.android.settings.liquid.SystemSettingCheckBoxPreference
-            android:key="qs_quick_access"
-            android:title="@string/title_quick_access"
-            android:defaultValue="false" />
-
-        <com.android.settings.liquid.SystemSettingCheckBoxPreference
-            android:key="qs_quick_access_linked"
-            android:title="@string/title_quick_access_linked"
-            android:summary="@string/summary_quick_access_linked"
-            android:defaultValue="true"
-            android:dependency="qs_quick_access"
-            android:disableDependentsState="true" />
-
-        <PreferenceScreen
-            android:key="tile_picker"
-            android:title="@string/tile_picker_title"
-            android:summary="@string/tile_picker_summary"
-            android:dependency="qs_quick_access_linked"
-            android:fragment="com.android.settings.liquid.quicksettings.QuickSettingsTiles" />
-            <extra android:name="config_ribbon" android:value="true" />
 
     </PreferenceCategory>
 

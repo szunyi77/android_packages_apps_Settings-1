@@ -893,7 +893,15 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="less_notification_sounds_2m">2 minutes</string>
     <string name="less_notification_sounds_5m">5 minutes</string>
 
-    <!-- Quick settings -->
+    <!-- Quick Settings -->
+    <string name="qs_configurable_title">Ribbon and layout</string>
+    <string name="qs_configurable_summary">Choose column or dynamic changes</string>
+    <string name="quick_settings_default">Default (3 columns)</string>
+    <string name="quick_settings_dynamic">Dynamic mode</string>
+    <string name="quick_settings_4_columns">4 columns</string>
+    <string name="quick_settings_ribbon">Ribbon mode</string>
+    <string name="quick_settings_ribbon_summary">Enable ribbon on notification panel</string>
+    <string name="add">Add</string>
     <string name="quick_settings_title">Quick settings</string>
     <string name="tile_picker_title">Tiles and layout</string>
     <string name="tile_picker_summary">View or change current quick settings tiles</string>
@@ -945,6 +953,8 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="custom_tile_long_press">Longpress:</string>
     <string name="custom_tile_null_warning">An action must be set first</string>
     <string name="custom_tile_resolve_name">Unknown</string>
+    <string name="quicksettings_linked_title">Ribbon linked mode</string>
+    <string name="quicksettings_linked_summary">Allow ribbon tiles to follow quick settings</string>
 
     <!-- Quick settings style -->
     <string name="summary_quicksettings_tiles_style">View or change current quick settings style</string>
@@ -970,21 +980,21 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="music_tile_mode_background">Show album artwork</string>
     <string name="music_tile_mode_tracktitle">Show track title</string>
 
-    <!-- Quick pulldown -->
+    <!-- Quick settings quick pulldown -->
     <string name="quick_pulldown_title">Quick pulldown</string>
     <string name="quick_pulldown_summary">%1$s status bar edge enables quick pulldown</string>
     <string name="quick_pulldown_off">Off</string>
     <string name="quick_pulldown_left">Left</string>
     <string name="quick_pulldown_right">Right</string>
 
-    <!-- Smart pulldown -->
+    <!-- Quick settings smart pulldown -->
     <string name="smart_pulldown_title">Smart pulldown</string>
     <string name="smart_pulldown_summary">When there are no %1$s notifications present</string>
     <string name="smart_pulldown_off">Off</string>
     <string name="smart_pulldown_dismissable">Dismissable</string>
     <string name="smart_pulldown_persistent">Persistent</string>
 
-    <!-- Quick collapse -->
+    <!-- QuickSettings: Quick Collapse -->
     <string name="title_collapse_panel">Quick collapse</string>
     <string name="summary_collapse_panel">Close the notification panel upon toggle</string>
 

@@ -1017,6 +1017,19 @@
         <item>2</item>
     </string-array>
 
+    <!-- Quick ribbons -->
+    <string-array name="qs_configurable_entries" translatable="false">
+        <item>@string/quick_settings_default</item>
+        <item>@string/quick_settings_dynamic</item>
+        <item>@string/quick_settings_4_columns</item>
+    </string-array>
+
+    <string-array name="qs_configurable_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>4</item>
+    </string-array>
+
     <!-- Stylus Gestures -->
     <string-array name="gestures_entries" translatable="false">
         <item>@string/gestures_action_empty</item>

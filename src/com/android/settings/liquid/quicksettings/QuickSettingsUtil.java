@@ -306,27 +306,23 @@ public class QuickSettingsUtil {
         return ENABLED_TILES.containsKey(id);
     }
 
-    public static String getCurrentTiles(Context context, boolean isRibbon) {
+    public static String getCurrentTiles(Context context) {
         String tiles = Settings.System.getString(context.getContentResolver(),
-                isRibbon ? Settings.System.QUICK_SETTINGS_RIBBON_TILES
-                         : Settings.System.QUICK_SETTINGS_TILES);
+                Settings.System.QUICK_SETTINGS_TILES);
         if (tiles == null) {
             tiles = getDefaultTiles(context);
         }
         return tiles;
     }
 
-    public static void saveCurrentTiles(Context context, String tiles, boolean isRibbon) {
+    public static void saveCurrentTiles(Context context, String tiles) {
         Settings.System.putString(context.getContentResolver(),
-                isRibbon ? Settings.System.QUICK_SETTINGS_RIBBON_TILES
-                         : Settings.System.QUICK_SETTINGS_TILES, tiles);
+                Settings.System.QUICK_SETTINGS_TILES, tiles);
     }
 
-    public static void resetTiles(Context context, boolean isRibbon) {
-        String defaultTiles = getDefaultTiles(context);
-                Settings.System.putString(context.getContentResolver(),
-                        isRibbon ? Settings.System.QUICK_SETTINGS_RIBBON_TILES
-                                 : Settings.System.QUICK_SETTINGS_TILES, defaultTiles);
+    public static void resetTiles(Context context) {
+        Settings.System.putString(context.getContentResolver(),
+                Settings.System.QUICK_SETTINGS_TILES, null);
         Settings.System.putString(context.getContentResolver(),
                 Settings.System.CUSTOM_TOGGLE_EXTRAS, null);
         Settings.System.putString(context.getContentResolver(),
