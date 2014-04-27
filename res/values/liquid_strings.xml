@@ -988,14 +988,6 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="title_collapse_panel">Quick collapse</string>
     <string name="summary_collapse_panel">Close the notification panel upon toggle</string>
 
-    <!-- Quick ribbon -->
-    <string name="quick_ribbon_title">Quick ribbon</string>
-    <string name="quick_ribbon_summary">Enable ribbon in notification drawer</string>
-    <string name="linked_layout_title">Linked layout</string>
-    <string name="linked_layout_summary">Use the current quick settings tiles</string>
-    <string name="ribbon_picker_title">Ribbon and tiles</string>
-    <string name="ribbon_picker_summary">Change quick settings ribbon tiles</string>
-
     <!-- Stylus gestures -->
     <string name="gestures_settings_title">Stylus gestures</string>
     <string name="category_spen_title">Stylus gestures</string>

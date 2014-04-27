@@ -59,22 +59,21 @@
 
         <com.android.settings.liquid.SystemSettingCheckBoxPreference
             android:key="qs_quick_access"
-            android:title="@string/quick_ribbon_title"
-            android:summary="@string/quick_ribbon_summary"
+            android:title="@string/title_quick_access"
             android:defaultValue="false" />
 
         <com.android.settings.liquid.SystemSettingCheckBoxPreference
             android:key="qs_quick_access_linked"
-            android:title="@string/linked_layout_title"
-            android:summary="@string/linked_layout_summary"
+            android:title="@string/title_quick_access_linked"
+            android:summary="@string/summary_quick_access_linked"
             android:defaultValue="true"
             android:dependency="qs_quick_access"
             android:disableDependentsState="true" />
 
         <PreferenceScreen
             android:key="tile_picker"
-            android:title="@string/ribbon_picker_title"
-            android:summary="@string/ribbon_picker_summary"
+            android:title="@string/tile_picker_title"
+            android:summary="@string/tile_picker_summary"
             android:dependency="qs_quick_access_linked"
             android:fragment="com.android.settings.liquid.quicksettings.QuickSettingsTiles" />
             <extra android:name="config_ribbon" android:value="true" />
